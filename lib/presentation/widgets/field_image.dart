@@ -6,22 +6,22 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../utils/app_styles.dart';
 
 class FieldImage extends StatelessWidget {
-  const FieldImage(
-      {Key? key,
-      required this.title,
-      required this.name,
-      this.hint,
-      this.keyboardType,
-      this.isPassword = false,
-      this.maxLines = 1,
-      this.validator,
-      this.readOnly = false,
-      this.initialValue,
-      this.controller,
-      this.onChanged,
-      this.inputFormatters,
-      this.suffix})
-      : super(key: key);
+  const FieldImage({
+    Key? key,
+    required this.title,
+    required this.name,
+    this.hint,
+    this.keyboardType,
+    this.isPassword = false,
+    this.maxLines = 1,
+    this.validator,
+    this.readOnly = false,
+    this.initialValue,
+    this.controller,
+    this.onChanged,
+    this.inputFormatters,
+    this.suffix,
+  }) : super(key: key);
   final String title;
   final String name;
   final String? hint;
@@ -43,13 +43,8 @@ class FieldImage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: kJakartaRegular.copyWith(color: kBlack),
-          ),
-          SizedBox(
-            height: 1.h,
-          ),
+          Text(title, style: kJakartaRegular.copyWith(color: kBlack)),
+          SizedBox(height: 1.h),
           FormBuilderImagePicker(
             maxImages: 1,
             initialValue: initialValue,
@@ -81,7 +76,7 @@ class FieldImage extends StatelessWidget {
               ),
               errorStyle: kJakartaLight,
             ),
-          )
+          ),
         ],
       ),
     );

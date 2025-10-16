@@ -18,14 +18,18 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         emit(const LocationState.loading());
         final Map<String, dynamic> dataUser = await getDetailUser();
 
-        final data = await service.locationGet(dataUser["token"], data: {
-          "code": event.name,
-        });
-        data.fold((l) {
-          emit(LocationState.successWithData(l));
-        }, (r) {
-          throw (r);
-        });
+        final data = await service.locationGet(
+          dataUser["token"],
+          data: {"code": event.name},
+        );
+        data.fold(
+          (l) {
+            emit(LocationState.successWithData(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(LocationState.error(e.toString()));
       }
@@ -36,11 +40,14 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         final Map<String, dynamic> dataUser = await getDetailUser();
 
         final data = await service.locationGet(dataUser["token"]);
-        data.fold((l) {
-          emit(LocationState.successWithData(l));
-        }, (r) {
-          throw (r);
-        });
+        data.fold(
+          (l) {
+            emit(LocationState.successWithData(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(LocationState.error(e.toString()));
       }
@@ -50,13 +57,18 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         emit(const LocationState.loading());
         final Map<String, dynamic> dataUser = await getDetailUser();
 
-        final data =
-            await service.locationGetSingle(dataUser["token"], event.id);
-        data.fold((l) {
-          emit(LocationState.successWithData(l));
-        }, (r) {
-          throw (r);
-        });
+        final data = await service.locationGetSingle(
+          dataUser["token"],
+          event.id,
+        );
+        data.fold(
+          (l) {
+            emit(LocationState.successWithData(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(LocationState.error(e.toString()));
       }
@@ -67,21 +79,29 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         final Map<String, dynamic> dataUser = await getDetailUser();
         late int id;
 
-        final post =
-            await service.locationPost(dataUser["token"], event.location);
-        post.fold((l) {
-          id = l;
-        }, (r) {
-          throw (r);
-        });
+        final post = await service.locationPost(
+          dataUser["token"],
+          event.location,
+        );
+        post.fold(
+          (l) {
+            id = l;
+          },
+          (r) {
+            throw (r);
+          },
+        );
 
         final data = await service.locationGetSingle(dataUser["token"], id);
-        data.fold((l) {
-          emit(LocationState.successWithData(l));
-          emit(const LocationState.success("Data saved successfully"));
-        }, (r) {
-          throw (r);
-        });
+        data.fold(
+          (l) {
+            emit(LocationState.successWithData(l));
+            emit(const LocationState.success("Data saved successfully"));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(LocationState.error(e.toString()));
       }
@@ -93,19 +113,28 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         late int id;
 
         final put = await service.locationPut(
-            dataUser["token"], event.location, event.id);
-        put.fold((l) {
-          id = l;
-        }, (r) {
-          throw (r);
-        });
+          dataUser["token"],
+          event.location,
+          event.id,
+        );
+        put.fold(
+          (l) {
+            id = l;
+          },
+          (r) {
+            throw (r);
+          },
+        );
 
         final data = await service.locationGetSingle(dataUser["token"], id);
-        data.fold((l) {
-          emit(const LocationState.success("Data changed successfully"));
-        }, (r) {
-          throw (r);
-        });
+        data.fold(
+          (l) {
+            emit(const LocationState.success("Data changed successfully"));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(LocationState.error(e.toString()));
       }
@@ -116,11 +145,14 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         final Map<String, dynamic> dataUser = await getDetailUser();
 
         final data = await service.locationDelete(dataUser["token"], event.id);
-        data.fold((l) {
-          emit(const LocationState.success("Data deleted successfully"));
-        }, (r) {
-          throw (r);
-        });
+        data.fold(
+          (l) {
+            emit(const LocationState.success("Data deleted successfully"));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(LocationState.error(e.toString()));
       }

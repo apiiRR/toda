@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import '../../../utils/app_styles.dart';
 
 class MenuItem extends StatelessWidget {
-  const MenuItem(
-      {super.key,
-      required this.image,
-      required this.text,
-      required this.onTap});
+  const MenuItem({
+    super.key,
+    required this.image,
+    required this.text,
+    required this.onTap,
+  });
 
   final String image;
   final String text;
@@ -29,15 +30,13 @@ class MenuItem extends StatelessWidget {
               child: SizedBox(height: 36, child: Image.asset(image)),
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 10),
           Text(
             text,
             textAlign: TextAlign.center,
             overflow: TextOverflow.visible,
             style: kJakartaBold,
-          )
+          ),
         ],
       ),
     );

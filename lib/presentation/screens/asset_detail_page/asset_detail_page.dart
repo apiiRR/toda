@@ -304,14 +304,6 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                     ),
                                     const Divider(),
                                     TextFieldTitle(
-                                      title: "Job Department",
-                                      text:
-                                          dataAsset!.jobId!.isNotEmpty
-                                              ? dataAsset!.jobId![1]
-                                              : "-",
-                                    ),
-                                    const Divider(),
-                                    TextFieldTitle(
                                       title: "Notes",
                                       text:
                                           dataAsset!.notes! != "false" &&

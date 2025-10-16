@@ -9,15 +9,15 @@ part of 'history_id.dart';
 _$HistoryIdImpl _$$HistoryIdImplFromJson(Map<String, dynamic> json) =>
     _$HistoryIdImpl(
       id: (json['id'] as num?)?.toInt(),
-      locationName: json['location_name'].toString(),
-      userId: json['user_id'] != false ? json['user_id'] as List<dynamic>? : [],
-      scanDate: json['scan_date'].toString(),
+      scanDate: json['scan_date'] as String?,
+      userId: json['user_id'] as List<dynamic>?,
+      locationName: json['location_name'] as String?,
     );
 
 Map<String, dynamic> _$$HistoryIdImplToJson(_$HistoryIdImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'location_name': instance.locationName,
-      'user_id': instance.userId,
       'scan_date': instance.scanDate,
+      'user_id': instance.userId,
+      'location_name': instance.locationName,
     };

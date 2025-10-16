@@ -8,14 +8,14 @@ import '../../domain/models/master_data_model/datum.dart';
 import '../utils/app_styles.dart';
 
 class FieldCategoryDropdown extends StatelessWidget {
-  const FieldCategoryDropdown(
-      {Key? key,
-      required this.title,
-      this.hint,
-      this.onChanged,
-      this.selectedItem,
-      this.validator})
-      : super(key: key);
+  const FieldCategoryDropdown({
+    Key? key,
+    required this.title,
+    this.hint,
+    this.onChanged,
+    this.selectedItem,
+    this.validator,
+  }) : super(key: key);
   final String title;
   final String? hint;
   final void Function(Datum?)? onChanged;
@@ -29,40 +29,41 @@ class FieldCategoryDropdown extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: kJakartaRegular.copyWith(color: kBlack),
-          ),
-          SizedBox(
-            height: 1.h,
-          ),
+          Text(title, style: kJakartaRegular.copyWith(color: kBlack)),
+          SizedBox(height: 1.h),
           DropdownSearch<Datum>(
             validator: validator,
             selectedItem: selectedItem,
             popupProps: PopupPropsMultiSelection.dialog(
-                dialogProps: DialogProps(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+              dialogProps: DialogProps(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                backgroundColor: kWhite,
+              ),
+              showSearchBox: true,
+              searchFieldProps: TextFieldProps(
+                style: kJakartaRegular,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 16,
+                ),
+              ),
+              itemBuilder: (context, item, _) {
+                return Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: kGrey.withOpacity(0.5)),
                     ),
-                    backgroundColor: kWhite),
-                showSearchBox: true,
-                searchFieldProps: TextFieldProps(
-                    style: kJakartaRegular,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 16)),
-                itemBuilder: (context, item, _) {
-                  return Container(
-                    decoration: BoxDecoration(
-                        border: Border(
-                            bottom: BorderSide(color: kGrey.withOpacity(0.5)))),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                    child: Text(
-                      item.name!,
-                      style: kJakartaRegular,
-                    ),
-                  );
-                }),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
+                  ),
+                  child: Text(item.name!, style: kJakartaRegular),
+                );
+              },
+            ),
             dropdownDecoratorProps: DropDownDecoratorProps(
               baseStyle: kJakartaRegular,
               dropdownSearchDecoration: InputDecoration(
@@ -95,12 +96,13 @@ class FieldCategoryDropdown extends StatelessWidget {
             asyncItems: (String filter) async {
               final Map<String, dynamic> dataUser = await getDetailUser();
 
-              List<Datum> data =
-                  await MasterServices().getCategory(dataUser["token"]);
+              List<Datum> data = await MasterServices().getCategory(
+                dataUser["token"],
+              );
 
               return data;
             },
-          )
+          ),
         ],
       ),
     );

@@ -12,7 +12,8 @@ part of 'data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Data _$DataFromJson(Map<String, dynamic> json) {
   return _Data.fromJson(json);
@@ -27,8 +28,12 @@ mixin _$Data {
   @JsonKey(name: 'exception_type')
   String? get exceptionType => throw _privateConstructorUsedError;
 
+  /// Serializes this Data to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Data
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DataCopyWith<Data> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -37,12 +42,13 @@ abstract class $DataCopyWith<$Res> {
   factory $DataCopyWith(Data value, $Res Function(Data) then) =
       _$DataCopyWithImpl<$Res, Data>;
   @useResult
-  $Res call(
-      {String? name,
-      String? debug,
-      String? message,
-      List<String>? arguments,
-      @JsonKey(name: 'exception_type') String? exceptionType});
+  $Res call({
+    String? name,
+    String? debug,
+    String? message,
+    List<String>? arguments,
+    @JsonKey(name: 'exception_type') String? exceptionType,
+  });
 }
 
 /// @nodoc
@@ -55,6 +61,8 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Data
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -64,44 +72,54 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
     Object? arguments = freezed,
     Object? exceptionType = freezed,
   }) {
-    return _then(_value.copyWith(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      debug: freezed == debug
-          ? _value.debug
-          : debug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      arguments: freezed == arguments
-          ? _value.arguments
-          : arguments // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      exceptionType: freezed == exceptionType
-          ? _value.exceptionType
-          : exceptionType // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            name:
+                freezed == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            debug:
+                freezed == debug
+                    ? _value.debug
+                    : debug // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            message:
+                freezed == message
+                    ? _value.message
+                    : message // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            arguments:
+                freezed == arguments
+                    ? _value.arguments
+                    : arguments // ignore: cast_nullable_to_non_nullable
+                        as List<String>?,
+            exceptionType:
+                freezed == exceptionType
+                    ? _value.exceptionType
+                    : exceptionType // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
   factory _$$DataImplCopyWith(
-          _$DataImpl value, $Res Function(_$DataImpl) then) =
-      __$$DataImplCopyWithImpl<$Res>;
+    _$DataImpl value,
+    $Res Function(_$DataImpl) then,
+  ) = __$$DataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String? name,
-      String? debug,
-      String? message,
-      List<String>? arguments,
-      @JsonKey(name: 'exception_type') String? exceptionType});
+  $Res call({
+    String? name,
+    String? debug,
+    String? message,
+    List<String>? arguments,
+    @JsonKey(name: 'exception_type') String? exceptionType,
+  });
 }
 
 /// @nodoc
@@ -109,8 +127,10 @@ class __$$DataImplCopyWithImpl<$Res>
     extends _$DataCopyWithImpl<$Res, _$DataImpl>
     implements _$$DataImplCopyWith<$Res> {
   __$$DataImplCopyWithImpl(_$DataImpl _value, $Res Function(_$DataImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
+  /// Create a copy of Data
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -120,41 +140,48 @@ class __$$DataImplCopyWithImpl<$Res>
     Object? arguments = freezed,
     Object? exceptionType = freezed,
   }) {
-    return _then(_$DataImpl(
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      debug: freezed == debug
-          ? _value.debug
-          : debug // ignore: cast_nullable_to_non_nullable
-              as String?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      arguments: freezed == arguments
-          ? _value._arguments
-          : arguments // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      exceptionType: freezed == exceptionType
-          ? _value.exceptionType
-          : exceptionType // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$DataImpl(
+        name:
+            freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        debug:
+            freezed == debug
+                ? _value.debug
+                : debug // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        message:
+            freezed == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        arguments:
+            freezed == arguments
+                ? _value._arguments
+                : arguments // ignore: cast_nullable_to_non_nullable
+                    as List<String>?,
+        exceptionType:
+            freezed == exceptionType
+                ? _value.exceptionType
+                : exceptionType // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$DataImpl implements _Data {
-  _$DataImpl(
-      {this.name,
-      this.debug,
-      this.message,
-      final List<String>? arguments,
-      @JsonKey(name: 'exception_type') this.exceptionType})
-      : _arguments = arguments;
+  _$DataImpl({
+    this.name,
+    this.debug,
+    this.message,
+    final List<String>? arguments,
+    @JsonKey(name: 'exception_type') this.exceptionType,
+  }) : _arguments = arguments;
 
   factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
       _$$DataImplFromJson(json);
@@ -192,18 +219,28 @@ class _$DataImpl implements _Data {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.debug, debug) || other.debug == debug) &&
             (identical(other.message, message) || other.message == message) &&
-            const DeepCollectionEquality()
-                .equals(other._arguments, _arguments) &&
+            const DeepCollectionEquality().equals(
+              other._arguments,
+              _arguments,
+            ) &&
             (identical(other.exceptionType, exceptionType) ||
                 other.exceptionType == exceptionType));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, name, debug, message,
-      const DeepCollectionEquality().hash(_arguments), exceptionType);
+  int get hashCode => Object.hash(
+    runtimeType,
+    name,
+    debug,
+    message,
+    const DeepCollectionEquality().hash(_arguments),
+    exceptionType,
+  );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Data
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
@@ -211,20 +248,18 @@ class _$DataImpl implements _Data {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$DataImplToJson(
-      this,
-    );
+    return _$$DataImplToJson(this);
   }
 }
 
 abstract class _Data implements Data {
-  factory _Data(
-          {final String? name,
-          final String? debug,
-          final String? message,
-          final List<String>? arguments,
-          @JsonKey(name: 'exception_type') final String? exceptionType}) =
-      _$DataImpl;
+  factory _Data({
+    final String? name,
+    final String? debug,
+    final String? message,
+    final List<String>? arguments,
+    @JsonKey(name: 'exception_type') final String? exceptionType,
+  }) = _$DataImpl;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
@@ -239,8 +274,11 @@ abstract class _Data implements Data {
   @override
   @JsonKey(name: 'exception_type')
   String? get exceptionType;
+
+  /// Create a copy of Data
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DataImplCopyWith<_$DataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

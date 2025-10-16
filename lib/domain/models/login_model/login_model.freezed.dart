@@ -12,7 +12,8 @@ part of 'login_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 LoginModel _$LoginModelFromJson(Map<String, dynamic> json) {
   return _LoginModel.fromJson(json);
@@ -26,8 +27,12 @@ mixin _$LoginModel {
   String? get refreshToken => throw _privateConstructorUsedError;
   Token? get token => throw _privateConstructorUsedError;
 
+  /// Serializes this LoginModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LoginModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LoginModelCopyWith<LoginModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -35,13 +40,15 @@ mixin _$LoginModel {
 /// @nodoc
 abstract class $LoginModelCopyWith<$Res> {
   factory $LoginModelCopyWith(
-          LoginModel value, $Res Function(LoginModel) then) =
-      _$LoginModelCopyWithImpl<$Res, LoginModel>;
+    LoginModel value,
+    $Res Function(LoginModel) then,
+  ) = _$LoginModelCopyWithImpl<$Res, LoginModel>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'res_user') String? resUser,
-      @JsonKey(name: 'refresh_token') String? refreshToken,
-      Token? token});
+  $Res call({
+    @JsonKey(name: 'res_user') String? resUser,
+    @JsonKey(name: 'refresh_token') String? refreshToken,
+    Token? token,
+  });
 
   $TokenCopyWith<$Res>? get token;
 }
@@ -56,6 +63,8 @@ class _$LoginModelCopyWithImpl<$Res, $Val extends LoginModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LoginModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -63,22 +72,30 @@ class _$LoginModelCopyWithImpl<$Res, $Val extends LoginModel>
     Object? refreshToken = freezed,
     Object? token = freezed,
   }) {
-    return _then(_value.copyWith(
-      resUser: freezed == resUser
-          ? _value.resUser
-          : resUser // ignore: cast_nullable_to_non_nullable
-              as String?,
-      refreshToken: freezed == refreshToken
-          ? _value.refreshToken
-          : refreshToken // ignore: cast_nullable_to_non_nullable
-              as String?,
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as Token?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            resUser:
+                freezed == resUser
+                    ? _value.resUser
+                    : resUser // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            refreshToken:
+                freezed == refreshToken
+                    ? _value.refreshToken
+                    : refreshToken // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            token:
+                freezed == token
+                    ? _value.token
+                    : token // ignore: cast_nullable_to_non_nullable
+                        as Token?,
+          )
+          as $Val,
+    );
   }
 
+  /// Create a copy of LoginModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TokenCopyWith<$Res>? get token {
@@ -96,14 +113,16 @@ class _$LoginModelCopyWithImpl<$Res, $Val extends LoginModel>
 abstract class _$$LoginModelImplCopyWith<$Res>
     implements $LoginModelCopyWith<$Res> {
   factory _$$LoginModelImplCopyWith(
-          _$LoginModelImpl value, $Res Function(_$LoginModelImpl) then) =
-      __$$LoginModelImplCopyWithImpl<$Res>;
+    _$LoginModelImpl value,
+    $Res Function(_$LoginModelImpl) then,
+  ) = __$$LoginModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'res_user') String? resUser,
-      @JsonKey(name: 'refresh_token') String? refreshToken,
-      Token? token});
+  $Res call({
+    @JsonKey(name: 'res_user') String? resUser,
+    @JsonKey(name: 'refresh_token') String? refreshToken,
+    Token? token,
+  });
 
   @override
   $TokenCopyWith<$Res>? get token;
@@ -114,9 +133,12 @@ class __$$LoginModelImplCopyWithImpl<$Res>
     extends _$LoginModelCopyWithImpl<$Res, _$LoginModelImpl>
     implements _$$LoginModelImplCopyWith<$Res> {
   __$$LoginModelImplCopyWithImpl(
-      _$LoginModelImpl _value, $Res Function(_$LoginModelImpl) _then)
-      : super(_value, _then);
+    _$LoginModelImpl _value,
+    $Res Function(_$LoginModelImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of LoginModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,30 +146,36 @@ class __$$LoginModelImplCopyWithImpl<$Res>
     Object? refreshToken = freezed,
     Object? token = freezed,
   }) {
-    return _then(_$LoginModelImpl(
-      resUser: freezed == resUser
-          ? _value.resUser
-          : resUser // ignore: cast_nullable_to_non_nullable
-              as String?,
-      refreshToken: freezed == refreshToken
-          ? _value.refreshToken
-          : refreshToken // ignore: cast_nullable_to_non_nullable
-              as String?,
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as Token?,
-    ));
+    return _then(
+      _$LoginModelImpl(
+        resUser:
+            freezed == resUser
+                ? _value.resUser
+                : resUser // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        refreshToken:
+            freezed == refreshToken
+                ? _value.refreshToken
+                : refreshToken // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        token:
+            freezed == token
+                ? _value.token
+                : token // ignore: cast_nullable_to_non_nullable
+                    as Token?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$LoginModelImpl implements _LoginModel {
-  _$LoginModelImpl(
-      {@JsonKey(name: 'res_user') this.resUser,
-      @JsonKey(name: 'refresh_token') this.refreshToken,
-      this.token});
+  _$LoginModelImpl({
+    @JsonKey(name: 'res_user') this.resUser,
+    @JsonKey(name: 'refresh_token') this.refreshToken,
+    this.token,
+  });
 
   factory _$LoginModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LoginModelImplFromJson(json);
@@ -177,11 +205,13 @@ class _$LoginModelImpl implements _LoginModel {
             (identical(other.token, token) || other.token == token));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, resUser, refreshToken, token);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoginModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoginModelImplCopyWith<_$LoginModelImpl> get copyWith =>
@@ -189,17 +219,16 @@ class _$LoginModelImpl implements _LoginModel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LoginModelImplToJson(
-      this,
-    );
+    return _$$LoginModelImplToJson(this);
   }
 }
 
 abstract class _LoginModel implements LoginModel {
-  factory _LoginModel(
-      {@JsonKey(name: 'res_user') final String? resUser,
-      @JsonKey(name: 'refresh_token') final String? refreshToken,
-      final Token? token}) = _$LoginModelImpl;
+  factory _LoginModel({
+    @JsonKey(name: 'res_user') final String? resUser,
+    @JsonKey(name: 'refresh_token') final String? refreshToken,
+    final Token? token,
+  }) = _$LoginModelImpl;
 
   factory _LoginModel.fromJson(Map<String, dynamic> json) =
       _$LoginModelImpl.fromJson;
@@ -212,8 +241,11 @@ abstract class _LoginModel implements LoginModel {
   String? get refreshToken;
   @override
   Token? get token;
+
+  /// Create a copy of LoginModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoginModelImplCopyWith<_$LoginModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -5,10 +5,7 @@ part 'datum.g.dart';
 
 @freezed
 class Datum with _$Datum {
-  factory Datum({
-    int? id,
-    String? name,
-  }) = _Datum;
+  factory Datum({int? id, String? name}) = _Datum;
 
   factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
 

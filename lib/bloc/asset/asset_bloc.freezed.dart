@@ -12,7 +12,8 @@ part of 'asset_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AssetEvent {
@@ -28,8 +29,7 @@ mixin _$AssetEvent {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
@@ -42,8 +42,7 @@ mixin _$AssetEvent {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
@@ -57,8 +56,7 @@ mixin _$AssetEvent {
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
@@ -71,8 +69,7 @@ mixin _$AssetEvent {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
@@ -85,8 +82,7 @@ mixin _$AssetEvent {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
@@ -100,15 +96,15 @@ mixin _$AssetEvent {
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AssetEventCopyWith<$Res> {
   factory $AssetEventCopyWith(
-          AssetEvent value, $Res Function(AssetEvent) then) =
-      _$AssetEventCopyWithImpl<$Res, AssetEvent>;
+    AssetEvent value,
+    $Res Function(AssetEvent) then,
+  ) = _$AssetEventCopyWithImpl<$Res, AssetEvent>;
 }
 
 /// @nodoc
@@ -120,13 +116,17 @@ class _$AssetEventCopyWithImpl<$Res, $Val extends AssetEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$StartedImplCopyWith<$Res> {
   factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+    _$StartedImpl value,
+    $Res Function(_$StartedImpl) then,
+  ) = __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -134,8 +134,12 @@ class __$$StartedImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
-      : super(_value, _then);
+    _$StartedImpl _value,
+    $Res Function(_$StartedImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -275,8 +279,9 @@ abstract class _Started implements AssetEvent {
 /// @nodoc
 abstract class _$$ScanDataHomeImplCopyWith<$Res> {
   factory _$$ScanDataHomeImplCopyWith(
-          _$ScanDataHomeImpl value, $Res Function(_$ScanDataHomeImpl) then) =
-      __$$ScanDataHomeImplCopyWithImpl<$Res>;
+    _$ScanDataHomeImpl value,
+    $Res Function(_$ScanDataHomeImpl) then,
+  ) = __$$ScanDataHomeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
@@ -286,20 +291,23 @@ class __$$ScanDataHomeImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$ScanDataHomeImpl>
     implements _$$ScanDataHomeImplCopyWith<$Res> {
   __$$ScanDataHomeImplCopyWithImpl(
-      _$ScanDataHomeImpl _value, $Res Function(_$ScanDataHomeImpl) _then)
-      : super(_value, _then);
+    _$ScanDataHomeImpl _value,
+    $Res Function(_$ScanDataHomeImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_$ScanDataHomeImpl(
-      null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? name = null}) {
+    return _then(
+      _$ScanDataHomeImpl(
+        null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -327,7 +335,9 @@ class _$ScanDataHomeImpl implements _ScanDataHome {
   @override
   int get hashCode => Object.hash(runtimeType, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ScanDataHomeImplCopyWith<_$ScanDataHomeImpl> get copyWith =>
@@ -448,7 +458,10 @@ abstract class _ScanDataHome implements AssetEvent {
   const factory _ScanDataHome(final String name) = _$ScanDataHomeImpl;
 
   String get name;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ScanDataHomeImplCopyWith<_$ScanDataHomeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -456,8 +469,9 @@ abstract class _ScanDataHome implements AssetEvent {
 /// @nodoc
 abstract class _$$ScanDataImplCopyWith<$Res> {
   factory _$$ScanDataImplCopyWith(
-          _$ScanDataImpl value, $Res Function(_$ScanDataImpl) then) =
-      __$$ScanDataImplCopyWithImpl<$Res>;
+    _$ScanDataImpl value,
+    $Res Function(_$ScanDataImpl) then,
+  ) = __$$ScanDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
@@ -467,20 +481,23 @@ class __$$ScanDataImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$ScanDataImpl>
     implements _$$ScanDataImplCopyWith<$Res> {
   __$$ScanDataImplCopyWithImpl(
-      _$ScanDataImpl _value, $Res Function(_$ScanDataImpl) _then)
-      : super(_value, _then);
+    _$ScanDataImpl _value,
+    $Res Function(_$ScanDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_$ScanDataImpl(
-      null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? name = null}) {
+    return _then(
+      _$ScanDataImpl(
+        null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -508,7 +525,9 @@ class _$ScanDataImpl implements _ScanData {
   @override
   int get hashCode => Object.hash(runtimeType, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ScanDataImplCopyWith<_$ScanDataImpl> get copyWith =>
@@ -629,7 +648,10 @@ abstract class _ScanData implements AssetEvent {
   const factory _ScanData(final String name) = _$ScanDataImpl;
 
   String get name;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ScanDataImplCopyWith<_$ScanDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -637,8 +659,9 @@ abstract class _ScanData implements AssetEvent {
 /// @nodoc
 abstract class _$$GetDataImplCopyWith<$Res> {
   factory _$$GetDataImplCopyWith(
-          _$GetDataImpl value, $Res Function(_$GetDataImpl) then) =
-      __$$GetDataImplCopyWithImpl<$Res>;
+    _$GetDataImpl value,
+    $Res Function(_$GetDataImpl) then,
+  ) = __$$GetDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int start, Map<String, dynamic> data});
 }
@@ -648,25 +671,27 @@ class __$$GetDataImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$GetDataImpl>
     implements _$$GetDataImplCopyWith<$Res> {
   __$$GetDataImplCopyWithImpl(
-      _$GetDataImpl _value, $Res Function(_$GetDataImpl) _then)
-      : super(_value, _then);
+    _$GetDataImpl _value,
+    $Res Function(_$GetDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? start = null,
-    Object? data = null,
-  }) {
-    return _then(_$GetDataImpl(
-      null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
-              as int,
-      null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
+  $Res call({Object? start = null, Object? data = null}) {
+    return _then(
+      _$GetDataImpl(
+        null == start
+            ? _value.start
+            : start // ignore: cast_nullable_to_non_nullable
+                as int,
+        null == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+      ),
+    );
   }
 }
 
@@ -674,7 +699,7 @@ class __$$GetDataImplCopyWithImpl<$Res>
 
 class _$GetDataImpl implements _GetData {
   const _$GetDataImpl(this.start, final Map<String, dynamic> data)
-      : _data = data;
+    : _data = data;
 
   @override
   final int start;
@@ -702,9 +727,14 @@ class _$GetDataImpl implements _GetData {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, start, const DeepCollectionEquality().hash(_data));
+    runtimeType,
+    start,
+    const DeepCollectionEquality().hash(_data),
+  );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetDataImplCopyWith<_$GetDataImpl> get copyWith =>
@@ -827,7 +857,10 @@ abstract class _GetData implements AssetEvent {
 
   int get start;
   Map<String, dynamic> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetDataImplCopyWith<_$GetDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -835,8 +868,9 @@ abstract class _GetData implements AssetEvent {
 /// @nodoc
 abstract class _$$GetDataSingleImplCopyWith<$Res> {
   factory _$$GetDataSingleImplCopyWith(
-          _$GetDataSingleImpl value, $Res Function(_$GetDataSingleImpl) then) =
-      __$$GetDataSingleImplCopyWithImpl<$Res>;
+    _$GetDataSingleImpl value,
+    $Res Function(_$GetDataSingleImpl) then,
+  ) = __$$GetDataSingleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id});
 }
@@ -846,20 +880,23 @@ class __$$GetDataSingleImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$GetDataSingleImpl>
     implements _$$GetDataSingleImplCopyWith<$Res> {
   __$$GetDataSingleImplCopyWithImpl(
-      _$GetDataSingleImpl _value, $Res Function(_$GetDataSingleImpl) _then)
-      : super(_value, _then);
+    _$GetDataSingleImpl _value,
+    $Res Function(_$GetDataSingleImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$GetDataSingleImpl(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? id = null}) {
+    return _then(
+      _$GetDataSingleImpl(
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
   }
 }
 
@@ -887,7 +924,9 @@ class _$GetDataSingleImpl implements _GetDataSingle {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetDataSingleImplCopyWith<_$GetDataSingleImpl> get copyWith =>
@@ -1008,7 +1047,10 @@ abstract class _GetDataSingle implements AssetEvent {
   const factory _GetDataSingle(final int id) = _$GetDataSingleImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetDataSingleImplCopyWith<_$GetDataSingleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1016,8 +1058,9 @@ abstract class _GetDataSingle implements AssetEvent {
 /// @nodoc
 abstract class _$$PostDataImplCopyWith<$Res> {
   factory _$$PostDataImplCopyWith(
-          _$PostDataImpl value, $Res Function(_$PostDataImpl) then) =
-      __$$PostDataImplCopyWithImpl<$Res>;
+    _$PostDataImpl value,
+    $Res Function(_$PostDataImpl) then,
+  ) = __$$PostDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> asset});
 }
@@ -1027,20 +1070,23 @@ class __$$PostDataImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$PostDataImpl>
     implements _$$PostDataImplCopyWith<$Res> {
   __$$PostDataImplCopyWithImpl(
-      _$PostDataImpl _value, $Res Function(_$PostDataImpl) _then)
-      : super(_value, _then);
+    _$PostDataImpl _value,
+    $Res Function(_$PostDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? asset = null,
-  }) {
-    return _then(_$PostDataImpl(
-      null == asset
-          ? _value._asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
+  $Res call({Object? asset = null}) {
+    return _then(
+      _$PostDataImpl(
+        null == asset
+            ? _value._asset
+            : asset // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+      ),
+    );
   }
 }
 
@@ -1074,7 +1120,9 @@ class _$PostDataImpl implements _PostData {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_asset));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PostDataImplCopyWith<_$PostDataImpl> get copyWith =>
@@ -1195,16 +1243,20 @@ abstract class _PostData implements AssetEvent {
   const factory _PostData(final Map<String, dynamic> asset) = _$PostDataImpl;
 
   Map<String, dynamic> get asset;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PostDataImplCopyWith<_$PostDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$PostDataDuplicateImplCopyWith<$Res> {
-  factory _$$PostDataDuplicateImplCopyWith(_$PostDataDuplicateImpl value,
-          $Res Function(_$PostDataDuplicateImpl) then) =
-      __$$PostDataDuplicateImplCopyWithImpl<$Res>;
+  factory _$$PostDataDuplicateImplCopyWith(
+    _$PostDataDuplicateImpl value,
+    $Res Function(_$PostDataDuplicateImpl) then,
+  ) = __$$PostDataDuplicateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> asset});
 }
@@ -1213,21 +1265,24 @@ abstract class _$$PostDataDuplicateImplCopyWith<$Res> {
 class __$$PostDataDuplicateImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$PostDataDuplicateImpl>
     implements _$$PostDataDuplicateImplCopyWith<$Res> {
-  __$$PostDataDuplicateImplCopyWithImpl(_$PostDataDuplicateImpl _value,
-      $Res Function(_$PostDataDuplicateImpl) _then)
-      : super(_value, _then);
+  __$$PostDataDuplicateImplCopyWithImpl(
+    _$PostDataDuplicateImpl _value,
+    $Res Function(_$PostDataDuplicateImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? asset = null,
-  }) {
-    return _then(_$PostDataDuplicateImpl(
-      null == asset
-          ? _value._asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
+  $Res call({Object? asset = null}) {
+    return _then(
+      _$PostDataDuplicateImpl(
+        null == asset
+            ? _value._asset
+            : asset // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+      ),
+    );
   }
 }
 
@@ -1235,7 +1290,7 @@ class __$$PostDataDuplicateImplCopyWithImpl<$Res>
 
 class _$PostDataDuplicateImpl implements _PostDataDuplicate {
   const _$PostDataDuplicateImpl(final Map<String, dynamic> asset)
-      : _asset = asset;
+    : _asset = asset;
 
   final Map<String, dynamic> _asset;
   @override
@@ -1262,12 +1317,16 @@ class _$PostDataDuplicateImpl implements _PostDataDuplicate {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_asset));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PostDataDuplicateImplCopyWith<_$PostDataDuplicateImpl> get copyWith =>
       __$$PostDataDuplicateImplCopyWithImpl<_$PostDataDuplicateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1385,7 +1444,10 @@ abstract class _PostDataDuplicate implements AssetEvent {
       _$PostDataDuplicateImpl;
 
   Map<String, dynamic> get asset;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PostDataDuplicateImplCopyWith<_$PostDataDuplicateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1393,8 +1455,9 @@ abstract class _PostDataDuplicate implements AssetEvent {
 /// @nodoc
 abstract class _$$PutDataImplCopyWith<$Res> {
   factory _$$PutDataImplCopyWith(
-          _$PutDataImpl value, $Res Function(_$PutDataImpl) then) =
-      __$$PutDataImplCopyWithImpl<$Res>;
+    _$PutDataImpl value,
+    $Res Function(_$PutDataImpl) then,
+  ) = __$$PutDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> asset, int id});
 }
@@ -1404,25 +1467,27 @@ class __$$PutDataImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$PutDataImpl>
     implements _$$PutDataImplCopyWith<$Res> {
   __$$PutDataImplCopyWithImpl(
-      _$PutDataImpl _value, $Res Function(_$PutDataImpl) _then)
-      : super(_value, _then);
+    _$PutDataImpl _value,
+    $Res Function(_$PutDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? asset = null,
-    Object? id = null,
-  }) {
-    return _then(_$PutDataImpl(
-      null == asset
-          ? _value._asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? asset = null, Object? id = null}) {
+    return _then(
+      _$PutDataImpl(
+        null == asset
+            ? _value._asset
+            : asset // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
   }
 }
 
@@ -1430,7 +1495,7 @@ class __$$PutDataImplCopyWithImpl<$Res>
 
 class _$PutDataImpl implements _PutData {
   const _$PutDataImpl(final Map<String, dynamic> asset, this.id)
-      : _asset = asset;
+    : _asset = asset;
 
   final Map<String, dynamic> _asset;
   @override
@@ -1461,7 +1526,9 @@ class _$PutDataImpl implements _PutData {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_asset), id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PutDataImplCopyWith<_$PutDataImpl> get copyWith =>
@@ -1584,7 +1651,10 @@ abstract class _PutData implements AssetEvent {
 
   Map<String, dynamic> get asset;
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PutDataImplCopyWith<_$PutDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1592,8 +1662,9 @@ abstract class _PutData implements AssetEvent {
 /// @nodoc
 abstract class _$$DeleteDataImplCopyWith<$Res> {
   factory _$$DeleteDataImplCopyWith(
-          _$DeleteDataImpl value, $Res Function(_$DeleteDataImpl) then) =
-      __$$DeleteDataImplCopyWithImpl<$Res>;
+    _$DeleteDataImpl value,
+    $Res Function(_$DeleteDataImpl) then,
+  ) = __$$DeleteDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id});
 }
@@ -1603,20 +1674,23 @@ class __$$DeleteDataImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$DeleteDataImpl>
     implements _$$DeleteDataImplCopyWith<$Res> {
   __$$DeleteDataImplCopyWithImpl(
-      _$DeleteDataImpl _value, $Res Function(_$DeleteDataImpl) _then)
-      : super(_value, _then);
+    _$DeleteDataImpl _value,
+    $Res Function(_$DeleteDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$DeleteDataImpl(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? id = null}) {
+    return _then(
+      _$DeleteDataImpl(
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
   }
 }
 
@@ -1644,7 +1718,9 @@ class _$DeleteDataImpl implements _DeleteData {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteDataImplCopyWith<_$DeleteDataImpl> get copyWith =>
@@ -1765,7 +1841,10 @@ abstract class _DeleteData implements AssetEvent {
   const factory _DeleteData(final int id) = _$DeleteDataImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteDataImplCopyWith<_$DeleteDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1773,8 +1852,9 @@ abstract class _DeleteData implements AssetEvent {
 /// @nodoc
 abstract class _$$CustomDataImplCopyWith<$Res> {
   factory _$$CustomDataImplCopyWith(
-          _$CustomDataImpl value, $Res Function(_$CustomDataImpl) then) =
-      __$$CustomDataImplCopyWithImpl<$Res>;
+    _$CustomDataImpl value,
+    $Res Function(_$CustomDataImpl) then,
+  ) = __$$CustomDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> asset});
 }
@@ -1784,20 +1864,23 @@ class __$$CustomDataImplCopyWithImpl<$Res>
     extends _$AssetEventCopyWithImpl<$Res, _$CustomDataImpl>
     implements _$$CustomDataImplCopyWith<$Res> {
   __$$CustomDataImplCopyWithImpl(
-      _$CustomDataImpl _value, $Res Function(_$CustomDataImpl) _then)
-      : super(_value, _then);
+    _$CustomDataImpl _value,
+    $Res Function(_$CustomDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? asset = null,
-  }) {
-    return _then(_$CustomDataImpl(
-      null == asset
-          ? _value._asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
+  $Res call({Object? asset = null}) {
+    return _then(
+      _$CustomDataImpl(
+        null == asset
+            ? _value._asset
+            : asset // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+      ),
+    );
   }
 }
 
@@ -1831,7 +1914,9 @@ class _$CustomDataImpl implements _CustomData {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_asset));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CustomDataImplCopyWith<_$CustomDataImpl> get copyWith =>
@@ -1953,7 +2038,10 @@ abstract class _CustomData implements AssetEvent {
       _$CustomDataImpl;
 
   Map<String, dynamic> get asset;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CustomDataImplCopyWith<_$CustomDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1968,8 +2056,7 @@ mixin _$AssetState {
     required TResult Function(String message) success,
     required TResult Function(AssetModel asset) successDuplicate,
     required TResult Function(AssetModel asset) successWithData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -1978,8 +2065,7 @@ mixin _$AssetState {
     TResult? Function(String message)? success,
     TResult? Function(AssetModel asset)? successDuplicate,
     TResult? Function(AssetModel asset)? successWithData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -1989,8 +2075,7 @@ mixin _$AssetState {
     TResult Function(AssetModel asset)? successDuplicate,
     TResult Function(AssetModel asset)? successWithData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -1999,8 +2084,7 @@ mixin _$AssetState {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessDuplicate value) successDuplicate,
     required TResult Function(_SuccessWithData value) successWithData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -2009,8 +2093,7 @@ mixin _$AssetState {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessDuplicate value)? successDuplicate,
     TResult? Function(_SuccessWithData value)? successWithData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -2020,15 +2103,15 @@ mixin _$AssetState {
     TResult Function(_SuccessDuplicate value)? successDuplicate,
     TResult Function(_SuccessWithData value)? successWithData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AssetStateCopyWith<$Res> {
   factory $AssetStateCopyWith(
-          AssetState value, $Res Function(AssetState) then) =
-      _$AssetStateCopyWithImpl<$Res, AssetState>;
+    AssetState value,
+    $Res Function(AssetState) then,
+  ) = _$AssetStateCopyWithImpl<$Res, AssetState>;
 }
 
 /// @nodoc
@@ -2040,13 +2123,17 @@ class _$AssetStateCopyWithImpl<$Res, $Val extends AssetState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -2054,8 +2141,12 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$AssetStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2171,8 +2262,9 @@ abstract class _Initial implements AssetState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -2180,8 +2272,12 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$AssetStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2297,8 +2393,9 @@ abstract class _Loading implements AssetState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String errorMessage});
 }
@@ -2308,20 +2405,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$AssetStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? errorMessage = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? errorMessage = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == errorMessage
+            ? _value.errorMessage
+            : errorMessage // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -2350,7 +2450,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, errorMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -2447,7 +2549,10 @@ abstract class _Error implements AssetState {
   const factory _Error(final String errorMessage) = _$ErrorImpl;
 
   String get errorMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2455,8 +2560,9 @@ abstract class _Error implements AssetState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -2466,20 +2572,23 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$AssetStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$SuccessImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$SuccessImpl(
+        null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -2507,7 +2616,9 @@ class _$SuccessImpl implements _Success {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -2604,16 +2715,20 @@ abstract class _Success implements AssetState {
   const factory _Success(final String message) = _$SuccessImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SuccessDuplicateImplCopyWith<$Res> {
-  factory _$$SuccessDuplicateImplCopyWith(_$SuccessDuplicateImpl value,
-          $Res Function(_$SuccessDuplicateImpl) then) =
-      __$$SuccessDuplicateImplCopyWithImpl<$Res>;
+  factory _$$SuccessDuplicateImplCopyWith(
+    _$SuccessDuplicateImpl value,
+    $Res Function(_$SuccessDuplicateImpl) then,
+  ) = __$$SuccessDuplicateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AssetModel asset});
 
@@ -2624,23 +2739,28 @@ abstract class _$$SuccessDuplicateImplCopyWith<$Res> {
 class __$$SuccessDuplicateImplCopyWithImpl<$Res>
     extends _$AssetStateCopyWithImpl<$Res, _$SuccessDuplicateImpl>
     implements _$$SuccessDuplicateImplCopyWith<$Res> {
-  __$$SuccessDuplicateImplCopyWithImpl(_$SuccessDuplicateImpl _value,
-      $Res Function(_$SuccessDuplicateImpl) _then)
-      : super(_value, _then);
+  __$$SuccessDuplicateImplCopyWithImpl(
+    _$SuccessDuplicateImpl _value,
+    $Res Function(_$SuccessDuplicateImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? asset = null,
-  }) {
-    return _then(_$SuccessDuplicateImpl(
-      null == asset
-          ? _value.asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as AssetModel,
-    ));
+  $Res call({Object? asset = null}) {
+    return _then(
+      _$SuccessDuplicateImpl(
+        null == asset
+            ? _value.asset
+            : asset // ignore: cast_nullable_to_non_nullable
+                as AssetModel,
+      ),
+    );
   }
 
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AssetModelCopyWith<$Res> get asset {
@@ -2674,12 +2794,16 @@ class _$SuccessDuplicateImpl implements _SuccessDuplicate {
   @override
   int get hashCode => Object.hash(runtimeType, asset);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessDuplicateImplCopyWith<_$SuccessDuplicateImpl> get copyWith =>
       __$$SuccessDuplicateImplCopyWithImpl<_$SuccessDuplicateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -2773,16 +2897,20 @@ abstract class _SuccessDuplicate implements AssetState {
       _$SuccessDuplicateImpl;
 
   AssetModel get asset;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessDuplicateImplCopyWith<_$SuccessDuplicateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SuccessWithDataImplCopyWith<$Res> {
-  factory _$$SuccessWithDataImplCopyWith(_$SuccessWithDataImpl value,
-          $Res Function(_$SuccessWithDataImpl) then) =
-      __$$SuccessWithDataImplCopyWithImpl<$Res>;
+  factory _$$SuccessWithDataImplCopyWith(
+    _$SuccessWithDataImpl value,
+    $Res Function(_$SuccessWithDataImpl) then,
+  ) = __$$SuccessWithDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AssetModel asset});
 
@@ -2794,22 +2922,27 @@ class __$$SuccessWithDataImplCopyWithImpl<$Res>
     extends _$AssetStateCopyWithImpl<$Res, _$SuccessWithDataImpl>
     implements _$$SuccessWithDataImplCopyWith<$Res> {
   __$$SuccessWithDataImplCopyWithImpl(
-      _$SuccessWithDataImpl _value, $Res Function(_$SuccessWithDataImpl) _then)
-      : super(_value, _then);
+    _$SuccessWithDataImpl _value,
+    $Res Function(_$SuccessWithDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? asset = null,
-  }) {
-    return _then(_$SuccessWithDataImpl(
-      null == asset
-          ? _value.asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as AssetModel,
-    ));
+  $Res call({Object? asset = null}) {
+    return _then(
+      _$SuccessWithDataImpl(
+        null == asset
+            ? _value.asset
+            : asset // ignore: cast_nullable_to_non_nullable
+                as AssetModel,
+      ),
+    );
   }
 
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AssetModelCopyWith<$Res> get asset {
@@ -2843,12 +2976,16 @@ class _$SuccessWithDataImpl implements _SuccessWithData {
   @override
   int get hashCode => Object.hash(runtimeType, asset);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessWithDataImplCopyWith<_$SuccessWithDataImpl> get copyWith =>
       __$$SuccessWithDataImplCopyWithImpl<_$SuccessWithDataImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -2942,7 +3079,10 @@ abstract class _SuccessWithData implements AssetState {
       _$SuccessWithDataImpl;
 
   AssetModel get asset;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessWithDataImplCopyWith<_$SuccessWithDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

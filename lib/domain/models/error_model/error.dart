@@ -7,11 +7,7 @@ part 'error.g.dart';
 
 @freezed
 class Error with _$Error {
-  factory Error({
-    int? code,
-    String? message,
-    Data? data,
-  }) = _Error;
+  factory Error({int? code, String? message, Data? data}) = _Error;
 
   factory Error.fromJson(Map<String, dynamic> json) => _$ErrorFromJson(json);
 }

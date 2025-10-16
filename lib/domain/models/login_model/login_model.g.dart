@@ -10,9 +10,10 @@ _$LoginModelImpl _$$LoginModelImplFromJson(Map<String, dynamic> json) =>
     _$LoginModelImpl(
       resUser: json['res_user'] as String?,
       refreshToken: json['refresh_token'] as String?,
-      token: json['token'] == null
-          ? null
-          : Token.fromJson(json['token'] as Map<String, dynamic>),
+      token:
+          json['token'] == null
+              ? null
+              : Token.fromJson(json['token'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$LoginModelImplToJson(_$LoginModelImpl instance) =>

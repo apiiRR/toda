@@ -12,7 +12,8 @@ part of 'user_history_id.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 UserHistoryId _$UserHistoryIdFromJson(Map<String, dynamic> json) {
   return _UserHistoryId.fromJson(json);
@@ -26,8 +27,12 @@ mixin _$UserHistoryId {
   List<dynamic>? get userId => throw _privateConstructorUsedError;
   String? get date => throw _privateConstructorUsedError;
 
+  /// Serializes this UserHistoryId to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserHistoryId
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserHistoryIdCopyWith<UserHistoryId> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -35,14 +40,16 @@ mixin _$UserHistoryId {
 /// @nodoc
 abstract class $UserHistoryIdCopyWith<$Res> {
   factory $UserHistoryIdCopyWith(
-          UserHistoryId value, $Res Function(UserHistoryId) then) =
-      _$UserHistoryIdCopyWithImpl<$Res, UserHistoryId>;
+    UserHistoryId value,
+    $Res Function(UserHistoryId) then,
+  ) = _$UserHistoryIdCopyWithImpl<$Res, UserHistoryId>;
   @useResult
-  $Res call(
-      {int? id,
-      String? name,
-      @JsonKey(name: 'user_id') List<dynamic>? userId,
-      String? date});
+  $Res call({
+    int? id,
+    String? name,
+    @JsonKey(name: 'user_id') List<dynamic>? userId,
+    String? date,
+  });
 }
 
 /// @nodoc
@@ -55,6 +62,8 @@ class _$UserHistoryIdCopyWithImpl<$Res, $Val extends UserHistoryId>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserHistoryId
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -63,24 +72,31 @@ class _$UserHistoryIdCopyWithImpl<$Res, $Val extends UserHistoryId>
     Object? userId = freezed,
     Object? date = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userId: freezed == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                freezed == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int?,
+            name:
+                freezed == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            userId:
+                freezed == userId
+                    ? _value.userId
+                    : userId // ignore: cast_nullable_to_non_nullable
+                        as List<dynamic>?,
+            date:
+                freezed == date
+                    ? _value.date
+                    : date // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -88,15 +104,17 @@ class _$UserHistoryIdCopyWithImpl<$Res, $Val extends UserHistoryId>
 abstract class _$$UserHistoryIdImplCopyWith<$Res>
     implements $UserHistoryIdCopyWith<$Res> {
   factory _$$UserHistoryIdImplCopyWith(
-          _$UserHistoryIdImpl value, $Res Function(_$UserHistoryIdImpl) then) =
-      __$$UserHistoryIdImplCopyWithImpl<$Res>;
+    _$UserHistoryIdImpl value,
+    $Res Function(_$UserHistoryIdImpl) then,
+  ) = __$$UserHistoryIdImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int? id,
-      String? name,
-      @JsonKey(name: 'user_id') List<dynamic>? userId,
-      String? date});
+  $Res call({
+    int? id,
+    String? name,
+    @JsonKey(name: 'user_id') List<dynamic>? userId,
+    String? date,
+  });
 }
 
 /// @nodoc
@@ -104,9 +122,12 @@ class __$$UserHistoryIdImplCopyWithImpl<$Res>
     extends _$UserHistoryIdCopyWithImpl<$Res, _$UserHistoryIdImpl>
     implements _$$UserHistoryIdImplCopyWith<$Res> {
   __$$UserHistoryIdImplCopyWithImpl(
-      _$UserHistoryIdImpl _value, $Res Function(_$UserHistoryIdImpl) _then)
-      : super(_value, _then);
+    _$UserHistoryIdImpl _value,
+    $Res Function(_$UserHistoryIdImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of UserHistoryId
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,36 +136,42 @@ class __$$UserHistoryIdImplCopyWithImpl<$Res>
     Object? userId = freezed,
     Object? date = freezed,
   }) {
-    return _then(_$UserHistoryIdImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userId: freezed == userId
-          ? _value._userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-      date: freezed == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$UserHistoryIdImpl(
+        id:
+            freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int?,
+        name:
+            freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        userId:
+            freezed == userId
+                ? _value._userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                    as List<dynamic>?,
+        date:
+            freezed == date
+                ? _value.date
+                : date // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$UserHistoryIdImpl implements _UserHistoryId {
-  _$UserHistoryIdImpl(
-      {this.id,
-      this.name,
-      @JsonKey(name: 'user_id') final List<dynamic>? userId,
-      this.date})
-      : _userId = userId;
+  _$UserHistoryIdImpl({
+    this.id,
+    this.name,
+    @JsonKey(name: 'user_id') final List<dynamic>? userId,
+    this.date,
+  }) : _userId = userId;
 
   factory _$UserHistoryIdImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserHistoryIdImplFromJson(json);
@@ -183,12 +210,19 @@ class _$UserHistoryIdImpl implements _UserHistoryId {
             (identical(other.date, date) || other.date == date));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name,
-      const DeepCollectionEquality().hash(_userId), date);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    name,
+    const DeepCollectionEquality().hash(_userId),
+    date,
+  );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserHistoryId
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserHistoryIdImplCopyWith<_$UserHistoryIdImpl> get copyWith =>
@@ -196,18 +230,17 @@ class _$UserHistoryIdImpl implements _UserHistoryId {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserHistoryIdImplToJson(
-      this,
-    );
+    return _$$UserHistoryIdImplToJson(this);
   }
 }
 
 abstract class _UserHistoryId implements UserHistoryId {
-  factory _UserHistoryId(
-      {final int? id,
-      final String? name,
-      @JsonKey(name: 'user_id') final List<dynamic>? userId,
-      final String? date}) = _$UserHistoryIdImpl;
+  factory _UserHistoryId({
+    final int? id,
+    final String? name,
+    @JsonKey(name: 'user_id') final List<dynamic>? userId,
+    final String? date,
+  }) = _$UserHistoryIdImpl;
 
   factory _UserHistoryId.fromJson(Map<String, dynamic> json) =
       _$UserHistoryIdImpl.fromJson;
@@ -221,8 +254,11 @@ abstract class _UserHistoryId implements UserHistoryId {
   List<dynamic>? get userId;
   @override
   String? get date;
+
+  /// Create a copy of UserHistoryId
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserHistoryIdImplCopyWith<_$UserHistoryIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

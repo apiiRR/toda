@@ -67,7 +67,6 @@ class _MovingPageState extends State<MovingPage> {
     _database.onValue.listen((event) async {
       final Map<dynamic, dynamic>? data =
           event.snapshot.value as Map<dynamic, dynamic>?;
-      final List<Map<dynamic, dynamic>> itemsList = [];
 
       if (data != null && data.isNotEmpty) {
         setState(() {

@@ -7,19 +7,20 @@ part of 'master_data_model.dart';
 // **************************************************************************
 
 _$MasterDataModelImpl _$$MasterDataModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$MasterDataModelImpl(
-      jsonrpc: json['jsonrpc'] as String?,
-      id: json['id'],
-      result: json['result'] == null
+  Map<String, dynamic> json,
+) => _$MasterDataModelImpl(
+  jsonrpc: json['jsonrpc'] as String?,
+  id: json['id'],
+  result:
+      json['result'] == null
           ? null
           : Result.fromJson(json['result'] as Map<String, dynamic>),
-    );
+);
 
 Map<String, dynamic> _$$MasterDataModelImplToJson(
-        _$MasterDataModelImpl instance) =>
-    <String, dynamic>{
-      'jsonrpc': instance.jsonrpc,
-      'id': instance.id,
-      'result': instance.result,
-    };
+  _$MasterDataModelImpl instance,
+) => <String, dynamic>{
+  'jsonrpc': instance.jsonrpc,
+  'id': instance.id,
+  'result': instance.result,
+};

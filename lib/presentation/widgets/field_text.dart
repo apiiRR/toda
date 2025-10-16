@@ -6,23 +6,23 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../utils/app_styles.dart';
 
 class FieldText extends StatelessWidget {
-  const FieldText(
-      {Key? key,
-      required this.title,
-      required this.name,
-      this.hint,
-      this.keyboardType,
-      this.isPassword = false,
-      this.maxLines = 1,
-      this.validator,
-      this.readOnly = false,
-      this.initialValue,
-      this.controller,
-      this.onChanged,
-      this.inputFormatters,
-      this.suffix,
-      this.enable = true})
-      : super(key: key);
+  const FieldText({
+    Key? key,
+    required this.title,
+    required this.name,
+    this.hint,
+    this.keyboardType,
+    this.isPassword = false,
+    this.maxLines = 1,
+    this.validator,
+    this.readOnly = false,
+    this.initialValue,
+    this.controller,
+    this.onChanged,
+    this.inputFormatters,
+    this.suffix,
+    this.enable = true,
+  }) : super(key: key);
   final String title;
   final String name;
   final String? hint;
@@ -45,13 +45,8 @@ class FieldText extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: kJakartaRegular.copyWith(color: kBlack),
-          ),
-          SizedBox(
-            height: 1.h,
-          ),
+          Text(title, style: kJakartaRegular.copyWith(color: kBlack)),
+          SizedBox(height: 1.h),
           FormBuilderTextField(
             enabled: enable,
             controller: controller,
@@ -91,7 +86,7 @@ class FieldText extends StatelessWidget {
               ),
               errorStyle: kJakartaLight,
             ),
-          )
+          ),
         ],
       ),
     );

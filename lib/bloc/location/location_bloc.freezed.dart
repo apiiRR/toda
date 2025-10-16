@@ -12,7 +12,8 @@ part of 'location_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$LocationEvent {
@@ -25,8 +26,7 @@ mixin _$LocationEvent {
     required TResult Function(Map<String, dynamic> location) postData,
     required TResult Function(Map<String, dynamic> location, int id) putData,
     required TResult Function(int id) deleteData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
@@ -36,8 +36,7 @@ mixin _$LocationEvent {
     TResult? Function(Map<String, dynamic> location)? postData,
     TResult? Function(Map<String, dynamic> location, int id)? putData,
     TResult? Function(int id)? deleteData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
@@ -48,8 +47,7 @@ mixin _$LocationEvent {
     TResult Function(Map<String, dynamic> location, int id)? putData,
     TResult Function(int id)? deleteData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
@@ -59,8 +57,7 @@ mixin _$LocationEvent {
     required TResult Function(_PostData value) postData,
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
@@ -70,8 +67,7 @@ mixin _$LocationEvent {
     TResult? Function(_PostData value)? postData,
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
@@ -82,15 +78,15 @@ mixin _$LocationEvent {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LocationEventCopyWith<$Res> {
   factory $LocationEventCopyWith(
-          LocationEvent value, $Res Function(LocationEvent) then) =
-      _$LocationEventCopyWithImpl<$Res, LocationEvent>;
+    LocationEvent value,
+    $Res Function(LocationEvent) then,
+  ) = _$LocationEventCopyWithImpl<$Res, LocationEvent>;
 }
 
 /// @nodoc
@@ -102,13 +98,17 @@ class _$LocationEventCopyWithImpl<$Res, $Val extends LocationEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$StartedImplCopyWith<$Res> {
   factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+    _$StartedImpl value,
+    $Res Function(_$StartedImpl) then,
+  ) = __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -116,8 +116,12 @@ class __$$StartedImplCopyWithImpl<$Res>
     extends _$LocationEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
-      : super(_value, _then);
+    _$StartedImpl _value,
+    $Res Function(_$StartedImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -239,8 +243,9 @@ abstract class _Started implements LocationEvent {
 /// @nodoc
 abstract class _$$ScanDataImplCopyWith<$Res> {
   factory _$$ScanDataImplCopyWith(
-          _$ScanDataImpl value, $Res Function(_$ScanDataImpl) then) =
-      __$$ScanDataImplCopyWithImpl<$Res>;
+    _$ScanDataImpl value,
+    $Res Function(_$ScanDataImpl) then,
+  ) = __$$ScanDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
@@ -250,20 +255,23 @@ class __$$ScanDataImplCopyWithImpl<$Res>
     extends _$LocationEventCopyWithImpl<$Res, _$ScanDataImpl>
     implements _$$ScanDataImplCopyWith<$Res> {
   __$$ScanDataImplCopyWithImpl(
-      _$ScanDataImpl _value, $Res Function(_$ScanDataImpl) _then)
-      : super(_value, _then);
+    _$ScanDataImpl _value,
+    $Res Function(_$ScanDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_$ScanDataImpl(
-      null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? name = null}) {
+    return _then(
+      _$ScanDataImpl(
+        null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -291,7 +299,9 @@ class _$ScanDataImpl implements _ScanData {
   @override
   int get hashCode => Object.hash(runtimeType, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ScanDataImplCopyWith<_$ScanDataImpl> get copyWith =>
@@ -394,7 +404,10 @@ abstract class _ScanData implements LocationEvent {
   const factory _ScanData(final String name) = _$ScanDataImpl;
 
   String get name;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ScanDataImplCopyWith<_$ScanDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -402,8 +415,9 @@ abstract class _ScanData implements LocationEvent {
 /// @nodoc
 abstract class _$$GetDataImplCopyWith<$Res> {
   factory _$$GetDataImplCopyWith(
-          _$GetDataImpl value, $Res Function(_$GetDataImpl) then) =
-      __$$GetDataImplCopyWithImpl<$Res>;
+    _$GetDataImpl value,
+    $Res Function(_$GetDataImpl) then,
+  ) = __$$GetDataImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -411,8 +425,12 @@ class __$$GetDataImplCopyWithImpl<$Res>
     extends _$LocationEventCopyWithImpl<$Res, _$GetDataImpl>
     implements _$$GetDataImplCopyWith<$Res> {
   __$$GetDataImplCopyWithImpl(
-      _$GetDataImpl _value, $Res Function(_$GetDataImpl) _then)
-      : super(_value, _then);
+    _$GetDataImpl _value,
+    $Res Function(_$GetDataImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -534,8 +552,9 @@ abstract class _GetData implements LocationEvent {
 /// @nodoc
 abstract class _$$GetDataSingleImplCopyWith<$Res> {
   factory _$$GetDataSingleImplCopyWith(
-          _$GetDataSingleImpl value, $Res Function(_$GetDataSingleImpl) then) =
-      __$$GetDataSingleImplCopyWithImpl<$Res>;
+    _$GetDataSingleImpl value,
+    $Res Function(_$GetDataSingleImpl) then,
+  ) = __$$GetDataSingleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id});
 }
@@ -545,20 +564,23 @@ class __$$GetDataSingleImplCopyWithImpl<$Res>
     extends _$LocationEventCopyWithImpl<$Res, _$GetDataSingleImpl>
     implements _$$GetDataSingleImplCopyWith<$Res> {
   __$$GetDataSingleImplCopyWithImpl(
-      _$GetDataSingleImpl _value, $Res Function(_$GetDataSingleImpl) _then)
-      : super(_value, _then);
+    _$GetDataSingleImpl _value,
+    $Res Function(_$GetDataSingleImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$GetDataSingleImpl(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? id = null}) {
+    return _then(
+      _$GetDataSingleImpl(
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
   }
 }
 
@@ -586,7 +608,9 @@ class _$GetDataSingleImpl implements _GetDataSingle {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GetDataSingleImplCopyWith<_$GetDataSingleImpl> get copyWith =>
@@ -689,7 +713,10 @@ abstract class _GetDataSingle implements LocationEvent {
   const factory _GetDataSingle(final int id) = _$GetDataSingleImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetDataSingleImplCopyWith<_$GetDataSingleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -697,8 +724,9 @@ abstract class _GetDataSingle implements LocationEvent {
 /// @nodoc
 abstract class _$$PostDataImplCopyWith<$Res> {
   factory _$$PostDataImplCopyWith(
-          _$PostDataImpl value, $Res Function(_$PostDataImpl) then) =
-      __$$PostDataImplCopyWithImpl<$Res>;
+    _$PostDataImpl value,
+    $Res Function(_$PostDataImpl) then,
+  ) = __$$PostDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> location});
 }
@@ -708,20 +736,23 @@ class __$$PostDataImplCopyWithImpl<$Res>
     extends _$LocationEventCopyWithImpl<$Res, _$PostDataImpl>
     implements _$$PostDataImplCopyWith<$Res> {
   __$$PostDataImplCopyWithImpl(
-      _$PostDataImpl _value, $Res Function(_$PostDataImpl) _then)
-      : super(_value, _then);
+    _$PostDataImpl _value,
+    $Res Function(_$PostDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? location = null,
-  }) {
-    return _then(_$PostDataImpl(
-      null == location
-          ? _value._location
-          : location // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
+  $Res call({Object? location = null}) {
+    return _then(
+      _$PostDataImpl(
+        null == location
+            ? _value._location
+            : location // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+      ),
+    );
   }
 }
 
@@ -729,7 +760,7 @@ class __$$PostDataImplCopyWithImpl<$Res>
 
 class _$PostDataImpl implements _PostData {
   const _$PostDataImpl(final Map<String, dynamic> location)
-      : _location = location;
+    : _location = location;
 
   final Map<String, dynamic> _location;
   @override
@@ -756,7 +787,9 @@ class _$PostDataImpl implements _PostData {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_location));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PostDataImplCopyWith<_$PostDataImpl> get copyWith =>
@@ -859,7 +892,10 @@ abstract class _PostData implements LocationEvent {
   const factory _PostData(final Map<String, dynamic> location) = _$PostDataImpl;
 
   Map<String, dynamic> get location;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PostDataImplCopyWith<_$PostDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -867,8 +903,9 @@ abstract class _PostData implements LocationEvent {
 /// @nodoc
 abstract class _$$PutDataImplCopyWith<$Res> {
   factory _$$PutDataImplCopyWith(
-          _$PutDataImpl value, $Res Function(_$PutDataImpl) then) =
-      __$$PutDataImplCopyWithImpl<$Res>;
+    _$PutDataImpl value,
+    $Res Function(_$PutDataImpl) then,
+  ) = __$$PutDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> location, int id});
 }
@@ -878,25 +915,27 @@ class __$$PutDataImplCopyWithImpl<$Res>
     extends _$LocationEventCopyWithImpl<$Res, _$PutDataImpl>
     implements _$$PutDataImplCopyWith<$Res> {
   __$$PutDataImplCopyWithImpl(
-      _$PutDataImpl _value, $Res Function(_$PutDataImpl) _then)
-      : super(_value, _then);
+    _$PutDataImpl _value,
+    $Res Function(_$PutDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? location = null,
-    Object? id = null,
-  }) {
-    return _then(_$PutDataImpl(
-      null == location
-          ? _value._location
-          : location // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? location = null, Object? id = null}) {
+    return _then(
+      _$PutDataImpl(
+        null == location
+            ? _value._location
+            : location // ignore: cast_nullable_to_non_nullable
+                as Map<String, dynamic>,
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
   }
 }
 
@@ -904,7 +943,7 @@ class __$$PutDataImplCopyWithImpl<$Res>
 
 class _$PutDataImpl implements _PutData {
   const _$PutDataImpl(final Map<String, dynamic> location, this.id)
-      : _location = location;
+    : _location = location;
 
   final Map<String, dynamic> _location;
   @override
@@ -933,9 +972,14 @@ class _$PutDataImpl implements _PutData {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_location), id);
+    runtimeType,
+    const DeepCollectionEquality().hash(_location),
+    id,
+  );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PutDataImplCopyWith<_$PutDataImpl> get copyWith =>
@@ -1040,7 +1084,10 @@ abstract class _PutData implements LocationEvent {
 
   Map<String, dynamic> get location;
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PutDataImplCopyWith<_$PutDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1048,8 +1095,9 @@ abstract class _PutData implements LocationEvent {
 /// @nodoc
 abstract class _$$DeleteDataImplCopyWith<$Res> {
   factory _$$DeleteDataImplCopyWith(
-          _$DeleteDataImpl value, $Res Function(_$DeleteDataImpl) then) =
-      __$$DeleteDataImplCopyWithImpl<$Res>;
+    _$DeleteDataImpl value,
+    $Res Function(_$DeleteDataImpl) then,
+  ) = __$$DeleteDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id});
 }
@@ -1059,20 +1107,23 @@ class __$$DeleteDataImplCopyWithImpl<$Res>
     extends _$LocationEventCopyWithImpl<$Res, _$DeleteDataImpl>
     implements _$$DeleteDataImplCopyWith<$Res> {
   __$$DeleteDataImplCopyWithImpl(
-      _$DeleteDataImpl _value, $Res Function(_$DeleteDataImpl) _then)
-      : super(_value, _then);
+    _$DeleteDataImpl _value,
+    $Res Function(_$DeleteDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$DeleteDataImpl(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? id = null}) {
+    return _then(
+      _$DeleteDataImpl(
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
   }
 }
 
@@ -1100,7 +1151,9 @@ class _$DeleteDataImpl implements _DeleteData {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteDataImplCopyWith<_$DeleteDataImpl> get copyWith =>
@@ -1203,7 +1256,10 @@ abstract class _DeleteData implements LocationEvent {
   const factory _DeleteData(final int id) = _$DeleteDataImpl;
 
   int get id;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DeleteDataImplCopyWith<_$DeleteDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1217,8 +1273,7 @@ mixin _$LocationState {
     required TResult Function(String errorMessage) error,
     required TResult Function(String message) success,
     required TResult Function(LocationModel location) successWithData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -1226,8 +1281,7 @@ mixin _$LocationState {
     TResult? Function(String errorMessage)? error,
     TResult? Function(String message)? success,
     TResult? Function(LocationModel location)? successWithData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -1236,8 +1290,7 @@ mixin _$LocationState {
     TResult Function(String message)? success,
     TResult Function(LocationModel location)? successWithData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -1245,8 +1298,7 @@ mixin _$LocationState {
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithData value) successWithData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -1254,8 +1306,7 @@ mixin _$LocationState {
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessWithData value)? successWithData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -1264,15 +1315,15 @@ mixin _$LocationState {
     TResult Function(_Success value)? success,
     TResult Function(_SuccessWithData value)? successWithData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LocationStateCopyWith<$Res> {
   factory $LocationStateCopyWith(
-          LocationState value, $Res Function(LocationState) then) =
-      _$LocationStateCopyWithImpl<$Res, LocationState>;
+    LocationState value,
+    $Res Function(LocationState) then,
+  ) = _$LocationStateCopyWithImpl<$Res, LocationState>;
 }
 
 /// @nodoc
@@ -1284,13 +1335,17 @@ class _$LocationStateCopyWithImpl<$Res, $Val extends LocationState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1298,8 +1353,12 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$LocationStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1409,8 +1468,9 @@ abstract class _Initial implements LocationState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1418,8 +1478,12 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$LocationStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1529,8 +1593,9 @@ abstract class _Loading implements LocationState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String errorMessage});
 }
@@ -1540,20 +1605,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$LocationStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? errorMessage = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? errorMessage = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == errorMessage
+            ? _value.errorMessage
+            : errorMessage // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -1582,7 +1650,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, errorMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -1673,7 +1743,10 @@ abstract class _Error implements LocationState {
   const factory _Error(final String errorMessage) = _$ErrorImpl;
 
   String get errorMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1681,8 +1754,9 @@ abstract class _Error implements LocationState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -1692,20 +1766,23 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$LocationStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$SuccessImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$SuccessImpl(
+        null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -1733,7 +1810,9 @@ class _$SuccessImpl implements _Success {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -1824,16 +1903,20 @@ abstract class _Success implements LocationState {
   const factory _Success(final String message) = _$SuccessImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SuccessWithDataImplCopyWith<$Res> {
-  factory _$$SuccessWithDataImplCopyWith(_$SuccessWithDataImpl value,
-          $Res Function(_$SuccessWithDataImpl) then) =
-      __$$SuccessWithDataImplCopyWithImpl<$Res>;
+  factory _$$SuccessWithDataImplCopyWith(
+    _$SuccessWithDataImpl value,
+    $Res Function(_$SuccessWithDataImpl) then,
+  ) = __$$SuccessWithDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LocationModel location});
 
@@ -1845,22 +1928,27 @@ class __$$SuccessWithDataImplCopyWithImpl<$Res>
     extends _$LocationStateCopyWithImpl<$Res, _$SuccessWithDataImpl>
     implements _$$SuccessWithDataImplCopyWith<$Res> {
   __$$SuccessWithDataImplCopyWithImpl(
-      _$SuccessWithDataImpl _value, $Res Function(_$SuccessWithDataImpl) _then)
-      : super(_value, _then);
+    _$SuccessWithDataImpl _value,
+    $Res Function(_$SuccessWithDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? location = null,
-  }) {
-    return _then(_$SuccessWithDataImpl(
-      null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LocationModel,
-    ));
+  $Res call({Object? location = null}) {
+    return _then(
+      _$SuccessWithDataImpl(
+        null == location
+            ? _value.location
+            : location // ignore: cast_nullable_to_non_nullable
+                as LocationModel,
+      ),
+    );
   }
 
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LocationModelCopyWith<$Res> get location {
@@ -1895,12 +1983,16 @@ class _$SuccessWithDataImpl implements _SuccessWithData {
   @override
   int get hashCode => Object.hash(runtimeType, location);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessWithDataImplCopyWith<_$SuccessWithDataImpl> get copyWith =>
       __$$SuccessWithDataImplCopyWithImpl<_$SuccessWithDataImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1988,7 +2080,10 @@ abstract class _SuccessWithData implements LocationState {
       _$SuccessWithDataImpl;
 
   LocationModel get location;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessWithDataImplCopyWith<_$SuccessWithDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

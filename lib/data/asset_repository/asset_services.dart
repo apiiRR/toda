@@ -17,14 +17,20 @@ class AssetServices implements AssetInterface {
 
   @override
   Future<Either<bool, String>> assetMoving(
-      String token, List<Map<String, dynamic>> asset) async {
+    String token,
+    List<Map<String, dynamic>> asset,
+  ) async {
     try {
-      final response = await _client.post(Endpoints.assetMoving,
-          data: jsonEncode({"data": asset}),
-          options: Options(headers: {
+      final response = await _client.post(
+        Endpoints.assetMoving,
+        data: jsonEncode({"data": asset}),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> detail =
@@ -33,14 +39,15 @@ class AssetServices implements AssetInterface {
           return const Left(true);
         } else {
           ErrorModel errorData = ErrorModel.fromJson(response.data);
-          List<String> errorMessageSplited =
-              errorData.error!.data!.message!.split("\n");
+          List<String> errorMessageSplited = errorData.error!.data!.message!
+              .split("\n");
           return Right(errorMessageSplited[0]);
         }
       } else {
         ErrorModel errorData = ErrorModel.fromJson(response.data);
-        List<String> errorMessageSplited =
-            errorData.error!.message!.split("\n");
+        List<String> errorMessageSplited = errorData.error!.message!.split(
+          "\n",
+        );
         return Right(errorMessageSplited[0]);
       }
     } catch (e) {
@@ -50,15 +57,22 @@ class AssetServices implements AssetInterface {
   }
 
   @override
-  Future<Either<AssetModel, String>> assetGet(String token, int start,
-      {Map<String, dynamic> data = const {}}) async {
+  Future<Either<AssetModel, String>> assetGet(
+    String token,
+    int start, {
+    Map<String, dynamic> data = const {},
+  }) async {
     try {
-      final response = await _client.post("${Endpoints.assetGet}/$start/20",
-          data: jsonEncode(data),
-          options: Options(headers: {
+      final response = await _client.post(
+        "${Endpoints.assetGet}/$start/20",
+        data: jsonEncode(data),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> detail =
@@ -67,14 +81,15 @@ class AssetServices implements AssetInterface {
           return Left(AssetModel.fromJson(detail));
         } else {
           ErrorModel errorData = ErrorModel.fromJson(response.data);
-          List<String> errorMessageSplited =
-              errorData.error!.data!.message!.split("\n");
+          List<String> errorMessageSplited = errorData.error!.data!.message!
+              .split("\n");
           return Right(errorMessageSplited[0]);
         }
       } else {
         ErrorModel errorData = ErrorModel.fromJson(response.data);
-        List<String> errorMessageSplited =
-            errorData.error!.message!.split("\n");
+        List<String> errorMessageSplited = errorData.error!.message!.split(
+          "\n",
+        );
         return Right(errorMessageSplited[0]);
       }
     } catch (e, stacktrace) {
@@ -85,15 +100,21 @@ class AssetServices implements AssetInterface {
   }
 
   @override
-  Future<Either<AssetModel, String>> assetGetAll(String token,
-      {Map<String, dynamic> data = const {}}) async {
+  Future<Either<AssetModel, String>> assetGetAll(
+    String token, {
+    Map<String, dynamic> data = const {},
+  }) async {
     try {
-      final response = await _client.post(Endpoints.assetGet,
-          data: jsonEncode(data),
-          options: Options(headers: {
+      final response = await _client.post(
+        Endpoints.assetGet,
+        data: jsonEncode(data),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> detail =
@@ -102,14 +123,15 @@ class AssetServices implements AssetInterface {
           return Left(AssetModel.fromJson(detail));
         } else {
           ErrorModel errorData = ErrorModel.fromJson(response.data);
-          List<String> errorMessageSplited =
-              errorData.error!.data!.message!.split("\n");
+          List<String> errorMessageSplited = errorData.error!.data!.message!
+              .split("\n");
           return Right(errorMessageSplited[0]);
         }
       } else {
         ErrorModel errorData = ErrorModel.fromJson(response.data);
-        List<String> errorMessageSplited =
-            errorData.error!.message!.split("\n");
+        List<String> errorMessageSplited = errorData.error!.message!.split(
+          "\n",
+        );
         return Right(errorMessageSplited[0]);
       }
     } catch (e, stacktrace) {
@@ -121,14 +143,20 @@ class AssetServices implements AssetInterface {
 
   @override
   Future<Either<AssetModel, String>> assetGetSingle(
-      String token, int id) async {
+    String token,
+    int id,
+  ) async {
     try {
-      final response = await _client.post("${Endpoints.assetGet}/$id",
-          data: jsonEncode({}),
-          options: Options(headers: {
+      final response = await _client.post(
+        "${Endpoints.assetGet}/$id",
+        data: jsonEncode({}),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> detail =
@@ -137,14 +165,15 @@ class AssetServices implements AssetInterface {
           return Left(AssetModel.fromJson(detail));
         } else {
           ErrorModel errorData = ErrorModel.fromJson(response.data);
-          List<String> errorMessageSplited =
-              errorData.error!.data!.message!.split("\n");
+          List<String> errorMessageSplited = errorData.error!.data!.message!
+              .split("\n");
           return Right(errorMessageSplited[0]);
         }
       } else {
         ErrorModel errorData = ErrorModel.fromJson(response.data);
-        List<String> errorMessageSplited =
-            errorData.error!.message!.split("\n");
+        List<String> errorMessageSplited = errorData.error!.message!.split(
+          "\n",
+        );
         return Right(errorMessageSplited[0]);
       }
     } catch (e) {
@@ -155,14 +184,20 @@ class AssetServices implements AssetInterface {
 
   @override
   Future<Either<int, String>> assetPost(
-      String token, Map<String, dynamic> asset) async {
+    String token,
+    Map<String, dynamic> asset,
+  ) async {
     try {
-      final response = await _client.post(Endpoints.asset,
-          data: jsonEncode({"data": asset}),
-          options: Options(headers: {
+      final response = await _client.post(
+        Endpoints.asset,
+        data: jsonEncode({"data": asset}),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> detail =
@@ -171,14 +206,15 @@ class AssetServices implements AssetInterface {
           return Left(detail["result"]["data"]["order_id"][0]);
         } else {
           ErrorModel errorData = ErrorModel.fromJson(response.data);
-          List<String> errorMessageSplited =
-              errorData.error!.data!.message!.split("\n");
+          List<String> errorMessageSplited = errorData.error!.data!.message!
+              .split("\n");
           return Right(errorMessageSplited[0]);
         }
       } else {
         ErrorModel errorData = ErrorModel.fromJson(response.data);
-        List<String> errorMessageSplited =
-            errorData.error!.message!.split("\n");
+        List<String> errorMessageSplited = errorData.error!.message!.split(
+          "\n",
+        );
         return Right(errorMessageSplited[0]);
       }
     } catch (e, stacktrace) {
@@ -190,14 +226,21 @@ class AssetServices implements AssetInterface {
 
   @override
   Future<Either<int, String>> assetPut(
-      String token, Map<String, dynamic> data, int id) async {
+    String token,
+    Map<String, dynamic> data,
+    int id,
+  ) async {
     try {
-      final response = await _client.put("${Endpoints.asset}/$id",
-          data: jsonEncode({"data": data}),
-          options: Options(headers: {
+      final response = await _client.put(
+        "${Endpoints.asset}/$id",
+        data: jsonEncode({"data": data}),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> detail =
@@ -206,14 +249,15 @@ class AssetServices implements AssetInterface {
           return Left(id);
         } else {
           ErrorModel errorData = ErrorModel.fromJson(response.data);
-          List<String> errorMessageSplited =
-              errorData.error!.data!.message!.split("\n");
+          List<String> errorMessageSplited = errorData.error!.data!.message!
+              .split("\n");
           return Right(errorMessageSplited[0]);
         }
       } else {
         ErrorModel errorData = ErrorModel.fromJson(response.data);
-        List<String> errorMessageSplited =
-            errorData.error!.message!.split("\n");
+        List<String> errorMessageSplited = errorData.error!.message!.split(
+          "\n",
+        );
         return Right(errorMessageSplited[0]);
       }
     } catch (e) {
@@ -225,12 +269,16 @@ class AssetServices implements AssetInterface {
   @override
   Future<Either<bool, String>> assetDelete(String token, int id) async {
     try {
-      final response = await _client.delete("${Endpoints.asset}/$id",
-          data: {},
-          options: Options(headers: {
+      final response = await _client.delete(
+        "${Endpoints.asset}/$id",
+        data: {},
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> detail =
@@ -239,14 +287,15 @@ class AssetServices implements AssetInterface {
           return const Left(true);
         } else {
           ErrorModel errorData = ErrorModel.fromJson(response.data);
-          List<String> errorMessageSplited =
-              errorData.error!.data!.message!.split("\n");
+          List<String> errorMessageSplited = errorData.error!.data!.message!
+              .split("\n");
           return Right(errorMessageSplited[0]);
         }
       } else {
         ErrorModel errorData = ErrorModel.fromJson(response.data);
-        List<String> errorMessageSplited =
-            errorData.error!.message!.split("\n");
+        List<String> errorMessageSplited = errorData.error!.message!.split(
+          "\n",
+        );
         return Right(errorMessageSplited[0]);
       }
     } catch (e) {
@@ -258,12 +307,16 @@ class AssetServices implements AssetInterface {
   @override
   Future<List<Datum>> assetDropdown(String token) async {
     try {
-      final response = await _client.post(Endpoints.assetGet,
-          data: jsonEncode({}),
-          options: Options(headers: {
+      final response = await _client.post(
+        Endpoints.assetGet,
+        data: jsonEncode({}),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> detail =

@@ -10,9 +10,10 @@ _$ErrorModelImpl _$$ErrorModelImplFromJson(Map<String, dynamic> json) =>
     _$ErrorModelImpl(
       jsonrpc: json['jsonrpc'] as String?,
       id: json['id'],
-      error: json['error'] == null
-          ? null
-          : Error.fromJson(json['error'] as Map<String, dynamic>),
+      error:
+          json['error'] == null
+              ? null
+              : Error.fromJson(json['error'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ErrorModelImplToJson(_$ErrorModelImpl instance) =>

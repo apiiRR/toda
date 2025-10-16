@@ -1,13 +1,14 @@
 {
-    "jsonrpc": "2.0",
-    "id": null,
-    "result": {
-        "data": [
-            {
-                "id": 2,
-                "name": "Ruangan Ciamis",
-                "code": "LL013"
-            }
-        ]
-    }
+  "jsonrpc": "2.0",
+  "id": null,
+  "result": {
+    "data": [
+      {
+        "id": 62,
+        "code": "L1",
+        "name": "Lantai 1",
+        "parent_id": [61, "Gedung A"]
+      }
+    ]
+  }
 }

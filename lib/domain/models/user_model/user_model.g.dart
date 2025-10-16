@@ -8,9 +8,10 @@ part of 'user_model.dart';
 
 _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
     _$UserModelImpl(
-      result: json['result'] == null
-          ? null
-          : Result.fromJson(json['result'] as Map<String, dynamic>),
+      result:
+          json['result'] == null
+              ? null
+              : Result.fromJson(json['result'] as Map<String, dynamic>),
       id: json['id'],
       jsonrpc: json['jsonrpc'] as String?,
     );

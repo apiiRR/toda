@@ -20,7 +20,9 @@ class DioExceptions implements Exception {
         break;
       case DioExceptionType.badResponse:
         message = _handleError(
-            dioError.response!.statusCode, dioError.response!.data);
+          dioError.response!.statusCode,
+          dioError.response!.data,
+        );
         break;
       case DioExceptionType.sendTimeout:
         message = "Send timeout in connection with API server";

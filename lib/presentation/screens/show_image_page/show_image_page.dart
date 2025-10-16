@@ -5,7 +5,7 @@ class ShowLargeImageWithPhotoView extends StatelessWidget {
   final String imageUrl; // Replace with your image URL
 
   const ShowLargeImageWithPhotoView({Key? key, required this.imageUrl})
-      : super(key: key);
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {

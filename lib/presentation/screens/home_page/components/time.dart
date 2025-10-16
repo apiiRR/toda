@@ -49,27 +49,29 @@ class _TimeState extends State<Time> {
   Widget build(BuildContext context) {
     return jam == ''
         ? Text(
-            "--:--",
-            style: kJakartaBold.copyWith(color: kBlack, fontSize: 42),
-          )
+          "--:--",
+          style: kJakartaBold.copyWith(color: kBlack, fontSize: 42),
+        )
         : Column(
-            children: [
-              RichText(
-                  text: TextSpan(
-                      text: jam,
-                      style: kJakartaBold.copyWith(color: kBlack, fontSize: 36),
-                      children: [
-                    TextSpan(
-                        text: " : $detik",
-                        style:
-                            kJakartaBold.copyWith(color: kBlack, fontSize: 16))
-                  ])),
-              Text(
-                DateFormat('EEEE, dd MMMM yyyy').format(now),
-                style: kJakartaLight.copyWith(color: kBlack),
+          children: [
+            RichText(
+              text: TextSpan(
+                text: jam,
+                style: kJakartaBold.copyWith(color: kBlack, fontSize: 36),
+                children: [
+                  TextSpan(
+                    text: " : $detik",
+                    style: kJakartaBold.copyWith(color: kBlack, fontSize: 16),
+                  ),
+                ],
               ),
-            ],
-          );
+            ),
+            Text(
+              DateFormat('EEEE, dd MMMM yyyy').format(now),
+              style: kJakartaLight.copyWith(color: kBlack),
+            ),
+          ],
+        );
     // return Text(
     //   jam,
     //   style: kPoppinsBold.copyWith(color: primaryBlack, fontSize: 40),

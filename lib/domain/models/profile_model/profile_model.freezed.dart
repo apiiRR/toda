@@ -12,7 +12,8 @@ part of 'profile_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ProfileModel _$ProfileModelFromJson(Map<String, dynamic> json) {
   return _ProfileModel.fromJson(json);
@@ -32,8 +33,12 @@ mixin _$ProfileModel {
   @JsonKey(name: 'company_type')
   String? get companyType => throw _privateConstructorUsedError;
 
+  /// Serializes this ProfileModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ProfileModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ProfileModelCopyWith<ProfileModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -41,18 +46,20 @@ mixin _$ProfileModel {
 /// @nodoc
 abstract class $ProfileModelCopyWith<$Res> {
   factory $ProfileModelCopyWith(
-          ProfileModel value, $Res Function(ProfileModel) then) =
-      _$ProfileModelCopyWithImpl<$Res, ProfileModel>;
+    ProfileModel value,
+    $Res Function(ProfileModel) then,
+  ) = _$ProfileModelCopyWithImpl<$Res, ProfileModel>;
   @useResult
-  $Res call(
-      {int? id,
-      String? name,
-      String? street,
-      @JsonKey(name: 'type_integration') String? typeIntegration,
-      bool? customer,
-      bool? supplier,
-      @JsonKey(name: 'company_id') List<dynamic>? companyId,
-      @JsonKey(name: 'company_type') String? companyType});
+  $Res call({
+    int? id,
+    String? name,
+    String? street,
+    @JsonKey(name: 'type_integration') String? typeIntegration,
+    bool? customer,
+    bool? supplier,
+    @JsonKey(name: 'company_id') List<dynamic>? companyId,
+    @JsonKey(name: 'company_type') String? companyType,
+  });
 }
 
 /// @nodoc
@@ -65,6 +72,8 @@ class _$ProfileModelCopyWithImpl<$Res, $Val extends ProfileModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ProfileModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -77,40 +86,51 @@ class _$ProfileModelCopyWithImpl<$Res, $Val extends ProfileModel>
     Object? companyId = freezed,
     Object? companyType = freezed,
   }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      street: freezed == street
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      typeIntegration: freezed == typeIntegration
-          ? _value.typeIntegration
-          : typeIntegration // ignore: cast_nullable_to_non_nullable
-              as String?,
-      customer: freezed == customer
-          ? _value.customer
-          : customer // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      supplier: freezed == supplier
-          ? _value.supplier
-          : supplier // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      companyId: freezed == companyId
-          ? _value.companyId
-          : companyId // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-      companyType: freezed == companyType
-          ? _value.companyType
-          : companyType // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                freezed == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int?,
+            name:
+                freezed == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            street:
+                freezed == street
+                    ? _value.street
+                    : street // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            typeIntegration:
+                freezed == typeIntegration
+                    ? _value.typeIntegration
+                    : typeIntegration // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            customer:
+                freezed == customer
+                    ? _value.customer
+                    : customer // ignore: cast_nullable_to_non_nullable
+                        as bool?,
+            supplier:
+                freezed == supplier
+                    ? _value.supplier
+                    : supplier // ignore: cast_nullable_to_non_nullable
+                        as bool?,
+            companyId:
+                freezed == companyId
+                    ? _value.companyId
+                    : companyId // ignore: cast_nullable_to_non_nullable
+                        as List<dynamic>?,
+            companyType:
+                freezed == companyType
+                    ? _value.companyType
+                    : companyType // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -118,19 +138,21 @@ class _$ProfileModelCopyWithImpl<$Res, $Val extends ProfileModel>
 abstract class _$$ProfileModelImplCopyWith<$Res>
     implements $ProfileModelCopyWith<$Res> {
   factory _$$ProfileModelImplCopyWith(
-          _$ProfileModelImpl value, $Res Function(_$ProfileModelImpl) then) =
-      __$$ProfileModelImplCopyWithImpl<$Res>;
+    _$ProfileModelImpl value,
+    $Res Function(_$ProfileModelImpl) then,
+  ) = __$$ProfileModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int? id,
-      String? name,
-      String? street,
-      @JsonKey(name: 'type_integration') String? typeIntegration,
-      bool? customer,
-      bool? supplier,
-      @JsonKey(name: 'company_id') List<dynamic>? companyId,
-      @JsonKey(name: 'company_type') String? companyType});
+  $Res call({
+    int? id,
+    String? name,
+    String? street,
+    @JsonKey(name: 'type_integration') String? typeIntegration,
+    bool? customer,
+    bool? supplier,
+    @JsonKey(name: 'company_id') List<dynamic>? companyId,
+    @JsonKey(name: 'company_type') String? companyType,
+  });
 }
 
 /// @nodoc
@@ -138,9 +160,12 @@ class __$$ProfileModelImplCopyWithImpl<$Res>
     extends _$ProfileModelCopyWithImpl<$Res, _$ProfileModelImpl>
     implements _$$ProfileModelImplCopyWith<$Res> {
   __$$ProfileModelImplCopyWithImpl(
-      _$ProfileModelImpl _value, $Res Function(_$ProfileModelImpl) _then)
-      : super(_value, _then);
+    _$ProfileModelImpl _value,
+    $Res Function(_$ProfileModelImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of ProfileModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,56 +178,66 @@ class __$$ProfileModelImplCopyWithImpl<$Res>
     Object? companyId = freezed,
     Object? companyType = freezed,
   }) {
-    return _then(_$ProfileModelImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      street: freezed == street
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String?,
-      typeIntegration: freezed == typeIntegration
-          ? _value.typeIntegration
-          : typeIntegration // ignore: cast_nullable_to_non_nullable
-              as String?,
-      customer: freezed == customer
-          ? _value.customer
-          : customer // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      supplier: freezed == supplier
-          ? _value.supplier
-          : supplier // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      companyId: freezed == companyId
-          ? _value._companyId
-          : companyId // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
-      companyType: freezed == companyType
-          ? _value.companyType
-          : companyType // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+    return _then(
+      _$ProfileModelImpl(
+        id:
+            freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int?,
+        name:
+            freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        street:
+            freezed == street
+                ? _value.street
+                : street // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        typeIntegration:
+            freezed == typeIntegration
+                ? _value.typeIntegration
+                : typeIntegration // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        customer:
+            freezed == customer
+                ? _value.customer
+                : customer // ignore: cast_nullable_to_non_nullable
+                    as bool?,
+        supplier:
+            freezed == supplier
+                ? _value.supplier
+                : supplier // ignore: cast_nullable_to_non_nullable
+                    as bool?,
+        companyId:
+            freezed == companyId
+                ? _value._companyId
+                : companyId // ignore: cast_nullable_to_non_nullable
+                    as List<dynamic>?,
+        companyType:
+            freezed == companyType
+                ? _value.companyType
+                : companyType // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ProfileModelImpl implements _ProfileModel {
-  _$ProfileModelImpl(
-      {this.id,
-      this.name,
-      this.street,
-      @JsonKey(name: 'type_integration') this.typeIntegration,
-      this.customer,
-      this.supplier,
-      @JsonKey(name: 'company_id') final List<dynamic>? companyId,
-      @JsonKey(name: 'company_type') this.companyType})
-      : _companyId = companyId;
+  _$ProfileModelImpl({
+    this.id,
+    this.name,
+    this.street,
+    @JsonKey(name: 'type_integration') this.typeIntegration,
+    this.customer,
+    this.supplier,
+    @JsonKey(name: 'company_id') final List<dynamic>? companyId,
+    @JsonKey(name: 'company_type') this.companyType,
+  }) : _companyId = companyId;
 
   factory _$ProfileModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileModelImplFromJson(json);
@@ -254,26 +289,31 @@ class _$ProfileModelImpl implements _ProfileModel {
                 other.customer == customer) &&
             (identical(other.supplier, supplier) ||
                 other.supplier == supplier) &&
-            const DeepCollectionEquality()
-                .equals(other._companyId, _companyId) &&
+            const DeepCollectionEquality().equals(
+              other._companyId,
+              _companyId,
+            ) &&
             (identical(other.companyType, companyType) ||
                 other.companyType == companyType));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      street,
-      typeIntegration,
-      customer,
-      supplier,
-      const DeepCollectionEquality().hash(_companyId),
-      companyType);
+    runtimeType,
+    id,
+    name,
+    street,
+    typeIntegration,
+    customer,
+    supplier,
+    const DeepCollectionEquality().hash(_companyId),
+    companyType,
+  );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProfileModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ProfileModelImplCopyWith<_$ProfileModelImpl> get copyWith =>
@@ -281,23 +321,21 @@ class _$ProfileModelImpl implements _ProfileModel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProfileModelImplToJson(
-      this,
-    );
+    return _$$ProfileModelImplToJson(this);
   }
 }
 
 abstract class _ProfileModel implements ProfileModel {
-  factory _ProfileModel(
-          {final int? id,
-          final String? name,
-          final String? street,
-          @JsonKey(name: 'type_integration') final String? typeIntegration,
-          final bool? customer,
-          final bool? supplier,
-          @JsonKey(name: 'company_id') final List<dynamic>? companyId,
-          @JsonKey(name: 'company_type') final String? companyType}) =
-      _$ProfileModelImpl;
+  factory _ProfileModel({
+    final int? id,
+    final String? name,
+    final String? street,
+    @JsonKey(name: 'type_integration') final String? typeIntegration,
+    final bool? customer,
+    final bool? supplier,
+    @JsonKey(name: 'company_id') final List<dynamic>? companyId,
+    @JsonKey(name: 'company_type') final String? companyType,
+  }) = _$ProfileModelImpl;
 
   factory _ProfileModel.fromJson(Map<String, dynamic> json) =
       _$ProfileModelImpl.fromJson;
@@ -321,8 +359,11 @@ abstract class _ProfileModel implements ProfileModel {
   @override
   @JsonKey(name: 'company_type')
   String? get companyType;
+
+  /// Create a copy of ProfileModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProfileModelImplCopyWith<_$ProfileModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

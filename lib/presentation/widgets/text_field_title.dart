@@ -13,14 +13,8 @@ class TextFieldTitle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: kJakartaSemibold,
-        ),
-        Text(
-          text,
-          style: kJakartaRegular,
-        )
+        Text(title, style: kJakartaSemibold),
+        Text(text, style: kJakartaRegular),
       ],
     );
   }

@@ -12,7 +12,8 @@ part of 'error_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ErrorModel _$ErrorModelFromJson(Map<String, dynamic> json) {
   return _ErrorModel.fromJson(json);
@@ -24,8 +25,12 @@ mixin _$ErrorModel {
   dynamic get id => throw _privateConstructorUsedError;
   Error? get error => throw _privateConstructorUsedError;
 
+  /// Serializes this ErrorModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ErrorModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ErrorModelCopyWith<ErrorModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -33,8 +38,9 @@ mixin _$ErrorModel {
 /// @nodoc
 abstract class $ErrorModelCopyWith<$Res> {
   factory $ErrorModelCopyWith(
-          ErrorModel value, $Res Function(ErrorModel) then) =
-      _$ErrorModelCopyWithImpl<$Res, ErrorModel>;
+    ErrorModel value,
+    $Res Function(ErrorModel) then,
+  ) = _$ErrorModelCopyWithImpl<$Res, ErrorModel>;
   @useResult
   $Res call({String? jsonrpc, dynamic id, Error? error});
 
@@ -51,6 +57,8 @@ class _$ErrorModelCopyWithImpl<$Res, $Val extends ErrorModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ErrorModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -58,22 +66,30 @@ class _$ErrorModelCopyWithImpl<$Res, $Val extends ErrorModel>
     Object? id = freezed,
     Object? error = freezed,
   }) {
-    return _then(_value.copyWith(
-      jsonrpc: freezed == jsonrpc
-          ? _value.jsonrpc
-          : jsonrpc // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      error: freezed == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as Error?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            jsonrpc:
+                freezed == jsonrpc
+                    ? _value.jsonrpc
+                    : jsonrpc // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            id:
+                freezed == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as dynamic,
+            error:
+                freezed == error
+                    ? _value.error
+                    : error // ignore: cast_nullable_to_non_nullable
+                        as Error?,
+          )
+          as $Val,
+    );
   }
 
+  /// Create a copy of ErrorModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ErrorCopyWith<$Res>? get error {
@@ -91,8 +107,9 @@ class _$ErrorModelCopyWithImpl<$Res, $Val extends ErrorModel>
 abstract class _$$ErrorModelImplCopyWith<$Res>
     implements $ErrorModelCopyWith<$Res> {
   factory _$$ErrorModelImplCopyWith(
-          _$ErrorModelImpl value, $Res Function(_$ErrorModelImpl) then) =
-      __$$ErrorModelImplCopyWithImpl<$Res>;
+    _$ErrorModelImpl value,
+    $Res Function(_$ErrorModelImpl) then,
+  ) = __$$ErrorModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? jsonrpc, dynamic id, Error? error});
@@ -106,9 +123,12 @@ class __$$ErrorModelImplCopyWithImpl<$Res>
     extends _$ErrorModelCopyWithImpl<$Res, _$ErrorModelImpl>
     implements _$$ErrorModelImplCopyWith<$Res> {
   __$$ErrorModelImplCopyWithImpl(
-      _$ErrorModelImpl _value, $Res Function(_$ErrorModelImpl) _then)
-      : super(_value, _then);
+    _$ErrorModelImpl _value,
+    $Res Function(_$ErrorModelImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of ErrorModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -116,20 +136,25 @@ class __$$ErrorModelImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? error = freezed,
   }) {
-    return _then(_$ErrorModelImpl(
-      jsonrpc: freezed == jsonrpc
-          ? _value.jsonrpc
-          : jsonrpc // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      error: freezed == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as Error?,
-    ));
+    return _then(
+      _$ErrorModelImpl(
+        jsonrpc:
+            freezed == jsonrpc
+                ? _value.jsonrpc
+                : jsonrpc // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        id:
+            freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as dynamic,
+        error:
+            freezed == error
+                ? _value.error
+                : error // ignore: cast_nullable_to_non_nullable
+                    as Error?,
+      ),
+    );
   }
 }
 
@@ -163,12 +188,18 @@ class _$ErrorModelImpl implements _ErrorModel {
             (identical(other.error, error) || other.error == error));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, jsonrpc, const DeepCollectionEquality().hash(id), error);
+    runtimeType,
+    jsonrpc,
+    const DeepCollectionEquality().hash(id),
+    error,
+  );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ErrorModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorModelImplCopyWith<_$ErrorModelImpl> get copyWith =>
@@ -176,17 +207,16 @@ class _$ErrorModelImpl implements _ErrorModel {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ErrorModelImplToJson(
-      this,
-    );
+    return _$$ErrorModelImplToJson(this);
   }
 }
 
 abstract class _ErrorModel implements ErrorModel {
-  factory _ErrorModel(
-      {final String? jsonrpc,
-      final dynamic id,
-      final Error? error}) = _$ErrorModelImpl;
+  factory _ErrorModel({
+    final String? jsonrpc,
+    final dynamic id,
+    final Error? error,
+  }) = _$ErrorModelImpl;
 
   factory _ErrorModel.fromJson(Map<String, dynamic> json) =
       _$ErrorModelImpl.fromJson;
@@ -197,8 +227,11 @@ abstract class _ErrorModel implements ErrorModel {
   dynamic get id;
   @override
   Error? get error;
+
+  /// Create a copy of ErrorModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorModelImplCopyWith<_$ErrorModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

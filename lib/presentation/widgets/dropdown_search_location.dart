@@ -8,14 +8,15 @@ import '../../domain/models/location_model/datum.dart';
 import '../utils/app_styles.dart';
 
 class DropdownSearchLocation extends StatelessWidget {
-  const DropdownSearchLocation(
-      {super.key,
-      required this.title,
-      required this.onChanged,
-      required this.hintText,
-      this.validator,
-      this.selectedItem,
-      required this.enabled});
+  const DropdownSearchLocation({
+    super.key,
+    required this.title,
+    required this.onChanged,
+    required this.hintText,
+    this.validator,
+    this.selectedItem,
+    required this.enabled,
+  });
   final String title;
   final String hintText;
   final void Function(Datum?)? onChanged;
@@ -29,36 +30,33 @@ class DropdownSearchLocation extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: kJakartaRegular.copyWith(color: kBlack),
-        ),
-        SizedBox(
-          height: 1.h,
-        ),
+        Text(title, style: kJakartaRegular.copyWith(color: kBlack)),
+        SizedBox(height: 1.h),
         DropdownSearch<Datum>(
           enabled: enabled,
           validator: validator,
           selectedItem: selectedItem,
           popupProps: PopupPropsMultiSelection.dialog(
-              showSearchBox: true,
-              searchFieldProps: TextFieldProps(
-                  style: kJakartaRegular,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16)),
-              itemBuilder: (context, item, _) {
-                return Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(color: kGrey.withOpacity(0.5)))),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: Text(
-                    item.name!,
-                    style: kJakartaRegular,
+            showSearchBox: true,
+            searchFieldProps: TextFieldProps(
+              style: kJakartaRegular,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            ),
+            itemBuilder: (context, item, _) {
+              return Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: kGrey.withOpacity(0.5)),
                   ),
-                );
-              }),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 10,
+                ),
+                child: Text(item.name!, style: kJakartaRegular),
+              );
+            },
+          ),
           dropdownDecoratorProps: DropDownDecoratorProps(
             baseStyle: kJakartaRegular,
             dropdownSearchDecoration: InputDecoration(
@@ -95,8 +93,9 @@ class DropdownSearchLocation extends StatelessWidget {
           asyncItems: (String filter) async {
             final Map<String, dynamic> dataUser = await getDetailUser();
 
-            final data =
-                await LocationServices().locationDropdown(dataUser["token"]);
+            final data = await LocationServices().locationDropdown(
+              dataUser["token"],
+            );
             return data;
           },
         ),

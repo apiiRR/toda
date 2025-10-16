@@ -12,7 +12,8 @@ part of 'auth_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$AuthEvent {
@@ -23,8 +24,7 @@ mixin _$AuthEvent {
     required TResult Function() authDetail,
     required TResult Function() checkSignInStatus,
     required TResult Function() logOut,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
@@ -32,8 +32,7 @@ mixin _$AuthEvent {
     TResult? Function()? authDetail,
     TResult? Function()? checkSignInStatus,
     TResult? Function()? logOut,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
@@ -42,8 +41,7 @@ mixin _$AuthEvent {
     TResult Function()? checkSignInStatus,
     TResult Function()? logOut,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
@@ -51,8 +49,7 @@ mixin _$AuthEvent {
     required TResult Function(_AuthDetail value) authDetail,
     required TResult Function(_CheckSignInStatus value) checkSignInStatus,
     required TResult Function(_LogOut value) logOut,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
@@ -60,8 +57,7 @@ mixin _$AuthEvent {
     TResult? Function(_AuthDetail value)? authDetail,
     TResult? Function(_CheckSignInStatus value)? checkSignInStatus,
     TResult? Function(_LogOut value)? logOut,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
@@ -70,8 +66,7 @@ mixin _$AuthEvent {
     TResult Function(_CheckSignInStatus value)? checkSignInStatus,
     TResult Function(_LogOut value)? logOut,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -89,13 +84,17 @@ class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$StartedImplCopyWith<$Res> {
   factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+    _$StartedImpl value,
+    $Res Function(_$StartedImpl) then,
+  ) = __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -103,8 +102,12 @@ class __$$StartedImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
-      : super(_value, _then);
+    _$StartedImpl _value,
+    $Res Function(_$StartedImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -214,8 +217,9 @@ abstract class _Started implements AuthEvent {
 /// @nodoc
 abstract class _$$LoginImplCopyWith<$Res> {
   factory _$$LoginImplCopyWith(
-          _$LoginImpl value, $Res Function(_$LoginImpl) then) =
-      __$$LoginImplCopyWithImpl<$Res>;
+    _$LoginImpl value,
+    $Res Function(_$LoginImpl) then,
+  ) = __$$LoginImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, String> data});
 }
@@ -225,20 +229,23 @@ class __$$LoginImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$LoginImpl>
     implements _$$LoginImplCopyWith<$Res> {
   __$$LoginImplCopyWithImpl(
-      _$LoginImpl _value, $Res Function(_$LoginImpl) _then)
-      : super(_value, _then);
+    _$LoginImpl _value,
+    $Res Function(_$LoginImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$LoginImpl(
-      null == data
-          ? _value._data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$LoginImpl(
+        null == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                as Map<String, String>,
+      ),
+    );
   }
 }
 
@@ -272,7 +279,9 @@ class _$LoginImpl implements _Login {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoginImplCopyWith<_$LoginImpl> get copyWith =>
@@ -363,7 +372,10 @@ abstract class _Login implements AuthEvent {
   const factory _Login(final Map<String, String> data) = _$LoginImpl;
 
   Map<String, String> get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoginImplCopyWith<_$LoginImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -371,8 +383,9 @@ abstract class _Login implements AuthEvent {
 /// @nodoc
 abstract class _$$AuthDetailImplCopyWith<$Res> {
   factory _$$AuthDetailImplCopyWith(
-          _$AuthDetailImpl value, $Res Function(_$AuthDetailImpl) then) =
-      __$$AuthDetailImplCopyWithImpl<$Res>;
+    _$AuthDetailImpl value,
+    $Res Function(_$AuthDetailImpl) then,
+  ) = __$$AuthDetailImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -380,8 +393,12 @@ class __$$AuthDetailImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$AuthDetailImpl>
     implements _$$AuthDetailImplCopyWith<$Res> {
   __$$AuthDetailImplCopyWithImpl(
-      _$AuthDetailImpl _value, $Res Function(_$AuthDetailImpl) _then)
-      : super(_value, _then);
+    _$AuthDetailImpl _value,
+    $Res Function(_$AuthDetailImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -490,18 +507,23 @@ abstract class _AuthDetail implements AuthEvent {
 
 /// @nodoc
 abstract class _$$CheckSignInStatusImplCopyWith<$Res> {
-  factory _$$CheckSignInStatusImplCopyWith(_$CheckSignInStatusImpl value,
-          $Res Function(_$CheckSignInStatusImpl) then) =
-      __$$CheckSignInStatusImplCopyWithImpl<$Res>;
+  factory _$$CheckSignInStatusImplCopyWith(
+    _$CheckSignInStatusImpl value,
+    $Res Function(_$CheckSignInStatusImpl) then,
+  ) = __$$CheckSignInStatusImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$CheckSignInStatusImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$CheckSignInStatusImpl>
     implements _$$CheckSignInStatusImplCopyWith<$Res> {
-  __$$CheckSignInStatusImplCopyWithImpl(_$CheckSignInStatusImpl _value,
-      $Res Function(_$CheckSignInStatusImpl) _then)
-      : super(_value, _then);
+  __$$CheckSignInStatusImplCopyWithImpl(
+    _$CheckSignInStatusImpl _value,
+    $Res Function(_$CheckSignInStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -611,8 +633,9 @@ abstract class _CheckSignInStatus implements AuthEvent {
 /// @nodoc
 abstract class _$$LogOutImplCopyWith<$Res> {
   factory _$$LogOutImplCopyWith(
-          _$LogOutImpl value, $Res Function(_$LogOutImpl) then) =
-      __$$LogOutImplCopyWithImpl<$Res>;
+    _$LogOutImpl value,
+    $Res Function(_$LogOutImpl) then,
+  ) = __$$LogOutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -620,8 +643,12 @@ class __$$LogOutImplCopyWithImpl<$Res>
     extends _$AuthEventCopyWithImpl<$Res, _$LogOutImpl>
     implements _$$LogOutImplCopyWith<$Res> {
   __$$LogOutImplCopyWithImpl(
-      _$LogOutImpl _value, $Res Function(_$LogOutImpl) _then)
-      : super(_value, _then);
+    _$LogOutImpl _value,
+    $Res Function(_$LogOutImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -740,8 +767,7 @@ mixin _$AuthState {
     required TResult Function() success,
     required TResult Function(String text) successWithText,
     required TResult Function(ProfileModel data) profile,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -752,8 +778,7 @@ mixin _$AuthState {
     TResult? Function()? success,
     TResult? Function(String text)? successWithText,
     TResult? Function(ProfileModel data)? profile,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -765,8 +790,7 @@ mixin _$AuthState {
     TResult Function(String text)? successWithText,
     TResult Function(ProfileModel data)? profile,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -777,8 +801,7 @@ mixin _$AuthState {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithText value) successWithText,
     required TResult Function(_Profile value) profile,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -789,8 +812,7 @@ mixin _$AuthState {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessWithText value)? successWithText,
     TResult? Function(_Profile value)? profile,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -802,8 +824,7 @@ mixin _$AuthState {
     TResult Function(_SuccessWithText value)? successWithText,
     TResult Function(_Profile value)? profile,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -821,13 +842,17 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -835,8 +860,12 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -964,8 +993,9 @@ abstract class _Initial implements AuthState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -973,8 +1003,12 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1102,8 +1136,9 @@ abstract class _Loading implements AuthState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String errorMessage});
 }
@@ -1113,20 +1148,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? errorMessage = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? errorMessage = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == errorMessage
+            ? _value.errorMessage
+            : errorMessage // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -1155,7 +1193,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, errorMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -1264,7 +1304,10 @@ abstract class _Error implements AuthState {
   const factory _Error(final String errorMessage) = _$ErrorImpl;
 
   String get errorMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1272,8 +1315,9 @@ abstract class _Error implements AuthState {
 /// @nodoc
 abstract class _$$SignedInImplCopyWith<$Res> {
   factory _$$SignedInImplCopyWith(
-          _$SignedInImpl value, $Res Function(_$SignedInImpl) then) =
-      __$$SignedInImplCopyWithImpl<$Res>;
+    _$SignedInImpl value,
+    $Res Function(_$SignedInImpl) then,
+  ) = __$$SignedInImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1281,8 +1325,12 @@ class __$$SignedInImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$SignedInImpl>
     implements _$$SignedInImplCopyWith<$Res> {
   __$$SignedInImplCopyWithImpl(
-      _$SignedInImpl _value, $Res Function(_$SignedInImpl) _then)
-      : super(_value, _then);
+    _$SignedInImpl _value,
+    $Res Function(_$SignedInImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1410,8 +1458,9 @@ abstract class _SignedIn implements AuthState {
 /// @nodoc
 abstract class _$$SignedOutImplCopyWith<$Res> {
   factory _$$SignedOutImplCopyWith(
-          _$SignedOutImpl value, $Res Function(_$SignedOutImpl) then) =
-      __$$SignedOutImplCopyWithImpl<$Res>;
+    _$SignedOutImpl value,
+    $Res Function(_$SignedOutImpl) then,
+  ) = __$$SignedOutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1419,8 +1468,12 @@ class __$$SignedOutImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$SignedOutImpl>
     implements _$$SignedOutImplCopyWith<$Res> {
   __$$SignedOutImplCopyWithImpl(
-      _$SignedOutImpl _value, $Res Function(_$SignedOutImpl) _then)
-      : super(_value, _then);
+    _$SignedOutImpl _value,
+    $Res Function(_$SignedOutImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1548,8 +1601,9 @@ abstract class _SignedOut implements AuthState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -1557,8 +1611,12 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1685,9 +1743,10 @@ abstract class _Success implements AuthState {
 
 /// @nodoc
 abstract class _$$SuccessWithTextImplCopyWith<$Res> {
-  factory _$$SuccessWithTextImplCopyWith(_$SuccessWithTextImpl value,
-          $Res Function(_$SuccessWithTextImpl) then) =
-      __$$SuccessWithTextImplCopyWithImpl<$Res>;
+  factory _$$SuccessWithTextImplCopyWith(
+    _$SuccessWithTextImpl value,
+    $Res Function(_$SuccessWithTextImpl) then,
+  ) = __$$SuccessWithTextImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String text});
 }
@@ -1697,20 +1756,23 @@ class __$$SuccessWithTextImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$SuccessWithTextImpl>
     implements _$$SuccessWithTextImplCopyWith<$Res> {
   __$$SuccessWithTextImplCopyWithImpl(
-      _$SuccessWithTextImpl _value, $Res Function(_$SuccessWithTextImpl) _then)
-      : super(_value, _then);
+    _$SuccessWithTextImpl _value,
+    $Res Function(_$SuccessWithTextImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? text = null,
-  }) {
-    return _then(_$SuccessWithTextImpl(
-      null == text
-          ? _value.text
-          : text // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? text = null}) {
+    return _then(
+      _$SuccessWithTextImpl(
+        null == text
+            ? _value.text
+            : text // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -1738,12 +1800,16 @@ class _$SuccessWithTextImpl implements _SuccessWithText {
   @override
   int get hashCode => Object.hash(runtimeType, text);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessWithTextImplCopyWith<_$SuccessWithTextImpl> get copyWith =>
       __$$SuccessWithTextImplCopyWithImpl<_$SuccessWithTextImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1848,7 +1914,10 @@ abstract class _SuccessWithText implements AuthState {
   const factory _SuccessWithText(final String text) = _$SuccessWithTextImpl;
 
   String get text;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessWithTextImplCopyWith<_$SuccessWithTextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1856,8 +1925,9 @@ abstract class _SuccessWithText implements AuthState {
 /// @nodoc
 abstract class _$$ProfileImplCopyWith<$Res> {
   factory _$$ProfileImplCopyWith(
-          _$ProfileImpl value, $Res Function(_$ProfileImpl) then) =
-      __$$ProfileImplCopyWithImpl<$Res>;
+    _$ProfileImpl value,
+    $Res Function(_$ProfileImpl) then,
+  ) = __$$ProfileImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ProfileModel data});
 
@@ -1869,22 +1939,27 @@ class __$$ProfileImplCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res, _$ProfileImpl>
     implements _$$ProfileImplCopyWith<$Res> {
   __$$ProfileImplCopyWithImpl(
-      _$ProfileImpl _value, $Res Function(_$ProfileImpl) _then)
-      : super(_value, _then);
+    _$ProfileImpl _value,
+    $Res Function(_$ProfileImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$ProfileImpl(
-      null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as ProfileModel,
-    ));
+  $Res call({Object? data = null}) {
+    return _then(
+      _$ProfileImpl(
+        null == data
+            ? _value.data
+            : data // ignore: cast_nullable_to_non_nullable
+                as ProfileModel,
+      ),
+    );
   }
 
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ProfileModelCopyWith<$Res> get data {
@@ -1918,7 +1993,9 @@ class _$ProfileImpl implements _Profile {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
@@ -2027,7 +2104,10 @@ abstract class _Profile implements AuthState {
   const factory _Profile(final ProfileModel data) = _$ProfileImpl;
 
   ProfileModel get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

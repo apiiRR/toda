@@ -5,10 +5,8 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart' as datum_asset;
-import '../../../domain/models/master_data_model/datum.dart' as datum_master;
 import '../../utils/app_styles.dart';
 import '../../widgets/app_dialog.dart';
-import '../../widgets/field_job_dropdown.dart';
 import '../../widgets/field_image.dart';
 import '../../widgets/field_text.dart';
 import '../../widgets/rounded_button_loading.dart';
@@ -23,19 +21,6 @@ class AssetEditPage extends StatefulWidget {
 }
 
 class _AssetEditPageState extends State<AssetEditPage> {
-  datum_master.Datum? job;
-
-  @override
-  void initState() {
-    if (widget.data.jobId!.isNotEmpty) {
-      job = datum_master.Datum(
-        id: widget.data.jobId![0],
-        name: widget.data.jobId![1],
-      );
-    }
-    super.initState();
-  }
-
   void removeEmptyValueKeys(Map<String, dynamic> map) {
     map.removeWhere(
       (key, value) => value == null || value == "null" || value.isEmpty,
@@ -99,17 +84,6 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 keyboardType: TextInputType.text,
                 initialValue:
                     widget.data.userName == "false" ? "" : widget.data.userName,
-              ),
-              const SizedBox(height: 16),
-              FieldJobDropdown(
-                title: "Job Department",
-                hint: "Example : IT Officer",
-                onChanged: (data) {
-                  setState(() {
-                    job = data;
-                  });
-                },
-                selectedItem: job,
               ),
               const SizedBox(height: 16),
               FieldText(
@@ -209,10 +183,6 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                         .toString(),
                                 "image": imageInput,
                               };
-                            }
-
-                            if (job != null) {
-                              inputData["job_id"] = job!.id;
                             }
 
                             // removeEmptyValueKeys(inputData);

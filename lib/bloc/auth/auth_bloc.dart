@@ -30,33 +30,39 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
         final login = await service.login({
           "username": event.data["username"],
-          "password": event.data["password"]
+          "password": event.data["password"],
         });
 
-        login.fold((l) {
-          data = l;
-        }, (r) {
-          if (r == "Access Denied") {
-            throw ("Email atau Password anda salah");
-          } else {
-            throw (r);
-          }
-        });
+        login.fold(
+          (l) {
+            data = l;
+          },
+          (r) {
+            if (r == "Access Denied") {
+              throw ("Email atau Password anda salah");
+            } else {
+              throw (r);
+            }
+          },
+        );
 
         final getUser = await service.profile(data!.refreshToken!);
 
-        getUser.fold((l) {
-          detailUser = l;
-        }, (r) {
-          throw (r);
-        });
+        getUser.fold(
+          (l) {
+            detailUser = l;
+          },
+          (r) {
+            throw (r);
+          },
+        );
 
         final userData = jsonEncode({
           'token': data!.refreshToken,
           'name': detailUser!.name,
           'id': detailUser!.id,
           'uid': data!.token!.uid,
-          'user': data!.token!.user
+          'user': data!.token!.user,
         });
         sharedPreferences.setString('account', userData);
         emit(const AuthState.success());
@@ -71,11 +77,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         final Map<String, dynamic> dataUser = await getDetailUser();
 
         final getUser = await service.profile(dataUser["token"]);
-        getUser.fold((l) {
-          emit(AuthState.profile(l));
-        }, (r) {
-          throw (r);
-        });
+        getUser.fold(
+          (l) {
+            emit(AuthState.profile(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(AuthState.error(e.toString()));
       }

@@ -7,8 +7,9 @@ part 'datum.g.dart';
 class Datum with _$Datum {
   factory Datum({
     int? id,
-    String? name,
     String? code,
+    String? name,
+    @JsonKey(name: 'parent_id') List<dynamic>? parentId,
   }) = _Datum;
 
   factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);

@@ -12,7 +12,8 @@ part of 'barcode_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$BarcodeEvent {
@@ -21,52 +22,47 @@ mixin _$BarcodeEvent {
     required TResult Function() started,
     required TResult Function(List<Map<String, dynamic>> asset) movingData,
     required TResult Function(String code) detailData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(List<Map<String, dynamic>> asset)? movingData,
     TResult? Function(String code)? detailData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(List<Map<String, dynamic>> asset)? movingData,
     TResult Function(String code)? detailData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_MovingData value) movingData,
     required TResult Function(_DetailData value) detailData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_MovingData value)? movingData,
     TResult? Function(_DetailData value)? detailData,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_MovingData value)? movingData,
     TResult Function(_DetailData value)? detailData,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $BarcodeEventCopyWith<$Res> {
   factory $BarcodeEventCopyWith(
-          BarcodeEvent value, $Res Function(BarcodeEvent) then) =
-      _$BarcodeEventCopyWithImpl<$Res, BarcodeEvent>;
+    BarcodeEvent value,
+    $Res Function(BarcodeEvent) then,
+  ) = _$BarcodeEventCopyWithImpl<$Res, BarcodeEvent>;
 }
 
 /// @nodoc
@@ -78,13 +74,17 @@ class _$BarcodeEventCopyWithImpl<$Res, $Val extends BarcodeEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of BarcodeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$StartedImplCopyWith<$Res> {
   factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
+    _$StartedImpl value,
+    $Res Function(_$StartedImpl) then,
+  ) = __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -92,8 +92,12 @@ class __$$StartedImplCopyWithImpl<$Res>
     extends _$BarcodeEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
-      : super(_value, _then);
+    _$StartedImpl _value,
+    $Res Function(_$StartedImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of BarcodeEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -191,8 +195,9 @@ abstract class _Started implements BarcodeEvent {
 /// @nodoc
 abstract class _$$MovingDataImplCopyWith<$Res> {
   factory _$$MovingDataImplCopyWith(
-          _$MovingDataImpl value, $Res Function(_$MovingDataImpl) then) =
-      __$$MovingDataImplCopyWithImpl<$Res>;
+    _$MovingDataImpl value,
+    $Res Function(_$MovingDataImpl) then,
+  ) = __$$MovingDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Map<String, dynamic>> asset});
 }
@@ -202,20 +207,23 @@ class __$$MovingDataImplCopyWithImpl<$Res>
     extends _$BarcodeEventCopyWithImpl<$Res, _$MovingDataImpl>
     implements _$$MovingDataImplCopyWith<$Res> {
   __$$MovingDataImplCopyWithImpl(
-      _$MovingDataImpl _value, $Res Function(_$MovingDataImpl) _then)
-      : super(_value, _then);
+    _$MovingDataImpl _value,
+    $Res Function(_$MovingDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of BarcodeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? asset = null,
-  }) {
-    return _then(_$MovingDataImpl(
-      null == asset
-          ? _value._asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-    ));
+  $Res call({Object? asset = null}) {
+    return _then(
+      _$MovingDataImpl(
+        null == asset
+            ? _value._asset
+            : asset // ignore: cast_nullable_to_non_nullable
+                as List<Map<String, dynamic>>,
+      ),
+    );
   }
 }
 
@@ -223,7 +231,7 @@ class __$$MovingDataImplCopyWithImpl<$Res>
 
 class _$MovingDataImpl implements _MovingData {
   const _$MovingDataImpl(final List<Map<String, dynamic>> asset)
-      : _asset = asset;
+    : _asset = asset;
 
   final List<Map<String, dynamic>> _asset;
   @override
@@ -250,7 +258,9 @@ class _$MovingDataImpl implements _MovingData {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_asset));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BarcodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MovingDataImplCopyWith<_$MovingDataImpl> get copyWith =>
@@ -330,7 +340,10 @@ abstract class _MovingData implements BarcodeEvent {
       _$MovingDataImpl;
 
   List<Map<String, dynamic>> get asset;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BarcodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MovingDataImplCopyWith<_$MovingDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -338,8 +351,9 @@ abstract class _MovingData implements BarcodeEvent {
 /// @nodoc
 abstract class _$$DetailDataImplCopyWith<$Res> {
   factory _$$DetailDataImplCopyWith(
-          _$DetailDataImpl value, $Res Function(_$DetailDataImpl) then) =
-      __$$DetailDataImplCopyWithImpl<$Res>;
+    _$DetailDataImpl value,
+    $Res Function(_$DetailDataImpl) then,
+  ) = __$$DetailDataImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String code});
 }
@@ -349,20 +363,23 @@ class __$$DetailDataImplCopyWithImpl<$Res>
     extends _$BarcodeEventCopyWithImpl<$Res, _$DetailDataImpl>
     implements _$$DetailDataImplCopyWith<$Res> {
   __$$DetailDataImplCopyWithImpl(
-      _$DetailDataImpl _value, $Res Function(_$DetailDataImpl) _then)
-      : super(_value, _then);
+    _$DetailDataImpl _value,
+    $Res Function(_$DetailDataImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of BarcodeEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? code = null,
-  }) {
-    return _then(_$DetailDataImpl(
-      null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? code = null}) {
+    return _then(
+      _$DetailDataImpl(
+        null == code
+            ? _value.code
+            : code // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -390,7 +407,9 @@ class _$DetailDataImpl implements _DetailData {
   @override
   int get hashCode => Object.hash(runtimeType, code);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BarcodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DetailDataImplCopyWith<_$DetailDataImpl> get copyWith =>
@@ -469,7 +488,10 @@ abstract class _DetailData implements BarcodeEvent {
   const factory _DetailData(final String code) = _$DetailDataImpl;
 
   String get code;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BarcodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DetailDataImplCopyWith<_$DetailDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -484,8 +506,7 @@ mixin _$BarcodeState {
     required TResult Function(String message) success,
     required TResult Function(AssetModel asset) successWithDataAsset,
     required TResult Function(LocationModel location) successWithDataLocation,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -494,8 +515,7 @@ mixin _$BarcodeState {
     TResult? Function(String message)? success,
     TResult? Function(AssetModel asset)? successWithDataAsset,
     TResult? Function(LocationModel location)? successWithDataLocation,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -505,8 +525,7 @@ mixin _$BarcodeState {
     TResult Function(AssetModel asset)? successWithDataAsset,
     TResult Function(LocationModel location)? successWithDataLocation,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -515,9 +534,8 @@ mixin _$BarcodeState {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithDataAsset value) successWithDataAsset,
     required TResult Function(_SuccessWithDataLocation value)
-        successWithDataLocation,
-  }) =>
-      throw _privateConstructorUsedError;
+    successWithDataLocation,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -526,8 +544,7 @@ mixin _$BarcodeState {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessWithDataAsset value)? successWithDataAsset,
     TResult? Function(_SuccessWithDataLocation value)? successWithDataLocation,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -537,15 +554,15 @@ mixin _$BarcodeState {
     TResult Function(_SuccessWithDataAsset value)? successWithDataAsset,
     TResult Function(_SuccessWithDataLocation value)? successWithDataLocation,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $BarcodeStateCopyWith<$Res> {
   factory $BarcodeStateCopyWith(
-          BarcodeState value, $Res Function(BarcodeState) then) =
-      _$BarcodeStateCopyWithImpl<$Res, BarcodeState>;
+    BarcodeState value,
+    $Res Function(BarcodeState) then,
+  ) = _$BarcodeStateCopyWithImpl<$Res, BarcodeState>;
 }
 
 /// @nodoc
@@ -557,13 +574,17 @@ class _$BarcodeStateCopyWithImpl<$Res, $Val extends BarcodeState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -571,8 +592,12 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$BarcodeStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -646,7 +671,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithDataAsset value) successWithDataAsset,
     required TResult Function(_SuccessWithDataLocation value)
-        successWithDataLocation,
+    successWithDataLocation,
   }) {
     return initial(this);
   }
@@ -689,8 +714,9 @@ abstract class _Initial implements BarcodeState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -698,8 +724,12 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$BarcodeStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -773,7 +803,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithDataAsset value) successWithDataAsset,
     required TResult Function(_SuccessWithDataLocation value)
-        successWithDataLocation,
+    successWithDataLocation,
   }) {
     return loading(this);
   }
@@ -816,8 +846,9 @@ abstract class _Loading implements BarcodeState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String errorMessage});
 }
@@ -827,20 +858,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$BarcodeStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? errorMessage = null,
-  }) {
-    return _then(_$ErrorImpl(
-      null == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? errorMessage = null}) {
+    return _then(
+      _$ErrorImpl(
+        null == errorMessage
+            ? _value.errorMessage
+            : errorMessage // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -869,7 +903,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, errorMessage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -927,7 +963,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithDataAsset value) successWithDataAsset,
     required TResult Function(_SuccessWithDataLocation value)
-        successWithDataLocation,
+    successWithDataLocation,
   }) {
     return error(this);
   }
@@ -967,7 +1003,10 @@ abstract class _Error implements BarcodeState {
   const factory _Error(final String errorMessage) = _$ErrorImpl;
 
   String get errorMessage;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -975,8 +1014,9 @@ abstract class _Error implements BarcodeState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -986,20 +1026,23 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$BarcodeStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$SuccessImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$SuccessImpl(
+        null == message
+            ? _value.message
+            : message // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
   }
 }
 
@@ -1027,7 +1070,9 @@ class _$SuccessImpl implements _Success {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -1085,7 +1130,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithDataAsset value) successWithDataAsset,
     required TResult Function(_SuccessWithDataLocation value)
-        successWithDataLocation,
+    successWithDataLocation,
   }) {
     return success(this);
   }
@@ -1125,16 +1170,20 @@ abstract class _Success implements BarcodeState {
   const factory _Success(final String message) = _$SuccessImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SuccessWithDataAssetImplCopyWith<$Res> {
-  factory _$$SuccessWithDataAssetImplCopyWith(_$SuccessWithDataAssetImpl value,
-          $Res Function(_$SuccessWithDataAssetImpl) then) =
-      __$$SuccessWithDataAssetImplCopyWithImpl<$Res>;
+  factory _$$SuccessWithDataAssetImplCopyWith(
+    _$SuccessWithDataAssetImpl value,
+    $Res Function(_$SuccessWithDataAssetImpl) then,
+  ) = __$$SuccessWithDataAssetImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AssetModel asset});
 
@@ -1145,23 +1194,28 @@ abstract class _$$SuccessWithDataAssetImplCopyWith<$Res> {
 class __$$SuccessWithDataAssetImplCopyWithImpl<$Res>
     extends _$BarcodeStateCopyWithImpl<$Res, _$SuccessWithDataAssetImpl>
     implements _$$SuccessWithDataAssetImplCopyWith<$Res> {
-  __$$SuccessWithDataAssetImplCopyWithImpl(_$SuccessWithDataAssetImpl _value,
-      $Res Function(_$SuccessWithDataAssetImpl) _then)
-      : super(_value, _then);
+  __$$SuccessWithDataAssetImplCopyWithImpl(
+    _$SuccessWithDataAssetImpl _value,
+    $Res Function(_$SuccessWithDataAssetImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? asset = null,
-  }) {
-    return _then(_$SuccessWithDataAssetImpl(
-      null == asset
-          ? _value.asset
-          : asset // ignore: cast_nullable_to_non_nullable
-              as AssetModel,
-    ));
+  $Res call({Object? asset = null}) {
+    return _then(
+      _$SuccessWithDataAssetImpl(
+        null == asset
+            ? _value.asset
+            : asset // ignore: cast_nullable_to_non_nullable
+                as AssetModel,
+      ),
+    );
   }
 
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AssetModelCopyWith<$Res> get asset {
@@ -1195,13 +1249,17 @@ class _$SuccessWithDataAssetImpl implements _SuccessWithDataAsset {
   @override
   int get hashCode => Object.hash(runtimeType, asset);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessWithDataAssetImplCopyWith<_$SuccessWithDataAssetImpl>
-      get copyWith =>
-          __$$SuccessWithDataAssetImplCopyWithImpl<_$SuccessWithDataAssetImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$SuccessWithDataAssetImplCopyWithImpl<_$SuccessWithDataAssetImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1255,7 +1313,7 @@ class _$SuccessWithDataAssetImpl implements _SuccessWithDataAsset {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithDataAsset value) successWithDataAsset,
     required TResult Function(_SuccessWithDataLocation value)
-        successWithDataLocation,
+    successWithDataLocation,
   }) {
     return successWithDataAsset(this);
   }
@@ -1296,17 +1354,20 @@ abstract class _SuccessWithDataAsset implements BarcodeState {
       _$SuccessWithDataAssetImpl;
 
   AssetModel get asset;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessWithDataAssetImplCopyWith<_$SuccessWithDataAssetImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SuccessWithDataLocationImplCopyWith<$Res> {
   factory _$$SuccessWithDataLocationImplCopyWith(
-          _$SuccessWithDataLocationImpl value,
-          $Res Function(_$SuccessWithDataLocationImpl) then) =
-      __$$SuccessWithDataLocationImplCopyWithImpl<$Res>;
+    _$SuccessWithDataLocationImpl value,
+    $Res Function(_$SuccessWithDataLocationImpl) then,
+  ) = __$$SuccessWithDataLocationImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LocationModel location});
 
@@ -1318,23 +1379,27 @@ class __$$SuccessWithDataLocationImplCopyWithImpl<$Res>
     extends _$BarcodeStateCopyWithImpl<$Res, _$SuccessWithDataLocationImpl>
     implements _$$SuccessWithDataLocationImplCopyWith<$Res> {
   __$$SuccessWithDataLocationImplCopyWithImpl(
-      _$SuccessWithDataLocationImpl _value,
-      $Res Function(_$SuccessWithDataLocationImpl) _then)
-      : super(_value, _then);
+    _$SuccessWithDataLocationImpl _value,
+    $Res Function(_$SuccessWithDataLocationImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? location = null,
-  }) {
-    return _then(_$SuccessWithDataLocationImpl(
-      null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LocationModel,
-    ));
+  $Res call({Object? location = null}) {
+    return _then(
+      _$SuccessWithDataLocationImpl(
+        null == location
+            ? _value.location
+            : location // ignore: cast_nullable_to_non_nullable
+                as LocationModel,
+      ),
+    );
   }
 
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LocationModelCopyWith<$Res> get location {
@@ -1369,12 +1434,15 @@ class _$SuccessWithDataLocationImpl implements _SuccessWithDataLocation {
   @override
   int get hashCode => Object.hash(runtimeType, location);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessWithDataLocationImplCopyWith<_$SuccessWithDataLocationImpl>
-      get copyWith => __$$SuccessWithDataLocationImplCopyWithImpl<
-          _$SuccessWithDataLocationImpl>(this, _$identity);
+  get copyWith => __$$SuccessWithDataLocationImplCopyWithImpl<
+    _$SuccessWithDataLocationImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1428,7 +1496,7 @@ class _$SuccessWithDataLocationImpl implements _SuccessWithDataLocation {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessWithDataAsset value) successWithDataAsset,
     required TResult Function(_SuccessWithDataLocation value)
-        successWithDataLocation,
+    successWithDataLocation,
   }) {
     return successWithDataLocation(this);
   }
@@ -1469,7 +1537,10 @@ abstract class _SuccessWithDataLocation implements BarcodeState {
       _$SuccessWithDataLocationImpl;
 
   LocationModel get location;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of BarcodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessWithDataLocationImplCopyWith<_$SuccessWithDataLocationImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

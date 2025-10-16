@@ -12,7 +12,8 @@ part of 'master_data_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 MasterDataModel _$MasterDataModelFromJson(Map<String, dynamic> json) {
   return _MasterDataModel.fromJson(json);
@@ -24,8 +25,12 @@ mixin _$MasterDataModel {
   dynamic get id => throw _privateConstructorUsedError;
   Result? get result => throw _privateConstructorUsedError;
 
+  /// Serializes this MasterDataModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MasterDataModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MasterDataModelCopyWith<MasterDataModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -33,8 +38,9 @@ mixin _$MasterDataModel {
 /// @nodoc
 abstract class $MasterDataModelCopyWith<$Res> {
   factory $MasterDataModelCopyWith(
-          MasterDataModel value, $Res Function(MasterDataModel) then) =
-      _$MasterDataModelCopyWithImpl<$Res, MasterDataModel>;
+    MasterDataModel value,
+    $Res Function(MasterDataModel) then,
+  ) = _$MasterDataModelCopyWithImpl<$Res, MasterDataModel>;
   @useResult
   $Res call({String? jsonrpc, dynamic id, Result? result});
 
@@ -51,6 +57,8 @@ class _$MasterDataModelCopyWithImpl<$Res, $Val extends MasterDataModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MasterDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -58,22 +66,30 @@ class _$MasterDataModelCopyWithImpl<$Res, $Val extends MasterDataModel>
     Object? id = freezed,
     Object? result = freezed,
   }) {
-    return _then(_value.copyWith(
-      jsonrpc: freezed == jsonrpc
-          ? _value.jsonrpc
-          : jsonrpc // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      result: freezed == result
-          ? _value.result
-          : result // ignore: cast_nullable_to_non_nullable
-              as Result?,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            jsonrpc:
+                freezed == jsonrpc
+                    ? _value.jsonrpc
+                    : jsonrpc // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            id:
+                freezed == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as dynamic,
+            result:
+                freezed == result
+                    ? _value.result
+                    : result // ignore: cast_nullable_to_non_nullable
+                        as Result?,
+          )
+          as $Val,
+    );
   }
 
+  /// Create a copy of MasterDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ResultCopyWith<$Res>? get result {
@@ -90,9 +106,10 @@ class _$MasterDataModelCopyWithImpl<$Res, $Val extends MasterDataModel>
 /// @nodoc
 abstract class _$$MasterDataModelImplCopyWith<$Res>
     implements $MasterDataModelCopyWith<$Res> {
-  factory _$$MasterDataModelImplCopyWith(_$MasterDataModelImpl value,
-          $Res Function(_$MasterDataModelImpl) then) =
-      __$$MasterDataModelImplCopyWithImpl<$Res>;
+  factory _$$MasterDataModelImplCopyWith(
+    _$MasterDataModelImpl value,
+    $Res Function(_$MasterDataModelImpl) then,
+  ) = __$$MasterDataModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? jsonrpc, dynamic id, Result? result});
@@ -106,9 +123,12 @@ class __$$MasterDataModelImplCopyWithImpl<$Res>
     extends _$MasterDataModelCopyWithImpl<$Res, _$MasterDataModelImpl>
     implements _$$MasterDataModelImplCopyWith<$Res> {
   __$$MasterDataModelImplCopyWithImpl(
-      _$MasterDataModelImpl _value, $Res Function(_$MasterDataModelImpl) _then)
-      : super(_value, _then);
+    _$MasterDataModelImpl _value,
+    $Res Function(_$MasterDataModelImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of MasterDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -116,20 +136,25 @@ class __$$MasterDataModelImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$MasterDataModelImpl(
-      jsonrpc: freezed == jsonrpc
-          ? _value.jsonrpc
-          : jsonrpc // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      result: freezed == result
-          ? _value.result
-          : result // ignore: cast_nullable_to_non_nullable
-              as Result?,
-    ));
+    return _then(
+      _$MasterDataModelImpl(
+        jsonrpc:
+            freezed == jsonrpc
+                ? _value.jsonrpc
+                : jsonrpc // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        id:
+            freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as dynamic,
+        result:
+            freezed == result
+                ? _value.result
+                : result // ignore: cast_nullable_to_non_nullable
+                    as Result?,
+      ),
+    );
   }
 }
 
@@ -163,31 +188,38 @@ class _$MasterDataModelImpl implements _MasterDataModel {
             (identical(other.result, result) || other.result == result));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, jsonrpc, const DeepCollectionEquality().hash(id), result);
+    runtimeType,
+    jsonrpc,
+    const DeepCollectionEquality().hash(id),
+    result,
+  );
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MasterDataModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MasterDataModelImplCopyWith<_$MasterDataModelImpl> get copyWith =>
       __$$MasterDataModelImplCopyWithImpl<_$MasterDataModelImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MasterDataModelImplToJson(
-      this,
-    );
+    return _$$MasterDataModelImplToJson(this);
   }
 }
 
 abstract class _MasterDataModel implements MasterDataModel {
-  factory _MasterDataModel(
-      {final String? jsonrpc,
-      final dynamic id,
-      final Result? result}) = _$MasterDataModelImpl;
+  factory _MasterDataModel({
+    final String? jsonrpc,
+    final dynamic id,
+    final Result? result,
+  }) = _$MasterDataModelImpl;
 
   factory _MasterDataModel.fromJson(Map<String, dynamic> json) =
       _$MasterDataModelImpl.fromJson;
@@ -198,8 +230,11 @@ abstract class _MasterDataModel implements MasterDataModel {
   dynamic get id;
   @override
   Result? get result;
+
+  /// Create a copy of MasterDataModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MasterDataModelImplCopyWith<_$MasterDataModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

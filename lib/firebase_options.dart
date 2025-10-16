@@ -54,7 +54,8 @@ class DefaultFirebaseOptions {
     appId: '1:510976451401:android:245a7c913d31069606f098',
     messagingSenderId: '510976451401',
     projectId: 'mail-berdikari',
-    databaseURL: 'https://mail-berdikari-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://mail-berdikari-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'mail-berdikari.firebasestorage.app',
   );
 
@@ -63,9 +64,9 @@ class DefaultFirebaseOptions {
     appId: '1:510976451401:ios:c9af1d303b96d70506f098',
     messagingSenderId: '510976451401',
     projectId: 'mail-berdikari',
-    databaseURL: 'https://mail-berdikari-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://mail-berdikari-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'mail-berdikari.firebasestorage.app',
     iosBundleId: 'com.innovast.tam',
   );
-
 }

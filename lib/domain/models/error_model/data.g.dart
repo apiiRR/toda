@@ -7,14 +7,13 @@ part of 'data.dart';
 // **************************************************************************
 
 _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
-      name: json['name'].toString(),
-      debug: json['debug'].toString(),
-      message: json['message'].toString(),
-      arguments: (json['arguments'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      exceptionType: json['exception_type'].toString(),
-    );
+  name: json['name'] as String?,
+  debug: json['debug'] as String?,
+  message: json['message'] as String?,
+  arguments:
+      (json['arguments'] as List<dynamic>?)?.map((e) => e as String).toList(),
+  exceptionType: json['exception_type'] as String?,
+);
 
 Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
     <String, dynamic>{

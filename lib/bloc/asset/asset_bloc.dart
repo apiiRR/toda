@@ -33,14 +33,19 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
         emit(const AssetState.loading());
         final Map<String, dynamic> dataUser = await getDetailUser();
 
-        final data = await service.assetGet(dataUser["token"], 0, data: {
-          "name": event.name,
-        });
-        data.fold((l) {
-          emit(AssetState.successWithData(l));
-        }, (r) {
-          throw (r);
-        });
+        final data = await service.assetGet(
+          dataUser["token"],
+          0,
+          data: {"name": event.name},
+        );
+        data.fold(
+          (l) {
+            emit(AssetState.successWithData(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(AssetState.error(e.toString()));
       }
@@ -50,13 +55,19 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
         emit(const AssetState.loading());
         final Map<String, dynamic> dataUser = await getDetailUser();
 
-        final data = await service.assetGet(dataUser["token"], event.start,
-            data: event.data);
-        data.fold((l) {
-          emit(AssetState.successWithData(l));
-        }, (r) {
-          throw (r);
-        });
+        final data = await service.assetGet(
+          dataUser["token"],
+          event.start,
+          data: event.data,
+        );
+        data.fold(
+          (l) {
+            emit(AssetState.successWithData(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(AssetState.error(e.toString()));
       }
@@ -67,11 +78,14 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
         final Map<String, dynamic> dataUser = await getDetailUser();
 
         final data = await service.assetGetSingle(dataUser["token"], event.id);
-        data.fold((l) {
-          emit(AssetState.successWithData(l));
-        }, (r) {
-          throw (r);
-        });
+        data.fold(
+          (l) {
+            emit(AssetState.successWithData(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(AssetState.error(e.toString()));
       }
@@ -89,19 +103,25 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
         }
 
         final post = await service.assetPost(dataUser["token"], dataInput);
-        post.fold((l) {
-          id = l;
-        }, (r) {
-          throw (r);
-        });
+        post.fold(
+          (l) {
+            id = l;
+          },
+          (r) {
+            throw (r);
+          },
+        );
 
         final data = await service.assetGetSingle(dataUser["token"], id);
-        data.fold((l) {
-          emit(AssetState.successWithData(l));
-          emit(const AssetState.success("Data saved successfully"));
-        }, (r) {
-          throw (r);
-        });
+        data.fold(
+          (l) {
+            emit(AssetState.successWithData(l));
+            emit(const AssetState.success("Data saved successfully"));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(AssetState.error(e.toString()));
       }
@@ -115,18 +135,24 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
         Map<String, dynamic> dataInput = Map.from(event.asset);
 
         final post = await service.assetPost(dataUser["token"], dataInput);
-        post.fold((l) {
-          id = l;
-        }, (r) {
-          throw (r);
-        });
+        post.fold(
+          (l) {
+            id = l;
+          },
+          (r) {
+            throw (r);
+          },
+        );
 
         final data = await service.assetGetSingle(dataUser["token"], id);
-        data.fold((l) {
-          emit(AssetState.successDuplicate(l));
-        }, (r) {
-          throw (r);
-        });
+        data.fold(
+          (l) {
+            emit(AssetState.successDuplicate(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(AssetState.error(e.toString()));
       }
@@ -144,21 +170,30 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
           dataInput["image"] = image;
         }
 
-        final put =
-            await service.assetPut(dataUser["token"], dataInput, event.id);
-        put.fold((l) {
-          id = l;
-        }, (r) {
-          throw (r);
-        });
+        final put = await service.assetPut(
+          dataUser["token"],
+          dataInput,
+          event.id,
+        );
+        put.fold(
+          (l) {
+            id = l;
+          },
+          (r) {
+            throw (r);
+          },
+        );
 
         final data = await service.assetGetSingle(dataUser["token"], id);
-        data.fold((l) {
-          // emit(AssetState.successWithData(l));
-          emit(const AssetState.success("Data changed successfully"));
-        }, (r) {
-          throw (r);
-        });
+        data.fold(
+          (l) {
+            // emit(AssetState.successWithData(l));
+            emit(const AssetState.success("Data changed successfully"));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(AssetState.error(e.toString()));
       }
@@ -169,11 +204,14 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
         final Map<String, dynamic> dataUser = await getDetailUser();
 
         final data = await service.assetDelete(dataUser["token"], event.id);
-        data.fold((l) {
-          emit(const AssetState.success("Data deleted successfully"));
-        }, (r) {
-          throw (r);
-        });
+        data.fold(
+          (l) {
+            emit(const AssetState.success("Data deleted successfully"));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(AssetState.error(e.toString()));
       }
@@ -183,13 +221,18 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
         emit(const AssetState.loading());
         final Map<String, dynamic> dataUser = await getDetailUser();
 
-        final data =
-            await service.assetGetAll(dataUser["token"], data: event.asset);
-        data.fold((l) {
-          emit(AssetState.successWithData(l));
-        }, (r) {
-          throw (r);
-        });
+        final data = await service.assetGetAll(
+          dataUser["token"],
+          data: event.asset,
+        );
+        data.fold(
+          (l) {
+            emit(AssetState.successWithData(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(AssetState.error(e.toString()));
       }

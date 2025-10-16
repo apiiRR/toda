@@ -12,7 +12,8 @@ part of 'token.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Token _$TokenFromJson(Map<String, dynamic> json) {
   return _Token.fromJson(json);
@@ -23,8 +24,12 @@ mixin _$Token {
   int? get uid => throw _privateConstructorUsedError;
   String? get user => throw _privateConstructorUsedError;
 
+  /// Serializes this Token to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Token
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TokenCopyWith<Token> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -46,30 +51,35 @@ class _$TokenCopyWithImpl<$Res, $Val extends Token>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Token
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? uid = freezed,
-    Object? user = freezed,
-  }) {
-    return _then(_value.copyWith(
-      uid: freezed == uid
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as int?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? uid = freezed, Object? user = freezed}) {
+    return _then(
+      _value.copyWith(
+            uid:
+                freezed == uid
+                    ? _value.uid
+                    : uid // ignore: cast_nullable_to_non_nullable
+                        as int?,
+            user:
+                freezed == user
+                    ? _value.user
+                    : user // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$TokenImplCopyWith<$Res> implements $TokenCopyWith<$Res> {
   factory _$$TokenImplCopyWith(
-          _$TokenImpl value, $Res Function(_$TokenImpl) then) =
-      __$$TokenImplCopyWithImpl<$Res>;
+    _$TokenImpl value,
+    $Res Function(_$TokenImpl) then,
+  ) = __$$TokenImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? uid, String? user});
@@ -80,25 +90,29 @@ class __$$TokenImplCopyWithImpl<$Res>
     extends _$TokenCopyWithImpl<$Res, _$TokenImpl>
     implements _$$TokenImplCopyWith<$Res> {
   __$$TokenImplCopyWithImpl(
-      _$TokenImpl _value, $Res Function(_$TokenImpl) _then)
-      : super(_value, _then);
+    _$TokenImpl _value,
+    $Res Function(_$TokenImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of Token
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? uid = freezed,
-    Object? user = freezed,
-  }) {
-    return _then(_$TokenImpl(
-      uid: freezed == uid
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as int?,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? uid = freezed, Object? user = freezed}) {
+    return _then(
+      _$TokenImpl(
+        uid:
+            freezed == uid
+                ? _value.uid
+                : uid // ignore: cast_nullable_to_non_nullable
+                    as int?,
+        user:
+            freezed == user
+                ? _value.user
+                : user // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
   }
 }
 
@@ -129,11 +143,13 @@ class _$TokenImpl implements _Token {
             (identical(other.user, user) || other.user == user));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, uid, user);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Token
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TokenImplCopyWith<_$TokenImpl> get copyWith =>
@@ -141,9 +157,7 @@ class _$TokenImpl implements _Token {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TokenImplToJson(
-      this,
-    );
+    return _$$TokenImplToJson(this);
   }
 }
 
@@ -156,8 +170,11 @@ abstract class _Token implements Token {
   int? get uid;
   @override
   String? get user;
+
+  /// Create a copy of Token
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TokenImplCopyWith<_$TokenImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

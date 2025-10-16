@@ -21,13 +21,18 @@ class BarcodeBloc extends Bloc<BarcodeEvent, BarcodeState> {
         emit(const BarcodeState.loading());
         final Map<String, dynamic> dataUser = await getDetailUser();
 
-        final data =
-            await assetService.assetMoving(dataUser["token"], event.asset);
-        data.fold((l) {
-          emit(const BarcodeState.success("Data transferred successfully"));
-        }, (r) {
-          throw (r);
-        });
+        final data = await assetService.assetMoving(
+          dataUser["token"],
+          event.asset,
+        );
+        data.fold(
+          (l) {
+            emit(const BarcodeState.success("Data transferred successfully"));
+          },
+          (r) {
+            throw (r);
+          },
+        );
       } catch (e) {
         emit(BarcodeState.error(e.toString()));
       }
@@ -38,33 +43,40 @@ class BarcodeBloc extends Bloc<BarcodeEvent, BarcodeState> {
         final Map<String, dynamic> dataUser = await getDetailUser();
         bool isAsset = false;
 
-        final dataAsset =
-            await assetService.assetGet(dataUser["token"], 0, data: {
-          "name": event.code,
-        });
+        final dataAsset = await assetService.assetGet(
+          dataUser["token"],
+          0,
+          data: {"name": event.code},
+        );
 
-        dataAsset.fold((l) {
-          if (l.result!.data!.isNotEmpty) {
-            isAsset = true;
-            emit(BarcodeState.successWithDataAsset(l));
-          } else {
-            isAsset = false;
-          }
-        }, (r) {
-          throw (r);
-        });
+        dataAsset.fold(
+          (l) {
+            if (l.result!.data!.isNotEmpty) {
+              isAsset = true;
+              emit(BarcodeState.successWithDataAsset(l));
+            } else {
+              isAsset = false;
+            }
+          },
+          (r) {
+            throw (r);
+          },
+        );
 
         if (isAsset == false) {
-          final dataLocation =
-              await locationService.locationGet(dataUser["token"], data: {
-            "code": event.code,
-          });
+          final dataLocation = await locationService.locationGet(
+            dataUser["token"],
+            data: {"code": event.code},
+          );
 
-          dataLocation.fold((l) {
-            emit(BarcodeState.successWithDataLocation(l));
-          }, (r) {
-            throw (r);
-          });
+          dataLocation.fold(
+            (l) {
+              emit(BarcodeState.successWithDataLocation(l));
+            },
+            (r) {
+              throw (r);
+            },
+          );
         }
       } catch (e) {
         emit(BarcodeState.error(e.toString()));

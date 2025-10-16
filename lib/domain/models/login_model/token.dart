@@ -5,10 +5,7 @@ part 'token.g.dart';
 
 @freezed
 class Token with _$Token {
-  factory Token({
-    int? uid,
-    String? user,
-  }) = _Token;
+  factory Token({int? uid, String? user}) = _Token;
 
   factory Token.fromJson(Map<String, dynamic> json) => _$TokenFromJson(json);
 }

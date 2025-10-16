@@ -13,12 +13,16 @@ class MasterServices implements MasterInterface {
   @override
   Future<List<Datum>> getJob(String token) async {
     try {
-      final response = await _client.post(Endpoints.job,
-          data: jsonEncode({}),
-          options: Options(headers: {
+      final response = await _client.post(
+        Endpoints.job,
+        data: jsonEncode({}),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       var data = response.data as Map<String, dynamic>;
 
@@ -38,12 +42,16 @@ class MasterServices implements MasterInterface {
   @override
   Future<List<Datum>> getCategory(String token) async {
     try {
-      final response = await _client.post(Endpoints.category,
-          data: jsonEncode({}),
-          options: Options(headers: {
+      final response = await _client.post(
+        Endpoints.category,
+        data: jsonEncode({}),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       var data = response.data as Map<String, dynamic>;
 

@@ -12,19 +12,18 @@ class RoundedButtonLoading extends StatelessWidget {
       width: 100.w,
       height: 50,
       child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-              backgroundColor: kPrimary,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              elevation: 3),
-          child: SizedBox(
-            height: 10,
-            width: 10,
-            child: CircularProgressIndicator(
-              color: kWhite,
-            ),
-          )),
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: kPrimary,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          elevation: 3,
+        ),
+        child: SizedBox(
+          height: 10,
+          width: 10,
+          child: CircularProgressIndicator(color: kWhite),
+        ),
+      ),
     );
   }
 }

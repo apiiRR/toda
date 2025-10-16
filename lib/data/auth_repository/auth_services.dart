@@ -16,11 +16,11 @@ class AuthServices implements AuthInterface {
 
   @override
   Future<Either<LoginModel, String>> login(Map data) async {
-    final response = await _client.post(Endpoints.login,
-        data: jsonEncode(data),
-        options: Options(headers: {
-          "Content-Type": "application/json",
-        }));
+    final response = await _client.post(
+      Endpoints.login,
+      data: jsonEncode(data),
+      options: Options(headers: {"Content-Type": "application/json"}),
+    );
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> detail = response.data as Map<String, dynamic>;
@@ -28,8 +28,8 @@ class AuthServices implements AuthInterface {
         return Left(LoginModel.fromJson(detail["result"]["data"]));
       } else {
         ErrorModel errorData = ErrorModel.fromJson(response.data);
-        List<String> errorMessageSplited =
-            errorData.error!.data!.message!.split("\n");
+        List<String> errorMessageSplited = errorData.error!.data!.message!
+            .split("\n");
         return Right(errorMessageSplited[0]);
       }
     } else {
@@ -42,12 +42,16 @@ class AuthServices implements AuthInterface {
   @override
   Future<Either<ProfileModel, String>> profile(String token) async {
     try {
-      final response = await _client.post(Endpoints.profil,
-          data: jsonEncode({}),
-          options: Options(headers: {
+      final response = await _client.post(
+        Endpoints.profil,
+        data: jsonEncode({}),
+        options: Options(
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer $token"
-          }));
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
 
       if (response.statusCode == 200) {
         final Map<String, dynamic> detail =
@@ -56,14 +60,16 @@ class AuthServices implements AuthInterface {
           return Left(ProfileModel.fromJson(detail["result"]["data"][0]));
         } else {
           ErrorModel errorData = ErrorModel.fromJson(response.data);
-          List<String> errorMessageSplited =
-              errorData.error!.message!.split("\n");
+          List<String> errorMessageSplited = errorData.error!.message!.split(
+            "\n",
+          );
           return Right(errorMessageSplited[0]);
         }
       } else {
         ErrorModel errorData = ErrorModel.fromJson(response.data);
-        List<String> errorMessageSplited =
-            errorData.error!.message!.split("\n");
+        List<String> errorMessageSplited = errorData.error!.message!.split(
+          "\n",
+        );
         return Right(errorMessageSplited[0]);
       }
     } on DioException catch (e) {

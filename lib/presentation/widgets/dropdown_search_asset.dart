@@ -28,60 +28,57 @@ class DropdownSearchAsset extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: kJakartaRegular.copyWith(color: kBlack),
-        ),
-        SizedBox(
-          height: 1.h,
-        ),
+        Text(title, style: kJakartaRegular.copyWith(color: kBlack)),
+        SizedBox(height: 1.h),
         DropdownSearch<Datum>.multiSelection(
           selectedItems: selectedItems,
           validator: validator,
           popupProps: PopupPropsMultiSelection.modalBottomSheet(
-              showSearchBox: true,
-              searchFieldProps: TextFieldProps(
-                  style: kJakartaRegular,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16)),
-              itemBuilder: (context, item, _) {
-                return Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          bottom: BorderSide(color: kGrey.withOpacity(0.5)))),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        item.productCode!,
-                        style: kJakartaBold,
-                      ),
-                      Text(
-                        item.productName!,
-                        style: kJakartaRegular,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        item.locationName! == "false"
-                            ? "Location has not been added"
-                            : item.locationName!,
-                        style: kJakartaRegular.copyWith(
-                            fontSize: 12,
-                            color: item.locationName! == "false"
-                                ? Colors.redAccent
-                                : kPrimary),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+            showSearchBox: true,
+            searchFieldProps: TextFieldProps(
+              style: kJakartaRegular,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            ),
+            itemBuilder: (context, item, _) {
+              return Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: kGrey.withOpacity(0.5)),
                   ),
-                );
-              }),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 10,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(item.productCode!, style: kJakartaBold),
+                    Text(
+                      item.productName!,
+                      style: kJakartaRegular,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      item.locationName! == "false"
+                          ? "Location has not been added"
+                          : item.locationName!,
+                      style: kJakartaRegular.copyWith(
+                        fontSize: 12,
+                        color:
+                            item.locationName! == "false"
+                                ? Colors.redAccent
+                                : kPrimary,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
           dropdownDecoratorProps: DropDownDecoratorProps(
             baseStyle: kJakartaRegular,
             dropdownSearchDecoration: InputDecoration(

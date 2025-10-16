@@ -74,9 +74,7 @@ class AppRouter {
         name: RouteName.showImagePage,
         builder: (context, state) {
           String data = state.extra as String;
-          return ShowLargeImageWithPhotoView(
-            imageUrl: data,
-          );
+          return ShowLargeImageWithPhotoView(imageUrl: data);
         },
       ),
       GoRoute(
@@ -84,9 +82,7 @@ class AppRouter {
         name: RouteName.assetEditPage,
         builder: (context, state) {
           asset_datum.Datum data = state.extra as asset_datum.Datum;
-          return AssetEditPage(
-            data: data,
-          );
+          return AssetEditPage(data: data);
         },
       ),
       GoRoute(
@@ -106,9 +102,7 @@ class AppRouter {
         name: RouteName.locationDetailPage,
         builder: (context, state) {
           location_datum.Datum data = state.extra as location_datum.Datum;
-          return LocationDetailPage(
-            data: data,
-          );
+          return LocationDetailPage(data: data);
         },
       ),
       GoRoute(
@@ -116,9 +110,7 @@ class AppRouter {
         name: RouteName.locationEditPage,
         builder: (context, state) {
           location_datum.Datum data = state.extra as location_datum.Datum;
-          return LocationEditPage(
-            data: data,
-          );
+          return LocationEditPage(data: data);
         },
       ),
       GoRoute(

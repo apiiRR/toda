@@ -7,14 +7,16 @@ part of 'datum.dart';
 // **************************************************************************
 
 _$DatumImpl _$$DatumImplFromJson(Map<String, dynamic> json) => _$DatumImpl(
-      id: (json['id'] as num?)?.toInt(),
-      name: json['name'].toString(),
-      code: json['code'].toString(),
-    );
+  id: (json['id'] as num?)?.toInt(),
+  code: json['code'] as String?,
+  name: json['name'] as String?,
+  parentId: json['parent_id'] as List<dynamic>?,
+);
 
 Map<String, dynamic> _$$DatumImplToJson(_$DatumImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
       'code': instance.code,
+      'name': instance.name,
+      'parent_id': instance.parentId,
     };
