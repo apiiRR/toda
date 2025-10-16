@@ -1,0 +1,13 @@
+{
+    "id": 3,
+    "name": "ADMINISTRATOR",
+    "street": false,
+    "type_integration": "5",
+    "customer": false,
+    "supplier": true,
+    "company_id": [
+        1,
+        "PT BERDIKARI"
+    ],
+    "company_type": "person"
+}

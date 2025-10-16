@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "510976451401",
+    "firebase_url": "https://mail-berdikari-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mail-berdikari",
+    "storage_bucket": "mail-berdikari.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510976451401:android:ef2a4b162b5f16f906f098",
+        "android_client_info": {
+          "package_name": "com.berdikari.mail"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6JWx3_4VDvrVbk1OGdcfaELiqKjmRWn8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510976451401:android:245a7c913d31069606f098",
+        "android_client_info": {
+          "package_name": "com.innovast.tam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6JWx3_4VDvrVbk1OGdcfaELiqKjmRWn8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

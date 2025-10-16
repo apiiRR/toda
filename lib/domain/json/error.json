@@ -1,0 +1,17 @@
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "error": {
+        "code": 200,
+        "message": "Odoo Server Error",
+        "data": {
+            "name": "odoo.exceptions.AccessDenied",
+            "debug": "Traceback (most recent call last):\n  File \"/usr/lib/python3/dist-packages/odoo/http.py\", line 656, in _handle_exception\n    return super(JsonRequest, self)._handle_exception(exception)\n  File \"/usr/lib/python3/dist-packages/odoo/http.py\", line 314, in _handle_exception\n    raise pycompat.reraise(type(exception), exception, sys.exc_info()[2])\n  File \"/usr/lib/python3/dist-packages/odoo/tools/pycompat.py\", line 87, in reraise\n    raise value\n  File \"/usr/lib/python3/dist-packages/odoo/http.py\", line 698, in dispatch\n    result = self._call_function(**self.params)\n  File \"/usr/lib/python3/dist-packages/odoo/http.py\", line 346, in _call_function\n    return checked_call(self.db, *args, **kwargs)\n  File \"/usr/lib/python3/dist-packages/odoo/service/model.py\", line 98, in wrapper\n    return f(dbname, *args, **kwargs)\n  File \"/usr/lib/python3/dist-packages/odoo/http.py\", line 339, in checked_call\n    result = self.endpoint(*a, **kw)\n  File \"/usr/lib/python3/dist-packages/odoo/http.py\", line 941, in __call__\n    return self.method(*args, **kw)\n  File \"/usr/lib/python3/dist-packages/odoo/http.py\", line 519, in response_wrap\n    response = f(*args, **kw)\n  File \"/mnt/odoo_berdikari/addons/bdk_api_base/jwt/login.py\", line 110, in get_login\n    uid = request.session.authenticate(request.session.db, username, password) #or request.cr.dbname for dbname\n  File \"/usr/lib/python3/dist-packages/odoo/http.py\", line 1041, in authenticate\n    uid = odoo.registry(db)['res.users'].authenticate(db, login, password, env)\n  File \"/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py\", line 633, in authenticate\n    uid = cls._login(db, login, password)\n  File \"/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py\", line 612, in _login\n    user._check_credentials(password)\n  File \"/mnt/odoo_berdikari/oca_addons/two_factor_otp_auth/models/res_users.py\", line 104, in _check_credentials\n    super(ResUsers, self)._check_credentials(password)\n  File \"/usr/lib/python3/dist-packages/odoo/addons/base/models/res_users.py\", line 322, in _check_credentials\n    raise AccessDenied()\nodoo.exceptions.AccessDenied: Access denied\n",
+            "message": "Access denied",
+            "arguments": [
+                "Access denied"
+            ],
+            "exception_type": "access_denied"
+        }
+    }
+}

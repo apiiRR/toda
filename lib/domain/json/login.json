@@ -1,0 +1,9 @@
+{
+    "res_user": "res.users(2,)",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsInVzZXIiOiJhZG1pbiJ9.Ms9zqNn6qMC7HNyhDZPi2Fma1CI2K45rD2B_A5c4zyY",
+    "token": {
+        "uid": 2,
+        "user": "admin"
+    }
+  }
+  

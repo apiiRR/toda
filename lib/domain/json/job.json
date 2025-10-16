@@ -1,0 +1,12 @@
+{
+  "jsonrpc": "2.0",
+  "id": null,
+  "result": {
+    "result": [
+      {
+        "id": 168,
+        "name": "Asmen FGA"
+      }
+    ]
+  }
+}

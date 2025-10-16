@@ -1,0 +1,13 @@
+{
+    "jsonrpc": "2.0",
+    "id": null,
+    "result": {
+        "data": [
+            {
+                "id": 2,
+                "name": "Ruangan Ciamis",
+                "code": "LL013"
+            }
+        ]
+    }
+}
