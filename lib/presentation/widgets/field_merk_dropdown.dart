@@ -96,7 +96,7 @@ class FieldMerkDropdown extends StatelessWidget {
             asyncItems: (String filter) async {
               final Map<String, dynamic> dataUser = await getDetailUser();
 
-              List<Datum> data = await MasterServices().getCategory(
+              List<Datum> data = await MasterServices().getMerk(
                 dataUser["token"],
               );
 

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../utils/app_styles.dart';
 
-class FieldText extends StatelessWidget {
-  const FieldText({
+class FieldDate extends StatelessWidget {
+  const FieldDate({
     super.key,
     required this.title,
     required this.name,
@@ -15,7 +16,6 @@ class FieldText extends StatelessWidget {
     this.isPassword = false,
     this.maxLines = 1,
     this.validator,
-    this.readOnly = false,
     this.initialValue,
     this.controller,
     this.onChanged,
@@ -29,11 +29,10 @@ class FieldText extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool isPassword;
   final int maxLines;
-  final String? Function(String?)? validator;
-  final bool readOnly;
-  final String? initialValue;
+  final String? Function(DateTime?)? validator;
+  final DateTime? initialValue;
   final TextEditingController? controller;
-  final void Function(String?)? onChanged;
+  final void Function(DateTime?)? onChanged;
   final List<TextInputFormatter>? inputFormatters;
   final Widget? suffix;
   final bool enable;
@@ -47,11 +46,12 @@ class FieldText extends StatelessWidget {
         children: [
           Text(title, style: kJakartaRegular.copyWith(color: kBlack)),
           SizedBox(height: 1.h),
-          FormBuilderTextField(
+          FormBuilderDateTimePicker(
+            inputType: InputType.date,
+            format: DateFormat("yyyy-MM-dd"),
             enabled: enable,
             controller: controller,
             initialValue: initialValue,
-            readOnly: readOnly,
             validator: validator,
             maxLines: maxLines,
             obscureText: isPassword,

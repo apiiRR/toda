@@ -72,7 +72,7 @@ class MasterServices implements MasterInterface {
   Future<List<Datum>> getMerk(String token) async {
     try {
       final response = await _client.post(
-        Endpoints.category,
+        Endpoints.merk,
         data: jsonEncode({}),
         options: Options(
           headers: {

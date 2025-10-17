@@ -72,13 +72,13 @@ class _LocationInputPageState extends State<LocationInputPage> {
                 listener: (context, state) {
                   state.maybeWhen(
                     orElse: () {},
-                    error: (errorMessage) {
-                      showAppDialog(
-                        context,
-                        type: DialogType.error,
-                        message: errorMessage,
-                      );
-                    },
+                    // error: (errorMessage) {
+                    //   showAppDialog(
+                    //     context,
+                    //     type: DialogType.error,
+                    //     message: errorMessage,
+                    //   );
+                    // },
                     successWithData: (data) {
                       dataLocation = data;
                     },

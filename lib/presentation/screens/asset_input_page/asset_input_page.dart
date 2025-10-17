@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
+import 'package:toda/presentation/widgets/field_date.dart';
 
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/asset_model.dart';
@@ -95,33 +98,51 @@ class _AssetInputPageState extends State<AssetInputPage> {
               ),
               const SizedBox(height: 16),
               FieldText(
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.numeric(),
-                ]),
+                validator: FormBuilderValidators.compose([]),
                 title: "PO Number",
                 name: "po_number",
                 hint: "Example : PO123",
                 keyboardType: TextInputType.number,
               ),
               const SizedBox(height: 16),
-              FieldText(
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.dateString(),
-                ]),
+              FieldDate(
+                validator: FormBuilderValidators.compose([]),
                 title: "PO Date",
                 name: "po_date",
-                hint: "Example : 23 December 2025",
-                keyboardType: TextInputType.datetime,
+                hint: "Example : 2025-10-16",
               ),
               const SizedBox(height: 16),
               FieldText(
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.numeric(),
-                ]),
+                validator: FormBuilderValidators.compose([]),
                 title: "PO Amount",
                 name: "po_amount",
                 hint: "Example : 50.000.000",
                 keyboardType: TextInputType.number,
+                inputFormatters: [
+                  TextInputFormatter.withFunction((oldValue, newValue) {
+                    if (newValue.text.isEmpty) return newValue;
+
+                    // hapus semua non-digit
+                    final digitsOnly = newValue.text.replaceAll(
+                      RegExp(r'[^\d]'),
+                      '',
+                    );
+                    final number = int.tryParse(digitsOnly);
+                    if (number == null) return oldValue;
+
+                    // format tampilannya
+                    final formatted = NumberFormat(
+                      '#,###',
+                      'id_ID',
+                    ).format(number);
+                    return TextEditingValue(
+                      text: formatted,
+                      selection: TextSelection.collapsed(
+                        offset: formatted.length,
+                      ),
+                    );
+                  }),
+                ],
               ),
               const SizedBox(height: 16),
               FieldMerkDropdown(
@@ -155,11 +176,11 @@ class _AssetInputPageState extends State<AssetInputPage> {
                   state.maybeWhen(
                     orElse: () {},
                     error: (errorMessage) {
-                      showAppDialog(
-                        context,
-                        type: DialogType.error,
-                        message: errorMessage,
-                      );
+                      // showAppDialog(
+                      //   context,
+                      //   type: DialogType.error,
+                      //   message: errorMessage,
+                      // );
                     },
                     successWithData: (data) {
                       dataAsset = data;
@@ -167,14 +188,14 @@ class _AssetInputPageState extends State<AssetInputPage> {
                     success: (message) {
                       showAppDialog(
                         context,
-                        type: DialogType.error,
+                        type: DialogType.success,
                         message: message,
                         onConfirm: () {
                           context.pushReplacementNamed(
                             RouteName.assetDetailPage,
                             extra: [
                               dataAsset!.result!.data!.first,
-                              false,
+                              true,
                               "0",
                               0,
                             ],
@@ -204,9 +225,16 @@ class _AssetInputPageState extends State<AssetInputPage> {
                                   formKey.currentState!.value["notes"]
                                       .toString(),
                               "image": formKey.currentState!.value["image"],
-                              "po_date": formKey.currentState!.value["po_date"],
-                              "po_amount":
-                                  formKey.currentState!.value["po_amount"],
+                              "po_date":
+                                  formKey.currentState!.value["po_date"] != null
+                                      ? DateFormat('yyyy-MM-dd').format(
+                                        formKey.currentState!.value["po_date"],
+                                      )
+                                      : null,
+                              "po_amount": formKey
+                                  .currentState!
+                                  .value["po_amount"]
+                                  ?.replaceAll('.', ''),
                               "merk_id": merk!.id,
                               "po_number":
                                   formKey.currentState!.value["po_number"],

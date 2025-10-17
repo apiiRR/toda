@@ -104,9 +104,12 @@ class _LocationPageState extends State<LocationPage> {
               IconButton(
                 icon: Icon(Icons.add, color: kWhite),
                 onPressed: () {
-                  context
-                      .pushNamed(RouteName.locationInputPage)
-                      .then((value) => refresh());
+                  context.pushNamed(RouteName.locationInputPage).then((value) {
+                    print("POP INPUT = $value");
+                    if (value == true) {
+                      refresh();
+                    }
+                  });
                 },
               ),
               // or
@@ -158,6 +161,7 @@ class _LocationPageState extends State<LocationPage> {
                               extra: data![index],
                             )
                             .then((value) {
+                              print("POP DETAIL = $value");
                               if (value == true) {
                                 refresh();
                               }

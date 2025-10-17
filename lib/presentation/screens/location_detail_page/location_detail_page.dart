@@ -198,7 +198,7 @@ class _LocationDetailPageState extends State<LocationDetailPage> {
                 type: DialogType.success,
                 message: message,
                 onConfirm: () {
-                  context.pop();
+                  context.pop(true);
                 },
               );
             },

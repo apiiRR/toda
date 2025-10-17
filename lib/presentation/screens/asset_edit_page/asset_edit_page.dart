@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:intl/intl.dart';
 
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart' as datum_asset;
 import '../../../domain/models/master_data_model/datum.dart'
     as datum_master_data;
 import '../../utils/app_styles.dart';
-import '../../widgets/app_dialog.dart';
 import '../../widgets/field_category_dropdown.dart';
+import '../../widgets/field_date.dart';
 import '../../widgets/field_image.dart';
 import '../../widgets/field_merk_dropdown.dart';
 import '../../widgets/field_text.dart';
@@ -38,11 +40,11 @@ class _AssetEditPageState extends State<AssetEditPage> {
   void initState() {
     category = datum_master_data.Datum(
       id: widget.data.categoryId![0],
-      name: widget.data.categoryId![0],
+      name: widget.data.categoryId![1],
     );
     merk = datum_master_data.Datum(
       id: widget.data.merkId![0],
-      name: widget.data.merkId![0],
+      name: widget.data.merkId![1],
     );
     super.initState();
   }
@@ -92,6 +94,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 name: "name",
                 hint: "Example : Laptop Macbook Pro",
                 keyboardType: TextInputType.text,
+                initialValue: widget.data.productName,
               ),
               const SizedBox(height: 16),
               FieldText(
@@ -105,9 +108,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
               ),
               const SizedBox(height: 16),
               FieldText(
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.numeric(),
-                ]),
+                validator: FormBuilderValidators.compose([]),
                 title: "PO Number",
                 name: "po_number",
                 hint: "Example : PO123",
@@ -116,27 +117,55 @@ class _AssetEditPageState extends State<AssetEditPage> {
                     widget.data.poNumber == "false" ? "" : widget.data.poNumber,
               ),
               const SizedBox(height: 16),
-              FieldText(
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.dateString(),
-                ]),
+              FieldDate(
+                validator: FormBuilderValidators.compose([]),
                 title: "PO Date",
                 name: "po_date",
-                hint: "Example : 23 December 2025",
-                keyboardType: TextInputType.datetime,
+                hint: "Example : 2025-10-16",
                 initialValue:
-                    widget.data.poDate == "false" ? "" : widget.data.poDate,
+                    widget.data.poDate == "false"
+                        ? null
+                        : DateTime.parse(widget.data.poDate!),
               ),
               const SizedBox(height: 16),
               FieldText(
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.numeric(),
-                ]),
+                validator: FormBuilderValidators.compose([]),
                 title: "PO Amount",
                 name: "po_amount",
                 hint: "Example : 50.000.000",
                 keyboardType: TextInputType.number,
-                initialValue: widget.data.poAmount.toString(),
+                inputFormatters: [
+                  TextInputFormatter.withFunction((oldValue, newValue) {
+                    if (newValue.text.isEmpty) return newValue;
+
+                    // hapus semua non-digit
+                    final digitsOnly = newValue.text.replaceAll(
+                      RegExp(r'[^\d]'),
+                      '',
+                    );
+                    final number = int.tryParse(digitsOnly);
+                    if (number == null) return oldValue;
+
+                    // format tampilannya
+                    final formatted = NumberFormat(
+                      '#,###',
+                      'id_ID',
+                    ).format(number);
+                    return TextEditingValue(
+                      text: formatted,
+                      selection: TextSelection.collapsed(
+                        offset: formatted.length,
+                      ),
+                    );
+                  }),
+                ],
+                initialValue:
+                    widget.data.poAmount != null
+                        ? NumberFormat(
+                          '#,###',
+                          'id_ID',
+                        ).format(widget.data.poAmount)
+                        : null,
               ),
               const SizedBox(height: 16),
               FieldMerkDropdown(
@@ -174,13 +203,13 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 listener: (context, state) {
                   state.maybeWhen(
                     orElse: () {},
-                    error: (errorMessage) {
-                      showAppDialog(
-                        context,
-                        type: DialogType.error,
-                        message: errorMessage,
-                      );
-                    },
+                    // error: (errorMessage) {
+                    //   showAppDialog(
+                    //     context,
+                    //     type: DialogType.error,
+                    //     message: errorMessage,
+                    //   );
+                    // },
                     // successWithData: (data) {
                     //   dataAsset = data;
                     // },
@@ -230,9 +259,18 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                     formKey.currentState!.value["notes"]
                                         .toString(),
                                 "po_date":
-                                    formKey.currentState!.value["po_date"],
-                                "po_amount":
-                                    formKey.currentState!.value["po_amount"],
+                                    formKey.currentState!.value["po_date"] !=
+                                            null
+                                        ? DateFormat('yyyy-MM-dd').format(
+                                          formKey
+                                              .currentState!
+                                              .value["po_date"],
+                                        )
+                                        : null,
+                                "po_amount": formKey
+                                    .currentState!
+                                    .value["po_amount"]
+                                    ?.replaceAll('.', ''),
                                 "merk_id": merk!.id,
                                 "po_number":
                                     formKey.currentState!.value["po_number"],
@@ -251,9 +289,18 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                         .toString(),
                                 "image": formKey.currentState!.value["image"],
                                 "po_date":
-                                    formKey.currentState!.value["po_date"],
-                                "po_amount":
-                                    formKey.currentState!.value["po_amount"],
+                                    formKey.currentState!.value["po_date"] !=
+                                            null
+                                        ? DateFormat('yyyy-MM-dd').format(
+                                          formKey
+                                              .currentState!
+                                              .value["po_date"],
+                                        )
+                                        : null,
+                                "po_amount": formKey
+                                    .currentState!
+                                    .value["po_amount"]
+                                    ?.replaceAll('.', ''),
                                 "merk_id": merk!.id,
                                 "po_number":
                                     formKey.currentState!.value["po_number"],

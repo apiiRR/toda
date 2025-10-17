@@ -60,12 +60,6 @@ class _AssetDetailPageState extends State<AssetDetailPage>
     super.initState();
   }
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
-
   Datum? dataAsset;
 
   @override
@@ -76,11 +70,12 @@ class _AssetDetailPageState extends State<AssetDetailPage>
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              if (widget.isRefresh == false) {
-                context.pop(true);
-              } else {
-                context.pop(false);
-              }
+              context.pop(true);
+              // if (widget.isRefresh == false) {
+              //   context.pop(true);
+              // } else {
+              //   context.pop(false);
+              // }
             },
             icon: Icon(Icons.arrow_back_ios_new_rounded, color: kWhite),
           ),
@@ -98,52 +93,52 @@ class _AssetDetailPageState extends State<AssetDetailPage>
               color: kWhite,
               itemBuilder:
                   (BuildContext context) => <PopupMenuEntry<String>>[
-                    PopupMenuItem<String>(
-                      child: ListTile(
-                        leading: const Icon(
-                          Icons.control_point_duplicate_rounded,
-                        ),
-                        title: Text('Duplicate', style: kJakartaRegular),
-                      ),
-                      onTap: () async {
-                        String image = "";
-                        if (dataAsset!.imageUrl != "") {
-                          String imageConverter =
-                              await downloadImageAndConvertToBase64(
-                                dataAsset!.imageUrl!,
-                              );
+                    // PopupMenuItem<String>(
+                    //   child: ListTile(
+                    //     leading: const Icon(
+                    //       Icons.control_point_duplicate_rounded,
+                    //     ),
+                    //     title: Text('Duplicate', style: kJakartaRegular),
+                    //   ),
+                    //   onTap: () async {
+                    //     String image = "";
+                    //     if (dataAsset!.imageUrl != "") {
+                    //       String imageConverter =
+                    //           await downloadImageAndConvertToBase64(
+                    //             dataAsset!.imageUrl!,
+                    //           );
 
-                          image = imageConverter;
+                    //       image = imageConverter;
 
-                          Map<String, dynamic> inputData = {
-                            "product_name":
-                                "${dataAsset!.productName.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
-                            "product_code":
-                                "${dataAsset!.productCode.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
-                            "user_name": dataAsset!.userName.toString(),
-                            "notes": dataAsset!.notes.toString(),
-                            "image": image,
-                          };
+                    //       Map<String, dynamic> inputData = {
+                    //         "product_name":
+                    //             "${dataAsset!.productName.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
+                    //         "product_code":
+                    //             "${dataAsset!.productCode.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
+                    //         "user_name": dataAsset!.userName.toString(),
+                    //         "notes": dataAsset!.notes.toString(),
+                    //         "image": image,
+                    //       };
 
-                          context.read<AssetBloc>().add(
-                            AssetEvent.postDataDuplicate(inputData),
-                          );
-                        } else {
-                          Map<String, dynamic> inputData = {
-                            "product_name":
-                                "${dataAsset!.productName.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
-                            "product_code":
-                                "${dataAsset!.productCode.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
-                            "user_name": dataAsset!.userName.toString(),
-                            "notes": dataAsset!.notes.toString(),
-                          };
+                    //       context.read<AssetBloc>().add(
+                    //         AssetEvent.postDataDuplicate(inputData),
+                    //       );
+                    //     } else {
+                    //       Map<String, dynamic> inputData = {
+                    //         "product_name":
+                    //             "${dataAsset!.productName.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
+                    //         "product_code":
+                    //             "${dataAsset!.productCode.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
+                    //         "user_name": dataAsset!.userName.toString(),
+                    //         "notes": dataAsset!.notes.toString(),
+                    //       };
 
-                          context.read<AssetBloc>().add(
-                            AssetEvent.postDataDuplicate(inputData),
-                          );
-                        }
-                      },
-                    ),
+                    //       context.read<AssetBloc>().add(
+                    //         AssetEvent.postDataDuplicate(inputData),
+                    //       );
+                    //     }
+                    //   },
+                    // ),
                     PopupMenuItem<String>(
                       child: ListTile(
                         leading: const Icon(Icons.edit),
@@ -203,14 +198,14 @@ class _AssetDetailPageState extends State<AssetDetailPage>
               successWithData: (data) {
                 setState(() {
                   dataAsset = data.result!.data!.first;
-                  // if (dataAsset!.imageUrl != null &&
-                  //     dataAsset!.imageUrl != "") {
-                  //   String imageUrl = dataAsset!.imageUrl!
-                  //       .replaceFirst('http://', 'https://');
-                  //   String hostUrl = imageUrl.replaceFirst(
-                  //       '192.168.19.101:8069', 'mybest.ptberdikari.co.id');
-                  //   dataAsset = dataAsset!.copyWith(imageUrl: hostUrl);
-                  // }
+                  if (dataAsset!.imageUrl != null &&
+                      dataAsset!.imageUrl != "") {
+                    String hostUrl = dataAsset!.imageUrl!.replaceFirst(
+                      '192.168.24.77:9112',
+                      '202.93.133.54',
+                    );
+                    dataAsset = dataAsset!.copyWith(imageUrl: hostUrl);
+                  }
                 });
               },
               success: (message) {

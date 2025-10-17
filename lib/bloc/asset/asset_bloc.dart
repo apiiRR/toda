@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
@@ -101,6 +102,8 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
           String image = await convertImage(dataInput["image"][0]);
           dataInput["image"] = image;
         }
+
+        log(dataInput.toString());
 
         final post = await service.assetPost(dataUser["token"], dataInput);
         post.fold(

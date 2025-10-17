@@ -9,13 +9,13 @@ import '../utils/app_styles.dart';
 
 class FieldCategoryDropdown extends StatelessWidget {
   const FieldCategoryDropdown({
-    Key? key,
+    super.key,
     required this.title,
     this.hint,
     this.onChanged,
     this.selectedItem,
     this.validator,
-  }) : super(key: key);
+  });
   final String title;
   final String? hint;
   final void Function(Datum?)? onChanged;
