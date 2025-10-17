@@ -24,4 +24,5 @@ class Endpoints {
 
   static String job = "/api/v1/get-job";
   static String category = "/api/v1/custom-barcode-category/get";
+  static String merk = "/api/v1/asset-merk/get";
 }

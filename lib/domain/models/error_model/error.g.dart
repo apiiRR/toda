@@ -8,7 +8,7 @@ part of 'error.dart';
 
 _$ErrorImpl _$$ErrorImplFromJson(Map<String, dynamic> json) => _$ErrorImpl(
   code: (json['code'] as num?)?.toInt(),
-  message: json['message'] as String?,
+  message: json['message'].toString(),
   data:
       json['data'] == null
           ? null

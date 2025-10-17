@@ -5,9 +5,13 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart' as datum_asset;
+import '../../../domain/models/master_data_model/datum.dart'
+    as datum_master_data;
 import '../../utils/app_styles.dart';
 import '../../widgets/app_dialog.dart';
+import '../../widgets/field_category_dropdown.dart';
 import '../../widgets/field_image.dart';
+import '../../widgets/field_merk_dropdown.dart';
 import '../../widgets/field_text.dart';
 import '../../widgets/rounded_button_loading.dart';
 import '../../widgets/rounded_button_solid.dart';
@@ -25,6 +29,22 @@ class _AssetEditPageState extends State<AssetEditPage> {
     map.removeWhere(
       (key, value) => value == null || value == "null" || value.isEmpty,
     );
+  }
+
+  datum_master_data.Datum? category;
+  datum_master_data.Datum? merk;
+
+  @override
+  void initState() {
+    category = datum_master_data.Datum(
+      id: widget.data.categoryId![0],
+      name: widget.data.categoryId![0],
+    );
+    merk = datum_master_data.Datum(
+      id: widget.data.merkId![0],
+      name: widget.data.merkId![0],
+    );
+    super.initState();
   }
 
   @override
@@ -52,17 +72,16 @@ class _AssetEditPageState extends State<AssetEditPage> {
           child: Column(
             children: [
               const SizedBox(height: 16),
-              FieldText(
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(),
-                ]),
-                title: "Asset Code",
-                name: "code",
-                hint: "Example : 123/123/123",
-                keyboardType: TextInputType.text,
-                initialValue: widget.data.productCode,
-                readOnly: true,
-                enable: false,
+              FieldCategoryDropdown(
+                validator: FormBuilderValidators.required(),
+                title: "Category",
+                hint: "Example : Kendaraan / Mesin",
+                selectedItem: category,
+                onChanged: (data) {
+                  setState(() {
+                    category = data;
+                  });
+                },
               ),
               const SizedBox(height: 16),
               FieldText(
@@ -73,7 +92,6 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 name: "name",
                 hint: "Example : Laptop Macbook Pro",
                 keyboardType: TextInputType.text,
-                initialValue: widget.data.productName,
               ),
               const SizedBox(height: 16),
               FieldText(
@@ -84,6 +102,53 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 keyboardType: TextInputType.text,
                 initialValue:
                     widget.data.userName == "false" ? "" : widget.data.userName,
+              ),
+              const SizedBox(height: 16),
+              FieldText(
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.numeric(),
+                ]),
+                title: "PO Number",
+                name: "po_number",
+                hint: "Example : PO123",
+                keyboardType: TextInputType.number,
+                initialValue:
+                    widget.data.poNumber == "false" ? "" : widget.data.poNumber,
+              ),
+              const SizedBox(height: 16),
+              FieldText(
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.dateString(),
+                ]),
+                title: "PO Date",
+                name: "po_date",
+                hint: "Example : 23 December 2025",
+                keyboardType: TextInputType.datetime,
+                initialValue:
+                    widget.data.poDate == "false" ? "" : widget.data.poDate,
+              ),
+              const SizedBox(height: 16),
+              FieldText(
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.numeric(),
+                ]),
+                title: "PO Amount",
+                name: "po_amount",
+                hint: "Example : 50.000.000",
+                keyboardType: TextInputType.number,
+                initialValue: widget.data.poAmount.toString(),
+              ),
+              const SizedBox(height: 16),
+              FieldMerkDropdown(
+                validator: FormBuilderValidators.compose([]),
+                title: "Merk",
+                hint: "Example : Merk A",
+                selectedItem: merk,
+                onChanged: (data) {
+                  setState(() {
+                    merk = data;
+                  });
+                },
               ),
               const SizedBox(height: 16),
               FieldText(
@@ -157,31 +222,41 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                 "product_name":
                                     formKey.currentState!.value["name"]
                                         .toString(),
-                                "product_code":
-                                    formKey.currentState!.value["code"]
-                                        .toString(),
+                                "category_id": category!.id,
                                 "user_name":
                                     formKey.currentState!.value["user"]
                                         .toString(),
                                 "notes":
                                     formKey.currentState!.value["notes"]
                                         .toString(),
+                                "po_date":
+                                    formKey.currentState!.value["po_date"],
+                                "po_amount":
+                                    formKey.currentState!.value["po_amount"],
+                                "merk_id": merk!.id,
+                                "po_number":
+                                    formKey.currentState!.value["po_number"],
                               };
                             } else {
                               inputData = {
                                 "product_name":
                                     formKey.currentState!.value["name"]
                                         .toString(),
-                                "product_code":
-                                    formKey.currentState!.value["code"]
-                                        .toString(),
+                                "category_id": category!.id,
                                 "user_name":
                                     formKey.currentState!.value["user"]
                                         .toString(),
                                 "notes":
                                     formKey.currentState!.value["notes"]
                                         .toString(),
-                                "image": imageInput,
+                                "image": formKey.currentState!.value["image"],
+                                "po_date":
+                                    formKey.currentState!.value["po_date"],
+                                "po_amount":
+                                    formKey.currentState!.value["po_amount"],
+                                "merk_id": merk!.id,
+                                "po_number":
+                                    formKey.currentState!.value["po_number"],
                               };
                             }
 

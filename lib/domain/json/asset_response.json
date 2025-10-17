@@ -17,11 +17,11 @@
             "description": "Keyboard rusak",
             "id": 1,
             "state": "draft",
-            "cost": 100000.0,
+            "cost": 520833.33,
             "date": "2025-10-12 00:00:00"
           }
         ],
-        "residual_value": 0.0,
+        "residual_value": 520833.33,
         "current_depreciable_amount": 22916666.67,
         "category_id": [1, "Elektronik"],
         "lifetime": 1,
@@ -33,7 +33,7 @@
             "date": "2024-07-11 07:48:53"
           }
         ],
-        "po_amount": 25000000.0,
+        "po_amount": 520833.33,
         "merk_id": [1, "Informa"],
         "history_ids": [
           {

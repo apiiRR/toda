@@ -11,8 +11,8 @@ import '../../router/app_route.dart';
 import '../../utils/app_styles.dart';
 import '../../widgets/app_dialog.dart';
 import '../../widgets/field_category_dropdown.dart';
-import '../../widgets/field_job_dropdown.dart';
 import '../../widgets/field_image.dart';
+import '../../widgets/field_merk_dropdown.dart';
 import '../../widgets/field_text.dart';
 import '../../widgets/rounded_button_loading.dart';
 import '../../widgets/rounded_button_solid.dart';
@@ -26,8 +26,8 @@ class AssetInputPage extends StatefulWidget {
 
 class _AssetInputPageState extends State<AssetInputPage> {
   AssetModel? dataAsset;
-  Datum? job;
   Datum? category;
+  Datum? merk;
 
   void removeEmptyValueKeys(Map<String, dynamic> map) {
     map.removeWhere((key, value) {
@@ -65,14 +65,6 @@ class _AssetInputPageState extends State<AssetInputPage> {
           child: Column(
             children: [
               const SizedBox(height: 16),
-              // FieldText(
-              //   validator: FormBuilderValidators.compose(
-              //       [FormBuilderValidators.required()]),
-              //   title: "Asset Code",
-              //   name: "code",
-              //   hint: "Example : 123/123/123",
-              //   keyboardType: TextInputType.text,
-              // ),
               FieldCategoryDropdown(
                 validator: FormBuilderValidators.required(),
                 title: "Category",
@@ -98,16 +90,47 @@ class _AssetInputPageState extends State<AssetInputPage> {
                 validator: FormBuilderValidators.compose([]),
                 title: "User",
                 name: "user",
-                hint: "Example : Moy",
+                hint: "Example : John",
                 keyboardType: TextInputType.text,
               ),
               const SizedBox(height: 16),
-              FieldJobDropdown(
-                title: "Job Department",
-                hint: "Example : IT Officer",
+              FieldText(
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.numeric(),
+                ]),
+                title: "PO Number",
+                name: "po_number",
+                hint: "Example : PO123",
+                keyboardType: TextInputType.number,
+              ),
+              const SizedBox(height: 16),
+              FieldText(
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.dateString(),
+                ]),
+                title: "PO Date",
+                name: "po_date",
+                hint: "Example : 23 December 2025",
+                keyboardType: TextInputType.datetime,
+              ),
+              const SizedBox(height: 16),
+              FieldText(
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.numeric(),
+                ]),
+                title: "PO Amount",
+                name: "po_amount",
+                hint: "Example : 50.000.000",
+                keyboardType: TextInputType.number,
+              ),
+              const SizedBox(height: 16),
+              FieldMerkDropdown(
+                validator: FormBuilderValidators.compose([]),
+                title: "Merk",
+                hint: "Example : Merk A",
                 onChanged: (data) {
                   setState(() {
-                    job = data;
+                    merk = data;
                   });
                 },
               ),
@@ -173,9 +196,6 @@ class _AssetInputPageState extends State<AssetInputPage> {
                               "product_name":
                                   formKey.currentState!.value["name"]
                                       .toString(),
-                              // "product_code": formKey
-                              //     .currentState!.value["code"]
-                              //     .toString(),
                               "category_id": category!.id,
                               "user_name":
                                   formKey.currentState!.value["user"]
@@ -184,15 +204,15 @@ class _AssetInputPageState extends State<AssetInputPage> {
                                   formKey.currentState!.value["notes"]
                                       .toString(),
                               "image": formKey.currentState!.value["image"],
+                              "po_date": formKey.currentState!.value["po_date"],
+                              "po_amount":
+                                  formKey.currentState!.value["po_amount"],
+                              "merk_id": merk!.id,
+                              "po_number":
+                                  formKey.currentState!.value["po_number"],
                             };
 
-                            if (job != null) {
-                              inputData["job_id"] = job!.id;
-                            }
-
                             removeEmptyValueKeys(inputData);
-
-                            // log(jsonEncode(inputData));
 
                             context.read<AssetBloc>().add(
                               AssetEvent.postData(inputData),
