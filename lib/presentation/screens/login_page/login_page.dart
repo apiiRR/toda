@@ -154,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               const SizedBox(height: 24),
                               Text(
-                                "Management Asset Information Library",
+                                "TODA Asset Management System",
                                 style: kJakartaLight.copyWith(
                                   color: kGrey,
                                   fontStyle: FontStyle.italic,

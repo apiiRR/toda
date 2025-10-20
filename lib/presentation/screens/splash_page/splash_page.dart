@@ -49,18 +49,13 @@ class SplashPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(
-                child: Text(
-                  "TAM",
-                  style: kJakartaBold.copyWith(fontSize: 42, color: kPrimary),
-                ),
-              ),
-              Center(
-                child: Text(
-                  "Toda Asset Management",
-                  style: kJakartaRegular.copyWith(fontSize: 16),
-                ),
-              ),
+              Image.asset("assets/png/logo_long.png"),
+              // Center(
+              //   child: Text(
+              //     "Asset Management System",
+              //     style: kJakartaRegular.copyWith(fontSize: 16),
+              //   ),
+              // ),
               const SizedBox(height: 100),
               FloatingActionButton(
                 backgroundColor: kPrimary,
