@@ -27,6 +27,8 @@ mixin _$Datum {
   String? get productCode => throw _privateConstructorUsedError;
   @JsonKey(name: 'location_name')
   String? get locationName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'kondisi')
+  String? get kondisi => throw _privateConstructorUsedError;
   @JsonKey(name: 'po_date')
   String? get poDate => throw _privateConstructorUsedError;
   @JsonKey(name: 'product_name')
@@ -85,6 +87,7 @@ abstract class $DatumCopyWith<$Res> {
     @JsonKey(name: 'asset_location_id') List<dynamic>? assetLocationId,
     @JsonKey(name: 'product_code') String? productCode,
     @JsonKey(name: 'location_name') String? locationName,
+    @JsonKey(name: 'kondisi') String? kondisi,
     @JsonKey(name: 'po_date') String? poDate,
     @JsonKey(name: 'product_name') String? productName,
     @JsonKey(name: 'current_accumulated_depreciation')
@@ -129,6 +132,7 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
     Object? assetLocationId = freezed,
     Object? productCode = freezed,
     Object? locationName = freezed,
+    Object? kondisi = freezed,
     Object? poDate = freezed,
     Object? productName = freezed,
     Object? currentAccumulatedDepreciation = freezed,
@@ -152,121 +156,103 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
   }) {
     return _then(
       _value.copyWith(
-            assetLocationId:
-                freezed == assetLocationId
-                    ? _value.assetLocationId
-                    : assetLocationId // ignore: cast_nullable_to_non_nullable
-                        as List<dynamic>?,
-            productCode:
-                freezed == productCode
-                    ? _value.productCode
-                    : productCode // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            locationName:
-                freezed == locationName
-                    ? _value.locationName
-                    : locationName // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            poDate:
-                freezed == poDate
-                    ? _value.poDate
-                    : poDate // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            productName:
-                freezed == productName
-                    ? _value.productName
-                    : productName // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            assetLocationId: freezed == assetLocationId
+                ? _value.assetLocationId
+                : assetLocationId // ignore: cast_nullable_to_non_nullable
+                      as List<dynamic>?,
+            productCode: freezed == productCode
+                ? _value.productCode
+                : productCode // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            locationName: freezed == locationName
+                ? _value.locationName
+                : locationName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            kondisi: freezed == kondisi
+                ? _value.kondisi
+                : kondisi // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            poDate: freezed == poDate
+                ? _value.poDate
+                : poDate // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            productName: freezed == productName
+                ? _value.productName
+                : productName // ignore: cast_nullable_to_non_nullable
+                      as String?,
             currentAccumulatedDepreciation:
                 freezed == currentAccumulatedDepreciation
-                    ? _value.currentAccumulatedDepreciation
-                    : currentAccumulatedDepreciation // ignore: cast_nullable_to_non_nullable
-                        as double?,
-            imageUrl:
-                freezed == imageUrl
-                    ? _value.imageUrl
-                    : imageUrl // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            maintenanceIds:
-                freezed == maintenanceIds
-                    ? _value.maintenanceIds
-                    : maintenanceIds // ignore: cast_nullable_to_non_nullable
-                        as List<MaintenanceId>?,
-            residualValue:
-                freezed == residualValue
-                    ? _value.residualValue
-                    : residualValue // ignore: cast_nullable_to_non_nullable
-                        as double?,
-            currentDepreciableAmount:
-                freezed == currentDepreciableAmount
-                    ? _value.currentDepreciableAmount
-                    : currentDepreciableAmount // ignore: cast_nullable_to_non_nullable
-                        as double?,
-            categoryId:
-                freezed == categoryId
-                    ? _value.categoryId
-                    : categoryId // ignore: cast_nullable_to_non_nullable
-                        as List<dynamic>?,
-            lifetime:
-                freezed == lifetime
-                    ? _value.lifetime
-                    : lifetime // ignore: cast_nullable_to_non_nullable
-                        as int?,
-            userHistoryIds:
-                freezed == userHistoryIds
-                    ? _value.userHistoryIds
-                    : userHistoryIds // ignore: cast_nullable_to_non_nullable
-                        as List<UserHistoryId>?,
-            poAmount:
-                freezed == poAmount
-                    ? _value.poAmount
-                    : poAmount // ignore: cast_nullable_to_non_nullable
-                        as double?,
-            merkId:
-                freezed == merkId
-                    ? _value.merkId
-                    : merkId // ignore: cast_nullable_to_non_nullable
-                        as List<dynamic>?,
-            historyIds:
-                freezed == historyIds
-                    ? _value.historyIds
-                    : historyIds // ignore: cast_nullable_to_non_nullable
-                        as List<HistoryId>?,
-            notesHistoryIds:
-                freezed == notesHistoryIds
-                    ? _value.notesHistoryIds
-                    : notesHistoryIds // ignore: cast_nullable_to_non_nullable
-                        as List<NotesHistoryId>?,
-            id:
-                freezed == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int?,
-            notes:
-                freezed == notes
-                    ? _value.notes
-                    : notes // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            userName:
-                freezed == userName
-                    ? _value.userName
-                    : userName // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            poNumber:
-                freezed == poNumber
-                    ? _value.poNumber
-                    : poNumber // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            pastImageUrl:
-                freezed == pastImageUrl
-                    ? _value.pastImageUrl
-                    : pastImageUrl // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            depreciationAmountPerMonth:
-                freezed == depreciationAmountPerMonth
-                    ? _value.depreciationAmountPerMonth
-                    : depreciationAmountPerMonth // ignore: cast_nullable_to_non_nullable
-                        as double?,
+                ? _value.currentAccumulatedDepreciation
+                : currentAccumulatedDepreciation // ignore: cast_nullable_to_non_nullable
+                      as double?,
+            imageUrl: freezed == imageUrl
+                ? _value.imageUrl
+                : imageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            maintenanceIds: freezed == maintenanceIds
+                ? _value.maintenanceIds
+                : maintenanceIds // ignore: cast_nullable_to_non_nullable
+                      as List<MaintenanceId>?,
+            residualValue: freezed == residualValue
+                ? _value.residualValue
+                : residualValue // ignore: cast_nullable_to_non_nullable
+                      as double?,
+            currentDepreciableAmount: freezed == currentDepreciableAmount
+                ? _value.currentDepreciableAmount
+                : currentDepreciableAmount // ignore: cast_nullable_to_non_nullable
+                      as double?,
+            categoryId: freezed == categoryId
+                ? _value.categoryId
+                : categoryId // ignore: cast_nullable_to_non_nullable
+                      as List<dynamic>?,
+            lifetime: freezed == lifetime
+                ? _value.lifetime
+                : lifetime // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            userHistoryIds: freezed == userHistoryIds
+                ? _value.userHistoryIds
+                : userHistoryIds // ignore: cast_nullable_to_non_nullable
+                      as List<UserHistoryId>?,
+            poAmount: freezed == poAmount
+                ? _value.poAmount
+                : poAmount // ignore: cast_nullable_to_non_nullable
+                      as double?,
+            merkId: freezed == merkId
+                ? _value.merkId
+                : merkId // ignore: cast_nullable_to_non_nullable
+                      as List<dynamic>?,
+            historyIds: freezed == historyIds
+                ? _value.historyIds
+                : historyIds // ignore: cast_nullable_to_non_nullable
+                      as List<HistoryId>?,
+            notesHistoryIds: freezed == notesHistoryIds
+                ? _value.notesHistoryIds
+                : notesHistoryIds // ignore: cast_nullable_to_non_nullable
+                      as List<NotesHistoryId>?,
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            notes: freezed == notes
+                ? _value.notes
+                : notes // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            userName: freezed == userName
+                ? _value.userName
+                : userName // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            poNumber: freezed == poNumber
+                ? _value.poNumber
+                : poNumber // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            pastImageUrl: freezed == pastImageUrl
+                ? _value.pastImageUrl
+                : pastImageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            depreciationAmountPerMonth: freezed == depreciationAmountPerMonth
+                ? _value.depreciationAmountPerMonth
+                : depreciationAmountPerMonth // ignore: cast_nullable_to_non_nullable
+                      as double?,
           )
           as $Val,
     );
@@ -285,6 +271,7 @@ abstract class _$$DatumImplCopyWith<$Res> implements $DatumCopyWith<$Res> {
     @JsonKey(name: 'asset_location_id') List<dynamic>? assetLocationId,
     @JsonKey(name: 'product_code') String? productCode,
     @JsonKey(name: 'location_name') String? locationName,
+    @JsonKey(name: 'kondisi') String? kondisi,
     @JsonKey(name: 'po_date') String? poDate,
     @JsonKey(name: 'product_name') String? productName,
     @JsonKey(name: 'current_accumulated_depreciation')
@@ -328,6 +315,7 @@ class __$$DatumImplCopyWithImpl<$Res>
     Object? assetLocationId = freezed,
     Object? productCode = freezed,
     Object? locationName = freezed,
+    Object? kondisi = freezed,
     Object? poDate = freezed,
     Object? productName = freezed,
     Object? currentAccumulatedDepreciation = freezed,
@@ -351,121 +339,103 @@ class __$$DatumImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$DatumImpl(
-        assetLocationId:
-            freezed == assetLocationId
-                ? _value._assetLocationId
-                : assetLocationId // ignore: cast_nullable_to_non_nullable
-                    as List<dynamic>?,
-        productCode:
-            freezed == productCode
-                ? _value.productCode
-                : productCode // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        locationName:
-            freezed == locationName
-                ? _value.locationName
-                : locationName // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        poDate:
-            freezed == poDate
-                ? _value.poDate
-                : poDate // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        productName:
-            freezed == productName
-                ? _value.productName
-                : productName // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        assetLocationId: freezed == assetLocationId
+            ? _value._assetLocationId
+            : assetLocationId // ignore: cast_nullable_to_non_nullable
+                  as List<dynamic>?,
+        productCode: freezed == productCode
+            ? _value.productCode
+            : productCode // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        locationName: freezed == locationName
+            ? _value.locationName
+            : locationName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        kondisi: freezed == kondisi
+            ? _value.kondisi
+            : kondisi // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        poDate: freezed == poDate
+            ? _value.poDate
+            : poDate // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        productName: freezed == productName
+            ? _value.productName
+            : productName // ignore: cast_nullable_to_non_nullable
+                  as String?,
         currentAccumulatedDepreciation:
             freezed == currentAccumulatedDepreciation
-                ? _value.currentAccumulatedDepreciation
-                : currentAccumulatedDepreciation // ignore: cast_nullable_to_non_nullable
-                    as double?,
-        imageUrl:
-            freezed == imageUrl
-                ? _value.imageUrl
-                : imageUrl // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        maintenanceIds:
-            freezed == maintenanceIds
-                ? _value._maintenanceIds
-                : maintenanceIds // ignore: cast_nullable_to_non_nullable
-                    as List<MaintenanceId>?,
-        residualValue:
-            freezed == residualValue
-                ? _value.residualValue
-                : residualValue // ignore: cast_nullable_to_non_nullable
-                    as double?,
-        currentDepreciableAmount:
-            freezed == currentDepreciableAmount
-                ? _value.currentDepreciableAmount
-                : currentDepreciableAmount // ignore: cast_nullable_to_non_nullable
-                    as double?,
-        categoryId:
-            freezed == categoryId
-                ? _value._categoryId
-                : categoryId // ignore: cast_nullable_to_non_nullable
-                    as List<dynamic>?,
-        lifetime:
-            freezed == lifetime
-                ? _value.lifetime
-                : lifetime // ignore: cast_nullable_to_non_nullable
-                    as int?,
-        userHistoryIds:
-            freezed == userHistoryIds
-                ? _value._userHistoryIds
-                : userHistoryIds // ignore: cast_nullable_to_non_nullable
-                    as List<UserHistoryId>?,
-        poAmount:
-            freezed == poAmount
-                ? _value.poAmount
-                : poAmount // ignore: cast_nullable_to_non_nullable
-                    as double?,
-        merkId:
-            freezed == merkId
-                ? _value._merkId
-                : merkId // ignore: cast_nullable_to_non_nullable
-                    as List<dynamic>?,
-        historyIds:
-            freezed == historyIds
-                ? _value._historyIds
-                : historyIds // ignore: cast_nullable_to_non_nullable
-                    as List<HistoryId>?,
-        notesHistoryIds:
-            freezed == notesHistoryIds
-                ? _value._notesHistoryIds
-                : notesHistoryIds // ignore: cast_nullable_to_non_nullable
-                    as List<NotesHistoryId>?,
-        id:
-            freezed == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
-        notes:
-            freezed == notes
-                ? _value.notes
-                : notes // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        userName:
-            freezed == userName
-                ? _value.userName
-                : userName // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        poNumber:
-            freezed == poNumber
-                ? _value.poNumber
-                : poNumber // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        pastImageUrl:
-            freezed == pastImageUrl
-                ? _value.pastImageUrl
-                : pastImageUrl // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        depreciationAmountPerMonth:
-            freezed == depreciationAmountPerMonth
-                ? _value.depreciationAmountPerMonth
-                : depreciationAmountPerMonth // ignore: cast_nullable_to_non_nullable
-                    as double?,
+            ? _value.currentAccumulatedDepreciation
+            : currentAccumulatedDepreciation // ignore: cast_nullable_to_non_nullable
+                  as double?,
+        imageUrl: freezed == imageUrl
+            ? _value.imageUrl
+            : imageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        maintenanceIds: freezed == maintenanceIds
+            ? _value._maintenanceIds
+            : maintenanceIds // ignore: cast_nullable_to_non_nullable
+                  as List<MaintenanceId>?,
+        residualValue: freezed == residualValue
+            ? _value.residualValue
+            : residualValue // ignore: cast_nullable_to_non_nullable
+                  as double?,
+        currentDepreciableAmount: freezed == currentDepreciableAmount
+            ? _value.currentDepreciableAmount
+            : currentDepreciableAmount // ignore: cast_nullable_to_non_nullable
+                  as double?,
+        categoryId: freezed == categoryId
+            ? _value._categoryId
+            : categoryId // ignore: cast_nullable_to_non_nullable
+                  as List<dynamic>?,
+        lifetime: freezed == lifetime
+            ? _value.lifetime
+            : lifetime // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        userHistoryIds: freezed == userHistoryIds
+            ? _value._userHistoryIds
+            : userHistoryIds // ignore: cast_nullable_to_non_nullable
+                  as List<UserHistoryId>?,
+        poAmount: freezed == poAmount
+            ? _value.poAmount
+            : poAmount // ignore: cast_nullable_to_non_nullable
+                  as double?,
+        merkId: freezed == merkId
+            ? _value._merkId
+            : merkId // ignore: cast_nullable_to_non_nullable
+                  as List<dynamic>?,
+        historyIds: freezed == historyIds
+            ? _value._historyIds
+            : historyIds // ignore: cast_nullable_to_non_nullable
+                  as List<HistoryId>?,
+        notesHistoryIds: freezed == notesHistoryIds
+            ? _value._notesHistoryIds
+            : notesHistoryIds // ignore: cast_nullable_to_non_nullable
+                  as List<NotesHistoryId>?,
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        notes: freezed == notes
+            ? _value.notes
+            : notes // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        userName: freezed == userName
+            ? _value.userName
+            : userName // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        poNumber: freezed == poNumber
+            ? _value.poNumber
+            : poNumber // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        pastImageUrl: freezed == pastImageUrl
+            ? _value.pastImageUrl
+            : pastImageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        depreciationAmountPerMonth: freezed == depreciationAmountPerMonth
+            ? _value.depreciationAmountPerMonth
+            : depreciationAmountPerMonth // ignore: cast_nullable_to_non_nullable
+                  as double?,
       ),
     );
   }
@@ -478,6 +448,7 @@ class _$DatumImpl implements _Datum {
     @JsonKey(name: 'asset_location_id') final List<dynamic>? assetLocationId,
     @JsonKey(name: 'product_code') this.productCode,
     @JsonKey(name: 'location_name') this.locationName,
+    @JsonKey(name: 'kondisi') this.kondisi,
     @JsonKey(name: 'po_date') this.poDate,
     @JsonKey(name: 'product_name') this.productName,
     @JsonKey(name: 'current_accumulated_depreciation')
@@ -530,6 +501,9 @@ class _$DatumImpl implements _Datum {
   @override
   @JsonKey(name: 'location_name')
   final String? locationName;
+  @override
+  @JsonKey(name: 'kondisi')
+  final String? kondisi;
   @override
   @JsonKey(name: 'po_date')
   final String? poDate;
@@ -638,7 +612,7 @@ class _$DatumImpl implements _Datum {
 
   @override
   String toString() {
-    return 'Datum(assetLocationId: $assetLocationId, productCode: $productCode, locationName: $locationName, poDate: $poDate, productName: $productName, currentAccumulatedDepreciation: $currentAccumulatedDepreciation, imageUrl: $imageUrl, maintenanceIds: $maintenanceIds, residualValue: $residualValue, currentDepreciableAmount: $currentDepreciableAmount, categoryId: $categoryId, lifetime: $lifetime, userHistoryIds: $userHistoryIds, poAmount: $poAmount, merkId: $merkId, historyIds: $historyIds, notesHistoryIds: $notesHistoryIds, id: $id, notes: $notes, userName: $userName, poNumber: $poNumber, pastImageUrl: $pastImageUrl, depreciationAmountPerMonth: $depreciationAmountPerMonth)';
+    return 'Datum(assetLocationId: $assetLocationId, productCode: $productCode, locationName: $locationName, kondisi: $kondisi, poDate: $poDate, productName: $productName, currentAccumulatedDepreciation: $currentAccumulatedDepreciation, imageUrl: $imageUrl, maintenanceIds: $maintenanceIds, residualValue: $residualValue, currentDepreciableAmount: $currentDepreciableAmount, categoryId: $categoryId, lifetime: $lifetime, userHistoryIds: $userHistoryIds, poAmount: $poAmount, merkId: $merkId, historyIds: $historyIds, notesHistoryIds: $notesHistoryIds, id: $id, notes: $notes, userName: $userName, poNumber: $poNumber, pastImageUrl: $pastImageUrl, depreciationAmountPerMonth: $depreciationAmountPerMonth)';
   }
 
   @override
@@ -654,6 +628,7 @@ class _$DatumImpl implements _Datum {
                 other.productCode == productCode) &&
             (identical(other.locationName, locationName) ||
                 other.locationName == locationName) &&
+            (identical(other.kondisi, kondisi) || other.kondisi == kondisi) &&
             (identical(other.poDate, poDate) || other.poDate == poDate) &&
             (identical(other.productName, productName) ||
                 other.productName == productName) &&
@@ -720,6 +695,7 @@ class _$DatumImpl implements _Datum {
     const DeepCollectionEquality().hash(_assetLocationId),
     productCode,
     locationName,
+    kondisi,
     poDate,
     productName,
     currentAccumulatedDepreciation,
@@ -761,6 +737,7 @@ abstract class _Datum implements Datum {
     @JsonKey(name: 'asset_location_id') final List<dynamic>? assetLocationId,
     @JsonKey(name: 'product_code') final String? productCode,
     @JsonKey(name: 'location_name') final String? locationName,
+    @JsonKey(name: 'kondisi') final String? kondisi,
     @JsonKey(name: 'po_date') final String? poDate,
     @JsonKey(name: 'product_name') final String? productName,
     @JsonKey(name: 'current_accumulated_depreciation')
@@ -799,6 +776,9 @@ abstract class _Datum implements Datum {
   @override
   @JsonKey(name: 'location_name')
   String? get locationName;
+  @override
+  @JsonKey(name: 'kondisi')
+  String? get kondisi;
   @override
   @JsonKey(name: 'po_date')
   String? get poDate;

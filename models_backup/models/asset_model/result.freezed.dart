@@ -57,11 +57,10 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result>
   $Res call({Object? data = freezed}) {
     return _then(
       _value.copyWith(
-            data:
-                freezed == data
-                    ? _value.data
-                    : data // ignore: cast_nullable_to_non_nullable
-                        as List<Datum>?,
+            data: freezed == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                      as List<Datum>?,
           )
           as $Val,
     );
@@ -95,11 +94,10 @@ class __$$ResultImplCopyWithImpl<$Res>
   $Res call({Object? data = freezed}) {
     return _then(
       _$ResultImpl(
-        data:
-            freezed == data
-                ? _value._data
-                : data // ignore: cast_nullable_to_non_nullable
-                    as List<Datum>?,
+        data: freezed == data
+            ? _value._data
+            : data // ignore: cast_nullable_to_non_nullable
+                  as List<Datum>?,
       ),
     );
   }

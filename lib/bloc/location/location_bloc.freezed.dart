@@ -269,7 +269,7 @@ class __$$ScanDataImplCopyWithImpl<$Res>
         null == name
             ? _value.name
             : name // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -578,7 +578,7 @@ class __$$GetDataSingleImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -750,7 +750,7 @@ class __$$PostDataImplCopyWithImpl<$Res>
         null == location
             ? _value._location
             : location // ignore: cast_nullable_to_non_nullable
-                as Map<String, dynamic>,
+                  as Map<String, dynamic>,
       ),
     );
   }
@@ -929,11 +929,11 @@ class __$$PutDataImplCopyWithImpl<$Res>
         null == location
             ? _value._location
             : location // ignore: cast_nullable_to_non_nullable
-                as Map<String, dynamic>,
+                  as Map<String, dynamic>,
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -1121,7 +1121,7 @@ class __$$DeleteDataImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -1619,7 +1619,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
         null == errorMessage
             ? _value.errorMessage
             : errorMessage // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -1780,7 +1780,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
         null == message
             ? _value.message
             : message // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -1942,7 +1942,7 @@ class __$$SuccessWithDataImplCopyWithImpl<$Res>
         null == location
             ? _value.location
             : location // ignore: cast_nullable_to_non_nullable
-                as LocationModel,
+                  as LocationModel,
       ),
     );
   }

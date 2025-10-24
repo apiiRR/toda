@@ -80,36 +80,30 @@ class _$MaintenanceIdCopyWithImpl<$Res, $Val extends MaintenanceId>
   }) {
     return _then(
       _value.copyWith(
-            userId:
-                freezed == userId
-                    ? _value.userId
-                    : userId // ignore: cast_nullable_to_non_nullable
-                        as List<dynamic>?,
-            description:
-                freezed == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            id:
-                freezed == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int?,
-            state:
-                freezed == state
-                    ? _value.state
-                    : state // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            cost:
-                freezed == cost
-                    ? _value.cost
-                    : cost // ignore: cast_nullable_to_non_nullable
-                        as double?,
-            date:
-                freezed == date
-                    ? _value.date
-                    : date // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            userId: freezed == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                      as List<dynamic>?,
+            description: freezed == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            state: freezed == state
+                ? _value.state
+                : state // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            cost: freezed == cost
+                ? _value.cost
+                : cost // ignore: cast_nullable_to_non_nullable
+                      as double?,
+            date: freezed == date
+                ? _value.date
+                : date // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -158,36 +152,30 @@ class __$$MaintenanceIdImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$MaintenanceIdImpl(
-        userId:
-            freezed == userId
-                ? _value._userId
-                : userId // ignore: cast_nullable_to_non_nullable
-                    as List<dynamic>?,
-        description:
-            freezed == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        id:
-            freezed == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
-        state:
-            freezed == state
-                ? _value.state
-                : state // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        cost:
-            freezed == cost
-                ? _value.cost
-                : cost // ignore: cast_nullable_to_non_nullable
-                    as double?,
-        date:
-            freezed == date
-                ? _value.date
-                : date // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        userId: freezed == userId
+            ? _value._userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as List<dynamic>?,
+        description: freezed == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        state: freezed == state
+            ? _value.state
+            : state // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        cost: freezed == cost
+            ? _value.cost
+            : cost // ignore: cast_nullable_to_non_nullable
+                  as double?,
+        date: freezed == date
+            ? _value.date
+            : date // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

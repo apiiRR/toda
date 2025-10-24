@@ -243,7 +243,7 @@ class __$$LoginImplCopyWithImpl<$Res>
         null == data
             ? _value._data
             : data // ignore: cast_nullable_to_non_nullable
-                as Map<String, String>,
+                  as Map<String, String>,
       ),
     );
   }
@@ -1162,7 +1162,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
         null == errorMessage
             ? _value.errorMessage
             : errorMessage // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -1770,7 +1770,7 @@ class __$$SuccessWithTextImplCopyWithImpl<$Res>
         null == text
             ? _value.text
             : text // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -1953,7 +1953,7 @@ class __$$ProfileImplCopyWithImpl<$Res>
         null == data
             ? _value.data
             : data // ignore: cast_nullable_to_non_nullable
-                as ProfileModel,
+                  as ProfileModel,
       ),
     );
   }

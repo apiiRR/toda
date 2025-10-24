@@ -305,7 +305,7 @@ class __$$ScanDataHomeImplCopyWithImpl<$Res>
         null == name
             ? _value.name
             : name // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -495,7 +495,7 @@ class __$$ScanDataImplCopyWithImpl<$Res>
         null == name
             ? _value.name
             : name // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -685,11 +685,11 @@ class __$$GetDataImplCopyWithImpl<$Res>
         null == start
             ? _value.start
             : start // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
         null == data
             ? _value._data
             : data // ignore: cast_nullable_to_non_nullable
-                as Map<String, dynamic>,
+                  as Map<String, dynamic>,
       ),
     );
   }
@@ -894,7 +894,7 @@ class __$$GetDataSingleImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -1084,7 +1084,7 @@ class __$$PostDataImplCopyWithImpl<$Res>
         null == asset
             ? _value._asset
             : asset // ignore: cast_nullable_to_non_nullable
-                as Map<String, dynamic>,
+                  as Map<String, dynamic>,
       ),
     );
   }
@@ -1280,7 +1280,7 @@ class __$$PostDataDuplicateImplCopyWithImpl<$Res>
         null == asset
             ? _value._asset
             : asset // ignore: cast_nullable_to_non_nullable
-                as Map<String, dynamic>,
+                  as Map<String, dynamic>,
       ),
     );
   }
@@ -1481,11 +1481,11 @@ class __$$PutDataImplCopyWithImpl<$Res>
         null == asset
             ? _value._asset
             : asset // ignore: cast_nullable_to_non_nullable
-                as Map<String, dynamic>,
+                  as Map<String, dynamic>,
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -1688,7 +1688,7 @@ class __$$DeleteDataImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -1878,7 +1878,7 @@ class __$$CustomDataImplCopyWithImpl<$Res>
         null == asset
             ? _value._asset
             : asset // ignore: cast_nullable_to_non_nullable
-                as Map<String, dynamic>,
+                  as Map<String, dynamic>,
       ),
     );
   }
@@ -2419,7 +2419,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
         null == errorMessage
             ? _value.errorMessage
             : errorMessage // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -2586,7 +2586,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
         null == message
             ? _value.message
             : message // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -2754,7 +2754,7 @@ class __$$SuccessDuplicateImplCopyWithImpl<$Res>
         null == asset
             ? _value.asset
             : asset // ignore: cast_nullable_to_non_nullable
-                as AssetModel,
+                  as AssetModel,
       ),
     );
   }
@@ -2936,7 +2936,7 @@ class __$$SuccessWithDataImplCopyWithImpl<$Res>
         null == asset
             ? _value.asset
             : asset // ignore: cast_nullable_to_non_nullable
-                as AssetModel,
+                  as AssetModel,
       ),
     );
   }

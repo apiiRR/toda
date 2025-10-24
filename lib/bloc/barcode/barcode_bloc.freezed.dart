@@ -221,7 +221,7 @@ class __$$MovingDataImplCopyWithImpl<$Res>
         null == asset
             ? _value._asset
             : asset // ignore: cast_nullable_to_non_nullable
-                as List<Map<String, dynamic>>,
+                  as List<Map<String, dynamic>>,
       ),
     );
   }
@@ -377,7 +377,7 @@ class __$$DetailDataImplCopyWithImpl<$Res>
         null == code
             ? _value.code
             : code // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -872,7 +872,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
         null == errorMessage
             ? _value.errorMessage
             : errorMessage // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -1040,7 +1040,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
         null == message
             ? _value.message
             : message // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -1209,7 +1209,7 @@ class __$$SuccessWithDataAssetImplCopyWithImpl<$Res>
         null == asset
             ? _value.asset
             : asset // ignore: cast_nullable_to_non_nullable
-                as AssetModel,
+                  as AssetModel,
       ),
     );
   }
@@ -1393,7 +1393,7 @@ class __$$SuccessWithDataLocationImplCopyWithImpl<$Res>
         null == location
             ? _value.location
             : location // ignore: cast_nullable_to_non_nullable
-                as LocationModel,
+                  as LocationModel,
       ),
     );
   }
@@ -1440,9 +1440,10 @@ class _$SuccessWithDataLocationImpl implements _SuccessWithDataLocation {
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessWithDataLocationImplCopyWith<_$SuccessWithDataLocationImpl>
-  get copyWith => __$$SuccessWithDataLocationImplCopyWithImpl<
-    _$SuccessWithDataLocationImpl
-  >(this, _$identity);
+  get copyWith =>
+      __$$SuccessWithDataLocationImplCopyWithImpl<
+        _$SuccessWithDataLocationImpl
+      >(this, _$identity);
 
   @override
   @optionalTypeArgs

@@ -14,6 +14,7 @@ class Datum with _$Datum {
     @JsonKey(name: 'asset_location_id') List<dynamic>? assetLocationId,
     @JsonKey(name: 'product_code') String? productCode,
     @JsonKey(name: 'location_name') String? locationName,
+    @JsonKey(name: 'kondisi') String? kondisi,
     @JsonKey(name: 'po_date') String? poDate,
     @JsonKey(name: 'product_name') String? productName,
     @JsonKey(name: 'current_accumulated_depreciation')

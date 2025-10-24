@@ -68,21 +68,18 @@ class _$AssetModelCopyWithImpl<$Res, $Val extends AssetModel>
   }) {
     return _then(
       _value.copyWith(
-            jsonrpc:
-                freezed == jsonrpc
-                    ? _value.jsonrpc
-                    : jsonrpc // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            id:
-                freezed == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as dynamic,
-            result:
-                freezed == result
-                    ? _value.result
-                    : result // ignore: cast_nullable_to_non_nullable
-                        as Result?,
+            jsonrpc: freezed == jsonrpc
+                ? _value.jsonrpc
+                : jsonrpc // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as dynamic,
+            result: freezed == result
+                ? _value.result
+                : result // ignore: cast_nullable_to_non_nullable
+                      as Result?,
           )
           as $Val,
     );
@@ -138,21 +135,18 @@ class __$$AssetModelImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$AssetModelImpl(
-        jsonrpc:
-            freezed == jsonrpc
-                ? _value.jsonrpc
-                : jsonrpc // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        id:
-            freezed == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as dynamic,
-        result:
-            freezed == result
-                ? _value.result
-                : result // ignore: cast_nullable_to_non_nullable
-                    as Result?,
+        jsonrpc: freezed == jsonrpc
+            ? _value.jsonrpc
+            : jsonrpc // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as dynamic,
+        result: freezed == result
+            ? _value.result
+            : result // ignore: cast_nullable_to_non_nullable
+                  as Result?,
       ),
     );
   }

@@ -8,7 +8,7 @@ part of 'error_model.dart';
 
 _$ErrorModelImpl _$$ErrorModelImplFromJson(Map<String, dynamic> json) =>
     _$ErrorModelImpl(
-      jsonrpc: json['jsonrpc'].toString(),
+      jsonrpc: json['jsonrpc'] as String?,
       id: json['id'],
       error:
           json['error'] == null

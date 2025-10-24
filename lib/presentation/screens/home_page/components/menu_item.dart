@@ -23,7 +23,7 @@ class MenuItem extends StatelessWidget {
             width: 50,
             height: 50,
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 207, 220, 243),
+              color: const Color.fromARGB(255, 236, 222, 219),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Center(

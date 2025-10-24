@@ -3,17 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:intl/intl.dart';
 
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart' as datum_asset;
-import '../../../domain/models/master_data_model/datum.dart'
-    as datum_master_data;
+import '../../../domain/models/location_model/datum.dart' as datum_location;
 import '../../utils/app_styles.dart';
-import '../../widgets/field_category_dropdown.dart';
-import '../../widgets/field_date.dart';
 import '../../widgets/field_image.dart';
-import '../../widgets/field_merk_dropdown.dart';
+import '../../widgets/field_kondisi_dropdown.dart';
+import '../../widgets/field_location_dropdown.dart';
 import '../../widgets/field_text.dart';
 import '../../widgets/rounded_button_loading.dart';
 import '../../widgets/rounded_button_solid.dart';
@@ -33,19 +30,20 @@ class _AssetEditPageState extends State<AssetEditPage> {
     );
   }
 
-  datum_master_data.Datum? category;
-  datum_master_data.Datum? merk;
+  // datum_master_data.Datum? category;
+  // datum_master_data.Datum? merk;
+  datum_location.Datum? location;
+  String? kondisi;
 
   @override
   void initState() {
-    category = datum_master_data.Datum(
-      id: widget.data.categoryId![0],
-      name: widget.data.categoryId![1],
-    );
-    merk = datum_master_data.Datum(
-      id: widget.data.merkId![0],
-      name: widget.data.merkId![1],
-    );
+    location = widget.data.assetLocationId!.isNotEmpty
+        ? datum_location.Datum(
+            id: widget.data.assetLocationId![0],
+            name: widget.data.assetLocationId![1],
+          )
+        : null;
+    kondisi = widget.data.kondisi.toString();
     super.initState();
   }
 
@@ -74,108 +72,120 @@ class _AssetEditPageState extends State<AssetEditPage> {
           child: Column(
             children: [
               const SizedBox(height: 16),
-              FieldCategoryDropdown(
-                validator: FormBuilderValidators.required(),
-                title: "Category",
-                hint: "Example : Kendaraan / Mesin",
-                selectedItem: category,
+              // FieldCategoryDropdown(
+              //   validator: FormBuilderValidators.required(),
+              //   title: "Category",
+              //   hint: "Example : Kendaraan / Mesin",
+              //   selectedItem: category,
+              //   onChanged: (data) {
+              //     setState(() {
+              //       category = data;
+              //     });
+              //   },
+              // ),
+              // const SizedBox(height: 16),
+              // FieldText(
+              //   validator: FormBuilderValidators.compose([
+              //     FormBuilderValidators.required(),
+              //   ]),
+              //   title: "Asset Name",
+              //   name: "name",
+              //   hint: "Example : Laptop Macbook Pro",
+              //   keyboardType: TextInputType.text,
+              //   initialValue: widget.data.productName,
+              // ),
+              // const SizedBox(height: 16),
+              // FieldText(
+              //   validator: FormBuilderValidators.compose([]),
+              //   title: "User",
+              //   name: "user",
+              //   hint: "Example : Moy",
+              //   keyboardType: TextInputType.text,
+              //   initialValue:
+              //       widget.data.userName == "false" ? "" : widget.data.userName,
+              // ),
+              // const SizedBox(height: 16),
+              // FieldText(
+              //   validator: FormBuilderValidators.compose([]),
+              //   title: "PO Number",
+              //   name: "po_number",
+              //   hint: "Example : PO123",
+              //   keyboardType: TextInputType.number,
+              //   initialValue:
+              //       widget.data.poNumber == "false" ? "" : widget.data.poNumber,
+              // ),
+              // const SizedBox(height: 16),
+              // FieldDate(
+              //   validator: FormBuilderValidators.compose([]),
+              //   title: "PO Date",
+              //   name: "po_date",
+              //   hint: "Example : 2025-10-16",
+              //   initialValue:
+              //       widget.data.poDate == "false"
+              //           ? null
+              //           : DateTime.parse(widget.data.poDate!),
+              // ),
+              // const SizedBox(height: 16),
+              // FieldText(
+              //   validator: FormBuilderValidators.compose([]),
+              //   title: "PO Amount",
+              //   name: "po_amount",
+              //   hint: "Example : 50.000.000",
+              //   keyboardType: TextInputType.number,
+              //   inputFormatters: [
+              //     TextInputFormatter.withFunction((oldValue, newValue) {
+              //       if (newValue.text.isEmpty) return newValue;
+
+              //       // hapus semua non-digit
+              //       final digitsOnly = newValue.text.replaceAll(
+              //         RegExp(r'[^\d]'),
+              //         '',
+              //       );
+              //       final number = int.tryParse(digitsOnly);
+              //       if (number == null) return oldValue;
+
+              //       // format tampilannya
+              //       final formatted = NumberFormat(
+              //         '#,###',
+              //         'id_ID',
+              //       ).format(number);
+              //       return TextEditingValue(
+              //         text: formatted,
+              //         selection: TextSelection.collapsed(
+              //           offset: formatted.length,
+              //         ),
+              //       );
+              //     }),
+              //   ],
+              //   initialValue:
+              //       widget.data.poAmount != null
+              //           ? NumberFormat(
+              //             '#,###',
+              //             'id_ID',
+              //           ).format(widget.data.poAmount)
+              //           : null,
+              // ),
+              // const SizedBox(height: 16),
+              FieldLocationDropdown(
+                validator: FormBuilderValidators.compose([]),
+                title: "Location",
+                hint: "Example : Location A",
+                selectedItem: location,
                 onChanged: (data) {
                   setState(() {
-                    category = data;
+                    location = data;
                   });
                 },
               ),
               const SizedBox(height: 16),
-              FieldText(
-                validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(),
-                ]),
-                title: "Asset Name",
-                name: "name",
-                hint: "Example : Laptop Macbook Pro",
-                keyboardType: TextInputType.text,
-                initialValue: widget.data.productName,
-              ),
-              const SizedBox(height: 16),
-              FieldText(
+              FieldKondisiDropdown(
                 validator: FormBuilderValidators.compose([]),
-                title: "User",
-                name: "user",
-                hint: "Example : Moy",
-                keyboardType: TextInputType.text,
-                initialValue:
-                    widget.data.userName == "false" ? "" : widget.data.userName,
-              ),
-              const SizedBox(height: 16),
-              FieldText(
-                validator: FormBuilderValidators.compose([]),
-                title: "PO Number",
-                name: "po_number",
-                hint: "Example : PO123",
-                keyboardType: TextInputType.number,
-                initialValue:
-                    widget.data.poNumber == "false" ? "" : widget.data.poNumber,
-              ),
-              const SizedBox(height: 16),
-              FieldDate(
-                validator: FormBuilderValidators.compose([]),
-                title: "PO Date",
-                name: "po_date",
-                hint: "Example : 2025-10-16",
-                initialValue:
-                    widget.data.poDate == "false"
-                        ? null
-                        : DateTime.parse(widget.data.poDate!),
-              ),
-              const SizedBox(height: 16),
-              FieldText(
-                validator: FormBuilderValidators.compose([]),
-                title: "PO Amount",
-                name: "po_amount",
-                hint: "Example : 50.000.000",
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  TextInputFormatter.withFunction((oldValue, newValue) {
-                    if (newValue.text.isEmpty) return newValue;
-
-                    // hapus semua non-digit
-                    final digitsOnly = newValue.text.replaceAll(
-                      RegExp(r'[^\d]'),
-                      '',
-                    );
-                    final number = int.tryParse(digitsOnly);
-                    if (number == null) return oldValue;
-
-                    // format tampilannya
-                    final formatted = NumberFormat(
-                      '#,###',
-                      'id_ID',
-                    ).format(number);
-                    return TextEditingValue(
-                      text: formatted,
-                      selection: TextSelection.collapsed(
-                        offset: formatted.length,
-                      ),
-                    );
-                  }),
-                ],
-                initialValue:
-                    widget.data.poAmount != null
-                        ? NumberFormat(
-                          '#,###',
-                          'id_ID',
-                        ).format(widget.data.poAmount)
-                        : null,
-              ),
-              const SizedBox(height: 16),
-              FieldMerkDropdown(
-                validator: FormBuilderValidators.compose([]),
-                title: "Merk",
-                hint: "Example : Merk A",
-                selectedItem: merk,
+                title: "Kondisi",
+                hint: "Example : Baik",
+                selectedItem: kondisi,
                 onChanged: (data) {
                   setState(() {
-                    merk = data;
+                    kondisi = data;
                   });
                 },
               ),
@@ -186,8 +196,9 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 name: "notes",
                 hint: "Example : Kondisi saat ini aman & lancar",
                 keyboardType: TextInputType.text,
-                initialValue:
-                    widget.data.notes == "false" ? "" : widget.data.notes,
+                initialValue: widget.data.notes == "false"
+                    ? ""
+                    : widget.data.notes,
               ),
               const SizedBox(height: 16),
               FieldImage(
@@ -195,8 +206,9 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 title: "Image",
                 name: "image",
                 hint: "image",
-                initialValue:
-                    widget.data.imageUrl == "" ? null : [widget.data.imageUrl],
+                initialValue: widget.data.imageUrl == ""
+                    ? null
+                    : [widget.data.imageUrl],
               ),
               const SizedBox(height: 32),
               BlocConsumer<AssetBloc, AssetState>(
@@ -234,87 +246,43 @@ class _AssetEditPageState extends State<AssetEditPage> {
                   return state == const AssetState.loading()
                       ? const RoundedButtonLoading()
                       : RoundedButtonSolid(
-                        text: "Update",
-                        onAction: () {
-                          formKey.currentState!.save();
-                          if (formKey.currentState!.validate()) {
-                            Map<String, dynamic> inputData;
-                            List imageInput =
-                                formKey.currentState!.value["image"] == null
-                                    ? []
-                                    : formKey.currentState!.value["image"]
+                          text: "Update",
+                          onAction: () {
+                            formKey.currentState!.save();
+                            if (formKey.currentState!.validate()) {
+                              Map<String, dynamic> inputData;
+                              List imageInput =
+                                  formKey.currentState!.value["image"] == null
+                                  ? []
+                                  : formKey.currentState!.value["image"]
                                         as List;
 
-                            if (imageInput.isNotEmpty &&
-                                imageInput.first == widget.data.imageUrl) {
-                              inputData = {
-                                "product_name":
-                                    formKey.currentState!.value["name"]
-                                        .toString(),
-                                "category_id": category!.id,
-                                "user_name":
-                                    formKey.currentState!.value["user"]
-                                        .toString(),
-                                "notes":
-                                    formKey.currentState!.value["notes"]
-                                        .toString(),
-                                "po_date":
-                                    formKey.currentState!.value["po_date"] !=
-                                            null
-                                        ? DateFormat('yyyy-MM-dd').format(
-                                          formKey
-                                              .currentState!
-                                              .value["po_date"],
-                                        )
-                                        : null,
-                                "po_amount": formKey
-                                    .currentState!
-                                    .value["po_amount"]
-                                    ?.replaceAll('.', ''),
-                                "merk_id": merk!.id,
-                                "po_number":
-                                    formKey.currentState!.value["po_number"],
-                              };
-                            } else {
-                              inputData = {
-                                "product_name":
-                                    formKey.currentState!.value["name"]
-                                        .toString(),
-                                "category_id": category!.id,
-                                "user_name":
-                                    formKey.currentState!.value["user"]
-                                        .toString(),
-                                "notes":
-                                    formKey.currentState!.value["notes"]
-                                        .toString(),
-                                "image": formKey.currentState!.value["image"],
-                                "po_date":
-                                    formKey.currentState!.value["po_date"] !=
-                                            null
-                                        ? DateFormat('yyyy-MM-dd').format(
-                                          formKey
-                                              .currentState!
-                                              .value["po_date"],
-                                        )
-                                        : null,
-                                "po_amount": formKey
-                                    .currentState!
-                                    .value["po_amount"]
-                                    ?.replaceAll('.', ''),
-                                "merk_id": merk!.id,
-                                "po_number":
-                                    formKey.currentState!.value["po_number"],
-                              };
-                            }
+                              if (imageInput.isNotEmpty &&
+                                  imageInput.first == widget.data.imageUrl) {
+                                inputData = {
+                                  "notes": formKey.currentState!.value["notes"]
+                                      .toString(),
+                                  "asset_location_id": location?.id,
+                                  "kondisi": kondisi,
+                                };
+                              } else {
+                                inputData = {
+                                  "notes": formKey.currentState!.value["notes"]
+                                      .toString(),
+                                  "asset_location_id": location?.id,
+                                  "kondisi": kondisi,
+                                  "image": formKey.currentState!.value["image"],
+                                };
+                              }
 
-                            // removeEmptyValueKeys(inputData);
-                            // log(inputData.toString());
-                            context.read<AssetBloc>().add(
-                              AssetEvent.putData(inputData, widget.data.id!),
-                            );
-                          }
-                        },
-                      );
+                              // removeEmptyValueKeys(inputData);
+                              // log(inputData.toString());
+                              context.read<AssetBloc>().add(
+                                AssetEvent.putData(inputData, widget.data.id!),
+                              );
+                            }
+                          },
+                        );
                 },
               ),
               const SizedBox(height: 50),

@@ -74,26 +74,22 @@ class _$HistoryIdCopyWithImpl<$Res, $Val extends HistoryId>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                freezed == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int?,
-            scanDate:
-                freezed == scanDate
-                    ? _value.scanDate
-                    : scanDate // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            userId:
-                freezed == userId
-                    ? _value.userId
-                    : userId // ignore: cast_nullable_to_non_nullable
-                        as List<dynamic>?,
-            locationName:
-                freezed == locationName
-                    ? _value.locationName
-                    : locationName // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            scanDate: freezed == scanDate
+                ? _value.scanDate
+                : scanDate // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            userId: freezed == userId
+                ? _value.userId
+                : userId // ignore: cast_nullable_to_non_nullable
+                      as List<dynamic>?,
+            locationName: freezed == locationName
+                ? _value.locationName
+                : locationName // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -138,26 +134,22 @@ class __$$HistoryIdImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$HistoryIdImpl(
-        id:
-            freezed == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
-        scanDate:
-            freezed == scanDate
-                ? _value.scanDate
-                : scanDate // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        userId:
-            freezed == userId
-                ? _value._userId
-                : userId // ignore: cast_nullable_to_non_nullable
-                    as List<dynamic>?,
-        locationName:
-            freezed == locationName
-                ? _value.locationName
-                : locationName // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        scanDate: freezed == scanDate
+            ? _value.scanDate
+            : scanDate // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        userId: freezed == userId
+            ? _value._userId
+            : userId // ignore: cast_nullable_to_non_nullable
+                  as List<dynamic>?,
+        locationName: freezed == locationName
+            ? _value.locationName
+            : locationName // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }

@@ -7,10 +7,9 @@ part of 'result.dart';
 // **************************************************************************
 
 _$ResultImpl _$$ResultImplFromJson(Map<String, dynamic> json) => _$ResultImpl(
-  data:
-      (json['data'] as List<dynamic>?)
-          ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  data: (json['data'] as List<dynamic>?)
+      ?.map((e) => Datum.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$$ResultImplToJson(_$ResultImpl instance) =>
