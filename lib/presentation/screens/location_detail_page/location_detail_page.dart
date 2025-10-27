@@ -446,8 +446,9 @@ class _LocationDetailPageState extends State<LocationDetailPage> {
                                                                         .locationName! ==
                                                                     "false"
                                                                 ? "Location has not been added"
-                                                                : dataResult![index]
-                                                                    .locationName!,
+                                                                : "${dataResult![index]
+                                                        .assetLocationId![1].toString()} / ${dataResult![index]
+                                                        .locationName!}",
                                                             style: kJakartaRegular.copyWith(
                                                               color:
                                                                   dataResult![index]

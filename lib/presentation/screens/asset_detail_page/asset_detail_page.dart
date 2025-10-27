@@ -285,7 +285,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                       title: "Location",
                                       text:
                                           dataAsset!.locationName! != "false"
-                                              ? dataAsset!.locationName!
+                                              ? "${dataAsset!.assetLocationId![1]} / ${dataAsset!.locationName.toString()}"
                                               : "-",
                                     ),
                                     const Divider(),

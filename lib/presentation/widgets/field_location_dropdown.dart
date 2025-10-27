@@ -64,11 +64,11 @@ class FieldLocationDropdown extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(item.name!, style: kJakartaRegular),
+                      Text(item.code!, style: kJakartaRegular),
                       Text(
                         item.parentId!.isNotEmpty
                             ? "${item.parentId![1].toString()}/${item.name}"
-                            : "-",
+                            : "${item.name}",
                         style: kJakartaLight.copyWith(fontSize: 12),
                       ),
                     ],
@@ -103,7 +103,7 @@ class FieldLocationDropdown extends StatelessWidget {
                 errorStyle: kJakartaLight,
               ),
             ),
-            itemAsString: (item) => item.name!,
+            itemAsString: (item) => item.code.toString(),
             onChanged: onChanged,
             asyncItems: (String filter) async {
               final Map<String, dynamic> dataUser = await getDetailUser();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -40,7 +39,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
     location = widget.data.assetLocationId!.isNotEmpty
         ? datum_location.Datum(
             id: widget.data.assetLocationId![0],
-            name: widget.data.assetLocationId![1],
+            code: widget.data.assetLocationId![1],
           )
         : null;
     kondisi = widget.data.kondisi.toString();
