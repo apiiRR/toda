@@ -49,7 +49,7 @@ class SplashPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/png/logo_long.png"),
+              Center(child: Image.asset("assets/png/logo_long.png")),
               // Center(
               //   child: Text(
               //     "Asset Management System",
@@ -68,10 +68,9 @@ class SplashPage extends StatelessWidget {
                     );
                   }
                 },
-                child:
-                    state == const AuthState.loading()
-                        ? CircularProgressIndicator(color: kWhite)
-                        : Icon(Icons.arrow_forward_ios_rounded, color: kWhite),
+                child: state == const AuthState.loading()
+                    ? CircularProgressIndicator(color: kWhite)
+                    : Icon(Icons.arrow_forward_ios_rounded, color: kWhite),
               ),
             ],
           ),

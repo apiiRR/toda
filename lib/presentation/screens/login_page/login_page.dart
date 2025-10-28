@@ -73,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                               const FieldText(
                                 title: "Username",
                                 name: "username",
-                                hint: "username.berdikari",
+                                hint: "username",
                               ),
                               const SizedBox(height: 16),
                               FieldText(
@@ -128,28 +128,26 @@ class _LoginPageState extends State<LoginPage> {
                                   return state == const AuthState.loading()
                                       ? const RoundedButtonLoading()
                                       : RoundedButtonSolid(
-                                        text: "Login",
-                                        onAction: () {
-                                          formKey.currentState!.save();
-                                          if (formKey.currentState!
-                                              .validate()) {
-                                            context.read<AuthBloc>().add(
-                                              AuthEvent.login({
-                                                "username":
-                                                    formKey
-                                                        .currentState!
-                                                        .value["username"]
-                                                        .toString(),
-                                                "password":
-                                                    formKey
-                                                        .currentState!
-                                                        .value["password"]
-                                                        .toString(),
-                                              }),
-                                            );
-                                          }
-                                        },
-                                      );
+                                          text: "Login",
+                                          onAction: () {
+                                            formKey.currentState!.save();
+                                            if (formKey.currentState!
+                                                .validate()) {
+                                              context.read<AuthBloc>().add(
+                                                AuthEvent.login({
+                                                  "username": formKey
+                                                      .currentState!
+                                                      .value["username"]
+                                                      .toString(),
+                                                  "password": formKey
+                                                      .currentState!
+                                                      .value["password"]
+                                                      .toString(),
+                                                }),
+                                              );
+                                            }
+                                          },
+                                        );
                                 },
                               ),
                               const SizedBox(height: 24),
