@@ -280,6 +280,11 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                       title: "Asset Name",
                                       text: dataAsset!.productName!,
                                     ),
+                                                                        const Divider(),
+                                    TextFieldTitle(
+                                      title: "Merk",
+                                      text: dataAsset!.merkId!.isNotEmpty ? dataAsset!.merkId![1] : "-",
+                                    ),
                                     const Divider(),
                                     TextFieldTitle(
                                       title: "Location",

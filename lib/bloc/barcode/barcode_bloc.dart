@@ -41,7 +41,6 @@ class BarcodeBloc extends Bloc<BarcodeEvent, BarcodeState> {
       try {
         emit(const BarcodeState.loading());
         final Map<String, dynamic> dataUser = await getDetailUser();
-        bool isAsset = false;
 
         final dataAsset = await assetService.assetGet(
           dataUser["token"],
@@ -52,10 +51,9 @@ class BarcodeBloc extends Bloc<BarcodeEvent, BarcodeState> {
         dataAsset.fold(
           (l) {
             if (l.result!.data!.isNotEmpty) {
-              isAsset = true;
-              emit(BarcodeState.successWithDataAsset(l));
+                            emit(BarcodeState.successWithDataAsset(l));
             } else {
-              isAsset = false;
+              throw ("Asset not found");
             }
           },
           (r) {
@@ -63,21 +61,6 @@ class BarcodeBloc extends Bloc<BarcodeEvent, BarcodeState> {
           },
         );
 
-        if (isAsset == false) {
-          final dataLocation = await locationService.locationGet(
-            dataUser["token"],
-            data: {"code": event.code},
-          );
-
-          dataLocation.fold(
-            (l) {
-              emit(BarcodeState.successWithDataLocation(l));
-            },
-            (r) {
-              throw (r);
-            },
-          );
-        }
       } catch (e) {
         emit(BarcodeState.error(e.toString()));
       }

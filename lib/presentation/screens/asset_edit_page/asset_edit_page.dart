@@ -6,10 +6,12 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart' as datum_asset;
 import '../../../domain/models/location_model/datum.dart' as datum_location;
+import '../../../domain/models/master_data_model/datum.dart' as datum_master_data;
 import '../../utils/app_styles.dart';
 import '../../widgets/field_image.dart';
 import '../../widgets/field_kondisi_dropdown.dart';
 import '../../widgets/field_location_dropdown.dart';
+import '../../widgets/field_merk_dropdown.dart';
 import '../../widgets/field_text.dart';
 import '../../widgets/rounded_button_loading.dart';
 import '../../widgets/rounded_button_solid.dart';
@@ -30,7 +32,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
   }
 
   // datum_master_data.Datum? category;
-  // datum_master_data.Datum? merk;
+  datum_master_data.Datum? merk;
   datum_location.Datum? location;
   String? kondisi;
 
@@ -40,6 +42,12 @@ class _AssetEditPageState extends State<AssetEditPage> {
         ? datum_location.Datum(
             id: widget.data.assetLocationId![0],
             code: widget.data.assetLocationId![1],
+          )
+        : null;
+            merk = widget.data.merkId!.isNotEmpty
+        ? datum_master_data.Datum(
+            id: widget.data.merkId![0],
+            name: widget.data.merkId![1],
           )
         : null;
     kondisi = widget.data.kondisi.toString();
@@ -177,6 +185,18 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 },
               ),
               const SizedBox(height: 16),
+              FieldMerkDropdown(
+                validator: FormBuilderValidators.compose([]),
+                title: "Merk",
+                hint: "Example : Merk A",
+                selectedItem: merk,
+                onChanged: (data) {
+                  setState(() {
+                    merk = data;
+                  });
+                },
+              ),
+              const SizedBox(height: 16),
               FieldKondisiDropdown(
                 validator: FormBuilderValidators.compose([]),
                 title: "Kondisi",
@@ -262,6 +282,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                   "notes": formKey.currentState!.value["notes"]
                                       .toString(),
                                   "asset_location_id": location?.id,
+                                  "merk_id": merk?.id,
                                   "kondisi": kondisi,
                                 };
                               } else {
@@ -269,6 +290,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                   "notes": formKey.currentState!.value["notes"]
                                       .toString(),
                                   "asset_location_id": location?.id,
+                                  "merk_id": merk?.id,
                                   "kondisi": kondisi,
                                   "image": formKey.currentState!.value["image"],
                                 };

@@ -7,7 +7,7 @@ import '../utils/app_styles.dart';
 
 class FieldImage extends StatelessWidget {
   const FieldImage({
-    Key? key,
+    super.key,
     required this.title,
     required this.name,
     this.hint,
@@ -21,7 +21,7 @@ class FieldImage extends StatelessWidget {
     this.onChanged,
     this.inputFormatters,
     this.suffix,
-  }) : super(key: key);
+  });
   final String title;
   final String name;
   final String? hint;
@@ -51,6 +51,7 @@ class FieldImage extends StatelessWidget {
             validator: validator,
             name: name,
             onChanged: onChanged,
+            imageQuality: 20,
             decoration: InputDecoration(
               suffixIcon: suffix,
               filled: true,

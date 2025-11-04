@@ -257,44 +257,44 @@ class _HomePageState extends State<HomePage> {
                             // Logika listener ini TETAP SAMA, sudah sempurna
                             state.maybeWhen(
                               orElse: () {},
-                              successWithDataLocation: (data) {
-                                log("[LISTENER] successWithDataLocation");
-                                LocationModel dataLocation = data;
-                                if (dataLocation.result != null &&
-                                    dataLocation.result!.data != null &&
-                                    dataLocation.result!.data!.isNotEmpty) {
-                                  log(
-                                    "[LISTENER] Navigasi ke LocationDetail. Kunci TIDAK dilepas.",
-                                  );
-                                  context
-                                      .pushNamed(
-                                        RouteName.locationDetailPage,
-                                        extra: dataLocation.result!.data!.first,
-                                      )
-                                      // --- TAMBAHKAN INI ---
-                                      .then((_) {
-                                        // Kode ini berjalan SETELAH LocationDetailPage di-pop
-                                        log(
-                                          "[LISTENER] Kembali dari LocationDetail. Melepas kunci.",
-                                        );
-                                        if (mounted) {
-                                          setState(() => _isScanning = false);
-                                        }
-                                      });
-                                  // --- AKHIR TAMBAHAN ---
-                                } else {
-                                  log(
-                                    "[LISTENER] GAGAL (Data not found). Melepas kunci.",
-                                  );
-                                  showAppDialog(
-                                    context,
-                                    type: DialogType.error,
-                                    message: "Data not found",
-                                  );
-                                  if (mounted)
-                                    setState(() => _isScanning = false);
-                                }
-                              },
+                              // successWithDataLocation: (data) {
+                              //   log("[LISTENER] successWithDataLocation");
+                              //   LocationModel dataLocation = data;
+                              //   if (dataLocation.result != null &&
+                              //       dataLocation.result!.data != null &&
+                              //       dataLocation.result!.data!.isNotEmpty) {
+                              //     log(
+                              //       "[LISTENER] Navigasi ke LocationDetail. Kunci TIDAK dilepas.",
+                              //     );
+                              //     context
+                              //         .pushNamed(
+                              //           RouteName.locationDetailPage,
+                              //           extra: dataLocation.result!.data!.first,
+                              //         )
+                              //         // --- TAMBAHKAN INI ---
+                              //         .then((_) {
+                              //           // Kode ini berjalan SETELAH LocationDetailPage di-pop
+                              //           log(
+                              //             "[LISTENER] Kembali dari LocationDetail. Melepas kunci.",
+                              //           );
+                              //           if (mounted) {
+                              //             setState(() => _isScanning = false);
+                              //           }
+                              //         });
+                              //     // --- AKHIR TAMBAHAN ---
+                              //   } else {
+                              //     log(
+                              //       "[LISTENER] GAGAL (Data not found). Melepas kunci.",
+                              //     );
+                              //     showAppDialog(
+                              //       context,
+                              //       type: DialogType.error,
+                              //       message: "Data not found",
+                              //     );
+                              //     if (mounted)
+                              //       setState(() => _isScanning = false);
+                              //   }
+                              // },
                               successWithDataAsset: (data) {
                                 AssetModel dataAsset = data;
                                 log("[LISTENER] successWithDataAsset");
