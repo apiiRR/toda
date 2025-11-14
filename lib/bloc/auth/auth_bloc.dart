@@ -22,8 +22,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       try {
         emit(const AuthState.loading());
 
-        SharedPreferences sharedPreferences =
-            await locator.getAsync<SharedPreferences>();
+        SharedPreferences sharedPreferences = await locator
+            .getAsync<SharedPreferences>();
 
         LoginModel? data;
         ProfileModel? detailUser;
@@ -93,8 +93,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_LogOut>((event, emit) async {
       emit(const AuthState.loading());
 
-      SharedPreferences sharedPreferences =
-          await locator.getAsync<SharedPreferences>();
+      SharedPreferences sharedPreferences = await locator
+          .getAsync<SharedPreferences>();
 
       sharedPreferences.remove('account');
       sharedPreferences.clear();
@@ -104,8 +104,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_CheckSignInStatus>((event, emit) async {
       emit(const AuthState.loading());
 
-      SharedPreferences sharedPreferences =
-          await locator.getAsync<SharedPreferences>();
+      SharedPreferences sharedPreferences = await locator
+          .getAsync<SharedPreferences>();
 
       String? account = sharedPreferences.getString('account');
 

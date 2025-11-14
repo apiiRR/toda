@@ -42,7 +42,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
 
   @override
   void initState() {
-    _controller = TabController(vsync: this, length: 3);
+    _controller = TabController(vsync: this, length: 4);
     dataAsset = widget.data;
     if (widget.productCode != "0") {
       context.read<AssetBloc>().add(
@@ -61,6 +61,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
   }
 
   Datum? dataAsset;
+  final idr = NumberFormat.currency(locale: 'id_ID', symbol: 'Rp ');
 
   @override
   Widget build(BuildContext context) {
@@ -91,95 +92,91 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                 borderRadius: BorderRadius.circular(8),
               ),
               color: kWhite,
-              itemBuilder:
-                  (BuildContext context) => <PopupMenuEntry<String>>[
-                    // PopupMenuItem<String>(
-                    //   child: ListTile(
-                    //     leading: const Icon(
-                    //       Icons.control_point_duplicate_rounded,
-                    //     ),
-                    //     title: Text('Duplicate', style: kJakartaRegular),
-                    //   ),
-                    //   onTap: () async {
-                    //     String image = "";
-                    //     if (dataAsset!.imageUrl != "") {
-                    //       String imageConverter =
-                    //           await downloadImageAndConvertToBase64(
-                    //             dataAsset!.imageUrl!,
-                    //           );
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                // PopupMenuItem<String>(
+                //   child: ListTile(
+                //     leading: const Icon(
+                //       Icons.control_point_duplicate_rounded,
+                //     ),
+                //     title: Text('Duplicate', style: kJakartaRegular),
+                //   ),
+                //   onTap: () async {
+                //     String image = "";
+                //     if (dataAsset!.imageUrl != "") {
+                //       String imageConverter =
+                //           await downloadImageAndConvertToBase64(
+                //             dataAsset!.imageUrl!,
+                //           );
 
-                    //       image = imageConverter;
+                //       image = imageConverter;
 
-                    //       Map<String, dynamic> inputData = {
-                    //         "product_name":
-                    //             "${dataAsset!.productName.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
-                    //         "product_code":
-                    //             "${dataAsset!.productCode.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
-                    //         "user_name": dataAsset!.userName.toString(),
-                    //         "notes": dataAsset!.notes.toString(),
-                    //         "image": image,
-                    //       };
+                //       Map<String, dynamic> inputData = {
+                //         "product_name":
+                //             "${dataAsset!.productName.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
+                //         "product_code":
+                //             "${dataAsset!.productCode.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
+                //         "user_name": dataAsset!.userName.toString(),
+                //         "notes": dataAsset!.notes.toString(),
+                //         "image": image,
+                //       };
 
-                    //       context.read<AssetBloc>().add(
-                    //         AssetEvent.postDataDuplicate(inputData),
-                    //       );
-                    //     } else {
-                    //       Map<String, dynamic> inputData = {
-                    //         "product_name":
-                    //             "${dataAsset!.productName.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
-                    //         "product_code":
-                    //             "${dataAsset!.productCode.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
-                    //         "user_name": dataAsset!.userName.toString(),
-                    //         "notes": dataAsset!.notes.toString(),
-                    //       };
+                //       context.read<AssetBloc>().add(
+                //         AssetEvent.postDataDuplicate(inputData),
+                //       );
+                //     } else {
+                //       Map<String, dynamic> inputData = {
+                //         "product_name":
+                //             "${dataAsset!.productName.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
+                //         "product_code":
+                //             "${dataAsset!.productCode.toString()} Duplicate${widget.countDuplicate == 0 ? "" : widget.countDuplicate}",
+                //         "user_name": dataAsset!.userName.toString(),
+                //         "notes": dataAsset!.notes.toString(),
+                //       };
 
-                    //       context.read<AssetBloc>().add(
-                    //         AssetEvent.postDataDuplicate(inputData),
-                    //       );
-                    //     }
-                    //   },
-                    // ),
-                    PopupMenuItem<String>(
-                      child: ListTile(
-                        leading: const Icon(Icons.edit),
-                        title: Text('Edit', style: kJakartaRegular),
-                      ),
-                      onTap: () {
-                        context
-                            .pushNamed(
-                              RouteName.assetEditPage,
-                              extra: dataAsset,
-                            )
-                            .then((value) => refresh());
-                      },
-                    ),
-                    PopupMenuItem<String>(
-                      child: ListTile(
-                        leading: const Icon(Icons.delete),
-                        title: Text('Delete', style: kJakartaRegular),
-                      ),
-                      onTap: () {
-                        if (dataAsset != null) {
-                          context.read<AssetBloc>().add(
-                            AssetEvent.deleteData(dataAsset!.id!),
-                          );
-                        }
-                      },
-                    ),
-                    // PopupMenuItem<String>(
-                    //   child: const ListTile(
-                    //     leading: Icon(Icons.print),
-                    //     title: Text('Print Barcode'),
-                    //   ),
-                    //   onTap: () {
-                    //     if (dataAsset != null) {
-                    //       context
-                    //           .read<AssetBloc>()
-                    //           .add(AssetEvent.deleteData(dataAsset!.id!));
-                    //     }
-                    //   },
-                    // ),
-                  ],
+                //       context.read<AssetBloc>().add(
+                //         AssetEvent.postDataDuplicate(inputData),
+                //       );
+                //     }
+                //   },
+                // ),
+                PopupMenuItem<String>(
+                  child: ListTile(
+                    leading: const Icon(Icons.edit),
+                    title: Text('Edit', style: kJakartaRegular),
+                  ),
+                  onTap: () {
+                    context
+                        .pushNamed(RouteName.assetEditPage, extra: dataAsset)
+                        .then((value) => refresh());
+                  },
+                ),
+                PopupMenuItem<String>(
+                  child: ListTile(
+                    leading: const Icon(Icons.delete),
+                    title: Text('Delete', style: kJakartaRegular),
+                  ),
+                  onTap: () {
+                    if (dataAsset != null) {
+                      context.read<AssetBloc>().add(
+                        AssetEvent.deleteData(dataAsset!.id!),
+                      );
+                    }
+                  },
+                ),
+                // PopupMenuItem<String>(
+                //   child: const ListTile(
+                //     leading: Icon(Icons.print),
+                //     title: Text('Print Barcode'),
+                //   ),
+                //   onTap: () {
+                //     if (dataAsset != null) {
+                //       context
+                //           .read<AssetBloc>()
+                //           .add(AssetEvent.deleteData(dataAsset!.id!));
+                //     }
+                //   },
+                // ),
+              ],
             ),
           ],
           centerTitle: true,
@@ -237,93 +234,15 @@ class _AssetDetailPageState extends State<AssetDetailPage>
             return state == const AssetState.loading()
                 ? Center(child: CircularProgressIndicator(color: kPrimary))
                 : SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 16),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Text(
-                          "Data Asset",
-                          style: kJakartaSemibold.copyWith(fontSize: 16),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      if (dataAsset != null) ...[
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: SizedBox(
-                            width: 100.w,
-                            child: Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                side: BorderSide(color: kGrey, width: 2),
-                              ),
-                              surfaceTintColor: kWhite,
-                              shadowColor: kWhite,
-                              color: kWhite,
-                              margin: EdgeInsets.zero,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 10,
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    TextFieldTitle(
-                                      title: "Asset Code",
-                                      text: dataAsset!.productCode!,
-                                    ),
-                                    const Divider(),
-                                    TextFieldTitle(
-                                      title: "Asset Name",
-                                      text: dataAsset!.productName!,
-                                    ),
-                                                                        const Divider(),
-                                    TextFieldTitle(
-                                      title: "Merk",
-                                      text: dataAsset!.merkId!.isNotEmpty ? dataAsset!.merkId![1] : "-",
-                                    ),
-                                    const Divider(),
-                                    TextFieldTitle(
-                                      title: "Location",
-                                      text:
-                                          dataAsset!.locationName! != "false"
-                                              ? "${dataAsset!.assetLocationId![1]} / ${dataAsset!.locationName.toString()}"
-                                              : "-",
-                                    ),
-                                    const Divider(),
-                                    TextFieldTitle(
-                                      title: "User Active",
-                                      text:
-                                          dataAsset!.userName! != "false" &&
-                                                  dataAsset!.userName! != "null"
-                                              ? dataAsset!.userName!
-                                              : "-",
-                                    ),
-                                    const Divider(),
-                                    TextFieldTitle(
-                                      title: "Notes",
-                                      text:
-                                          dataAsset!.notes! != "false" &&
-                                                  dataAsset!.notes! != "null"
-                                              ? dataAsset!.notes!
-                                              : "-",
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        if (dataAsset!.imageUrl! != "") ...[
-                          const SizedBox(height: 32),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (dataAsset != null) ...[
+                          const SizedBox(height: 16),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
-                              "Asset Image",
-                              textAlign: TextAlign.left,
+                              "Data Asset",
                               style: kJakartaSemibold.copyWith(fontSize: 16),
                             ),
                           ),
@@ -332,133 +251,569 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: SizedBox(
                               width: 100.w,
-                              child: InkWell(
-                                onTap: () {
-                                  context.pushNamed(
-                                    RouteName.showImagePage,
-                                    extra: dataAsset!.imageUrl!,
-                                  );
-                                },
-                                child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                    side: BorderSide(color: kGrey, width: 2),
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  side: BorderSide(color: kGrey, width: 2),
+                                ),
+                                surfaceTintColor: kWhite,
+                                shadowColor: kWhite,
+                                color: kWhite,
+                                margin: EdgeInsets.zero,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 10,
                                   ),
-                                  surfaceTintColor: kWhite,
-                                  shadowColor: kWhite,
-                                  color: kWhite,
-                                  margin: EdgeInsets.zero,
-                                  child: SizedBox(
-                                    height: 200,
-                                    width: double.infinity,
-                                    child: Image.network(
-                                      dataAsset!.imageUrl.toString(),
-                                      loadingBuilder: (
-                                        BuildContext context,
-                                        Widget child,
-                                        ImageChunkEvent? loadingProgress,
-                                      ) {
-                                        if (loadingProgress == null) {
-                                          return child;
-                                        }
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 20,
-                                            height: 20,
-                                            child: CircularProgressIndicator(
-                                              color: kPrimary,
-                                              value:
-                                                  loadingProgress
-                                                              .expectedTotalBytes !=
-                                                          null
-                                                      ? loadingProgress
-                                                              .cumulativeBytesLoaded /
-                                                          loadingProgress
-                                                              .expectedTotalBytes!
-                                                      : null,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      errorBuilder: (
-                                        context,
-                                        error,
-                                        stackTrace,
-                                      ) {
-                                        return Center(
-                                          child: Text(
-                                            "Error $error",
-                                            style: kJakartaRegular,
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        );
-                                      },
-                                    ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      TextFieldTitle(
+                                        title: "Asset Code",
+                                        text: dataAsset!.productCode!,
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Asset Name",
+                                        text: dataAsset!.productName!,
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Merk",
+                                        text: dataAsset!.merkId!.isNotEmpty
+                                            ? dataAsset!.merkId![1]
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Location",
+                                        text:
+                                            dataAsset!.locationName! != "false"
+                                            ? "${dataAsset!.assetLocationId![1]} / ${dataAsset!.locationName.toString()}"
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "User Active",
+                                        text:
+                                            dataAsset!.userName! != "false" &&
+                                                dataAsset!.userName! != "null"
+                                            ? dataAsset!.userName!
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Lifetime",
+                                        text: dataAsset!.lifetime != null
+                                            ? "${dataAsset!.lifetime!.toString()} Year"
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Kondisi",
+                                        text:
+                                            dataAsset!.kondisi! != "false" &&
+                                                dataAsset!.kondisi! != ""
+                                            ? dataAsset!.kondisi!.capitalize()
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Notes",
+                                        text:
+                                            dataAsset!.notes! != "false" &&
+                                                dataAsset!.notes! != "null"
+                                            ? dataAsset!.notes!
+                                            : "-",
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ],
-                        const SizedBox(height: 32),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Text(
-                            "Asset History",
-                            textAlign: TextAlign.left,
-                            style: kJakartaSemibold.copyWith(fontSize: 16),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Container(
-                          height: 48,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: kStroke,
-                            borderRadius: BorderRadius.circular(0),
-                            border: Border.all(
-                              width: 0,
-                              color: Colors.transparent,
+                          const SizedBox(height: 32),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Text(
+                              "Data PO Asset",
+                              style: kJakartaSemibold.copyWith(fontSize: 16),
                             ),
                           ),
-                          child: TabBar(
-                            unselectedLabelColor: kPrimary,
-                            labelColor: kWhite,
-                            indicatorColor: kPrimary,
-                            indicatorWeight: 0,
-                            indicator: BoxDecoration(
-                              color: kPrimary,
+                          const SizedBox(height: 10),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: SizedBox(
+                              width: 100.w,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  side: BorderSide(color: kGrey, width: 2),
+                                ),
+                                surfaceTintColor: kWhite,
+                                shadowColor: kWhite,
+                                color: kWhite,
+                                margin: EdgeInsets.zero,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 10,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      TextFieldTitle(
+                                        title: "PO Date",
+                                        text:
+                                            dataAsset!.poDate! != "false" &&
+                                                dataAsset!.poDate! != ""
+                                            ? DateFormat(
+                                                'EEEE, dd/MMMM/yyyy',
+                                              ).format(
+                                                DateTime.parse(
+                                                  dataAsset!.poDate!.toString(),
+                                                ),
+                                              )
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "PO Number",
+                                        text:
+                                            dataAsset!.poNumber! != "false" &&
+                                                dataAsset!.poNumber! != ""
+                                            ? dataAsset!.poNumber.toString()
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "PO Amount",
+                                        text: dataAsset!.poAmount != null
+                                            ? idr.format(dataAsset!.poAmount)
+                                            : "-",
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 32),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Text(
+                              "Data Depreciation Asset",
+                              style: kJakartaSemibold.copyWith(fontSize: 16),
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: SizedBox(
+                              width: 100.w,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  side: BorderSide(color: kGrey, width: 2),
+                                ),
+                                surfaceTintColor: kWhite,
+                                shadowColor: kWhite,
+                                color: kWhite,
+                                margin: EdgeInsets.zero,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 10,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      TextFieldTitle(
+                                        title: "Residual Value",
+                                        text: dataAsset!.residualValue != null
+                                            ? idr.format(
+                                                dataAsset!.residualValue,
+                                              )
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Accumulated Depreciation",
+                                        text:
+                                            dataAsset!
+                                                    .currentAccumulatedDepreciation !=
+                                                null
+                                            ? idr.format(
+                                                dataAsset!
+                                                    .currentAccumulatedDepreciation,
+                                              )
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Current Depreciable Amount",
+                                        text:
+                                            dataAsset!
+                                                    .currentDepreciableAmount !=
+                                                null
+                                            ? idr.format(
+                                                dataAsset!
+                                                    .currentDepreciableAmount,
+                                              )
+                                            : "-",
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          // if (dataAsset!.imageUrl! != "") ...[
+                          //   const SizedBox(height: 32),
+                          //   Padding(
+                          //     padding: const EdgeInsets.symmetric(
+                          //       horizontal: 16,
+                          //     ),
+                          //     child: Text(
+                          //       "Asset Image",
+                          //       textAlign: TextAlign.left,
+                          //       style: kJakartaSemibold.copyWith(fontSize: 16),
+                          //     ),
+                          //   ),
+                          //   const SizedBox(height: 10),
+                          //   Padding(
+                          //     padding: const EdgeInsets.symmetric(
+                          //       horizontal: 16,
+                          //     ),
+                          //     child: SizedBox(
+                          //       width: 100.w,
+                          //       child: InkWell(
+                          //         onTap: () {
+                          //           context.pushNamed(
+                          //             RouteName.showImagePage,
+                          //             extra: dataAsset!.imageUrl!,
+                          //           );
+                          //         },
+                          //         child: Card(
+                          //           shape: RoundedRectangleBorder(
+                          //             borderRadius: BorderRadius.circular(8),
+                          //             side: BorderSide(color: kGrey, width: 2),
+                          //           ),
+                          //           surfaceTintColor: kWhite,
+                          //           shadowColor: kWhite,
+                          //           color: kWhite,
+                          //           margin: EdgeInsets.zero,
+                          //           child: SizedBox(
+                          //             height: 200,
+                          //             width: double.infinity,
+                          //             child: Image.network(
+                          //               dataAsset!.imageUrl.toString(),
+                          //               loadingBuilder:
+                          //                   (
+                          //                     BuildContext context,
+                          //                     Widget child,
+                          //                     ImageChunkEvent? loadingProgress,
+                          //                   ) {
+                          //                     if (loadingProgress == null) {
+                          //                       return child;
+                          //                     }
+                          //                     return Center(
+                          //                       child: SizedBox(
+                          //                         width: 20,
+                          //                         height: 20,
+                          //                         child: CircularProgressIndicator(
+                          //                           color: kPrimary,
+                          //                           value:
+                          //                               loadingProgress
+                          //                                       .expectedTotalBytes !=
+                          //                                   null
+                          //                               ? loadingProgress
+                          //                                         .cumulativeBytesLoaded /
+                          //                                     loadingProgress
+                          //                                         .expectedTotalBytes!
+                          //                               : null,
+                          //                         ),
+                          //                       ),
+                          //                     );
+                          //                   },
+                          //               errorBuilder:
+                          //                   (context, error, stackTrace) {
+                          //                     return Center(
+                          //                       child: Text(
+                          //                         "Error $error",
+                          //                         style: kJakartaRegular,
+                          //                         textAlign: TextAlign.center,
+                          //                       ),
+                          //                     );
+                          //                   },
+                          //             ),
+                          //           ),
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ],
+                          const SizedBox(height: 32),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Text(
+                              "Asset History",
+                              textAlign: TextAlign.left,
+                              style: kJakartaSemibold.copyWith(fontSize: 16),
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Container(
+                            height: 48,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: kStroke,
                               borderRadius: BorderRadius.circular(0),
+                              border: Border.all(
+                                width: 0,
+                                color: Colors.transparent,
+                              ),
                             ),
-                            indicatorSize: TabBarIndicatorSize.tab,
-                            controller: _controller,
-                            tabs: const [
-                              Tab(text: 'Location'),
-                              Tab(text: 'User'),
-                              Tab(text: 'Note'),
-                            ],
+                            child: TabBar(
+                              unselectedLabelColor: kPrimary,
+                              labelColor: kWhite,
+                              indicatorColor: kPrimary,
+                              indicatorWeight: 0,
+                              indicator: BoxDecoration(
+                                color: kPrimary,
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              indicatorSize: TabBarIndicatorSize.tab,
+                              controller: _controller,
+                              tabs: const [
+                                Tab(text: 'Location'),
+                                Tab(text: 'User'),
+                                Tab(text: 'Note'),
+                                Tab(text: 'Condition'),
+                              ],
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 70.h,
-                          child: TabBarView(
-                            controller: _controller,
-                            children: [
-                              locationHistoryView(),
-                              userHistoryView(),
-                              noteHistoryView(),
-                            ],
+                          SizedBox(
+                            height: 70.h,
+                            child: TabBarView(
+                              controller: _controller,
+                              children: [
+                                locationHistoryView(),
+                                userHistoryView(),
+                                noteHistoryView(),
+                                conditionHistoryView(),
+                              ],
+                            ),
                           ),
-                        ),
-                      ] else ...[
-                        const SizedBox(height: 50),
-                        Text("Data not found", style: kJakartaRegular),
+                        ] else ...[
+                          const SizedBox(height: 50),
+                          Text("Data not found", style: kJakartaRegular),
+                        ],
                       ],
-                    ],
-                  ),
-                );
+                    ),
+                  );
           },
         ),
+      ),
+    );
+  }
+
+  SingleChildScrollView conditionHistoryView() {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (dataAsset!.imageUrl! != "") ...[
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                "Current Condition",
+                textAlign: TextAlign.left,
+                style: kJakartaSemibold.copyWith(fontSize: 16),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: SizedBox(
+                width: 100.w,
+                child: InkWell(
+                  onTap: () {
+                    context.pushNamed(
+                      RouteName.showImagePage,
+                      extra: dataAsset!.imageUrl!,
+                    );
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      side: BorderSide(color: kGrey, width: 2),
+                    ),
+                    surfaceTintColor: kWhite,
+                    shadowColor: kWhite,
+                    color: kWhite,
+                    margin: EdgeInsets.zero,
+                    child: SizedBox(
+                      height: 200,
+                      width: double.infinity,
+                      child: Image.network(
+                        dataAsset!.imageUrl.toString(),
+                        loadingBuilder:
+                            (
+                              BuildContext context,
+                              Widget child,
+                              ImageChunkEvent? loadingProgress,
+                            ) {
+                              if (loadingProgress == null) {
+                                return child;
+                              }
+                              return Center(
+                                child: SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    color: kPrimary,
+                                    value:
+                                        loadingProgress.expectedTotalBytes !=
+                                            null
+                                        ? loadingProgress
+                                                  .cumulativeBytesLoaded /
+                                              loadingProgress
+                                                  .expectedTotalBytes!
+                                        : null,
+                                  ),
+                                ),
+                              );
+                            },
+                        errorBuilder: (context, error, stackTrace) {
+                          return Center(
+                            child: Text(
+                              "Error $error",
+                              style: kJakartaRegular,
+                              textAlign: TextAlign.center,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 32),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                "Past Condition",
+                textAlign: TextAlign.left,
+                style: kJakartaSemibold.copyWith(fontSize: 16),
+              ),
+            ),
+            const SizedBox(height: 10),
+            dataAsset!.pastImageUrl! != ""
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: SizedBox(
+                      width: 100.w,
+                      child: InkWell(
+                        onTap: () {
+                          context.pushNamed(
+                            RouteName.showImagePage,
+                            extra: dataAsset!.pastImageUrl!,
+                          );
+                        },
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            side: BorderSide(color: kGrey, width: 2),
+                          ),
+                          surfaceTintColor: kWhite,
+                          shadowColor: kWhite,
+                          color: kWhite,
+                          margin: EdgeInsets.zero,
+                          child: SizedBox(
+                            height: 200,
+                            width: double.infinity,
+                            child: Image.network(
+                              dataAsset!.imageUrl.toString(),
+                              loadingBuilder:
+                                  (
+                                    BuildContext context,
+                                    Widget child,
+                                    ImageChunkEvent? loadingProgress,
+                                  ) {
+                                    if (loadingProgress == null) {
+                                      return child;
+                                    }
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 20,
+                                        height: 20,
+                                        child: CircularProgressIndicator(
+                                          color: kPrimary,
+                                          value:
+                                              loadingProgress
+                                                      .expectedTotalBytes !=
+                                                  null
+                                              ? loadingProgress
+                                                        .cumulativeBytesLoaded /
+                                                    loadingProgress
+                                                        .expectedTotalBytes!
+                                              : null,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                              errorBuilder: (context, error, stackTrace) {
+                                return Center(
+                                  child: Text(
+                                    "Error $error",
+                                    style: kJakartaRegular,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: SizedBox(
+                      width: 100.w,
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          side: BorderSide(color: kGrey, width: 2),
+                        ),
+                        surfaceTintColor: kWhite,
+                        shadowColor: kWhite,
+                        color: kWhite,
+                        margin: EdgeInsets.zero,
+                        child: SizedBox(
+                          height: 200,
+                          width: double.infinity,
+                          child: Center(
+                            child: Text(
+                              "Data not found",
+                              style: kJakartaRegular,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+          ] else ...[
+            const SizedBox(height: 50),
+            Center(child: Text("Data not found", style: kJakartaRegular)),
+          ],
+        ],
       ),
     );
   }
@@ -477,8 +832,10 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: dataAsset!.notesHistoryIds!.length,
                   itemBuilder: (BuildContext context, int index) {
-                    List<NotesHistoryId> notesHistory =
-                        dataAsset!.notesHistoryIds!.reversed.toList();
+                    List<NotesHistoryId> notesHistory = dataAsset!
+                        .notesHistoryIds!
+                        .reversed
+                        .toList();
                     return TimelineTile(
                       alignment: TimelineAlign.manual,
                       lineXY: 0.1,
@@ -501,8 +858,8 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                   : Icons.cached_rounded,
                               color:
                                   notesHistory.indexOf(notesHistory[index]) == 0
-                                      ? kPrimary
-                                      : kGrey,
+                                  ? kPrimary
+                                  : kGrey,
                             ),
                           ),
                         ),
@@ -517,17 +874,16 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                           bottom: 6,
                         ),
                         decoration: BoxDecoration(
-                          color:
-                              notesHistory.indexOf(notesHistory[index]) == 0
-                                  ? kWhite
-                                  : kStroke,
+                          color: notesHistory.indexOf(notesHistory[index]) == 0
+                              ? kWhite
+                              : kStroke,
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
                             color:
                                 notesHistory.indexOf(notesHistory[index]) == 0
-                                    ? kPrimary
-                                    : kGrey,
+                                ? kPrimary
+                                : kGrey,
                           ),
                         ),
                         child: Column(
@@ -589,8 +945,10 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: dataAsset!.userHistoryIds!.length,
                   itemBuilder: (BuildContext context, int index) {
-                    List<UserHistoryId> userHistory =
-                        dataAsset!.userHistoryIds!.reversed.toList();
+                    List<UserHistoryId> userHistory = dataAsset!
+                        .userHistoryIds!
+                        .reversed
+                        .toList();
                     return TimelineTile(
                       alignment: TimelineAlign.manual,
                       lineXY: 0.1,
@@ -613,8 +971,8 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                   : Icons.cached_rounded,
                               color:
                                   userHistory.indexOf(userHistory[index]) == 0
-                                      ? kPrimary
-                                      : kGrey,
+                                  ? kPrimary
+                                  : kGrey,
                             ),
                           ),
                         ),
@@ -629,17 +987,15 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                           bottom: 6,
                         ),
                         decoration: BoxDecoration(
-                          color:
-                              userHistory.indexOf(userHistory[index]) == 0
-                                  ? kWhite
-                                  : kStroke,
+                          color: userHistory.indexOf(userHistory[index]) == 0
+                              ? kWhite
+                              : kStroke,
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
-                            color:
-                                userHistory.indexOf(userHistory[index]) == 0
-                                    ? kPrimary
-                                    : kGrey,
+                            color: userHistory.indexOf(userHistory[index]) == 0
+                                ? kPrimary
+                                : kGrey,
                           ),
                         ),
                         child: Column(
@@ -701,8 +1057,8 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: dataAsset!.historyIds!.length,
                   itemBuilder: (BuildContext context, int index) {
-                    List<HistoryId> history =
-                        dataAsset!.historyIds!.reversed.toList();
+                    List<HistoryId> history = dataAsset!.historyIds!.reversed
+                        .toList();
                     return TimelineTile(
                       alignment: TimelineAlign.manual,
                       lineXY: 0.1,
@@ -723,10 +1079,9 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                               history.indexOf(history[index]) == 0
                                   ? Icons.check_circle_rounded
                                   : Icons.cached_rounded,
-                              color:
-                                  history.indexOf(history[index]) == 0
-                                      ? kPrimary
-                                      : kGrey,
+                              color: history.indexOf(history[index]) == 0
+                                  ? kPrimary
+                                  : kGrey,
                             ),
                           ),
                         ),
@@ -741,17 +1096,15 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                           bottom: 6,
                         ),
                         decoration: BoxDecoration(
-                          color:
-                              history.indexOf(history[index]) == 0
-                                  ? kWhite
-                                  : kStroke,
+                          color: history.indexOf(history[index]) == 0
+                              ? kWhite
+                              : kStroke,
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
-                            color:
-                                history.indexOf(history[index]) == 0
-                                    ? kPrimary
-                                    : kGrey,
+                            color: history.indexOf(history[index]) == 0
+                                ? kPrimary
+                                : kGrey,
                           ),
                         ),
                         child: Column(

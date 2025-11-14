@@ -73,6 +73,8 @@ class _AssetPageState extends State<AssetPage> {
   bool isSearch = false;
   bool isFull = false;
 
+  final TextEditingController _searchController = TextEditingController();
+
   void search(String text) {
     setState(() {
       searchValue = text;
@@ -88,10 +90,10 @@ class _AssetPageState extends State<AssetPage> {
   int countDuplicate() {
     return dataResult != null
         ? dataResult!
-            .where(
-              (item) => item.productName!.toLowerCase().contains("duplicate"),
-            )
-            .length
+              .where(
+                (item) => item.productName!.toLowerCase().contains("duplicate"),
+              )
+              .length
         : 0;
   }
 
@@ -99,6 +101,7 @@ class _AssetPageState extends State<AssetPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWithSearchSwitch(
+        customTextEditingController: _searchController, // 🔹 pasang controller
         backgroundColor: kStroke,
         onCleared: () {
           setState(() {
@@ -109,9 +112,24 @@ class _AssetPageState extends State<AssetPage> {
             isFull = false;
           });
 
+          _searchController.clear(); // 🔹 pastikan teks dihapus juga
+
           refresh();
         },
-        onSubmitted: (text) {
+        onClosed: () {
+          setState(() {
+            searchValue = "";
+            data = null;
+            dataResult = null;
+            isSearch = false;
+            isFull = false;
+          });
+
+          _searchController.clear(); // 🔹 pastikan teks dihapus juga
+
+          refresh();
+        },
+        onChanged: (text) {
           search(text);
         }, // onSubmitted: (text) => searchText.value = text,
         appBarBuilder: (context) {
@@ -211,209 +229,211 @@ class _AssetPageState extends State<AssetPage> {
               : dataResult == null || dataResult!.isEmpty
               ? Center(child: Text("Data is empty", style: kJakartaRegular))
               : RefreshIndicator(
-                onRefresh: refresh,
-                child: SingleChildScrollView(
-                  controller: _scrollController,
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (isSearch == true)
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(height: 16),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                              ),
-                              child: RichText(
-                                text: TextSpan(
-                                  text: "Hasil pencarian dengan kata kunci : ",
-                                  style: kJakartaRegular.copyWith(
-                                    fontSize: 16,
-                                    color: kBlack,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: searchValue,
-                                      style: kJakartaSemibold.copyWith(
-                                        fontSize: 16,
-                                        color: kBlack,
-                                      ),
+                  onRefresh: refresh,
+                  child: SingleChildScrollView(
+                    controller: _scrollController,
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (isSearch == true)
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 16),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                ),
+                                child: RichText(
+                                  text: TextSpan(
+                                    text:
+                                        "Hasil pencarian dengan kata kunci : ",
+                                    style: kJakartaRegular.copyWith(
+                                      fontSize: 16,
+                                      color: kBlack,
                                     ),
-                                  ],
+                                    children: [
+                                      TextSpan(
+                                        text: searchValue,
+                                        style: kJakartaSemibold.copyWith(
+                                          fontSize: 16,
+                                          color: kBlack,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        padding: const EdgeInsets.only(
-                          left: 16,
-                          right: 16,
-                          top: 12,
-                        ),
-                        shrinkWrap: true,
-                        itemCount: dataResult!.length + 1,
-                        itemBuilder: (context, index) {
-                          if (index == dataResult!.length && isFull == false) {
-                            return Center(
-                              child: Container(
-                                margin: const EdgeInsets.only(
-                                  top: 10,
-                                  bottom: 50,
+                            ],
+                          ),
+                        ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          padding: const EdgeInsets.only(
+                            left: 16,
+                            right: 16,
+                            top: 12,
+                          ),
+                          shrinkWrap: true,
+                          itemCount: dataResult!.length + 1,
+                          itemBuilder: (context, index) {
+                            if (index == dataResult!.length &&
+                                isFull == false) {
+                              return Center(
+                                child: Container(
+                                  margin: const EdgeInsets.only(
+                                    top: 10,
+                                    bottom: 50,
+                                  ),
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    color: kPrimary,
+                                  ),
                                 ),
-                                width: 20,
-                                height: 20,
-                                child: CircularProgressIndicator(
-                                  color: kPrimary,
-                                ),
-                              ),
-                            );
-                          } else if (index == dataResult!.length &&
-                              isFull == true) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const SizedBox(height: 10),
-                                Text(
-                                  "Data Sudah Tampil Semua",
-                                  style: kJakartaRegular,
-                                ),
-                                const SizedBox(height: 30),
-                              ],
-                            );
-                          }
+                              );
+                            } else if (index == dataResult!.length &&
+                                isFull == true) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    "Data Sudah Tampil Semua",
+                                    style: kJakartaRegular,
+                                  ),
+                                  const SizedBox(height: 30),
+                                ],
+                              );
+                            }
 
-                          return InkWell(
-                            // onLongPress: () {
-                            //   showModalBottomSheet(
-                            //     context: context,
-                            //     builder: (context) {
-                            //       return Column(
-                            //         mainAxisSize: MainAxisSize.min,
-                            //         children: <Widget>[
-                            //           ListTile(
-                            //             leading: const Icon(
-                            //               Icons.control_point_duplicate_rounded,
-                            //             ),
-                            //             title: Text(
-                            //               'Duplicate',
-                            //               style: kJakartaRegular,
-                            //             ),
-                            //             onTap: () async {
-                            //               String image = "";
-                            //               if (dataResult![index].imageUrl !=
-                            //                   "") {
-                            //                 String imageConverter =
-                            //                     await downloadImageAndConvertToBase64(
-                            //                       dataResult![index].imageUrl!,
-                            //                     );
-                            //                 image = imageConverter;
+                            return InkWell(
+                              // onLongPress: () {
+                              //   showModalBottomSheet(
+                              //     context: context,
+                              //     builder: (context) {
+                              //       return Column(
+                              //         mainAxisSize: MainAxisSize.min,
+                              //         children: <Widget>[
+                              //           ListTile(
+                              //             leading: const Icon(
+                              //               Icons.control_point_duplicate_rounded,
+                              //             ),
+                              //             title: Text(
+                              //               'Duplicate',
+                              //               style: kJakartaRegular,
+                              //             ),
+                              //             onTap: () async {
+                              //               String image = "";
+                              //               if (dataResult![index].imageUrl !=
+                              //                   "") {
+                              //                 String imageConverter =
+                              //                     await downloadImageAndConvertToBase64(
+                              //                       dataResult![index].imageUrl!,
+                              //                     );
+                              //                 image = imageConverter;
 
-                            //                 Map<String, dynamic> inputData = {
-                            //                   "product_name":
-                            //                       "${dataResult![index].productName.toString()} Duplicate${countDuplicate() == 0 ? "" : countDuplicate()}",
-                            //                   "product_code":
-                            //                       "${dataResult![index].productCode.toString()} Duplicate${countDuplicate() == 0 ? "" : countDuplicate()}",
-                            //                   "user_name":
-                            //                       dataResult![index].userName
-                            //                           .toString(),
-                            //                   "notes":
-                            //                       dataResult![index].notes
-                            //                           .toString(),
-                            //                   "image": image,
-                            //                 };
+                              //                 Map<String, dynamic> inputData = {
+                              //                   "product_name":
+                              //                       "${dataResult![index].productName.toString()} Duplicate${countDuplicate() == 0 ? "" : countDuplicate()}",
+                              //                   "product_code":
+                              //                       "${dataResult![index].productCode.toString()} Duplicate${countDuplicate() == 0 ? "" : countDuplicate()}",
+                              //                   "user_name":
+                              //                       dataResult![index].userName
+                              //                           .toString(),
+                              //                   "notes":
+                              //                       dataResult![index].notes
+                              //                           .toString(),
+                              //                   "image": image,
+                              //                 };
 
-                            //                 context.read<AssetBloc>().add(
-                            //                   AssetEvent.postDataDuplicate(
-                            //                     inputData,
-                            //                   ),
-                            //                 );
-                            //               } else {
-                            //                 Map<String, dynamic> inputData = {
-                            //                   "product_name":
-                            //                       "${dataResult![index].productName.toString()} Duplicate${countDuplicate() == 0 ? "" : countDuplicate()}",
-                            //                   "product_code":
-                            //                       "${dataResult![index].productCode.toString()} Duplicate${countDuplicate() == 0 ? "" : countDuplicate()}",
-                            //                   "user_name":
-                            //                       dataResult![index].userName
-                            //                           .toString(),
-                            //                   "notes":
-                            //                       dataResult![index].notes
-                            //                           .toString(),
-                            //                 };
+                              //                 context.read<AssetBloc>().add(
+                              //                   AssetEvent.postDataDuplicate(
+                              //                     inputData,
+                              //                   ),
+                              //                 );
+                              //               } else {
+                              //                 Map<String, dynamic> inputData = {
+                              //                   "product_name":
+                              //                       "${dataResult![index].productName.toString()} Duplicate${countDuplicate() == 0 ? "" : countDuplicate()}",
+                              //                   "product_code":
+                              //                       "${dataResult![index].productCode.toString()} Duplicate${countDuplicate() == 0 ? "" : countDuplicate()}",
+                              //                   "user_name":
+                              //                       dataResult![index].userName
+                              //                           .toString(),
+                              //                   "notes":
+                              //                       dataResult![index].notes
+                              //                           .toString(),
+                              //                 };
 
-                            //                 context.read<AssetBloc>().add(
-                            //                   AssetEvent.postDataDuplicate(
-                            //                     inputData,
-                            //                   ),
-                            //                 );
-                            //               }
+                              //                 context.read<AssetBloc>().add(
+                              //                   AssetEvent.postDataDuplicate(
+                              //                     inputData,
+                              //                   ),
+                              //                 );
+                              //               }
 
-                            //               context.pop();
-                            //             },
-                            //           ),
-                            //           ListTile(
-                            //             leading: const Icon(Icons.delete),
-                            //             title: Text(
-                            //               'Delete',
-                            //               style: kJakartaRegular,
-                            //             ),
-                            //             onTap: () {
-                            //               context.read<AssetBloc>().add(
-                            //                 AssetEvent.deleteData(
-                            //                   dataResult![index].id!,
-                            //                 ),
-                            //               );
-                            //               context.pop();
-                            //             },
-                            //           ),
-                            //         ],
-                            //       );
-                            //     },
-                            //   );
-                            // },
-                            onTap: () {
-                              if (isSelect == true) {
-                                setState(() {
-                                  dataPicked.add(dataResult![index]);
-                                });
-                              } else {
-                                context
-                                    .pushNamed(
-                                      RouteName.assetDetailPage,
-                                      extra: [
-                                        dataResult![index],
-                                        true,
-                                        "0",
-                                        countDuplicate(),
-                                      ],
-                                    )
-                                    .then((value) {
-                                      if (value == true) {
-                                        refresh();
-                                      }
-                                    });
-                              }
-                            },
-                            child: Card(
-                              color: kWhite,
-                              margin: const EdgeInsets.only(bottom: 14),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                side:
-                                    isSelect == true &&
-                                            dataPicked.contains(
-                                              dataResult![index],
-                                            )
-                                        ? const BorderSide(
+                              //               context.pop();
+                              //             },
+                              //           ),
+                              //           ListTile(
+                              //             leading: const Icon(Icons.delete),
+                              //             title: Text(
+                              //               'Delete',
+                              //               style: kJakartaRegular,
+                              //             ),
+                              //             onTap: () {
+                              //               context.read<AssetBloc>().add(
+                              //                 AssetEvent.deleteData(
+                              //                   dataResult![index].id!,
+                              //                 ),
+                              //               );
+                              //               context.pop();
+                              //             },
+                              //           ),
+                              //         ],
+                              //       );
+                              //     },
+                              //   );
+                              // },
+                              onTap: () {
+                                if (isSelect == true) {
+                                  setState(() {
+                                    dataPicked.add(dataResult![index]);
+                                  });
+                                } else {
+                                  context
+                                      .pushNamed(
+                                        RouteName.assetDetailPage,
+                                        extra: [
+                                          dataResult![index],
+                                          true,
+                                          "0",
+                                          countDuplicate(),
+                                        ],
+                                      )
+                                      .then((value) {
+                                        if (value == true) {
+                                          refresh();
+                                        }
+                                      });
+                                }
+                              },
+                              child: Card(
+                                color: kWhite,
+                                margin: const EdgeInsets.only(bottom: 14),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  side:
+                                      isSelect == true &&
+                                          dataPicked.contains(
+                                            dataResult![index],
+                                          )
+                                      ? const BorderSide(
                                           color: Colors.green,
                                           width: 2,
                                         )
-                                        : const BorderSide(
+                                      : const BorderSide(
                                           color: Color.fromARGB(
                                             255,
                                             149,
@@ -421,84 +441,83 @@ class _AssetPageState extends State<AssetPage> {
                                             252,
                                           ),
                                         ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 10,
                                 ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      dataResult![index].productCode!,
-                                      style: kJakartaBold,
-                                    ),
-                                    const Divider(),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                dataResult![index].productName!,
-                                                style: kJakartaRegular,
-                                              ),
-                                              const SizedBox(height: 10),
-                                              Text(
-                                                dataResult![index]
-                                                            .locationName! ==
-                                                        "false"
-                                                    ? "Location has not been added"
-                                                    : "${dataResult![index]
-                                                        .assetLocationId![1].toString()} / ${dataResult![index]
-                                                        .locationName!}",
-                                                style: kJakartaRegular.copyWith(
-                                                  color:
-                                                      dataResult![index]
-                                                                  .locationName! ==
-                                                              "false"
-                                                          ? kGrey
-                                                          : kPrimary,
-                                                  fontSize: 12,
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 10,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        dataResult![index].productCode!,
+                                        style: kJakartaBold,
+                                      ),
+                                      const Divider(),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            flex: 2,
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  dataResult![index]
+                                                      .productName!,
+                                                  style: kJakartaRegular,
                                                 ),
-                                              ),
-                                            ],
+                                                const SizedBox(height: 10),
+                                                Text(
+                                                  dataResult![index]
+                                                              .locationName! ==
+                                                          "false"
+                                                      ? "Asset inactive"
+                                                      : "${dataResult![index].assetLocationId![1].toString()} / ${dataResult![index].locationName!}",
+                                                  style: kJakartaRegular.copyWith(
+                                                    color:
+                                                        dataResult![index]
+                                                                .locationName! ==
+                                                            "false"
+                                                        ? kGrey
+                                                        : kPrimary,
+                                                    fontSize: 12,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        Expanded(
-                                          child: Align(
-                                            alignment: Alignment.centerRight,
-                                            child: SizedBox(
-                                              width: 50,
-                                              height: 50,
-                                              child: BarcodeWidget(
-                                                data:
-                                                    dataResult![index]
-                                                        .productCode!,
-                                                barcode: Barcode.qrCode(),
+                                          Expanded(
+                                            child: Align(
+                                              alignment: Alignment.centerRight,
+                                              child: SizedBox(
+                                                width: 50,
+                                                height: 50,
+                                                child: BarcodeWidget(
+                                                  data: dataResult![index]
+                                                      .productCode!,
+                                                  barcode: Barcode.qrCode(),
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              );
+                );
         },
       ),
     );

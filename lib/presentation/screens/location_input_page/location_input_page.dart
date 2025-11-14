@@ -101,25 +101,23 @@ class _LocationInputPageState extends State<LocationInputPage> {
                   return state == const LocationState.loading()
                       ? const RoundedButtonLoading()
                       : RoundedButtonSolid(
-                        text: "Save",
-                        onAction: () {
-                          formKey.currentState!.save();
-                          if (formKey.currentState!.validate()) {
-                            Map<String, dynamic> inputData = {
-                              "name":
-                                  formKey.currentState!.value["name"]
-                                      .toString(),
-                              "code":
-                                  formKey.currentState!.value["code"]
-                                      .toString(),
-                            };
+                          text: "Save",
+                          onAction: () {
+                            formKey.currentState!.save();
+                            if (formKey.currentState!.validate()) {
+                              Map<String, dynamic> inputData = {
+                                "name": formKey.currentState!.value["name"]
+                                    .toString(),
+                                "code": formKey.currentState!.value["code"]
+                                    .toString(),
+                              };
 
-                            context.read<LocationBloc>().add(
-                              LocationEvent.postData(inputData),
-                            );
-                          }
-                        },
-                      );
+                              context.read<LocationBloc>().add(
+                                LocationEvent.postData(inputData),
+                              );
+                            }
+                          },
+                        );
                 },
               ),
             ],

@@ -6,7 +6,8 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart' as datum_asset;
 import '../../../domain/models/location_model/datum.dart' as datum_location;
-import '../../../domain/models/master_data_model/datum.dart' as datum_master_data;
+import '../../../domain/models/master_data_model/datum.dart'
+    as datum_master_data;
 import '../../utils/app_styles.dart';
 import '../../widgets/field_image.dart';
 import '../../widgets/field_kondisi_dropdown.dart';
@@ -44,7 +45,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
             code: widget.data.assetLocationId![1],
           )
         : null;
-            merk = widget.data.merkId!.isNotEmpty
+    merk = widget.data.merkId!.isNotEmpty
         ? datum_master_data.Datum(
             id: widget.data.merkId![0],
             name: widget.data.merkId![1],

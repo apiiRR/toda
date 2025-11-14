@@ -4,8 +4,7 @@ import 'package:photo_view/photo_view.dart';
 class ShowLargeImageWithPhotoView extends StatelessWidget {
   final String imageUrl; // Replace with your image URL
 
-  const ShowLargeImageWithPhotoView({Key? key, required this.imageUrl})
-    : super(key: key);
+  const ShowLargeImageWithPhotoView({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {

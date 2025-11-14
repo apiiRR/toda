@@ -9,8 +9,8 @@ import '../presentation/utils/injector.dart';
 Future<Map<String, dynamic>> getDetailUser() async {
   Map<String, dynamic> data = {};
 
-  SharedPreferences sharedPreferences =
-      await locator.getAsync<SharedPreferences>();
+  SharedPreferences sharedPreferences = await locator
+      .getAsync<SharedPreferences>();
 
   final String? acc = sharedPreferences.getString("account");
   if (acc != null) {

@@ -31,22 +31,23 @@ class _LocationPageState extends State<LocationPage> {
   List<Datum>? dataResult;
   String? searchValue;
 
+  final TextEditingController _searchController = TextEditingController();
+
   void search(String text) {
     setState(() {
       searchValue = text;
       if (data != null && searchValue != null) {
-        dataResult =
-            data!
-                .where(
-                  (element) =>
-                      element.name!.toLowerCase().contains(
-                        searchValue!.toLowerCase(),
-                      ) ||
-                      element.code!.toLowerCase().contains(
-                        searchValue!.toLowerCase(),
-                      ),
-                )
-                .toList();
+        dataResult = data!
+            .where(
+              (element) =>
+                  element.name!.toLowerCase().contains(
+                    searchValue!.toLowerCase(),
+                  ) ||
+                  element.code!.toLowerCase().contains(
+                    searchValue!.toLowerCase(),
+                  ),
+            )
+            .toList();
       }
     });
   }
@@ -71,12 +72,23 @@ class _LocationPageState extends State<LocationPage> {
       //   centerTitle: true,
       // ),
       appBar: AppBarWithSearchSwitch(
+        customTextEditingController: _searchController, // 🔹 pasang controller
         backgroundColor: kStroke,
         onClosed: () {
           setState(() {
             searchValue = null;
             dataResult = data;
           });
+
+          _searchController.clear(); // 🔹 pastikan teks dihapus juga
+        },
+        onCleared: () {
+          setState(() {
+            searchValue = null;
+            dataResult = data;
+          });
+
+          _searchController.clear(); // 🔹 pastikan teks dihapus juga
         },
         onChanged: (text) {
           search(text);
@@ -146,61 +158,65 @@ class _LocationPageState extends State<LocationPage> {
               : dataResult == null || dataResult!.isEmpty
               ? Center(child: Text("Data is empty", style: kJakartaRegular))
               : RefreshIndicator(
-                onRefresh: refresh,
-                child: ListView.builder(
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  padding: const EdgeInsets.only(left: 16, right: 16, top: 12),
-                  shrinkWrap: true,
-                  itemCount: dataResult!.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        context
-                            .pushNamed(
-                              RouteName.locationDetailPage,
-                              extra: data![index],
-                            )
-                            .then((value) {
-                              print("POP DETAIL = $value");
-                              if (value == true) {
-                                refresh();
-                              }
-                            });
-                      },
-                      child: Card(
-                        color: kWhite,
-                        margin: const EdgeInsets.only(bottom: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          side: const BorderSide(
-                            color: Color.fromARGB(255, 149, 187, 252),
+                  onRefresh: refresh,
+                  child: ListView.builder(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    padding: const EdgeInsets.only(
+                      left: 16,
+                      right: 16,
+                      top: 12,
+                    ),
+                    shrinkWrap: true,
+                    itemCount: dataResult!.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          context
+                              .pushNamed(
+                                RouteName.locationDetailPage,
+                                extra: data![index],
+                              )
+                              .then((value) {
+                                print("POP DETAIL = $value");
+                                if (value == true) {
+                                  refresh();
+                                }
+                              });
+                        },
+                        child: Card(
+                          color: kWhite,
+                          margin: const EdgeInsets.only(bottom: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            side: const BorderSide(
+                              color: Color.fromARGB(255, 149, 187, 252),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 10,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  dataResult![index].code!,
+                                  style: kJakartaBold,
+                                ),
+                                const Divider(),
+                                Text(
+                                  dataResult![index].name!,
+                                  style: kJakartaRegular,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 10,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                dataResult![index].code!,
-                                style: kJakartaBold,
-                              ),
-                              const Divider(),
-                              Text(
-                                dataResult![index].name!,
-                                style: kJakartaRegular,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              );
+                      );
+                    },
+                  ),
+                );
         },
       ),
     );

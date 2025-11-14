@@ -51,7 +51,7 @@ class BarcodeBloc extends Bloc<BarcodeEvent, BarcodeState> {
         dataAsset.fold(
           (l) {
             if (l.result!.data!.isNotEmpty) {
-                            emit(BarcodeState.successWithDataAsset(l));
+              emit(BarcodeState.successWithDataAsset(l));
             } else {
               throw ("Asset not found");
             }
@@ -60,7 +60,6 @@ class BarcodeBloc extends Bloc<BarcodeEvent, BarcodeState> {
             throw (r);
           },
         );
-
       } catch (e) {
         emit(BarcodeState.error(e.toString()));
       }

@@ -101,25 +101,26 @@ class _LocationEditPageState extends State<LocationEditPage> {
                   return state == const LocationState.loading()
                       ? const RoundedButtonLoading()
                       : RoundedButtonSolid(
-                        text: "Update",
-                        onAction: () {
-                          formKey.currentState!.save();
-                          if (formKey.currentState!.validate()) {
-                            Map<String, dynamic> inputData = {
-                              "name":
-                                  formKey.currentState!.value["name"]
-                                      .toString(),
-                              "code":
-                                  formKey.currentState!.value["code"]
-                                      .toString(),
-                            };
+                          text: "Update",
+                          onAction: () {
+                            formKey.currentState!.save();
+                            if (formKey.currentState!.validate()) {
+                              Map<String, dynamic> inputData = {
+                                "name": formKey.currentState!.value["name"]
+                                    .toString(),
+                                "code": formKey.currentState!.value["code"]
+                                    .toString(),
+                              };
 
-                            context.read<LocationBloc>().add(
-                              LocationEvent.putData(inputData, widget.data.id!),
-                            );
-                          }
-                        },
-                      );
+                              context.read<LocationBloc>().add(
+                                LocationEvent.putData(
+                                  inputData,
+                                  widget.data.id!,
+                                ),
+                              );
+                            }
+                          },
+                        );
                 },
               ),
             ],

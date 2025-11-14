@@ -63,14 +63,13 @@ class DropdownSearchAsset extends StatelessWidget {
                     const SizedBox(height: 10),
                     Text(
                       item.locationName! == "false"
-                          ? "Location has not been added"
+                          ? "Asset inactive"
                           : item.locationName!,
                       style: kJakartaRegular.copyWith(
                         fontSize: 12,
-                        color:
-                            item.locationName! == "false"
-                                ? Colors.redAccent
-                                : kPrimary,
+                        color: item.locationName! == "false"
+                            ? Colors.redAccent
+                            : kPrimary,
                       ),
                       textAlign: TextAlign.center,
                     ),

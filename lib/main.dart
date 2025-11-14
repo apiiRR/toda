@@ -88,9 +88,8 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create:
-              (context) =>
-                  locator<AuthBloc>()..add(const AuthEvent.checkSignInStatus()),
+          create: (context) =>
+              locator<AuthBloc>()..add(const AuthEvent.checkSignInStatus()),
         ),
         BlocProvider(create: (context) => locator<AssetBloc>()),
         BlocProvider(create: (context) => locator<LocationBloc>()),

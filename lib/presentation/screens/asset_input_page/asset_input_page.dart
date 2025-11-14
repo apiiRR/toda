@@ -209,45 +209,45 @@ class _AssetInputPageState extends State<AssetInputPage> {
                   return state == const AssetState.loading()
                       ? const RoundedButtonLoading()
                       : RoundedButtonSolid(
-                        text: "Save",
-                        onAction: () {
-                          formKey.currentState!.save();
-                          if (formKey.currentState!.validate()) {
-                            Map<String, dynamic> inputData = {
-                              "product_name":
-                                  formKey.currentState!.value["name"]
-                                      .toString(),
-                              "category_id": category!.id,
-                              "user_name":
-                                  formKey.currentState!.value["user"]
-                                      .toString(),
-                              "notes":
-                                  formKey.currentState!.value["notes"]
-                                      .toString(),
-                              "image": formKey.currentState!.value["image"],
-                              "po_date":
-                                  formKey.currentState!.value["po_date"] != null
-                                      ? DateFormat('yyyy-MM-dd').format(
+                          text: "Save",
+                          onAction: () {
+                            formKey.currentState!.save();
+                            if (formKey.currentState!.validate()) {
+                              Map<String, dynamic> inputData = {
+                                "product_name": formKey
+                                    .currentState!
+                                    .value["name"]
+                                    .toString(),
+                                "category_id": category!.id,
+                                "user_name": formKey.currentState!.value["user"]
+                                    .toString(),
+                                "notes": formKey.currentState!.value["notes"]
+                                    .toString(),
+                                "image": formKey.currentState!.value["image"],
+                                "po_date":
+                                    formKey.currentState!.value["po_date"] !=
+                                        null
+                                    ? DateFormat('yyyy-MM-dd').format(
                                         formKey.currentState!.value["po_date"],
                                       )
-                                      : null,
-                              "po_amount": formKey
-                                  .currentState!
-                                  .value["po_amount"]
-                                  ?.replaceAll('.', ''),
-                              "merk_id": merk!.id,
-                              "po_number":
-                                  formKey.currentState!.value["po_number"],
-                            };
+                                    : null,
+                                "po_amount": formKey
+                                    .currentState!
+                                    .value["po_amount"]
+                                    ?.replaceAll('.', ''),
+                                "merk_id": merk!.id,
+                                "po_number":
+                                    formKey.currentState!.value["po_number"],
+                              };
 
-                            removeEmptyValueKeys(inputData);
+                              removeEmptyValueKeys(inputData);
 
-                            context.read<AssetBloc>().add(
-                              AssetEvent.postData(inputData),
-                            );
-                          }
-                        },
-                      );
+                              context.read<AssetBloc>().add(
+                                AssetEvent.postData(inputData),
+                              );
+                            }
+                          },
+                        );
                 },
               ),
               const SizedBox(height: 30),

@@ -4,13 +4,45 @@
   "result": {
     "data": [
       {
-        "asset_location_id": [51, "Ruang General Affair & Corsec"],
-        "product_code": "04.01.2025.063",
+        "location_gedung_id": [720, "Rasamala"],
         "location_name": "Ruang General Affair & Corsec",
-        "po_date": "2025-10-16",
-        "product_name": "Hand Soap Krisbow (3)",
+        "lifetime": 4,
+        "user_history_ids": [
+          {
+            "id": 1,
+            "name": "Monica",
+            "user_id": [2, "ADMINISTRATOR"],
+            "date": "2024-07-11 07:48:53"
+          }
+        ],
+        "po_amount": 520833.33,
         "current_accumulated_depreciation": 2083333.33,
-        "image_url": "http://192.168.24.77:9112/asset-image/image/8978",
+        "residual_value": 520833.33,
+        "past_image_url": "http://192.168.24.77:9112/asset-image/past_image/8978",
+        "asset_location_id": [51, "Ruang General Affair & Corsec"],
+        "current_depreciable_amount": 22916666.67,
+        "notes": "1 unit lengkap",
+        "depreciation_amount_per_month": 2083333.33,
+        "category_id": [18, "Artworks & Lighting"],
+        "notes_history_ids": [
+          {
+            "id": 1,
+            "name": "Monica",
+            "user_id": [2, "ADMINISTRATOR"],
+            "date": "2024-07-11 07:48:53"
+          }
+        ],
+        "user_name": "RPHu",
+        "id": 16219,
+        "product_code": "TEP-ART-00389",
+        "history_ids": [
+          {
+            "id": 5587,
+            "scan_date": "2025-09-16 00:00:00",
+            "user_id": [2, "Administrator"],
+            "location_name": "Ruang General Affair & Corsec"
+          }
+        ],
         "maintenance_ids": [
           {
             "user_id": [2, "Administrator"],
@@ -21,42 +53,13 @@
             "date": "2025-10-12 00:00:00"
           }
         ],
-        "residual_value": 520833.33,
-        "current_depreciable_amount": 22916666.67,
-        "category_id": [1, "Elektronik"],
-        "lifetime": 1,
-        "user_history_ids": [
-          {
-            "id": 1,
-            "name": "Monica",
-            "user_id": [2, "ADMINISTRATOR"],
-            "date": "2024-07-11 07:48:53"
-          }
-        ],
-        "po_amount": 520833.33,
+        "product_name": "Standing Lamp",
+        "po_date": "2025-11-14",
         "merk_id": [1, "Informa"],
-        "history_ids": [
-          {
-            "id": 5587,
-            "scan_date": "2025-09-16 00:00:00",
-            "user_id": [2, "Administrator"],
-            "location_name": "Ruang General Affair & Corsec"
-          }
-        ],
-        "notes_history_ids": [
-          {
-            "id": 1,
-            "name": "Monica",
-            "user_id": [2, "ADMINISTRATOR"],
-            "date": "2024-07-11 07:48:53"
-          }
-        ],
-        "id": 8978,
-        "notes": "1 unit lengkap",
-        "user_name": "RPHu",
-        "po_number": "PO0845",
-        "past_image_url": "http://192.168.24.77:9112/asset-image/past_image/8978",
-        "depreciation_amount_per_month": 2083333.33
+        "kondisi": "baik",
+        "image_url": "http://192.168.24.77:9112/asset-image/image/8978",
+        "po_number": "PO0005",
+        "location_lantai_id": [731, "R04"]
       }
     ]
   }
