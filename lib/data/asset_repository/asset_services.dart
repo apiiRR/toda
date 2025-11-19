@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 
 import '../../domain/models/asset_model/asset_model.dart';
 import '../../domain/models/asset_model/datum.dart';
+import '../../domain/models/dashboard_model/dashboard_model.dart';
 import '../../domain/models/error_model/error_model.dart';
 import '../dio_client.dart';
 import '../endpoints.dart';
@@ -331,6 +332,44 @@ class AssetServices implements AssetInterface {
       }
     } on DioException {
       return List<Datum>.empty();
+    }
+  }
+
+  @override
+  Future<Either<DashboardModel, String>> assetDashboard(String token) async {
+    try {
+      final response = await _client.post(
+        Endpoints.assetDashboard,
+        data: jsonEncode({}),
+        options: Options(
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer $token",
+          },
+        ),
+      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> detail =
+            response.data as Map<String, dynamic>;
+        if (detail["result"] != null) {
+          return Left(DashboardModel.fromJson(detail));
+        } else {
+          ErrorModel errorData = ErrorModel.fromJson(response.data);
+          List<String> errorMessageSplited = errorData.error!.data!.message!
+              .split("\n");
+          return Right(errorMessageSplited[0]);
+        }
+      } else {
+        ErrorModel errorData = ErrorModel.fromJson(response.data);
+        List<String> errorMessageSplited = errorData.error!.message!.split(
+          "\n",
+        );
+        return Right(errorMessageSplited[0]);
+      }
+    } catch (e) {
+      final String errorMessage = DioExceptions.fromDioError(e).errorMessage();
+      return Right(errorMessage);
     }
   }
 }

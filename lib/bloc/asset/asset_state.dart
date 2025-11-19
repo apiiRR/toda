@@ -9,4 +9,6 @@ class AssetState with _$AssetState {
   const factory AssetState.successDuplicate(AssetModel asset) =
       _SuccessDuplicate;
   const factory AssetState.successWithData(AssetModel asset) = _SuccessWithData;
+  const factory AssetState.successWithDashboard(DashboardModel asset) =
+      _SuccessWithDashboard;
 }

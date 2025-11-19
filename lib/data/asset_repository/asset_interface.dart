@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../domain/models/asset_model/asset_model.dart';
 import '../../domain/models/asset_model/datum.dart';
+import '../../domain/models/dashboard_model/dashboard_model.dart';
 
 abstract class AssetInterface {
   Future<Either<bool, String>> assetMoving(
@@ -22,4 +23,5 @@ abstract class AssetInterface {
   );
   Future<Either<bool, String>> assetDelete(String token, int id);
   Future<List<Datum>> assetDropdown(String token);
+  Future<Either<DashboardModel, String>> assetDashboard(String token);
 }

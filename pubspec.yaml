@@ -67,6 +67,7 @@ dependencies:
   upgrader: ^12.1.0
   dotted_line: ^3.2.3
   mobile_scanner: ^7.0.1
+  pie_chart: ^5.4.0
 
 dev_dependencies:
   flutter_test:

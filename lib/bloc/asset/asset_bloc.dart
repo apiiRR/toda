@@ -10,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../data/asset_repository/asset_services.dart';
 import '../../data/method.dart';
 import '../../domain/models/asset_model/asset_model.dart';
+import '../../domain/models/dashboard_model/dashboard_model.dart';
 
 part 'asset_event.dart';
 part 'asset_state.dart';
@@ -231,6 +232,24 @@ class AssetBloc extends Bloc<AssetEvent, AssetState> {
         data.fold(
           (l) {
             emit(AssetState.successWithData(l));
+          },
+          (r) {
+            throw (r);
+          },
+        );
+      } catch (e) {
+        emit(AssetState.error(e.toString()));
+      }
+    });
+    on<_GetDashboard>((event, emit) async {
+      try {
+        emit(const AssetState.loading());
+        final Map<String, dynamic> dataUser = await getDetailUser();
+
+        final data = await service.assetDashboard(dataUser["token"]);
+        data.fold(
+          (l) {
+            emit(AssetState.successWithDashboard(l));
           },
           (r) {
             throw (r);

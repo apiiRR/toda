@@ -1,0 +1,42 @@
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "data": {
+      "aset_inactive": 2576,
+      "total_aset": 4272,
+      "aset_baik": 4254,
+      "aset_by_category": [
+        {
+          "name": "Undefined",
+          "qty": 0
+        },
+        {
+          "name": "Electronics",
+          "qty": 1356
+        },
+        {
+          "name": "Kitchen Appliances",
+          "qty": 397
+        },
+        {
+          "name": "Furniture",
+          "qty": 1283
+        },
+        {
+          "name": "Beddings",
+          "qty": 572
+        },
+        {
+          "name": "Artworks & Lighting",
+          "qty": 629
+        },
+        {
+          "name": "Housekeeping & Safety Tools",
+          "qty": 35
+        }
+      ],
+      "aset_rusak": 9
+    }
+  },
+  "id": null
+}

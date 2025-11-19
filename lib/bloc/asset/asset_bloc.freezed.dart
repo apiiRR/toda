@@ -29,6 +29,7 @@ mixin _$AssetEvent {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -42,6 +43,7 @@ mixin _$AssetEvent {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -55,6 +57,7 @@ mixin _$AssetEvent {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +72,7 @@ mixin _$AssetEvent {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -82,6 +86,7 @@ mixin _$AssetEvent {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -95,6 +100,7 @@ mixin _$AssetEvent {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -174,6 +180,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return started();
   }
@@ -191,6 +198,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return started?.call();
   }
@@ -208,6 +216,7 @@ class _$StartedImpl implements _Started {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -229,6 +238,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return started(this);
   }
@@ -246,6 +256,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return started?.call(this);
   }
@@ -263,6 +274,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -356,6 +368,7 @@ class _$ScanDataHomeImpl implements _ScanDataHome {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return scanDataHome(name);
   }
@@ -373,6 +386,7 @@ class _$ScanDataHomeImpl implements _ScanDataHome {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return scanDataHome?.call(name);
   }
@@ -390,6 +404,7 @@ class _$ScanDataHomeImpl implements _ScanDataHome {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (scanDataHome != null) {
@@ -411,6 +426,7 @@ class _$ScanDataHomeImpl implements _ScanDataHome {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return scanDataHome(this);
   }
@@ -428,6 +444,7 @@ class _$ScanDataHomeImpl implements _ScanDataHome {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return scanDataHome?.call(this);
   }
@@ -445,6 +462,7 @@ class _$ScanDataHomeImpl implements _ScanDataHome {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (scanDataHome != null) {
@@ -546,6 +564,7 @@ class _$ScanDataImpl implements _ScanData {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return scanData(name);
   }
@@ -563,6 +582,7 @@ class _$ScanDataImpl implements _ScanData {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return scanData?.call(name);
   }
@@ -580,6 +600,7 @@ class _$ScanDataImpl implements _ScanData {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (scanData != null) {
@@ -601,6 +622,7 @@ class _$ScanDataImpl implements _ScanData {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return scanData(this);
   }
@@ -618,6 +640,7 @@ class _$ScanDataImpl implements _ScanData {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return scanData?.call(this);
   }
@@ -635,6 +658,7 @@ class _$ScanDataImpl implements _ScanData {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (scanData != null) {
@@ -753,6 +777,7 @@ class _$GetDataImpl implements _GetData {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return getData(start, data);
   }
@@ -770,6 +795,7 @@ class _$GetDataImpl implements _GetData {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return getData?.call(start, data);
   }
@@ -787,6 +813,7 @@ class _$GetDataImpl implements _GetData {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (getData != null) {
@@ -808,6 +835,7 @@ class _$GetDataImpl implements _GetData {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return getData(this);
   }
@@ -825,6 +853,7 @@ class _$GetDataImpl implements _GetData {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return getData?.call(this);
   }
@@ -842,6 +871,7 @@ class _$GetDataImpl implements _GetData {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (getData != null) {
@@ -945,6 +975,7 @@ class _$GetDataSingleImpl implements _GetDataSingle {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return getDataSingle(id);
   }
@@ -962,6 +993,7 @@ class _$GetDataSingleImpl implements _GetDataSingle {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return getDataSingle?.call(id);
   }
@@ -979,6 +1011,7 @@ class _$GetDataSingleImpl implements _GetDataSingle {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (getDataSingle != null) {
@@ -1000,6 +1033,7 @@ class _$GetDataSingleImpl implements _GetDataSingle {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return getDataSingle(this);
   }
@@ -1017,6 +1051,7 @@ class _$GetDataSingleImpl implements _GetDataSingle {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return getDataSingle?.call(this);
   }
@@ -1034,6 +1069,7 @@ class _$GetDataSingleImpl implements _GetDataSingle {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (getDataSingle != null) {
@@ -1141,6 +1177,7 @@ class _$PostDataImpl implements _PostData {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return postData(asset);
   }
@@ -1158,6 +1195,7 @@ class _$PostDataImpl implements _PostData {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return postData?.call(asset);
   }
@@ -1175,6 +1213,7 @@ class _$PostDataImpl implements _PostData {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (postData != null) {
@@ -1196,6 +1235,7 @@ class _$PostDataImpl implements _PostData {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return postData(this);
   }
@@ -1213,6 +1253,7 @@ class _$PostDataImpl implements _PostData {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return postData?.call(this);
   }
@@ -1230,6 +1271,7 @@ class _$PostDataImpl implements _PostData {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (postData != null) {
@@ -1341,6 +1383,7 @@ class _$PostDataDuplicateImpl implements _PostDataDuplicate {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return postDataDuplicate(asset);
   }
@@ -1358,6 +1401,7 @@ class _$PostDataDuplicateImpl implements _PostDataDuplicate {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return postDataDuplicate?.call(asset);
   }
@@ -1375,6 +1419,7 @@ class _$PostDataDuplicateImpl implements _PostDataDuplicate {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (postDataDuplicate != null) {
@@ -1396,6 +1441,7 @@ class _$PostDataDuplicateImpl implements _PostDataDuplicate {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return postDataDuplicate(this);
   }
@@ -1413,6 +1459,7 @@ class _$PostDataDuplicateImpl implements _PostDataDuplicate {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return postDataDuplicate?.call(this);
   }
@@ -1430,6 +1477,7 @@ class _$PostDataDuplicateImpl implements _PostDataDuplicate {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (postDataDuplicate != null) {
@@ -1547,6 +1595,7 @@ class _$PutDataImpl implements _PutData {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return putData(asset, id);
   }
@@ -1564,6 +1613,7 @@ class _$PutDataImpl implements _PutData {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return putData?.call(asset, id);
   }
@@ -1581,6 +1631,7 @@ class _$PutDataImpl implements _PutData {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (putData != null) {
@@ -1602,6 +1653,7 @@ class _$PutDataImpl implements _PutData {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return putData(this);
   }
@@ -1619,6 +1671,7 @@ class _$PutDataImpl implements _PutData {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return putData?.call(this);
   }
@@ -1636,6 +1689,7 @@ class _$PutDataImpl implements _PutData {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (putData != null) {
@@ -1739,6 +1793,7 @@ class _$DeleteDataImpl implements _DeleteData {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return deleteData(id);
   }
@@ -1756,6 +1811,7 @@ class _$DeleteDataImpl implements _DeleteData {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return deleteData?.call(id);
   }
@@ -1773,6 +1829,7 @@ class _$DeleteDataImpl implements _DeleteData {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (deleteData != null) {
@@ -1794,6 +1851,7 @@ class _$DeleteDataImpl implements _DeleteData {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return deleteData(this);
   }
@@ -1811,6 +1869,7 @@ class _$DeleteDataImpl implements _DeleteData {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return deleteData?.call(this);
   }
@@ -1828,6 +1887,7 @@ class _$DeleteDataImpl implements _DeleteData {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (deleteData != null) {
@@ -1935,6 +1995,7 @@ class _$CustomDataImpl implements _CustomData {
     required TResult Function(Map<String, dynamic> asset, int id) putData,
     required TResult Function(int id) deleteData,
     required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
   }) {
     return customData(asset);
   }
@@ -1952,6 +2013,7 @@ class _$CustomDataImpl implements _CustomData {
     TResult? Function(Map<String, dynamic> asset, int id)? putData,
     TResult? Function(int id)? deleteData,
     TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
   }) {
     return customData?.call(asset);
   }
@@ -1969,6 +2031,7 @@ class _$CustomDataImpl implements _CustomData {
     TResult Function(Map<String, dynamic> asset, int id)? putData,
     TResult Function(int id)? deleteData,
     TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
     required TResult orElse(),
   }) {
     if (customData != null) {
@@ -1990,6 +2053,7 @@ class _$CustomDataImpl implements _CustomData {
     required TResult Function(_PutData value) putData,
     required TResult Function(_DeleteData value) deleteData,
     required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
   }) {
     return customData(this);
   }
@@ -2007,6 +2071,7 @@ class _$CustomDataImpl implements _CustomData {
     TResult? Function(_PutData value)? putData,
     TResult? Function(_DeleteData value)? deleteData,
     TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
   }) {
     return customData?.call(this);
   }
@@ -2024,6 +2089,7 @@ class _$CustomDataImpl implements _CustomData {
     TResult Function(_PutData value)? putData,
     TResult Function(_DeleteData value)? deleteData,
     TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
     required TResult orElse(),
   }) {
     if (customData != null) {
@@ -2047,6 +2113,167 @@ abstract class _CustomData implements AssetEvent {
 }
 
 /// @nodoc
+abstract class _$$GetDashboardImplCopyWith<$Res> {
+  factory _$$GetDashboardImplCopyWith(
+    _$GetDashboardImpl value,
+    $Res Function(_$GetDashboardImpl) then,
+  ) = __$$GetDashboardImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetDashboardImplCopyWithImpl<$Res>
+    extends _$AssetEventCopyWithImpl<$Res, _$GetDashboardImpl>
+    implements _$$GetDashboardImplCopyWith<$Res> {
+  __$$GetDashboardImplCopyWithImpl(
+    _$GetDashboardImpl _value,
+    $Res Function(_$GetDashboardImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AssetEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetDashboardImpl implements _GetDashboard {
+  const _$GetDashboardImpl();
+
+  @override
+  String toString() {
+    return 'AssetEvent.getDashboard()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetDashboardImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String name) scanDataHome,
+    required TResult Function(String name) scanData,
+    required TResult Function(int start, Map<String, dynamic> data) getData,
+    required TResult Function(int id) getDataSingle,
+    required TResult Function(Map<String, dynamic> asset) postData,
+    required TResult Function(Map<String, dynamic> asset) postDataDuplicate,
+    required TResult Function(Map<String, dynamic> asset, int id) putData,
+    required TResult Function(int id) deleteData,
+    required TResult Function(Map<String, dynamic> asset) customData,
+    required TResult Function() getDashboard,
+  }) {
+    return getDashboard();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String name)? scanDataHome,
+    TResult? Function(String name)? scanData,
+    TResult? Function(int start, Map<String, dynamic> data)? getData,
+    TResult? Function(int id)? getDataSingle,
+    TResult? Function(Map<String, dynamic> asset)? postData,
+    TResult? Function(Map<String, dynamic> asset)? postDataDuplicate,
+    TResult? Function(Map<String, dynamic> asset, int id)? putData,
+    TResult? Function(int id)? deleteData,
+    TResult? Function(Map<String, dynamic> asset)? customData,
+    TResult? Function()? getDashboard,
+  }) {
+    return getDashboard?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String name)? scanDataHome,
+    TResult Function(String name)? scanData,
+    TResult Function(int start, Map<String, dynamic> data)? getData,
+    TResult Function(int id)? getDataSingle,
+    TResult Function(Map<String, dynamic> asset)? postData,
+    TResult Function(Map<String, dynamic> asset)? postDataDuplicate,
+    TResult Function(Map<String, dynamic> asset, int id)? putData,
+    TResult Function(int id)? deleteData,
+    TResult Function(Map<String, dynamic> asset)? customData,
+    TResult Function()? getDashboard,
+    required TResult orElse(),
+  }) {
+    if (getDashboard != null) {
+      return getDashboard();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ScanDataHome value) scanDataHome,
+    required TResult Function(_ScanData value) scanData,
+    required TResult Function(_GetData value) getData,
+    required TResult Function(_GetDataSingle value) getDataSingle,
+    required TResult Function(_PostData value) postData,
+    required TResult Function(_PostDataDuplicate value) postDataDuplicate,
+    required TResult Function(_PutData value) putData,
+    required TResult Function(_DeleteData value) deleteData,
+    required TResult Function(_CustomData value) customData,
+    required TResult Function(_GetDashboard value) getDashboard,
+  }) {
+    return getDashboard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ScanDataHome value)? scanDataHome,
+    TResult? Function(_ScanData value)? scanData,
+    TResult? Function(_GetData value)? getData,
+    TResult? Function(_GetDataSingle value)? getDataSingle,
+    TResult? Function(_PostData value)? postData,
+    TResult? Function(_PostDataDuplicate value)? postDataDuplicate,
+    TResult? Function(_PutData value)? putData,
+    TResult? Function(_DeleteData value)? deleteData,
+    TResult? Function(_CustomData value)? customData,
+    TResult? Function(_GetDashboard value)? getDashboard,
+  }) {
+    return getDashboard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ScanDataHome value)? scanDataHome,
+    TResult Function(_ScanData value)? scanData,
+    TResult Function(_GetData value)? getData,
+    TResult Function(_GetDataSingle value)? getDataSingle,
+    TResult Function(_PostData value)? postData,
+    TResult Function(_PostDataDuplicate value)? postDataDuplicate,
+    TResult Function(_PutData value)? putData,
+    TResult Function(_DeleteData value)? deleteData,
+    TResult Function(_CustomData value)? customData,
+    TResult Function(_GetDashboard value)? getDashboard,
+    required TResult orElse(),
+  }) {
+    if (getDashboard != null) {
+      return getDashboard(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetDashboard implements AssetEvent {
+  const factory _GetDashboard() = _$GetDashboardImpl;
+}
+
+/// @nodoc
 mixin _$AssetState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -2056,6 +2283,7 @@ mixin _$AssetState {
     required TResult Function(String message) success,
     required TResult Function(AssetModel asset) successDuplicate,
     required TResult Function(AssetModel asset) successWithData,
+    required TResult Function(DashboardModel asset) successWithDashboard,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -2065,6 +2293,7 @@ mixin _$AssetState {
     TResult? Function(String message)? success,
     TResult? Function(AssetModel asset)? successDuplicate,
     TResult? Function(AssetModel asset)? successWithData,
+    TResult? Function(DashboardModel asset)? successWithDashboard,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -2074,6 +2303,7 @@ mixin _$AssetState {
     TResult Function(String message)? success,
     TResult Function(AssetModel asset)? successDuplicate,
     TResult Function(AssetModel asset)? successWithData,
+    TResult Function(DashboardModel asset)? successWithDashboard,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -2084,6 +2314,7 @@ mixin _$AssetState {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessDuplicate value) successDuplicate,
     required TResult Function(_SuccessWithData value) successWithData,
+    required TResult Function(_SuccessWithDashboard value) successWithDashboard,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -2093,6 +2324,7 @@ mixin _$AssetState {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessDuplicate value)? successDuplicate,
     TResult? Function(_SuccessWithData value)? successWithData,
+    TResult? Function(_SuccessWithDashboard value)? successWithDashboard,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -2102,6 +2334,7 @@ mixin _$AssetState {
     TResult Function(_Success value)? success,
     TResult Function(_SuccessDuplicate value)? successDuplicate,
     TResult Function(_SuccessWithData value)? successWithData,
+    TResult Function(_SuccessWithDashboard value)? successWithDashboard,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -2177,6 +2410,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String message) success,
     required TResult Function(AssetModel asset) successDuplicate,
     required TResult Function(AssetModel asset) successWithData,
+    required TResult Function(DashboardModel asset) successWithDashboard,
   }) {
     return initial();
   }
@@ -2190,6 +2424,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String message)? success,
     TResult? Function(AssetModel asset)? successDuplicate,
     TResult? Function(AssetModel asset)? successWithData,
+    TResult? Function(DashboardModel asset)? successWithDashboard,
   }) {
     return initial?.call();
   }
@@ -2203,6 +2438,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(String message)? success,
     TResult Function(AssetModel asset)? successDuplicate,
     TResult Function(AssetModel asset)? successWithData,
+    TResult Function(DashboardModel asset)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -2220,6 +2456,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessDuplicate value) successDuplicate,
     required TResult Function(_SuccessWithData value) successWithData,
+    required TResult Function(_SuccessWithDashboard value) successWithDashboard,
   }) {
     return initial(this);
   }
@@ -2233,6 +2470,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessDuplicate value)? successDuplicate,
     TResult? Function(_SuccessWithData value)? successWithData,
+    TResult? Function(_SuccessWithDashboard value)? successWithDashboard,
   }) {
     return initial?.call(this);
   }
@@ -2246,6 +2484,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Success value)? success,
     TResult Function(_SuccessDuplicate value)? successDuplicate,
     TResult Function(_SuccessWithData value)? successWithData,
+    TResult Function(_SuccessWithDashboard value)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -2308,6 +2547,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(String message) success,
     required TResult Function(AssetModel asset) successDuplicate,
     required TResult Function(AssetModel asset) successWithData,
+    required TResult Function(DashboardModel asset) successWithDashboard,
   }) {
     return loading();
   }
@@ -2321,6 +2561,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(String message)? success,
     TResult? Function(AssetModel asset)? successDuplicate,
     TResult? Function(AssetModel asset)? successWithData,
+    TResult? Function(DashboardModel asset)? successWithDashboard,
   }) {
     return loading?.call();
   }
@@ -2334,6 +2575,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(String message)? success,
     TResult Function(AssetModel asset)? successDuplicate,
     TResult Function(AssetModel asset)? successWithData,
+    TResult Function(DashboardModel asset)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2351,6 +2593,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessDuplicate value) successDuplicate,
     required TResult Function(_SuccessWithData value) successWithData,
+    required TResult Function(_SuccessWithDashboard value) successWithDashboard,
   }) {
     return loading(this);
   }
@@ -2364,6 +2607,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessDuplicate value)? successDuplicate,
     TResult? Function(_SuccessWithData value)? successWithData,
+    TResult? Function(_SuccessWithDashboard value)? successWithDashboard,
   }) {
     return loading?.call(this);
   }
@@ -2377,6 +2621,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Success value)? success,
     TResult Function(_SuccessDuplicate value)? successDuplicate,
     TResult Function(_SuccessWithData value)? successWithData,
+    TResult Function(_SuccessWithDashboard value)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2467,6 +2712,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(String message) success,
     required TResult Function(AssetModel asset) successDuplicate,
     required TResult Function(AssetModel asset) successWithData,
+    required TResult Function(DashboardModel asset) successWithDashboard,
   }) {
     return error(errorMessage);
   }
@@ -2480,6 +2726,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(String message)? success,
     TResult? Function(AssetModel asset)? successDuplicate,
     TResult? Function(AssetModel asset)? successWithData,
+    TResult? Function(DashboardModel asset)? successWithDashboard,
   }) {
     return error?.call(errorMessage);
   }
@@ -2493,6 +2740,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(String message)? success,
     TResult Function(AssetModel asset)? successDuplicate,
     TResult Function(AssetModel asset)? successWithData,
+    TResult Function(DashboardModel asset)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2510,6 +2758,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessDuplicate value) successDuplicate,
     required TResult Function(_SuccessWithData value) successWithData,
+    required TResult Function(_SuccessWithDashboard value) successWithDashboard,
   }) {
     return error(this);
   }
@@ -2523,6 +2772,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessDuplicate value)? successDuplicate,
     TResult? Function(_SuccessWithData value)? successWithData,
+    TResult? Function(_SuccessWithDashboard value)? successWithDashboard,
   }) {
     return error?.call(this);
   }
@@ -2536,6 +2786,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Success value)? success,
     TResult Function(_SuccessDuplicate value)? successDuplicate,
     TResult Function(_SuccessWithData value)? successWithData,
+    TResult Function(_SuccessWithDashboard value)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2633,6 +2884,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(String message) success,
     required TResult Function(AssetModel asset) successDuplicate,
     required TResult Function(AssetModel asset) successWithData,
+    required TResult Function(DashboardModel asset) successWithDashboard,
   }) {
     return success(message);
   }
@@ -2646,6 +2898,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(String message)? success,
     TResult? Function(AssetModel asset)? successDuplicate,
     TResult? Function(AssetModel asset)? successWithData,
+    TResult? Function(DashboardModel asset)? successWithDashboard,
   }) {
     return success?.call(message);
   }
@@ -2659,6 +2912,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(String message)? success,
     TResult Function(AssetModel asset)? successDuplicate,
     TResult Function(AssetModel asset)? successWithData,
+    TResult Function(DashboardModel asset)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -2676,6 +2930,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessDuplicate value) successDuplicate,
     required TResult Function(_SuccessWithData value) successWithData,
+    required TResult Function(_SuccessWithDashboard value) successWithDashboard,
   }) {
     return success(this);
   }
@@ -2689,6 +2944,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessDuplicate value)? successDuplicate,
     TResult? Function(_SuccessWithData value)? successWithData,
+    TResult? Function(_SuccessWithDashboard value)? successWithDashboard,
   }) {
     return success?.call(this);
   }
@@ -2702,6 +2958,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Success value)? success,
     TResult Function(_SuccessDuplicate value)? successDuplicate,
     TResult Function(_SuccessWithData value)? successWithData,
+    TResult Function(_SuccessWithDashboard value)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -2814,6 +3071,7 @@ class _$SuccessDuplicateImpl implements _SuccessDuplicate {
     required TResult Function(String message) success,
     required TResult Function(AssetModel asset) successDuplicate,
     required TResult Function(AssetModel asset) successWithData,
+    required TResult Function(DashboardModel asset) successWithDashboard,
   }) {
     return successDuplicate(asset);
   }
@@ -2827,6 +3085,7 @@ class _$SuccessDuplicateImpl implements _SuccessDuplicate {
     TResult? Function(String message)? success,
     TResult? Function(AssetModel asset)? successDuplicate,
     TResult? Function(AssetModel asset)? successWithData,
+    TResult? Function(DashboardModel asset)? successWithDashboard,
   }) {
     return successDuplicate?.call(asset);
   }
@@ -2840,6 +3099,7 @@ class _$SuccessDuplicateImpl implements _SuccessDuplicate {
     TResult Function(String message)? success,
     TResult Function(AssetModel asset)? successDuplicate,
     TResult Function(AssetModel asset)? successWithData,
+    TResult Function(DashboardModel asset)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (successDuplicate != null) {
@@ -2857,6 +3117,7 @@ class _$SuccessDuplicateImpl implements _SuccessDuplicate {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessDuplicate value) successDuplicate,
     required TResult Function(_SuccessWithData value) successWithData,
+    required TResult Function(_SuccessWithDashboard value) successWithDashboard,
   }) {
     return successDuplicate(this);
   }
@@ -2870,6 +3131,7 @@ class _$SuccessDuplicateImpl implements _SuccessDuplicate {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessDuplicate value)? successDuplicate,
     TResult? Function(_SuccessWithData value)? successWithData,
+    TResult? Function(_SuccessWithDashboard value)? successWithDashboard,
   }) {
     return successDuplicate?.call(this);
   }
@@ -2883,6 +3145,7 @@ class _$SuccessDuplicateImpl implements _SuccessDuplicate {
     TResult Function(_Success value)? success,
     TResult Function(_SuccessDuplicate value)? successDuplicate,
     TResult Function(_SuccessWithData value)? successWithData,
+    TResult Function(_SuccessWithDashboard value)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (successDuplicate != null) {
@@ -2996,6 +3259,7 @@ class _$SuccessWithDataImpl implements _SuccessWithData {
     required TResult Function(String message) success,
     required TResult Function(AssetModel asset) successDuplicate,
     required TResult Function(AssetModel asset) successWithData,
+    required TResult Function(DashboardModel asset) successWithDashboard,
   }) {
     return successWithData(asset);
   }
@@ -3009,6 +3273,7 @@ class _$SuccessWithDataImpl implements _SuccessWithData {
     TResult? Function(String message)? success,
     TResult? Function(AssetModel asset)? successDuplicate,
     TResult? Function(AssetModel asset)? successWithData,
+    TResult? Function(DashboardModel asset)? successWithDashboard,
   }) {
     return successWithData?.call(asset);
   }
@@ -3022,6 +3287,7 @@ class _$SuccessWithDataImpl implements _SuccessWithData {
     TResult Function(String message)? success,
     TResult Function(AssetModel asset)? successDuplicate,
     TResult Function(AssetModel asset)? successWithData,
+    TResult Function(DashboardModel asset)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (successWithData != null) {
@@ -3039,6 +3305,7 @@ class _$SuccessWithDataImpl implements _SuccessWithData {
     required TResult Function(_Success value) success,
     required TResult Function(_SuccessDuplicate value) successDuplicate,
     required TResult Function(_SuccessWithData value) successWithData,
+    required TResult Function(_SuccessWithDashboard value) successWithDashboard,
   }) {
     return successWithData(this);
   }
@@ -3052,6 +3319,7 @@ class _$SuccessWithDataImpl implements _SuccessWithData {
     TResult? Function(_Success value)? success,
     TResult? Function(_SuccessDuplicate value)? successDuplicate,
     TResult? Function(_SuccessWithData value)? successWithData,
+    TResult? Function(_SuccessWithDashboard value)? successWithDashboard,
   }) {
     return successWithData?.call(this);
   }
@@ -3065,6 +3333,7 @@ class _$SuccessWithDataImpl implements _SuccessWithData {
     TResult Function(_Success value)? success,
     TResult Function(_SuccessDuplicate value)? successDuplicate,
     TResult Function(_SuccessWithData value)? successWithData,
+    TResult Function(_SuccessWithDashboard value)? successWithDashboard,
     required TResult orElse(),
   }) {
     if (successWithData != null) {
@@ -3085,4 +3354,182 @@ abstract class _SuccessWithData implements AssetState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessWithDataImplCopyWith<_$SuccessWithDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessWithDashboardImplCopyWith<$Res> {
+  factory _$$SuccessWithDashboardImplCopyWith(
+    _$SuccessWithDashboardImpl value,
+    $Res Function(_$SuccessWithDashboardImpl) then,
+  ) = __$$SuccessWithDashboardImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DashboardModel asset});
+}
+
+/// @nodoc
+class __$$SuccessWithDashboardImplCopyWithImpl<$Res>
+    extends _$AssetStateCopyWithImpl<$Res, _$SuccessWithDashboardImpl>
+    implements _$$SuccessWithDashboardImplCopyWith<$Res> {
+  __$$SuccessWithDashboardImplCopyWithImpl(
+    _$SuccessWithDashboardImpl _value,
+    $Res Function(_$SuccessWithDashboardImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? asset = freezed}) {
+    return _then(
+      _$SuccessWithDashboardImpl(
+        freezed == asset
+            ? _value.asset
+            : asset // ignore: cast_nullable_to_non_nullable
+                  as DashboardModel,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$SuccessWithDashboardImpl implements _SuccessWithDashboard {
+  const _$SuccessWithDashboardImpl(this.asset);
+
+  @override
+  final DashboardModel asset;
+
+  @override
+  String toString() {
+    return 'AssetState.successWithDashboard(asset: $asset)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessWithDashboardImpl &&
+            const DeepCollectionEquality().equals(other.asset, asset));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(asset));
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessWithDashboardImplCopyWith<_$SuccessWithDashboardImpl>
+  get copyWith =>
+      __$$SuccessWithDashboardImplCopyWithImpl<_$SuccessWithDashboardImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String errorMessage) error,
+    required TResult Function(String message) success,
+    required TResult Function(AssetModel asset) successDuplicate,
+    required TResult Function(AssetModel asset) successWithData,
+    required TResult Function(DashboardModel asset) successWithDashboard,
+  }) {
+    return successWithDashboard(asset);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String errorMessage)? error,
+    TResult? Function(String message)? success,
+    TResult? Function(AssetModel asset)? successDuplicate,
+    TResult? Function(AssetModel asset)? successWithData,
+    TResult? Function(DashboardModel asset)? successWithDashboard,
+  }) {
+    return successWithDashboard?.call(asset);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String errorMessage)? error,
+    TResult Function(String message)? success,
+    TResult Function(AssetModel asset)? successDuplicate,
+    TResult Function(AssetModel asset)? successWithData,
+    TResult Function(DashboardModel asset)? successWithDashboard,
+    required TResult orElse(),
+  }) {
+    if (successWithDashboard != null) {
+      return successWithDashboard(asset);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SuccessDuplicate value) successDuplicate,
+    required TResult Function(_SuccessWithData value) successWithData,
+    required TResult Function(_SuccessWithDashboard value) successWithDashboard,
+  }) {
+    return successWithDashboard(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessDuplicate value)? successDuplicate,
+    TResult? Function(_SuccessWithData value)? successWithData,
+    TResult? Function(_SuccessWithDashboard value)? successWithDashboard,
+  }) {
+    return successWithDashboard?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_SuccessDuplicate value)? successDuplicate,
+    TResult Function(_SuccessWithData value)? successWithData,
+    TResult Function(_SuccessWithDashboard value)? successWithDashboard,
+    required TResult orElse(),
+  }) {
+    if (successWithDashboard != null) {
+      return successWithDashboard(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessWithDashboard implements AssetState {
+  const factory _SuccessWithDashboard(final DashboardModel asset) =
+      _$SuccessWithDashboardImpl;
+
+  DashboardModel get asset;
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SuccessWithDashboardImplCopyWith<_$SuccessWithDashboardImpl>
+  get copyWith => throw _privateConstructorUsedError;
 }

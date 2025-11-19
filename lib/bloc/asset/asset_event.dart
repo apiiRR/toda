@@ -15,4 +15,5 @@ class AssetEvent with _$AssetEvent {
       _PutData;
   const factory AssetEvent.deleteData(int id) = _DeleteData;
   const factory AssetEvent.customData(Map<String, dynamic> asset) = _CustomData;
+  const factory AssetEvent.getDashboard() = _GetDashboard;
 }
