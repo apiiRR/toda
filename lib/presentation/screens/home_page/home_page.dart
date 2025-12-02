@@ -263,7 +263,11 @@ class _HomePageState extends State<HomePage> {
 
             // Tampilan UI (TETAP SAMA)
             child: isLoading
-                ? CircularProgressIndicator(color: kWhite)
+                ? SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator(color: kWhite),
+                  )
                 : Icon(Icons.qr_code_scanner_rounded, size: 35, color: kWhite),
           );
         },

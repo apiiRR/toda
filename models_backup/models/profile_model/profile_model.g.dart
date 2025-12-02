@@ -14,9 +14,7 @@ _$ProfileModelImpl _$$ProfileModelImplFromJson(Map<String, dynamic> json) =>
       typeIntegration: json['type_integration'].toString(),
       customer: json['customer'] as bool?,
       supplier: json['supplier'] as bool?,
-      companyId: json['company_id'] is List
-          ? json['company_id'] as List<dynamic>?
-          : [],
+      companyId: json['company_id'] as List<dynamic>?,
       companyType: json['company_type'].toString(),
     );
 

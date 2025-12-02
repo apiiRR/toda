@@ -20,7 +20,9 @@ class AssetPage extends StatefulWidget {
 class _AssetPageState extends State<AssetPage> {
   @override
   void initState() {
-    context.read<AssetBloc>().add(AssetEvent.getData(0, {"name": searchValue}));
+    context.read<AssetBloc>().add(
+      AssetEvent.getData(0, {"name": searchValue, "kondisi": kondisi}),
+    );
 
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
@@ -51,7 +53,10 @@ class _AssetPageState extends State<AssetPage> {
         });
 
         context.read<AssetBloc>().add(
-          AssetEvent.getData(data!.length, {"name": searchValue}),
+          AssetEvent.getData(data!.length, {
+            "name": searchValue,
+            "kondisi": kondisi,
+          }),
         );
       }
     }
@@ -66,6 +71,7 @@ class _AssetPageState extends State<AssetPage> {
   List<Datum>? data;
   List<Datum>? dataResult;
   String searchValue = "";
+  String kondisi = "";
   bool isSelect = false;
   List<Datum> dataPicked = [];
   final ScrollController _scrollController = ScrollController();
@@ -75,16 +81,19 @@ class _AssetPageState extends State<AssetPage> {
 
   final TextEditingController _searchController = TextEditingController();
 
-  void search(String text) {
+  void search(String text, String kondisi) {
     setState(() {
       searchValue = text;
+      this.kondisi = kondisi;
       data = null;
       dataResult = null;
       isSearch = true;
       isFull = false;
     });
 
-    context.read<AssetBloc>().add(AssetEvent.getData(0, {"name": searchValue}));
+    context.read<AssetBloc>().add(
+      AssetEvent.getData(0, {"name": searchValue, "kondisi": this.kondisi}),
+    );
   }
 
   int countDuplicate() {
@@ -106,6 +115,7 @@ class _AssetPageState extends State<AssetPage> {
         onCleared: () {
           setState(() {
             searchValue = "";
+            kondisi = "";
             data = null;
             dataResult = null;
             isSearch = false;
@@ -119,6 +129,7 @@ class _AssetPageState extends State<AssetPage> {
         onClosed: () {
           setState(() {
             searchValue = "";
+            kondisi = "";
             data = null;
             dataResult = null;
             isSearch = false;
@@ -130,7 +141,7 @@ class _AssetPageState extends State<AssetPage> {
           refresh();
         },
         onChanged: (text) {
-          search(text);
+          search(text, "");
         }, // onSubmitted: (text) => searchText.value = text,
         appBarBuilder: (context) {
           return AppBar(
@@ -152,15 +163,57 @@ class _AssetPageState extends State<AssetPage> {
                 onPressed: AppBarWithSearchSwitch.of(context)?.startSearch,
                 icon: Icon(Icons.search, color: kWhite),
               ),
-              IconButton(
-                onPressed: () {
-                  context.pushNamed(RouteName.assetInputPage).then((value) {
-                    if (value == true) {
-                      refresh();
-                    }
-                  });
-                },
-                icon: Icon(Icons.add, color: kWhite),
+              PopupMenuButton<String>(
+                icon: Icon(Icons.more_vert_sharp, color: kWhite),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                color: kWhite,
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                  PopupMenuItem<String>(
+                    child: ListTile(
+                      leading: const Icon(Icons.add),
+                      title: Text('Add', style: kJakartaRegular),
+                    ),
+                    onTap: () {
+                      context.pushNamed(RouteName.assetInputPage).then((value) {
+                        if (value == true) {
+                          refresh();
+                        }
+                      });
+                    },
+                  ),
+                  PopupMenuItem<String>(
+                    child: ListTile(
+                      leading: const Icon(Icons.disabled_by_default_outlined),
+                      title: Text(
+                        'View Asset Inactive',
+                        style: kJakartaRegular,
+                      ),
+                    ),
+                    onTap: () {
+                      search("", "inactive");
+                    },
+                  ),
+                  PopupMenuItem<String>(
+                    child: ListTile(
+                      leading: const Icon(Icons.gpp_good_sharp),
+                      title: Text('View Asset Baik', style: kJakartaRegular),
+                    ),
+                    onTap: () {
+                      search("", "baik");
+                    },
+                  ),
+                  PopupMenuItem<String>(
+                    child: ListTile(
+                      leading: const Icon(Icons.sms_failed_outlined),
+                      title: Text('View Asset Rusak', style: kJakartaRegular),
+                    ),
+                    onTap: () {
+                      search("", "rusak");
+                    },
+                  ),
+                ],
               ),
             ],
           );
@@ -236,7 +289,7 @@ class _AssetPageState extends State<AssetPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (isSearch == true)
+                        if (isSearch == true && searchValue != "")
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -256,6 +309,38 @@ class _AssetPageState extends State<AssetPage> {
                                     children: [
                                       TextSpan(
                                         text: searchValue,
+                                        style: kJakartaSemibold.copyWith(
+                                          fontSize: 16,
+                                          color: kBlack,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+
+                        if (isSearch == true && kondisi != "")
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 16),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 16,
+                                ),
+                                child: RichText(
+                                  text: TextSpan(
+                                    text:
+                                        "Hasil pencarian dengan kata kunci : ",
+                                    style: kJakartaRegular.copyWith(
+                                      fontSize: 16,
+                                      color: kBlack,
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                        text: kondisi,
                                         style: kJakartaSemibold.copyWith(
                                           fontSize: 16,
                                           color: kBlack,

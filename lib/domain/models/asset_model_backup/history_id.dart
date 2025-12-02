@@ -6,12 +6,10 @@ part 'history_id.g.dart';
 @freezed
 class HistoryId with _$HistoryId {
   factory HistoryId({
-    @JsonKey(name: 'location_name') String? locationName,
-    @JsonKey(name: 'user_id') List<dynamic>? userId,
     int? id,
-    @JsonKey(name: 'asset_location_id') List<dynamic>? assetLocationId,
-    @JsonKey(name: 'location_code') String? locationCode,
     @JsonKey(name: 'scan_date') String? scanDate,
+    @JsonKey(name: 'user_id') List<dynamic>? userId,
+    @JsonKey(name: 'location_name') String? locationName,
   }) = _HistoryId;
 
   factory HistoryId.fromJson(Map<String, dynamic> json) =>

@@ -1116,7 +1116,9 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                             //   height: 26,
                             // ),
                             Text(
-                              history[index].locationName!,
+                              history[index].locationName! != "false"
+                                  ? "${history[index].locationCode} / ${history[index].locationName!}"
+                                  : "-",
                               style: kJakartaSemibold,
                               overflow: TextOverflow.ellipsis,
                             ),

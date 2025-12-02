@@ -3364,6 +3364,8 @@ abstract class _$$SuccessWithDashboardImplCopyWith<$Res> {
   ) = __$$SuccessWithDashboardImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DashboardModel asset});
+
+  $DashboardModelCopyWith<$Res> get asset;
 }
 
 /// @nodoc
@@ -3379,15 +3381,25 @@ class __$$SuccessWithDashboardImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? asset = freezed}) {
+  $Res call({Object? asset = null}) {
     return _then(
       _$SuccessWithDashboardImpl(
-        freezed == asset
+        null == asset
             ? _value.asset
             : asset // ignore: cast_nullable_to_non_nullable
                   as DashboardModel,
       ),
     );
+  }
+
+  /// Create a copy of AssetState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DashboardModelCopyWith<$Res> get asset {
+    return $DashboardModelCopyWith<$Res>(_value.asset, (value) {
+      return _then(_value.copyWith(asset: value));
+    });
   }
 }
 
@@ -3409,12 +3421,11 @@ class _$SuccessWithDashboardImpl implements _SuccessWithDashboard {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessWithDashboardImpl &&
-            const DeepCollectionEquality().equals(other.asset, asset));
+            (identical(other.asset, asset) || other.asset == asset));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(asset));
+  int get hashCode => Object.hash(runtimeType, asset);
 
   /// Create a copy of AssetState
   /// with the given fields replaced by the non-null parameter values.

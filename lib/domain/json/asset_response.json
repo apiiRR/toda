@@ -37,10 +37,12 @@
         "product_code": "TEP-ART-00389",
         "history_ids": [
           {
-            "id": 5587,
-            "scan_date": "2025-09-16 00:00:00",
-            "user_id": [2, "Administrator"],
-            "location_name": "Ruang General Affair & Corsec"
+            "location_name": "Rasamala Lantai 5",
+            "user_id": [6, "M Firdaus"],
+            "id": 7252,
+            "asset_location_id": [735, "R05"],
+            "location_code": "R05-02-2BR",
+            "scan_date": "2025-11-18 07:40:08"
           }
         ],
         "maintenance_ids": [

@@ -21,13 +21,17 @@ HistoryId _$HistoryIdFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HistoryId {
-  int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'scan_date')
-  String? get scanDate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'user_id')
-  List<dynamic>? get userId => throw _privateConstructorUsedError;
   @JsonKey(name: 'location_name')
   String? get locationName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'user_id')
+  List<dynamic>? get userId => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'asset_location_id')
+  List<dynamic>? get assetLocationId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'location_code')
+  String? get locationCode => throw _privateConstructorUsedError;
+  @JsonKey(name: 'scan_date')
+  String? get scanDate => throw _privateConstructorUsedError;
 
   /// Serializes this HistoryId to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,10 +49,12 @@ abstract class $HistoryIdCopyWith<$Res> {
       _$HistoryIdCopyWithImpl<$Res, HistoryId>;
   @useResult
   $Res call({
-    int? id,
-    @JsonKey(name: 'scan_date') String? scanDate,
-    @JsonKey(name: 'user_id') List<dynamic>? userId,
     @JsonKey(name: 'location_name') String? locationName,
+    @JsonKey(name: 'user_id') List<dynamic>? userId,
+    int? id,
+    @JsonKey(name: 'asset_location_id') List<dynamic>? assetLocationId,
+    @JsonKey(name: 'location_code') String? locationCode,
+    @JsonKey(name: 'scan_date') String? scanDate,
   });
 }
 
@@ -67,28 +73,38 @@ class _$HistoryIdCopyWithImpl<$Res, $Val extends HistoryId>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? scanDate = freezed,
-    Object? userId = freezed,
     Object? locationName = freezed,
+    Object? userId = freezed,
+    Object? id = freezed,
+    Object? assetLocationId = freezed,
+    Object? locationCode = freezed,
+    Object? scanDate = freezed,
   }) {
     return _then(
       _value.copyWith(
-            id: freezed == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                      as int?,
-            scanDate: freezed == scanDate
-                ? _value.scanDate
-                : scanDate // ignore: cast_nullable_to_non_nullable
+            locationName: freezed == locationName
+                ? _value.locationName
+                : locationName // ignore: cast_nullable_to_non_nullable
                       as String?,
             userId: freezed == userId
                 ? _value.userId
                 : userId // ignore: cast_nullable_to_non_nullable
                       as List<dynamic>?,
-            locationName: freezed == locationName
-                ? _value.locationName
-                : locationName // ignore: cast_nullable_to_non_nullable
+            id: freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            assetLocationId: freezed == assetLocationId
+                ? _value.assetLocationId
+                : assetLocationId // ignore: cast_nullable_to_non_nullable
+                      as List<dynamic>?,
+            locationCode: freezed == locationCode
+                ? _value.locationCode
+                : locationCode // ignore: cast_nullable_to_non_nullable
+                      as String?,
+            scanDate: freezed == scanDate
+                ? _value.scanDate
+                : scanDate // ignore: cast_nullable_to_non_nullable
                       as String?,
           )
           as $Val,
@@ -106,10 +122,12 @@ abstract class _$$HistoryIdImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    int? id,
-    @JsonKey(name: 'scan_date') String? scanDate,
-    @JsonKey(name: 'user_id') List<dynamic>? userId,
     @JsonKey(name: 'location_name') String? locationName,
+    @JsonKey(name: 'user_id') List<dynamic>? userId,
+    int? id,
+    @JsonKey(name: 'asset_location_id') List<dynamic>? assetLocationId,
+    @JsonKey(name: 'location_code') String? locationCode,
+    @JsonKey(name: 'scan_date') String? scanDate,
   });
 }
 
@@ -127,28 +145,38 @@ class __$$HistoryIdImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? scanDate = freezed,
-    Object? userId = freezed,
     Object? locationName = freezed,
+    Object? userId = freezed,
+    Object? id = freezed,
+    Object? assetLocationId = freezed,
+    Object? locationCode = freezed,
+    Object? scanDate = freezed,
   }) {
     return _then(
       _$HistoryIdImpl(
-        id: freezed == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        scanDate: freezed == scanDate
-            ? _value.scanDate
-            : scanDate // ignore: cast_nullable_to_non_nullable
+        locationName: freezed == locationName
+            ? _value.locationName
+            : locationName // ignore: cast_nullable_to_non_nullable
                   as String?,
         userId: freezed == userId
             ? _value._userId
             : userId // ignore: cast_nullable_to_non_nullable
                   as List<dynamic>?,
-        locationName: freezed == locationName
-            ? _value.locationName
-            : locationName // ignore: cast_nullable_to_non_nullable
+        id: freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        assetLocationId: freezed == assetLocationId
+            ? _value._assetLocationId
+            : assetLocationId // ignore: cast_nullable_to_non_nullable
+                  as List<dynamic>?,
+        locationCode: freezed == locationCode
+            ? _value.locationCode
+            : locationCode // ignore: cast_nullable_to_non_nullable
+                  as String?,
+        scanDate: freezed == scanDate
+            ? _value.scanDate
+            : scanDate // ignore: cast_nullable_to_non_nullable
                   as String?,
       ),
     );
@@ -159,20 +187,21 @@ class __$$HistoryIdImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$HistoryIdImpl implements _HistoryId {
   _$HistoryIdImpl({
-    this.id,
-    @JsonKey(name: 'scan_date') this.scanDate,
-    @JsonKey(name: 'user_id') final List<dynamic>? userId,
     @JsonKey(name: 'location_name') this.locationName,
-  }) : _userId = userId;
+    @JsonKey(name: 'user_id') final List<dynamic>? userId,
+    this.id,
+    @JsonKey(name: 'asset_location_id') final List<dynamic>? assetLocationId,
+    @JsonKey(name: 'location_code') this.locationCode,
+    @JsonKey(name: 'scan_date') this.scanDate,
+  }) : _userId = userId,
+       _assetLocationId = assetLocationId;
 
   factory _$HistoryIdImpl.fromJson(Map<String, dynamic> json) =>
       _$$HistoryIdImplFromJson(json);
 
   @override
-  final int? id;
-  @override
-  @JsonKey(name: 'scan_date')
-  final String? scanDate;
+  @JsonKey(name: 'location_name')
+  final String? locationName;
   final List<dynamic>? _userId;
   @override
   @JsonKey(name: 'user_id')
@@ -185,12 +214,28 @@ class _$HistoryIdImpl implements _HistoryId {
   }
 
   @override
-  @JsonKey(name: 'location_name')
-  final String? locationName;
+  final int? id;
+  final List<dynamic>? _assetLocationId;
+  @override
+  @JsonKey(name: 'asset_location_id')
+  List<dynamic>? get assetLocationId {
+    final value = _assetLocationId;
+    if (value == null) return null;
+    if (_assetLocationId is EqualUnmodifiableListView) return _assetLocationId;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  @JsonKey(name: 'location_code')
+  final String? locationCode;
+  @override
+  @JsonKey(name: 'scan_date')
+  final String? scanDate;
 
   @override
   String toString() {
-    return 'HistoryId(id: $id, scanDate: $scanDate, userId: $userId, locationName: $locationName)';
+    return 'HistoryId(locationName: $locationName, userId: $userId, id: $id, assetLocationId: $assetLocationId, locationCode: $locationCode, scanDate: $scanDate)';
   }
 
   @override
@@ -198,22 +243,30 @@ class _$HistoryIdImpl implements _HistoryId {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HistoryIdImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.scanDate, scanDate) ||
-                other.scanDate == scanDate) &&
-            const DeepCollectionEquality().equals(other._userId, _userId) &&
             (identical(other.locationName, locationName) ||
-                other.locationName == locationName));
+                other.locationName == locationName) &&
+            const DeepCollectionEquality().equals(other._userId, _userId) &&
+            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality().equals(
+              other._assetLocationId,
+              _assetLocationId,
+            ) &&
+            (identical(other.locationCode, locationCode) ||
+                other.locationCode == locationCode) &&
+            (identical(other.scanDate, scanDate) ||
+                other.scanDate == scanDate));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    id,
-    scanDate,
-    const DeepCollectionEquality().hash(_userId),
     locationName,
+    const DeepCollectionEquality().hash(_userId),
+    id,
+    const DeepCollectionEquality().hash(_assetLocationId),
+    locationCode,
+    scanDate,
   );
 
   /// Create a copy of HistoryId
@@ -232,26 +285,34 @@ class _$HistoryIdImpl implements _HistoryId {
 
 abstract class _HistoryId implements HistoryId {
   factory _HistoryId({
-    final int? id,
-    @JsonKey(name: 'scan_date') final String? scanDate,
-    @JsonKey(name: 'user_id') final List<dynamic>? userId,
     @JsonKey(name: 'location_name') final String? locationName,
+    @JsonKey(name: 'user_id') final List<dynamic>? userId,
+    final int? id,
+    @JsonKey(name: 'asset_location_id') final List<dynamic>? assetLocationId,
+    @JsonKey(name: 'location_code') final String? locationCode,
+    @JsonKey(name: 'scan_date') final String? scanDate,
   }) = _$HistoryIdImpl;
 
   factory _HistoryId.fromJson(Map<String, dynamic> json) =
       _$HistoryIdImpl.fromJson;
 
   @override
-  int? get id;
-  @override
-  @JsonKey(name: 'scan_date')
-  String? get scanDate;
+  @JsonKey(name: 'location_name')
+  String? get locationName;
   @override
   @JsonKey(name: 'user_id')
   List<dynamic>? get userId;
   @override
-  @JsonKey(name: 'location_name')
-  String? get locationName;
+  int? get id;
+  @override
+  @JsonKey(name: 'asset_location_id')
+  List<dynamic>? get assetLocationId;
+  @override
+  @JsonKey(name: 'location_code')
+  String? get locationCode;
+  @override
+  @JsonKey(name: 'scan_date')
+  String? get scanDate;
 
   /// Create a copy of HistoryId
   /// with the given fields replaced by the non-null parameter values.

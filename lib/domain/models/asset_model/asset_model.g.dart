@@ -8,7 +8,7 @@ part of 'asset_model.dart';
 
 _$AssetModelImpl _$$AssetModelImplFromJson(Map<String, dynamic> json) =>
     _$AssetModelImpl(
-      jsonrpc: json['jsonrpc'].toString(),
+      jsonrpc: json['jsonrpc'] as String?,
       id: json['id'],
       result: json['result'] == null
           ? null
