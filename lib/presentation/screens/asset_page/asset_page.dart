@@ -11,7 +11,8 @@ import '../../utils/app_styles.dart';
 import '../../widgets/app_dialog.dart';
 
 class AssetPage extends StatefulWidget {
-  const AssetPage({super.key});
+  const AssetPage({super.key, this.kondisiParameter});
+  final String? kondisiParameter;
 
   @override
   State<AssetPage> createState() => _AssetPageState();
@@ -20,9 +21,13 @@ class AssetPage extends StatefulWidget {
 class _AssetPageState extends State<AssetPage> {
   @override
   void initState() {
-    context.read<AssetBloc>().add(
-      AssetEvent.getData(0, {"name": searchValue, "kondisi": kondisi}),
-    );
+    if (widget.kondisiParameter == null) {
+      context.read<AssetBloc>().add(
+        AssetEvent.getData(0, {"name": searchValue, "kondisi": kondisi}),
+      );
+    } else {
+      search("", widget.kondisiParameter!);
+    }
 
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==

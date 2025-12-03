@@ -650,92 +650,109 @@ class _HomePageState extends State<HomePage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Card(
-                                  color: Color(0xFFCCE0FF),
-                                  margin: EdgeInsets.zero,
-                                  elevation: 0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                    side: BorderSide(color: Color(0xFF0077FF)),
-                                  ),
-                                  child: SizedBox(
-                                    height: 100,
-                                    width: 44.w,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 16,
+                                InkWell(
+                                  onTap: () {
+                                    context.pushNamed(RouteName.assetPage);
+                                  },
+                                  child: Card(
+                                    color: Color(0xFFCCE0FF),
+                                    margin: EdgeInsets.zero,
+                                    elevation: 0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      side: BorderSide(
+                                        color: Color(0xFF0077FF),
                                       ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          const SizedBox(height: 10),
-                                          Text(
-                                            "Total\nAsset",
-                                            style: kJakartaBold.copyWith(
-                                              fontSize: 16,
+                                    ),
+                                    child: SizedBox(
+                                      height: 100,
+                                      width: 44.w,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              "Total\nAsset",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 16,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(height: 4),
-                                          Text(
-                                            dataDashboard != null
-                                                ? dataDashboard!
-                                                      .result!
-                                                      .data!
-                                                      .totalAset
-                                                      .toString()
-                                                : "-",
-                                            style: kJakartaBold.copyWith(
-                                              fontSize: 24,
-                                              color: Color(0xFF0077FF),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              dataDashboard != null
+                                                  ? dataDashboard!
+                                                        .result!
+                                                        .data!
+                                                        .totalAset
+                                                        .toString()
+                                                  : "-",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 24,
+                                                color: Color(0xFF0077FF),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                                Card(
-                                  color: Color(0xFFEBF8D6),
-                                  margin: EdgeInsets.zero,
-                                  elevation: 0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                    side: BorderSide(color: Color(0xFF99C935)),
-                                  ),
-                                  child: SizedBox(
-                                    height: 100,
-                                    width: 44.w,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 16,
+                                InkWell(
+                                  onTap: () {
+                                    context.pushNamed(
+                                      RouteName.assetPage,
+                                      extra: "inactive",
+                                    );
+                                  },
+                                  child: Card(
+                                    color: Color(0xFFEBF8D6),
+                                    margin: EdgeInsets.zero,
+                                    elevation: 0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      side: BorderSide(
+                                        color: Color(0xFF99C935),
                                       ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          const SizedBox(height: 10),
-                                          Text(
-                                            "Asset\nInactive",
-                                            style: kJakartaBold.copyWith(
-                                              fontSize: 16,
+                                    ),
+                                    child: SizedBox(
+                                      height: 100,
+                                      width: 44.w,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              "Asset\nInactive",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 16,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(height: 4),
-                                          Text(
-                                            dataDashboard != null
-                                                ? dataDashboard!
-                                                      .result!
-                                                      .data!
-                                                      .asetInactive
-                                                      .toString()
-                                                : "-",
-                                            style: kJakartaBold.copyWith(
-                                              fontSize: 24,
-                                              color: Color(0xFF99C935),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              dataDashboard != null
+                                                  ? dataDashboard!
+                                                        .result!
+                                                        .data!
+                                                        .asetInactive
+                                                        .toString()
+                                                  : "-",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 24,
+                                                color: Color(0xFF99C935),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -749,94 +766,112 @@ class _HomePageState extends State<HomePage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Card(
-                                  color: const Color(0xFFf6fcfc),
-                                  margin: EdgeInsets.zero,
-                                  elevation: 0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                    side: const BorderSide(
-                                      color: Color(0xFF3dbfb7),
-                                    ),
-                                  ),
-                                  child: SizedBox(
-                                    height: 100,
-                                    width: 44.w,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 16,
+                                InkWell(
+                                  onTap: () {
+                                    context.pushNamed(
+                                      RouteName.assetPage,
+                                      extra: "baik",
+                                    );
+                                  },
+                                  child: Card(
+                                    color: const Color(0xFFf6fcfc),
+                                    margin: EdgeInsets.zero,
+                                    elevation: 0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      side: const BorderSide(
+                                        color: Color(0xFF3dbfb7),
                                       ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          const SizedBox(height: 10),
-                                          Text(
-                                            "Asset\nBaik",
-                                            style: kJakartaBold.copyWith(
-                                              fontSize: 16,
+                                    ),
+                                    child: SizedBox(
+                                      height: 100,
+                                      width: 44.w,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              "Asset\nBaik",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 16,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(height: 4),
-                                          Text(
-                                            dataDashboard != null
-                                                ? dataDashboard!
-                                                      .result!
-                                                      .data!
-                                                      .asetBaik
-                                                      .toString()
-                                                : "-",
-                                            style: kJakartaBold.copyWith(
-                                              fontSize: 24,
-                                              color: Color(0xFF3dbfb7),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              dataDashboard != null
+                                                  ? dataDashboard!
+                                                        .result!
+                                                        .data!
+                                                        .asetBaik
+                                                        .toString()
+                                                  : "-",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 24,
+                                                color: Color(0xFF3dbfb7),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                                Card(
-                                  color: Color(0xFFFFE0DC),
-                                  margin: EdgeInsets.zero,
-                                  elevation: 0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                    side: BorderSide(color: Color(0xFFE75A4D)),
-                                  ),
-                                  child: SizedBox(
-                                    height: 100,
-                                    width: 44.w,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 16,
+                                InkWell(
+                                  onTap: () {
+                                    context.pushNamed(
+                                      RouteName.assetPage,
+                                      extra: "rusak",
+                                    );
+                                  },
+                                  child: Card(
+                                    color: Color(0xFFFFE0DC),
+                                    margin: EdgeInsets.zero,
+                                    elevation: 0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      side: BorderSide(
+                                        color: Color(0xFFE75A4D),
                                       ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          const SizedBox(height: 10),
-                                          Text(
-                                            "Asset\nRusak",
-                                            style: kJakartaBold.copyWith(
-                                              fontSize: 16,
+                                    ),
+                                    child: SizedBox(
+                                      height: 100,
+                                      width: 44.w,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              "Asset\nRusak",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 16,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(height: 4),
-                                          Text(
-                                            dataDashboard != null
-                                                ? dataDashboard!
-                                                      .result!
-                                                      .data!
-                                                      .asetRusak
-                                                      .toString()
-                                                : "-",
-                                            style: kJakartaBold.copyWith(
-                                              fontSize: 24,
-                                              color: Color(0xFFE75A4D),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              dataDashboard != null
+                                                  ? dataDashboard!
+                                                        .result!
+                                                        .data!
+                                                        .asetRusak
+                                                        .toString()
+                                                  : "-",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 24,
+                                                color: Color(0xFFE75A4D),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),

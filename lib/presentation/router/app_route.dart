@@ -43,7 +43,8 @@ class AppRouter {
       GoRoute(
         path: '/assetPage',
         name: RouteName.assetPage,
-        builder: (context, state) => const AssetPage(),
+        builder: (context, state) =>
+            AssetPage(kondisiParameter: state.extra as String?),
       ),
       GoRoute(
         path: '/assetInputPage',
