@@ -3,8 +3,10 @@
   "result": {
     "data": {
       "aset_inactive": 2576,
+      "aset_active": 2576,
       "total_aset": 4272,
       "aset_baik": 4254,
+      "aset_idle": 4254,
       "aset_by_category": [
         {
           "name": "Undefined",

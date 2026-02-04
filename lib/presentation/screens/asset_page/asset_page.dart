@@ -3,6 +3,7 @@ import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart';
@@ -285,7 +286,43 @@ class _AssetPageState extends State<AssetPage> {
           return state == const AssetState.loading() && data == null
               ? Center(child: CircularProgressIndicator(color: kPrimary))
               : dataResult == null || dataResult!.isEmpty
-              ? Center(child: Text("Data is empty", style: kJakartaRegular))
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (isSearch == true && kondisi != "")
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 16),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: RichText(
+                              text: TextSpan(
+                                text: "Hasil pencarian dengan kata kunci : ",
+                                style: kJakartaRegular.copyWith(
+                                  fontSize: 16,
+                                  color: kBlack,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: kondisi,
+                                    style: kJakartaSemibold.copyWith(
+                                      fontSize: 16,
+                                      color: kBlack,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    SizedBox(height: 40.h),
+                    Center(
+                      child: Text("Data is empty", style: kJakartaRegular),
+                    ),
+                  ],
+                )
               : RefreshIndicator(
                   onRefresh: refresh,
                   child: SingleChildScrollView(

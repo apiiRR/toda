@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -46,7 +45,15 @@ class _LoginPageState extends State<LoginPage> {
                     // SizedBox(
                     //   height: 10.h,
                     // ),
-                    SvgPicture.asset("assets/svg/secure.svg"),
+                    // SvgPicture.asset("assets/svg/secure.svg"),
+                    Container(
+                      width: 200,
+                      decoration: BoxDecoration(
+                        color: kWhite,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Image.asset("assets/png/logo.png"),
+                    ),
                     const SizedBox(height: 16),
                     Text(
                       "Sign in to your \n Account",

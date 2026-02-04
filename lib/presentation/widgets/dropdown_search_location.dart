@@ -53,7 +53,7 @@ class DropdownSearchLocation extends StatelessWidget {
                   horizontal: 20,
                   vertical: 10,
                 ),
-                child: Text(item.name!, style: kJakartaRegular),
+                child: Text(item.code!, style: kJakartaRegular),
               );
             },
           ),

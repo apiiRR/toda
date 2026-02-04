@@ -17,7 +17,6 @@ import '../../../bloc/auth/auth_bloc.dart';
 import '../../../bloc/barcode/barcode_bloc.dart';
 import '../../../domain/models/asset_model/asset_model.dart';
 import '../../../domain/models/dashboard_model/dashboard_model.dart';
-import '../../../domain/models/location_model/location_model.dart';
 import '../../router/app_route.dart';
 import '../../utils/app_styles.dart';
 import '../../widgets/app_dialog.dart';
@@ -876,6 +875,140 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    context.pushNamed(
+                                      RouteName.assetPage,
+                                      extra: "idle",
+                                    );
+                                  },
+                                  child: Card(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      252,
+                                      249,
+                                      246,
+                                    ),
+                                    margin: EdgeInsets.zero,
+                                    elevation: 0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      side: const BorderSide(
+                                        color: Color.fromARGB(
+                                          255,
+                                          148,
+                                          103,
+                                          47,
+                                        ),
+                                      ),
+                                    ),
+                                    child: SizedBox(
+                                      height: 100,
+                                      width: 44.w,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(height: 10),
+                                            Text(
+                                              "Asset\nIdle",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              dataDashboard != null
+                                                  ? dataDashboard!
+                                                        .result!
+                                                        .data!
+                                                        .asetIdle
+                                                        .toString()
+                                                  : "-",
+                                              style: kJakartaBold.copyWith(
+                                                fontSize: 24,
+                                                color: Color.fromARGB(
+                                                  255,
+                                                  148,
+                                                  103,
+                                                  47,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                // InkWell(
+                                //   onTap: () {
+                                //     context.pushNamed(
+                                //       RouteName.assetPage,
+                                //       extra: "rusak",
+                                //     );
+                                //   },
+                                //   child: Card(
+                                //     color: Color(0xFFFFE0DC),
+                                //     margin: EdgeInsets.zero,
+                                //     elevation: 0,
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(8),
+                                //       side: BorderSide(
+                                //         color: Color(0xFFE75A4D),
+                                //       ),
+                                //     ),
+                                //     child: SizedBox(
+                                //       height: 100,
+                                //       width: 44.w,
+                                //       child: Padding(
+                                //         padding: const EdgeInsets.symmetric(
+                                //           horizontal: 16,
+                                //         ),
+                                //         child: Column(
+                                //           crossAxisAlignment:
+                                //               CrossAxisAlignment.start,
+                                //           children: [
+                                //             const SizedBox(height: 10),
+                                //             Text(
+                                //               "Asset\nRusak",
+                                //               style: kJakartaBold.copyWith(
+                                //                 fontSize: 16,
+                                //               ),
+                                //             ),
+                                //             const SizedBox(height: 4),
+                                //             Text(
+                                //               dataDashboard != null
+                                //                   ? dataDashboard!
+                                //                         .result!
+                                //                         .data!
+                                //                         .asetRusak
+                                //                         .toString()
+                                //                   : "-",
+                                //               style: kJakartaBold.copyWith(
+                                //                 fontSize: 24,
+                                //                 color: Color(0xFFE75A4D),
+                                //               ),
+                                //             ),
+                                //           ],
+                                //         ),
+                                //       ),
+                                //     ),
+                                //   ),
+                                // ),
                               ],
                             ),
                           ),
