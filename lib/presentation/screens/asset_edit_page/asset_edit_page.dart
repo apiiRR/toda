@@ -200,7 +200,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
               const SizedBox(height: 16),
               FieldKondisiDropdown(
                 validator: FormBuilderValidators.compose([]),
-                title: "Kondisi",
+                title: "Condition",
                 hint: "Example : Baik",
                 selectedItem: kondisi,
                 onChanged: (data) {

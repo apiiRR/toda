@@ -311,7 +311,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                       ),
                                       const Divider(),
                                       TextFieldTitle(
-                                        title: "Kondisi",
+                                        title: "Condition",
                                         text:
                                             dataAsset!.kondisi! != "false" &&
                                                 dataAsset!.kondisi! != ""
