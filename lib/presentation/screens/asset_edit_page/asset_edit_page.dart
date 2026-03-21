@@ -11,6 +11,7 @@ import '../../../domain/models/master_data_model/datum.dart'
 import '../../utils/app_styles.dart';
 import '../../widgets/field_image.dart';
 import '../../widgets/field_kondisi_dropdown.dart';
+import '../../widgets/field_loan_dropdown.dart';
 import '../../widgets/field_location_dropdown.dart';
 import '../../widgets/field_merk_dropdown.dart';
 import '../../widgets/field_text.dart';
@@ -36,6 +37,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
   datum_master_data.Datum? merk;
   datum_location.Datum? location;
   String? kondisi;
+  bool? loan;
 
   @override
   void initState() {
@@ -52,6 +54,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
           )
         : null;
     kondisi = widget.data.kondisi.toString();
+    loan = widget.data.isAsetLoan;
     super.initState();
   }
 
@@ -198,6 +201,17 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 },
               ),
               const SizedBox(height: 16),
+              FieldText(
+                validator: FormBuilderValidators.compose([]),
+                title: "Merk Type",
+                name: "merk_type",
+                hint: "Example : Merk Type",
+                keyboardType: TextInputType.text,
+                initialValue: widget.data.merkType == "false"
+                    ? ""
+                    : widget.data.merkType,
+              ),
+              const SizedBox(height: 16),
               FieldKondisiDropdown(
                 validator: FormBuilderValidators.compose([]),
                 title: "Condition",
@@ -219,6 +233,18 @@ class _AssetEditPageState extends State<AssetEditPage> {
                 initialValue: widget.data.notes == "false"
                     ? ""
                     : widget.data.notes,
+              ),
+              const SizedBox(height: 16),
+              FieldLoanDropdown(
+                validator: FormBuilderValidators.compose([]),
+                title: "Asset Loan",
+                hint: "Example : Asset Loan",
+                selectedItem: loan,
+                onChanged: (data) {
+                  setState(() {
+                    loan = data;
+                  });
+                },
               ),
               const SizedBox(height: 16),
               FieldImage(
@@ -284,7 +310,12 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                       .toString(),
                                   "asset_location_id": location?.id,
                                   "merk_id": merk?.id,
+                                  "merk_type": formKey
+                                      .currentState!
+                                      .value["merk_type"]
+                                      .toString(),
                                   "kondisi": kondisi,
+                                  "is_aset_loan": loan,
                                 };
                               } else {
                                 inputData = {
@@ -292,7 +323,12 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                       .toString(),
                                   "asset_location_id": location?.id,
                                   "merk_id": merk?.id,
+                                  "merk_type": formKey
+                                      .currentState!
+                                      .value["merk_type"]
+                                      .toString(),
                                   "kondisi": kondisi,
+                                  "is_aset_loan": loan,
                                   "image": formKey.currentState!.value["image"],
                                 };
                               }

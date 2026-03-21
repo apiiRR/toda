@@ -23,10 +23,14 @@ Data _$DataFromJson(Map<String, dynamic> json) {
 mixin _$Data {
   @JsonKey(name: 'aset_inactive')
   int? get asetInactive => throw _privateConstructorUsedError;
+  @JsonKey(name: 'aset_active')
+  int? get asetActive => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_aset')
   int? get totalAset => throw _privateConstructorUsedError;
   @JsonKey(name: 'aset_baik')
   int? get asetBaik => throw _privateConstructorUsedError;
+  @JsonKey(name: 'aset_idle')
+  int? get asetIdle => throw _privateConstructorUsedError;
   @JsonKey(name: 'aset_by_category')
   List<AsetByCategory>? get asetByCategory =>
       throw _privateConstructorUsedError;
@@ -49,8 +53,10 @@ abstract class $DataCopyWith<$Res> {
   @useResult
   $Res call({
     @JsonKey(name: 'aset_inactive') int? asetInactive,
+    @JsonKey(name: 'aset_active') int? asetActive,
     @JsonKey(name: 'total_aset') int? totalAset,
     @JsonKey(name: 'aset_baik') int? asetBaik,
+    @JsonKey(name: 'aset_idle') int? asetIdle,
     @JsonKey(name: 'aset_by_category') List<AsetByCategory>? asetByCategory,
     @JsonKey(name: 'aset_rusak') int? asetRusak,
   });
@@ -72,8 +78,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
   @override
   $Res call({
     Object? asetInactive = freezed,
+    Object? asetActive = freezed,
     Object? totalAset = freezed,
     Object? asetBaik = freezed,
+    Object? asetIdle = freezed,
     Object? asetByCategory = freezed,
     Object? asetRusak = freezed,
   }) {
@@ -83,6 +91,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
                 ? _value.asetInactive
                 : asetInactive // ignore: cast_nullable_to_non_nullable
                       as int?,
+            asetActive: freezed == asetActive
+                ? _value.asetActive
+                : asetActive // ignore: cast_nullable_to_non_nullable
+                      as int?,
             totalAset: freezed == totalAset
                 ? _value.totalAset
                 : totalAset // ignore: cast_nullable_to_non_nullable
@@ -90,6 +102,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
             asetBaik: freezed == asetBaik
                 ? _value.asetBaik
                 : asetBaik // ignore: cast_nullable_to_non_nullable
+                      as int?,
+            asetIdle: freezed == asetIdle
+                ? _value.asetIdle
+                : asetIdle // ignore: cast_nullable_to_non_nullable
                       as int?,
             asetByCategory: freezed == asetByCategory
                 ? _value.asetByCategory
@@ -115,8 +131,10 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
   @useResult
   $Res call({
     @JsonKey(name: 'aset_inactive') int? asetInactive,
+    @JsonKey(name: 'aset_active') int? asetActive,
     @JsonKey(name: 'total_aset') int? totalAset,
     @JsonKey(name: 'aset_baik') int? asetBaik,
+    @JsonKey(name: 'aset_idle') int? asetIdle,
     @JsonKey(name: 'aset_by_category') List<AsetByCategory>? asetByCategory,
     @JsonKey(name: 'aset_rusak') int? asetRusak,
   });
@@ -135,8 +153,10 @@ class __$$DataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? asetInactive = freezed,
+    Object? asetActive = freezed,
     Object? totalAset = freezed,
     Object? asetBaik = freezed,
+    Object? asetIdle = freezed,
     Object? asetByCategory = freezed,
     Object? asetRusak = freezed,
   }) {
@@ -146,6 +166,10 @@ class __$$DataImplCopyWithImpl<$Res>
             ? _value.asetInactive
             : asetInactive // ignore: cast_nullable_to_non_nullable
                   as int?,
+        asetActive: freezed == asetActive
+            ? _value.asetActive
+            : asetActive // ignore: cast_nullable_to_non_nullable
+                  as int?,
         totalAset: freezed == totalAset
             ? _value.totalAset
             : totalAset // ignore: cast_nullable_to_non_nullable
@@ -153,6 +177,10 @@ class __$$DataImplCopyWithImpl<$Res>
         asetBaik: freezed == asetBaik
             ? _value.asetBaik
             : asetBaik // ignore: cast_nullable_to_non_nullable
+                  as int?,
+        asetIdle: freezed == asetIdle
+            ? _value.asetIdle
+            : asetIdle // ignore: cast_nullable_to_non_nullable
                   as int?,
         asetByCategory: freezed == asetByCategory
             ? _value._asetByCategory
@@ -172,8 +200,10 @@ class __$$DataImplCopyWithImpl<$Res>
 class _$DataImpl implements _Data {
   _$DataImpl({
     @JsonKey(name: 'aset_inactive') this.asetInactive,
+    @JsonKey(name: 'aset_active') this.asetActive,
     @JsonKey(name: 'total_aset') this.totalAset,
     @JsonKey(name: 'aset_baik') this.asetBaik,
+    @JsonKey(name: 'aset_idle') this.asetIdle,
     @JsonKey(name: 'aset_by_category')
     final List<AsetByCategory>? asetByCategory,
     @JsonKey(name: 'aset_rusak') this.asetRusak,
@@ -186,11 +216,17 @@ class _$DataImpl implements _Data {
   @JsonKey(name: 'aset_inactive')
   final int? asetInactive;
   @override
+  @JsonKey(name: 'aset_active')
+  final int? asetActive;
+  @override
   @JsonKey(name: 'total_aset')
   final int? totalAset;
   @override
   @JsonKey(name: 'aset_baik')
   final int? asetBaik;
+  @override
+  @JsonKey(name: 'aset_idle')
+  final int? asetIdle;
   final List<AsetByCategory>? _asetByCategory;
   @override
   @JsonKey(name: 'aset_by_category')
@@ -208,7 +244,7 @@ class _$DataImpl implements _Data {
 
   @override
   String toString() {
-    return 'Data(asetInactive: $asetInactive, totalAset: $totalAset, asetBaik: $asetBaik, asetByCategory: $asetByCategory, asetRusak: $asetRusak)';
+    return 'Data(asetInactive: $asetInactive, asetActive: $asetActive, totalAset: $totalAset, asetBaik: $asetBaik, asetIdle: $asetIdle, asetByCategory: $asetByCategory, asetRusak: $asetRusak)';
   }
 
   @override
@@ -218,10 +254,14 @@ class _$DataImpl implements _Data {
             other is _$DataImpl &&
             (identical(other.asetInactive, asetInactive) ||
                 other.asetInactive == asetInactive) &&
+            (identical(other.asetActive, asetActive) ||
+                other.asetActive == asetActive) &&
             (identical(other.totalAset, totalAset) ||
                 other.totalAset == totalAset) &&
             (identical(other.asetBaik, asetBaik) ||
                 other.asetBaik == asetBaik) &&
+            (identical(other.asetIdle, asetIdle) ||
+                other.asetIdle == asetIdle) &&
             const DeepCollectionEquality().equals(
               other._asetByCategory,
               _asetByCategory,
@@ -235,8 +275,10 @@ class _$DataImpl implements _Data {
   int get hashCode => Object.hash(
     runtimeType,
     asetInactive,
+    asetActive,
     totalAset,
     asetBaik,
+    asetIdle,
     const DeepCollectionEquality().hash(_asetByCategory),
     asetRusak,
   );
@@ -258,8 +300,10 @@ class _$DataImpl implements _Data {
 abstract class _Data implements Data {
   factory _Data({
     @JsonKey(name: 'aset_inactive') final int? asetInactive,
+    @JsonKey(name: 'aset_active') final int? asetActive,
     @JsonKey(name: 'total_aset') final int? totalAset,
     @JsonKey(name: 'aset_baik') final int? asetBaik,
+    @JsonKey(name: 'aset_idle') final int? asetIdle,
     @JsonKey(name: 'aset_by_category')
     final List<AsetByCategory>? asetByCategory,
     @JsonKey(name: 'aset_rusak') final int? asetRusak,
@@ -271,11 +315,17 @@ abstract class _Data implements Data {
   @JsonKey(name: 'aset_inactive')
   int? get asetInactive;
   @override
+  @JsonKey(name: 'aset_active')
+  int? get asetActive;
+  @override
   @JsonKey(name: 'total_aset')
   int? get totalAset;
   @override
   @JsonKey(name: 'aset_baik')
   int? get asetBaik;
+  @override
+  @JsonKey(name: 'aset_idle')
+  int? get asetIdle;
   @override
   @JsonKey(name: 'aset_by_category')
   List<AsetByCategory>? get asetByCategory;

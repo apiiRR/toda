@@ -9,8 +9,10 @@ part 'data.g.dart';
 class Data with _$Data {
   factory Data({
     @JsonKey(name: 'aset_inactive') int? asetInactive,
+    @JsonKey(name: 'aset_active') int? asetActive,
     @JsonKey(name: 'total_aset') int? totalAset,
     @JsonKey(name: 'aset_baik') int? asetBaik,
+    @JsonKey(name: 'aset_idle') int? asetIdle,
     @JsonKey(name: 'aset_by_category') List<AsetByCategory>? asetByCategory,
     @JsonKey(name: 'aset_rusak') int? asetRusak,
   }) = _Data;

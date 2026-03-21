@@ -42,7 +42,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
 
   @override
   void initState() {
-    _controller = TabController(vsync: this, length: 4);
+    _controller = TabController(vsync: this, length: 3);
     dataAsset = widget.data;
     if (widget.productCode != "0") {
       context.read<AssetBloc>().add(
@@ -287,21 +287,28 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                       ),
                                       const Divider(),
                                       TextFieldTitle(
+                                        title: "Merk Type",
+                                        text: dataAsset!.merkType! != "false"
+                                            ? dataAsset!.merkType.toString()
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
                                         title: "Location",
                                         text:
                                             dataAsset!.locationName! != "false"
                                             ? "${dataAsset!.assetLocationId![1]} / ${dataAsset!.locationName.toString()}"
                                             : "-",
                                       ),
-                                      const Divider(),
-                                      TextFieldTitle(
-                                        title: "User Active",
-                                        text:
-                                            dataAsset!.userName! != "false" &&
-                                                dataAsset!.userName! != "null"
-                                            ? dataAsset!.userName!
-                                            : "-",
-                                      ),
+                                      // const Divider(),
+                                      // TextFieldTitle(
+                                      //   title: "User Active",
+                                      //   text:
+                                      //       dataAsset!.userName! != "false" &&
+                                      //           dataAsset!.userName! != "null"
+                                      //       ? dataAsset!.userName!
+                                      //       : "-",
+                                      // ),
                                       const Divider(),
                                       TextFieldTitle(
                                         title: "Lifetime",
@@ -317,6 +324,11 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                                 dataAsset!.kondisi! != ""
                                             ? dataAsset!.kondisi!.capitalize()
                                             : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Asset Loan",
+                                        text: dataAsset!.isAsetLoan.toString(),
                                       ),
                                       const Divider(),
                                       TextFieldTitle(
@@ -590,7 +602,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                               controller: _controller,
                               tabs: const [
                                 Tab(text: 'Location'),
-                                Tab(text: 'User'),
+                                // Tab(text: 'User'),
                                 Tab(text: 'Note'),
                                 Tab(text: 'Condition'),
                               ],
@@ -602,7 +614,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                               controller: _controller,
                               children: [
                                 locationHistoryView(),
-                                userHistoryView(),
+                                // userHistoryView(),
                                 noteHistoryView(),
                                 conditionHistoryView(),
                               ],

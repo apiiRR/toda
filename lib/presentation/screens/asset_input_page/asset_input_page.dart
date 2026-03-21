@@ -15,6 +15,7 @@ import '../../utils/app_styles.dart';
 import '../../widgets/app_dialog.dart';
 import '../../widgets/field_category_dropdown.dart';
 import '../../widgets/field_image.dart';
+import '../../widgets/field_loan_dropdown.dart';
 import '../../widgets/field_merk_dropdown.dart';
 import '../../widgets/field_text.dart';
 import '../../widgets/rounded_button_loading.dart';
@@ -31,6 +32,7 @@ class _AssetInputPageState extends State<AssetInputPage> {
   AssetModel? dataAsset;
   Datum? category;
   Datum? merk;
+  bool? loan;
 
   void removeEmptyValueKeys(Map<String, dynamic> map) {
     map.removeWhere((key, value) {
@@ -158,10 +160,29 @@ class _AssetInputPageState extends State<AssetInputPage> {
               const SizedBox(height: 16),
               FieldText(
                 validator: FormBuilderValidators.compose([]),
+                title: "Merk Type",
+                name: "merk_type",
+                hint: "Example : Merk Type",
+                keyboardType: TextInputType.text,
+              ),
+              const SizedBox(height: 16),
+              FieldText(
+                validator: FormBuilderValidators.compose([]),
                 title: "Notes",
                 name: "notes",
                 hint: "Example : Kondisi saat ini aman & lancar",
                 keyboardType: TextInputType.text,
+              ),
+              const SizedBox(height: 16),
+              FieldLoanDropdown(
+                validator: FormBuilderValidators.compose([]),
+                title: "Asset Loan",
+                hint: "Example : Asset Loan",
+                onChanged: (data) {
+                  setState(() {
+                    loan = data;
+                  });
+                },
               ),
               const SizedBox(height: 16),
               FieldImage(
@@ -236,6 +257,11 @@ class _AssetInputPageState extends State<AssetInputPage> {
                                     .value["po_amount"]
                                     ?.replaceAll('.', ''),
                                 "merk_id": merk!.id,
+                                "merk_type": formKey
+                                    .currentState!
+                                    .value["merk_type"]
+                                    .toString(),
+                                "is_aset_loan": loan,
                                 "po_number":
                                     formKey.currentState!.value["po_number"],
                               };
