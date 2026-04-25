@@ -328,7 +328,16 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                       const Divider(),
                                       TextFieldTitle(
                                         title: "Asset Loan",
-                                        text: dataAsset!.isAsetLoan.toString(),
+                                        text: dataAsset!.isAsetLoan == true
+                                            ? "Ya"
+                                            : "Tidak",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Asset Idle",
+                                        text: dataAsset!.isIdle == true
+                                            ? "Ya"
+                                            : "Tidak",
                                       ),
                                       const Divider(),
                                       TextFieldTitle(
@@ -443,15 +452,15 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      TextFieldTitle(
-                                        title: "Residual Value",
-                                        text: dataAsset!.residualValue != null
-                                            ? idr.format(
-                                                dataAsset!.residualValue,
-                                              )
-                                            : "-",
-                                      ),
-                                      const Divider(),
+                                      // TextFieldTitle(
+                                      //   title: "Residual Value",
+                                      //   text: dataAsset!.residualValue != null
+                                      //       ? idr.format(
+                                      //           dataAsset!.residualValue,
+                                      //         )
+                                      //       : "-",
+                                      // ),
+                                      // const Divider(),
                                       TextFieldTitle(
                                         title: "Accumulated Depreciation",
                                         text:
@@ -466,7 +475,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                       ),
                                       const Divider(),
                                       TextFieldTitle(
-                                        title: "Current Depreciable Amount",
+                                        title: "Book Value",
                                         text:
                                             dataAsset!
                                                     .currentDepreciableAmount !=

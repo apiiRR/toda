@@ -53,6 +53,7 @@ _$DatumImpl _$$DatumImplFromJson(Map<String, dynamic> json) => _$DatumImpl(
       ? json['location_lantai_id'] as List<dynamic>?
       : [],
   isAsetLoan: json['is_aset_loan'] as bool?,
+  isIdle: json['is_idle'] as bool?,
   merkType: json['merk_type'].toString(),
 );
 
@@ -83,6 +84,7 @@ Map<String, dynamic> _$$DatumImplToJson(
   'merk_id': instance.merkId,
   'kondisi': instance.kondisi,
   'is_aset_loan': instance.isAsetLoan,
+  'is_idle': instance.isIdle,
   'merk_type': instance.merkType,
   'image_url': instance.imageUrl,
   'po_number': instance.poNumber,

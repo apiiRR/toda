@@ -38,6 +38,7 @@ class Datum with _$Datum {
     @JsonKey(name: 'merk_id') List<dynamic>? merkId,
     String? kondisi,
     @JsonKey(name: 'is_aset_loan') bool? isAsetLoan,
+    @JsonKey(name: 'is_idle') bool? isIdle,
     @JsonKey(name: 'merk_type') String? merkType,
     @JsonKey(name: 'image_url') String? imageUrl,
     @JsonKey(name: 'po_number') String? poNumber,

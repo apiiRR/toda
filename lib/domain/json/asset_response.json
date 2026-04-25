@@ -60,6 +60,7 @@
         "merk_id": [1, "Informa"],
         "kondisi": "baik",
         "is_aset_loan": false,
+        "is_idle": false,
         "merk_type": "toshiba",
         "image_url": "http://192.168.24.77:9112/asset-image/image/8978",
         "po_number": "PO0005",
