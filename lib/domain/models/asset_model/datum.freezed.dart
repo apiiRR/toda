@@ -30,6 +30,8 @@ mixin _$Datum {
   List<UserHistoryId>? get userHistoryIds => throw _privateConstructorUsedError;
   @JsonKey(name: 'po_amount')
   double? get poAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name_asset')
+  String? get nameAsset => throw _privateConstructorUsedError;
   @JsonKey(name: 'current_accumulated_depreciation')
   double? get currentAccumulatedDepreciation =>
       throw _privateConstructorUsedError;
@@ -39,6 +41,9 @@ mixin _$Datum {
   String? get pastImageUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'asset_location_id')
   List<dynamic>? get assetLocationId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'asset_location_master_id')
+  List<dynamic>? get assetLocationMasterId =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: 'current_depreciable_amount')
   double? get currentDepreciableAmount => throw _privateConstructorUsedError;
   String? get notes => throw _privateConstructorUsedError;
@@ -98,11 +103,14 @@ abstract class $DatumCopyWith<$Res> {
     int? lifetime,
     @JsonKey(name: 'user_history_ids') List<UserHistoryId>? userHistoryIds,
     @JsonKey(name: 'po_amount') double? poAmount,
+    @JsonKey(name: 'name_asset') String? nameAsset,
     @JsonKey(name: 'current_accumulated_depreciation')
     double? currentAccumulatedDepreciation,
     @JsonKey(name: 'residual_value') double? residualValue,
     @JsonKey(name: 'past_image_url') String? pastImageUrl,
     @JsonKey(name: 'asset_location_id') List<dynamic>? assetLocationId,
+    @JsonKey(name: 'asset_location_master_id')
+    List<dynamic>? assetLocationMasterId,
     @JsonKey(name: 'current_depreciable_amount')
     double? currentDepreciableAmount,
     String? notes,
@@ -148,10 +156,12 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
     Object? lifetime = freezed,
     Object? userHistoryIds = freezed,
     Object? poAmount = freezed,
+    Object? nameAsset = freezed,
     Object? currentAccumulatedDepreciation = freezed,
     Object? residualValue = freezed,
     Object? pastImageUrl = freezed,
     Object? assetLocationId = freezed,
+    Object? assetLocationMasterId = freezed,
     Object? currentDepreciableAmount = freezed,
     Object? notes = freezed,
     Object? depreciationAmountPerMonth = freezed,
@@ -195,6 +205,10 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
                 ? _value.poAmount
                 : poAmount // ignore: cast_nullable_to_non_nullable
                       as double?,
+            nameAsset: freezed == nameAsset
+                ? _value.nameAsset
+                : nameAsset // ignore: cast_nullable_to_non_nullable
+                      as String?,
             currentAccumulatedDepreciation:
                 freezed == currentAccumulatedDepreciation
                 ? _value.currentAccumulatedDepreciation
@@ -211,6 +225,10 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
             assetLocationId: freezed == assetLocationId
                 ? _value.assetLocationId
                 : assetLocationId // ignore: cast_nullable_to_non_nullable
+                      as List<dynamic>?,
+            assetLocationMasterId: freezed == assetLocationMasterId
+                ? _value.assetLocationMasterId
+                : assetLocationMasterId // ignore: cast_nullable_to_non_nullable
                       as List<dynamic>?,
             currentDepreciableAmount: freezed == currentDepreciableAmount
                 ? _value.currentDepreciableAmount
@@ -312,11 +330,14 @@ abstract class _$$DatumImplCopyWith<$Res> implements $DatumCopyWith<$Res> {
     int? lifetime,
     @JsonKey(name: 'user_history_ids') List<UserHistoryId>? userHistoryIds,
     @JsonKey(name: 'po_amount') double? poAmount,
+    @JsonKey(name: 'name_asset') String? nameAsset,
     @JsonKey(name: 'current_accumulated_depreciation')
     double? currentAccumulatedDepreciation,
     @JsonKey(name: 'residual_value') double? residualValue,
     @JsonKey(name: 'past_image_url') String? pastImageUrl,
     @JsonKey(name: 'asset_location_id') List<dynamic>? assetLocationId,
+    @JsonKey(name: 'asset_location_master_id')
+    List<dynamic>? assetLocationMasterId,
     @JsonKey(name: 'current_depreciable_amount')
     double? currentDepreciableAmount,
     String? notes,
@@ -361,10 +382,12 @@ class __$$DatumImplCopyWithImpl<$Res>
     Object? lifetime = freezed,
     Object? userHistoryIds = freezed,
     Object? poAmount = freezed,
+    Object? nameAsset = freezed,
     Object? currentAccumulatedDepreciation = freezed,
     Object? residualValue = freezed,
     Object? pastImageUrl = freezed,
     Object? assetLocationId = freezed,
+    Object? assetLocationMasterId = freezed,
     Object? currentDepreciableAmount = freezed,
     Object? notes = freezed,
     Object? depreciationAmountPerMonth = freezed,
@@ -408,6 +431,10 @@ class __$$DatumImplCopyWithImpl<$Res>
             ? _value.poAmount
             : poAmount // ignore: cast_nullable_to_non_nullable
                   as double?,
+        nameAsset: freezed == nameAsset
+            ? _value.nameAsset
+            : nameAsset // ignore: cast_nullable_to_non_nullable
+                  as String?,
         currentAccumulatedDepreciation:
             freezed == currentAccumulatedDepreciation
             ? _value.currentAccumulatedDepreciation
@@ -424,6 +451,10 @@ class __$$DatumImplCopyWithImpl<$Res>
         assetLocationId: freezed == assetLocationId
             ? _value._assetLocationId
             : assetLocationId // ignore: cast_nullable_to_non_nullable
+                  as List<dynamic>?,
+        assetLocationMasterId: freezed == assetLocationMasterId
+            ? _value._assetLocationMasterId
+            : assetLocationMasterId // ignore: cast_nullable_to_non_nullable
                   as List<dynamic>?,
         currentDepreciableAmount: freezed == currentDepreciableAmount
             ? _value.currentDepreciableAmount
@@ -520,11 +551,14 @@ class _$DatumImpl implements _Datum {
     @JsonKey(name: 'user_history_ids')
     final List<UserHistoryId>? userHistoryIds,
     @JsonKey(name: 'po_amount') this.poAmount,
+    @JsonKey(name: 'name_asset') this.nameAsset,
     @JsonKey(name: 'current_accumulated_depreciation')
     this.currentAccumulatedDepreciation,
     @JsonKey(name: 'residual_value') this.residualValue,
     @JsonKey(name: 'past_image_url') this.pastImageUrl,
     @JsonKey(name: 'asset_location_id') final List<dynamic>? assetLocationId,
+    @JsonKey(name: 'asset_location_master_id')
+    final List<dynamic>? assetLocationMasterId,
     @JsonKey(name: 'current_depreciable_amount') this.currentDepreciableAmount,
     this.notes,
     @JsonKey(name: 'depreciation_amount_per_month')
@@ -550,6 +584,7 @@ class _$DatumImpl implements _Datum {
   }) : _locationGedungId = locationGedungId,
        _userHistoryIds = userHistoryIds,
        _assetLocationId = assetLocationId,
+       _assetLocationMasterId = assetLocationMasterId,
        _categoryId = categoryId,
        _notesHistoryIds = notesHistoryIds,
        _historyIds = historyIds,
@@ -592,6 +627,9 @@ class _$DatumImpl implements _Datum {
   @JsonKey(name: 'po_amount')
   final double? poAmount;
   @override
+  @JsonKey(name: 'name_asset')
+  final String? nameAsset;
+  @override
   @JsonKey(name: 'current_accumulated_depreciation')
   final double? currentAccumulatedDepreciation;
   @override
@@ -607,6 +645,18 @@ class _$DatumImpl implements _Datum {
     final value = _assetLocationId;
     if (value == null) return null;
     if (_assetLocationId is EqualUnmodifiableListView) return _assetLocationId;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<dynamic>? _assetLocationMasterId;
+  @override
+  @JsonKey(name: 'asset_location_master_id')
+  List<dynamic>? get assetLocationMasterId {
+    final value = _assetLocationMasterId;
+    if (value == null) return null;
+    if (_assetLocationMasterId is EqualUnmodifiableListView)
+      return _assetLocationMasterId;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -719,7 +769,7 @@ class _$DatumImpl implements _Datum {
 
   @override
   String toString() {
-    return 'Datum(locationGedungId: $locationGedungId, locationName: $locationName, lifetime: $lifetime, userHistoryIds: $userHistoryIds, poAmount: $poAmount, currentAccumulatedDepreciation: $currentAccumulatedDepreciation, residualValue: $residualValue, pastImageUrl: $pastImageUrl, assetLocationId: $assetLocationId, currentDepreciableAmount: $currentDepreciableAmount, notes: $notes, depreciationAmountPerMonth: $depreciationAmountPerMonth, categoryId: $categoryId, notesHistoryIds: $notesHistoryIds, userName: $userName, id: $id, productCode: $productCode, historyIds: $historyIds, maintenanceIds: $maintenanceIds, productName: $productName, poDate: $poDate, merkId: $merkId, kondisi: $kondisi, isAsetLoan: $isAsetLoan, isIdle: $isIdle, merkType: $merkType, imageUrl: $imageUrl, poNumber: $poNumber, locationLantaiId: $locationLantaiId)';
+    return 'Datum(locationGedungId: $locationGedungId, locationName: $locationName, lifetime: $lifetime, userHistoryIds: $userHistoryIds, poAmount: $poAmount, nameAsset: $nameAsset, currentAccumulatedDepreciation: $currentAccumulatedDepreciation, residualValue: $residualValue, pastImageUrl: $pastImageUrl, assetLocationId: $assetLocationId, assetLocationMasterId: $assetLocationMasterId, currentDepreciableAmount: $currentDepreciableAmount, notes: $notes, depreciationAmountPerMonth: $depreciationAmountPerMonth, categoryId: $categoryId, notesHistoryIds: $notesHistoryIds, userName: $userName, id: $id, productCode: $productCode, historyIds: $historyIds, maintenanceIds: $maintenanceIds, productName: $productName, poDate: $poDate, merkId: $merkId, kondisi: $kondisi, isAsetLoan: $isAsetLoan, isIdle: $isIdle, merkType: $merkType, imageUrl: $imageUrl, poNumber: $poNumber, locationLantaiId: $locationLantaiId)';
   }
 
   @override
@@ -741,6 +791,8 @@ class _$DatumImpl implements _Datum {
             ) &&
             (identical(other.poAmount, poAmount) ||
                 other.poAmount == poAmount) &&
+            (identical(other.nameAsset, nameAsset) ||
+                other.nameAsset == nameAsset) &&
             (identical(
                   other.currentAccumulatedDepreciation,
                   currentAccumulatedDepreciation,
@@ -754,6 +806,10 @@ class _$DatumImpl implements _Datum {
             const DeepCollectionEquality().equals(
               other._assetLocationId,
               _assetLocationId,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._assetLocationMasterId,
+              _assetLocationMasterId,
             ) &&
             (identical(
                   other.currentDepreciableAmount,
@@ -817,10 +873,12 @@ class _$DatumImpl implements _Datum {
     lifetime,
     const DeepCollectionEquality().hash(_userHistoryIds),
     poAmount,
+    nameAsset,
     currentAccumulatedDepreciation,
     residualValue,
     pastImageUrl,
     const DeepCollectionEquality().hash(_assetLocationId),
+    const DeepCollectionEquality().hash(_assetLocationMasterId),
     currentDepreciableAmount,
     notes,
     depreciationAmountPerMonth,
@@ -865,11 +923,14 @@ abstract class _Datum implements Datum {
     @JsonKey(name: 'user_history_ids')
     final List<UserHistoryId>? userHistoryIds,
     @JsonKey(name: 'po_amount') final double? poAmount,
+    @JsonKey(name: 'name_asset') final String? nameAsset,
     @JsonKey(name: 'current_accumulated_depreciation')
     final double? currentAccumulatedDepreciation,
     @JsonKey(name: 'residual_value') final double? residualValue,
     @JsonKey(name: 'past_image_url') final String? pastImageUrl,
     @JsonKey(name: 'asset_location_id') final List<dynamic>? assetLocationId,
+    @JsonKey(name: 'asset_location_master_id')
+    final List<dynamic>? assetLocationMasterId,
     @JsonKey(name: 'current_depreciable_amount')
     final double? currentDepreciableAmount,
     final String? notes,
@@ -912,6 +973,9 @@ abstract class _Datum implements Datum {
   @JsonKey(name: 'po_amount')
   double? get poAmount;
   @override
+  @JsonKey(name: 'name_asset')
+  String? get nameAsset;
+  @override
   @JsonKey(name: 'current_accumulated_depreciation')
   double? get currentAccumulatedDepreciation;
   @override
@@ -923,6 +987,9 @@ abstract class _Datum implements Datum {
   @override
   @JsonKey(name: 'asset_location_id')
   List<dynamic>? get assetLocationId;
+  @override
+  @JsonKey(name: 'asset_location_master_id')
+  List<dynamic>? get assetLocationMasterId;
   @override
   @JsonKey(name: 'current_depreciable_amount')
   double? get currentDepreciableAmount;

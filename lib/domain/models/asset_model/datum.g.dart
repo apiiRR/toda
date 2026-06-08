@@ -23,6 +23,9 @@ _$DatumImpl _$$DatumImplFromJson(Map<String, dynamic> json) => _$DatumImpl(
   assetLocationId: json['asset_location_id'] is List
       ? json['asset_location_id'] as List<dynamic>?
       : [],
+  assetLocationMasterId: json['asset_location_master_id'] is List
+      ? json['asset_location_master_id'] as List<dynamic>?
+      : [],
   currentDepreciableAmount: (json['current_depreciable_amount'] as num?)
       ?.toDouble(),
   notes: json['notes'].toString(),
@@ -45,6 +48,7 @@ _$DatumImpl _$$DatumImplFromJson(Map<String, dynamic> json) => _$DatumImpl(
       .toList(),
   productName: json['product_name'].toString(),
   poDate: json['po_date'].toString(),
+  nameAsset: json['name_asset'].toString(),
   merkId: json['merk_id'] is List ? json['merk_id'] as List<dynamic>? : [],
   kondisi: json['kondisi'].toString(),
   imageUrl: json['image_url'].toString(),
@@ -65,10 +69,12 @@ Map<String, dynamic> _$$DatumImplToJson(
   'lifetime': instance.lifetime,
   'user_history_ids': instance.userHistoryIds,
   'po_amount': instance.poAmount,
+  'name_asset': instance.nameAsset,
   'current_accumulated_depreciation': instance.currentAccumulatedDepreciation,
   'residual_value': instance.residualValue,
   'past_image_url': instance.pastImageUrl,
   'asset_location_id': instance.assetLocationId,
+  'asset_location_master_id': instance.assetLocationMasterId,
   'current_depreciable_amount': instance.currentDepreciableAmount,
   'notes': instance.notes,
   'depreciation_amount_per_month': instance.depreciationAmountPerMonth,

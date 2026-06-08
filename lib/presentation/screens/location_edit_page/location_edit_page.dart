@@ -36,7 +36,7 @@ class _LocationEditPageState extends State<LocationEditPage> {
         ),
         backgroundColor: kPrimary,
         title: Text(
-          "Location Edit",
+          "Unit Edit",
           style: kJakartaRegular.copyWith(color: kWhite),
         ),
         centerTitle: true,

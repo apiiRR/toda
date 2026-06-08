@@ -9,11 +9,11 @@ part of 'maintenance_id.dart';
 _$MaintenanceIdImpl _$$MaintenanceIdImplFromJson(Map<String, dynamic> json) =>
     _$MaintenanceIdImpl(
       userId: json['user_id'] as List<dynamic>?,
-      description: json['description'] as String?,
+      description: json['description'].toString(),
       id: (json['id'] as num?)?.toInt(),
-      state: json['state'] as String?,
+      state: json['state'].toString(),
       cost: (json['cost'] as num?)?.toDouble(),
-      date: json['date'] as String?,
+      date: json['date'].toString(),
     );
 
 Map<String, dynamic> _$$MaintenanceIdImplToJson(_$MaintenanceIdImpl instance) =>

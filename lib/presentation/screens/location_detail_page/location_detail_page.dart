@@ -81,10 +81,7 @@ class _LocationDetailPageState extends State<LocationDetailPage> {
               icon: Icon(Icons.arrow_back_ios_new_rounded, color: kWhite),
             ),
             centerTitle: true,
-            title: Text(
-              "Location",
-              style: kJakartaRegular.copyWith(color: kWhite),
-            ),
+            title: Text("Unit", style: kJakartaRegular.copyWith(color: kWhite)),
             actions: [
               IconButton(
                 onPressed: AppBarWithSearchSwitch.of(context)?.startSearch,
@@ -213,7 +210,7 @@ class _LocationDetailPageState extends State<LocationDetailPage> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
-                          "Data Location",
+                          "Data Unit",
                           style: kJakartaSemibold.copyWith(fontSize: 16),
                         ),
                       ),

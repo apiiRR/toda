@@ -225,13 +225,13 @@ class _MovingPageState extends State<MovingPage> {
                           enabled: _items.isNotEmpty
                               ? _items["location"]
                               : false,
-                          title: "Location",
+                          title: "Unit",
                           onChanged: (data) {
                             setState(() {
                               dataLocation = data;
                             });
                           },
-                          hintText: "Room D",
+                          hintText: "Unit A",
                         ),
                       )
                     : Column(

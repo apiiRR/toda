@@ -45,6 +45,7 @@ _$DatumImpl _$$DatumImplFromJson(Map<String, dynamic> json) => _$DatumImpl(
       .toList(),
   productName: json['product_name'].toString(),
   poDate: json['po_date'].toString(),
+  nameAsset: json['name_asset'].toString(),
   merkId: json['merk_id'] is List ? json['merk_id'] as List<dynamic>? : [],
   kondisi: json['kondisi'].toString(),
   imageUrl: json['image_url'].toString(),
@@ -53,6 +54,7 @@ _$DatumImpl _$$DatumImplFromJson(Map<String, dynamic> json) => _$DatumImpl(
       ? json['location_lantai_id'] as List<dynamic>?
       : [],
   isAsetLoan: json['is_aset_loan'] as bool?,
+  isIdle: json['is_idle'] as bool?,
   merkType: json['merk_type'].toString(),
 );
 
@@ -64,6 +66,7 @@ Map<String, dynamic> _$$DatumImplToJson(
   'lifetime': instance.lifetime,
   'user_history_ids': instance.userHistoryIds,
   'po_amount': instance.poAmount,
+  'name_asset': instance.nameAsset,
   'current_accumulated_depreciation': instance.currentAccumulatedDepreciation,
   'residual_value': instance.residualValue,
   'past_image_url': instance.pastImageUrl,
@@ -83,6 +86,7 @@ Map<String, dynamic> _$$DatumImplToJson(
   'merk_id': instance.merkId,
   'kondisi': instance.kondisi,
   'is_aset_loan': instance.isAsetLoan,
+  'is_idle': instance.isIdle,
   'merk_type': instance.merkType,
   'image_url': instance.imageUrl,
   'po_number': instance.poNumber,

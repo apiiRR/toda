@@ -8,6 +8,7 @@ import 'package:timeline_tile/timeline_tile.dart';
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart';
 import '../../../domain/models/asset_model/history_id.dart';
+import '../../../domain/models/asset_model/maintenance_id.dart';
 import '../../../domain/models/asset_model/notes_history_id.dart';
 import '../../../domain/models/asset_model/user_history_id.dart';
 import '../../router/app_route.dart';
@@ -275,8 +276,15 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                       ),
                                       const Divider(),
                                       TextFieldTitle(
-                                        title: "Asset Name",
+                                        title: "Name",
                                         text: dataAsset!.productName!,
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Name Asset",
+                                        text: dataAsset!.nameAsset! != "false"
+                                            ? dataAsset!.nameAsset.toString()
+                                            : "-",
                                       ),
                                       const Divider(),
                                       TextFieldTitle(
@@ -294,10 +302,20 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                       ),
                                       const Divider(),
                                       TextFieldTitle(
-                                        title: "Location",
+                                        title: "Unit",
                                         text:
                                             dataAsset!.locationName! != "false"
                                             ? "${dataAsset!.assetLocationId![1]} / ${dataAsset!.locationName.toString()}"
+                                            : "-",
+                                      ),
+                                      const Divider(),
+                                      TextFieldTitle(
+                                        title: "Location",
+                                        text:
+                                            dataAsset!
+                                                .assetLocationMasterId!
+                                                .isNotEmpty
+                                            ? "${dataAsset!.assetLocationId![1]} / ${dataAsset!.assetLocationMasterId.toString()}"
                                             : "-",
                                       ),
                                       // const Divider(),
@@ -612,7 +630,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                               tabs: const [
                                 Tab(text: 'Location'),
                                 // Tab(text: 'User'),
-                                Tab(text: 'Note'),
+                                Tab(text: 'Maintanance'),
                                 Tab(text: 'Condition'),
                               ],
                             ),
@@ -843,7 +861,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
     return SingleChildScrollView(
       child: Column(
         children: [
-          if (dataAsset!.notesHistoryIds!.isNotEmpty) ...[
+          if (dataAsset!.maintenanceIds!.isNotEmpty) ...[
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -851,10 +869,10 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                   padding: EdgeInsets.zero,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: dataAsset!.notesHistoryIds!.length,
+                  itemCount: dataAsset!.maintenanceIds!.length,
                   itemBuilder: (BuildContext context, int index) {
-                    List<NotesHistoryId> notesHistory = dataAsset!
-                        .notesHistoryIds!
+                    List<MaintenanceId> notesHistory = dataAsset!
+                        .maintenanceIds!
                         .reversed
                         .toList();
                     return TimelineTile(
@@ -912,17 +930,20 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // const SizedBox(
-                            //   height: 26,
-                            // ),
+                            const SizedBox(height: 26),
                             Text(
-                              "Notes : ${notesHistory[index].name!}",
+                              "Description : ${notesHistory[index].description!}",
+                              style: kJakartaRegular,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Text(
+                              "Cost : ${notesHistory[index].cost!}",
                               style: kJakartaRegular,
                               overflow: TextOverflow.ellipsis,
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              "Changed By : ${notesHistory[index].userId![1].toString().capitalize()}",
+                              "Responsible : ${notesHistory[index].userId![1].toString().capitalize()}",
                               style: kJakartaLight.copyWith(fontSize: 12),
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -946,6 +967,109 @@ class _AssetDetailPageState extends State<AssetDetailPage>
           ] else ...[
             const SizedBox(height: 50),
             Text("Data not found", style: kJakartaRegular),
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
+            //     ListView.builder(
+            //       padding: EdgeInsets.zero,
+            //       shrinkWrap: true,
+            //       physics: const NeverScrollableScrollPhysics(),
+            //       itemCount: 1,
+            //       itemBuilder: (BuildContext context, int index) {
+            //         List<MaintenanceId> notesHistory = dataAsset!
+            //             .maintenanceIds!
+            //             .reversed
+            //             .toList();
+            //         return TimelineTile(
+            //           alignment: TimelineAlign.manual,
+            //           lineXY: 0.1,
+            //           isFirst: index == 0,
+            //           isLast: true,
+            //           indicatorStyle: IndicatorStyle(
+            //             width: 40,
+            //             height: 40,
+            //             indicator: Container(
+            //               decoration: const BoxDecoration(
+            //                 shape: BoxShape.circle,
+            //                 border: Border.fromBorderSide(
+            //                   BorderSide(color: Colors.transparent, width: 4),
+            //                 ),
+            //               ),
+            //               child: Center(
+            //                 child: Icon(
+            //                   Icons.check_circle_rounded,
+            //                   // notesHistory.indexOf(notesHistory[index]) == 0
+            //                   //     ? Icons.check_circle_rounded
+            //                   //     : Icons.cached_rounded,
+            //                   color: kPrimary,
+            //                   // notesHistory.indexOf(notesHistory[index]) == 0
+            //                   // ? kPrimary
+            //                   // : kGrey,
+            //                 ),
+            //               ),
+            //             ),
+            //             drawGap: true,
+            //           ),
+            //           beforeLineStyle: LineStyle(thickness: 2, color: kGrey),
+            //           endChild: Container(
+            //             margin: const EdgeInsets.only(top: 16, right: 16),
+            //             padding: const EdgeInsets.only(
+            //               left: 16,
+            //               top: 6,
+            //               bottom: 6,
+            //             ),
+            //             decoration: BoxDecoration(
+            //               color: kWhite,
+            //               // notesHistory.indexOf(notesHistory[index]) == 0
+            //               //     ? kWhite
+            //               //     : kStroke,
+            //               shape: BoxShape.rectangle,
+            //               borderRadius: BorderRadius.circular(8),
+            //               border: Border.all(
+            //                 color: kPrimary,
+            //                 // notesHistory.indexOf(notesHistory[index]) == 0
+            //                 // ? kPrimary
+            //                 // : kGrey,
+            //               ),
+            //             ),
+            //             child: Column(
+            //               mainAxisSize: MainAxisSize.min,
+            //               mainAxisAlignment: MainAxisAlignment.center,
+            //               crossAxisAlignment: CrossAxisAlignment.start,
+            //               children: [
+            //                 Text(
+            //                   "Description : Barang ini rusak berat sekali",
+            //                   style: kJakartaRegular,
+            //                   overflow: TextOverflow.ellipsis,
+            //                 ),
+            //                 Text(
+            //                   "Cost : 200.000",
+            //                   style: kJakartaRegular,
+            //                   overflow: TextOverflow.ellipsis,
+            //                 ),
+            //                 const SizedBox(height: 4),
+            //                 Text(
+            //                   "Responsible : Rafi Ramadhana",
+            //                   style: kJakartaLight.copyWith(fontSize: 12),
+            //                   overflow: TextOverflow.ellipsis,
+            //                 ),
+            //                 Text(
+            //                   DateFormat('EEEE, dd MMMM yyyy').format(
+            //                     DateTime.parse(
+            //                       "2026-03-05",
+            //                     ).add(const Duration(hours: 7)),
+            //                   ),
+            //                   style: kJakartaLight.copyWith(fontSize: 12),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //         );
+            //       },
+            //     ),
+            //     const SizedBox(height: 30),
+            //   ],
+            // ),
           ],
         ],
       ),
@@ -1039,7 +1163,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                               overflow: TextOverflow.ellipsis,
                             ),
                             Text(
-                              DateFormat('EEEE, dd MMMM yyyy - HH:mm').format(
+                              DateFormat('EEEE, dd MMMM yyyy').format(
                                 DateTime.parse(
                                   userHistory[index].date!,
                                 ).add(const Duration(hours: 7)),
@@ -1151,7 +1275,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                             ),
 
                             Text(
-                              DateFormat('EEEE, dd MMMM yyyy - HH:mm').format(
+                              DateFormat('EEEE, dd MMMM yyyy').format(
                                 DateTime.parse(
                                   history[index].scanDate!,
                                 ).add(const Duration(hours: 7)),

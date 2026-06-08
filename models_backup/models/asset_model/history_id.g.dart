@@ -8,12 +8,12 @@ part of 'history_id.dart';
 
 _$HistoryIdImpl _$$HistoryIdImplFromJson(Map<String, dynamic> json) =>
     _$HistoryIdImpl(
-      locationName: json['location_name'] as String?,
+      locationName: json['location_name'].toString(),
       userId: json['user_id'] as List<dynamic>?,
       id: (json['id'] as num?)?.toInt(),
       assetLocationId: json['asset_location_id'] as List<dynamic>?,
-      locationCode: json['location_code'] as String?,
-      scanDate: json['scan_date'] as String?,
+      locationCode: json['location_code'].toString(),
+      scanDate: json['scan_date'].toString(),
     );
 
 Map<String, dynamic> _$$HistoryIdImplToJson(_$HistoryIdImpl instance) =>

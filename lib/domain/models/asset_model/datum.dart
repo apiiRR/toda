@@ -16,11 +16,14 @@ class Datum with _$Datum {
     int? lifetime,
     @JsonKey(name: 'user_history_ids') List<UserHistoryId>? userHistoryIds,
     @JsonKey(name: 'po_amount') double? poAmount,
+    @JsonKey(name: 'name_asset') String? nameAsset,
     @JsonKey(name: 'current_accumulated_depreciation')
     double? currentAccumulatedDepreciation,
     @JsonKey(name: 'residual_value') double? residualValue,
     @JsonKey(name: 'past_image_url') String? pastImageUrl,
     @JsonKey(name: 'asset_location_id') List<dynamic>? assetLocationId,
+    @JsonKey(name: 'asset_location_master_id')
+    List<dynamic>? assetLocationMasterId,
     @JsonKey(name: 'current_depreciable_amount')
     double? currentDepreciableAmount,
     String? notes,

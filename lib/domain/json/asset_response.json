@@ -16,10 +16,12 @@
           }
         ],
         "po_amount": 520833.33,
+        "name_asset": "BR Nightlight",
         "current_accumulated_depreciation": 2083333.33,
         "residual_value": 520833.33,
         "past_image_url": "http://192.168.24.77:9112/asset-image/past_image/8978",
         "asset_location_id": [51, "Ruang General Affair & Corsec"],
+        "asset_location_master_id": [51, "Ruang General Affair & Corsec"],
         "current_depreciable_amount": 22916666.67,
         "notes": "1 unit lengkap",
         "depreciation_amount_per_month": 2083333.33,

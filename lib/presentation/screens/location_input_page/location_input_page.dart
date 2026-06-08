@@ -36,7 +36,7 @@ class _LocationInputPageState extends State<LocationInputPage> {
         ),
         backgroundColor: kPrimary,
         title: Text(
-          "Location Input",
+          "Unit Input",
           style: kJakartaRegular.copyWith(color: kWhite),
         ),
         centerTitle: true,

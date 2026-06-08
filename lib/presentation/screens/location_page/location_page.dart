@@ -104,10 +104,7 @@ class _LocationPageState extends State<LocationPage> {
               icon: Icon(Icons.arrow_back_ios_new_rounded, color: kWhite),
             ),
             centerTitle: true,
-            title: Text(
-              "Location",
-              style: kJakartaRegular.copyWith(color: kWhite),
-            ),
+            title: Text("Unit", style: kJakartaRegular.copyWith(color: kWhite)),
             actions: [
               IconButton(
                 onPressed: AppBarWithSearchSwitch.of(context)?.startSearch,

@@ -3,7 +3,8 @@ class Endpoints {
 
   // static const String baseUrl = "https://mybest.ptberdikari.co.id";
   // static const String baseUrl = "http://192.168.24.77:9112";
-  static const String baseUrl = "http://202.93.133.54";
+  // static const String baseUrl = "http://202.93.133.54";
+  static const String baseUrl = "https://todaasset.id/";
 
   // receiveTimeout
   static const int receiveTimeout = 60000;

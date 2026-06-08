@@ -179,8 +179,8 @@ class _AssetEditPageState extends State<AssetEditPage> {
               // const SizedBox(height: 16),
               FieldLocationDropdown(
                 validator: FormBuilderValidators.compose([]),
-                title: "Location",
-                hint: "Example : Location A",
+                title: "Unit",
+                hint: "Example : Unit A",
                 selectedItem: location,
                 onChanged: (data) {
                   setState(() {

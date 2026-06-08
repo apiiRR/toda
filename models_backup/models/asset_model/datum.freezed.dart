@@ -30,6 +30,8 @@ mixin _$Datum {
   List<UserHistoryId>? get userHistoryIds => throw _privateConstructorUsedError;
   @JsonKey(name: 'po_amount')
   double? get poAmount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name_asset')
+  String? get nameAsset => throw _privateConstructorUsedError;
   @JsonKey(name: 'current_accumulated_depreciation')
   double? get currentAccumulatedDepreciation =>
       throw _privateConstructorUsedError;
@@ -67,6 +69,8 @@ mixin _$Datum {
   String? get kondisi => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_aset_loan')
   bool? get isAsetLoan => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_idle')
+  bool? get isIdle => throw _privateConstructorUsedError;
   @JsonKey(name: 'merk_type')
   String? get merkType => throw _privateConstructorUsedError;
   @JsonKey(name: 'image_url')
@@ -96,6 +100,7 @@ abstract class $DatumCopyWith<$Res> {
     int? lifetime,
     @JsonKey(name: 'user_history_ids') List<UserHistoryId>? userHistoryIds,
     @JsonKey(name: 'po_amount') double? poAmount,
+    @JsonKey(name: 'name_asset') String? nameAsset,
     @JsonKey(name: 'current_accumulated_depreciation')
     double? currentAccumulatedDepreciation,
     @JsonKey(name: 'residual_value') double? residualValue,
@@ -118,6 +123,7 @@ abstract class $DatumCopyWith<$Res> {
     @JsonKey(name: 'merk_id') List<dynamic>? merkId,
     String? kondisi,
     @JsonKey(name: 'is_aset_loan') bool? isAsetLoan,
+    @JsonKey(name: 'is_idle') bool? isIdle,
     @JsonKey(name: 'merk_type') String? merkType,
     @JsonKey(name: 'image_url') String? imageUrl,
     @JsonKey(name: 'po_number') String? poNumber,
@@ -145,6 +151,7 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
     Object? lifetime = freezed,
     Object? userHistoryIds = freezed,
     Object? poAmount = freezed,
+    Object? nameAsset = freezed,
     Object? currentAccumulatedDepreciation = freezed,
     Object? residualValue = freezed,
     Object? pastImageUrl = freezed,
@@ -164,6 +171,7 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
     Object? merkId = freezed,
     Object? kondisi = freezed,
     Object? isAsetLoan = freezed,
+    Object? isIdle = freezed,
     Object? merkType = freezed,
     Object? imageUrl = freezed,
     Object? poNumber = freezed,
@@ -191,6 +199,10 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
                 ? _value.poAmount
                 : poAmount // ignore: cast_nullable_to_non_nullable
                       as double?,
+            nameAsset: freezed == nameAsset
+                ? _value.nameAsset
+                : nameAsset // ignore: cast_nullable_to_non_nullable
+                      as String?,
             currentAccumulatedDepreciation:
                 freezed == currentAccumulatedDepreciation
                 ? _value.currentAccumulatedDepreciation
@@ -268,6 +280,10 @@ class _$DatumCopyWithImpl<$Res, $Val extends Datum>
                 ? _value.isAsetLoan
                 : isAsetLoan // ignore: cast_nullable_to_non_nullable
                       as bool?,
+            isIdle: freezed == isIdle
+                ? _value.isIdle
+                : isIdle // ignore: cast_nullable_to_non_nullable
+                      as bool?,
             merkType: freezed == merkType
                 ? _value.merkType
                 : merkType // ignore: cast_nullable_to_non_nullable
@@ -304,6 +320,7 @@ abstract class _$$DatumImplCopyWith<$Res> implements $DatumCopyWith<$Res> {
     int? lifetime,
     @JsonKey(name: 'user_history_ids') List<UserHistoryId>? userHistoryIds,
     @JsonKey(name: 'po_amount') double? poAmount,
+    @JsonKey(name: 'name_asset') String? nameAsset,
     @JsonKey(name: 'current_accumulated_depreciation')
     double? currentAccumulatedDepreciation,
     @JsonKey(name: 'residual_value') double? residualValue,
@@ -326,6 +343,7 @@ abstract class _$$DatumImplCopyWith<$Res> implements $DatumCopyWith<$Res> {
     @JsonKey(name: 'merk_id') List<dynamic>? merkId,
     String? kondisi,
     @JsonKey(name: 'is_aset_loan') bool? isAsetLoan,
+    @JsonKey(name: 'is_idle') bool? isIdle,
     @JsonKey(name: 'merk_type') String? merkType,
     @JsonKey(name: 'image_url') String? imageUrl,
     @JsonKey(name: 'po_number') String? poNumber,
@@ -352,6 +370,7 @@ class __$$DatumImplCopyWithImpl<$Res>
     Object? lifetime = freezed,
     Object? userHistoryIds = freezed,
     Object? poAmount = freezed,
+    Object? nameAsset = freezed,
     Object? currentAccumulatedDepreciation = freezed,
     Object? residualValue = freezed,
     Object? pastImageUrl = freezed,
@@ -371,6 +390,7 @@ class __$$DatumImplCopyWithImpl<$Res>
     Object? merkId = freezed,
     Object? kondisi = freezed,
     Object? isAsetLoan = freezed,
+    Object? isIdle = freezed,
     Object? merkType = freezed,
     Object? imageUrl = freezed,
     Object? poNumber = freezed,
@@ -398,6 +418,10 @@ class __$$DatumImplCopyWithImpl<$Res>
             ? _value.poAmount
             : poAmount // ignore: cast_nullable_to_non_nullable
                   as double?,
+        nameAsset: freezed == nameAsset
+            ? _value.nameAsset
+            : nameAsset // ignore: cast_nullable_to_non_nullable
+                  as String?,
         currentAccumulatedDepreciation:
             freezed == currentAccumulatedDepreciation
             ? _value.currentAccumulatedDepreciation
@@ -475,6 +499,10 @@ class __$$DatumImplCopyWithImpl<$Res>
             ? _value.isAsetLoan
             : isAsetLoan // ignore: cast_nullable_to_non_nullable
                   as bool?,
+        isIdle: freezed == isIdle
+            ? _value.isIdle
+            : isIdle // ignore: cast_nullable_to_non_nullable
+                  as bool?,
         merkType: freezed == merkType
             ? _value.merkType
             : merkType // ignore: cast_nullable_to_non_nullable
@@ -506,6 +534,7 @@ class _$DatumImpl implements _Datum {
     @JsonKey(name: 'user_history_ids')
     final List<UserHistoryId>? userHistoryIds,
     @JsonKey(name: 'po_amount') this.poAmount,
+    @JsonKey(name: 'name_asset') this.nameAsset,
     @JsonKey(name: 'current_accumulated_depreciation')
     this.currentAccumulatedDepreciation,
     @JsonKey(name: 'residual_value') this.residualValue,
@@ -528,6 +557,7 @@ class _$DatumImpl implements _Datum {
     @JsonKey(name: 'merk_id') final List<dynamic>? merkId,
     this.kondisi,
     @JsonKey(name: 'is_aset_loan') this.isAsetLoan,
+    @JsonKey(name: 'is_idle') this.isIdle,
     @JsonKey(name: 'merk_type') this.merkType,
     @JsonKey(name: 'image_url') this.imageUrl,
     @JsonKey(name: 'po_number') this.poNumber,
@@ -576,6 +606,9 @@ class _$DatumImpl implements _Datum {
   @override
   @JsonKey(name: 'po_amount')
   final double? poAmount;
+  @override
+  @JsonKey(name: 'name_asset')
+  final String? nameAsset;
   @override
   @JsonKey(name: 'current_accumulated_depreciation')
   final double? currentAccumulatedDepreciation;
@@ -679,6 +712,9 @@ class _$DatumImpl implements _Datum {
   @JsonKey(name: 'is_aset_loan')
   final bool? isAsetLoan;
   @override
+  @JsonKey(name: 'is_idle')
+  final bool? isIdle;
+  @override
   @JsonKey(name: 'merk_type')
   final String? merkType;
   @override
@@ -701,7 +737,7 @@ class _$DatumImpl implements _Datum {
 
   @override
   String toString() {
-    return 'Datum(locationGedungId: $locationGedungId, locationName: $locationName, lifetime: $lifetime, userHistoryIds: $userHistoryIds, poAmount: $poAmount, currentAccumulatedDepreciation: $currentAccumulatedDepreciation, residualValue: $residualValue, pastImageUrl: $pastImageUrl, assetLocationId: $assetLocationId, currentDepreciableAmount: $currentDepreciableAmount, notes: $notes, depreciationAmountPerMonth: $depreciationAmountPerMonth, categoryId: $categoryId, notesHistoryIds: $notesHistoryIds, userName: $userName, id: $id, productCode: $productCode, historyIds: $historyIds, maintenanceIds: $maintenanceIds, productName: $productName, poDate: $poDate, merkId: $merkId, kondisi: $kondisi, isAsetLoan: $isAsetLoan, merkType: $merkType, imageUrl: $imageUrl, poNumber: $poNumber, locationLantaiId: $locationLantaiId)';
+    return 'Datum(locationGedungId: $locationGedungId, locationName: $locationName, lifetime: $lifetime, userHistoryIds: $userHistoryIds, poAmount: $poAmount, nameAsset: $nameAsset, currentAccumulatedDepreciation: $currentAccumulatedDepreciation, residualValue: $residualValue, pastImageUrl: $pastImageUrl, assetLocationId: $assetLocationId, currentDepreciableAmount: $currentDepreciableAmount, notes: $notes, depreciationAmountPerMonth: $depreciationAmountPerMonth, categoryId: $categoryId, notesHistoryIds: $notesHistoryIds, userName: $userName, id: $id, productCode: $productCode, historyIds: $historyIds, maintenanceIds: $maintenanceIds, productName: $productName, poDate: $poDate, merkId: $merkId, kondisi: $kondisi, isAsetLoan: $isAsetLoan, isIdle: $isIdle, merkType: $merkType, imageUrl: $imageUrl, poNumber: $poNumber, locationLantaiId: $locationLantaiId)';
   }
 
   @override
@@ -723,6 +759,8 @@ class _$DatumImpl implements _Datum {
             ) &&
             (identical(other.poAmount, poAmount) ||
                 other.poAmount == poAmount) &&
+            (identical(other.nameAsset, nameAsset) ||
+                other.nameAsset == nameAsset) &&
             (identical(
                   other.currentAccumulatedDepreciation,
                   currentAccumulatedDepreciation,
@@ -777,6 +815,7 @@ class _$DatumImpl implements _Datum {
             (identical(other.kondisi, kondisi) || other.kondisi == kondisi) &&
             (identical(other.isAsetLoan, isAsetLoan) ||
                 other.isAsetLoan == isAsetLoan) &&
+            (identical(other.isIdle, isIdle) || other.isIdle == isIdle) &&
             (identical(other.merkType, merkType) ||
                 other.merkType == merkType) &&
             (identical(other.imageUrl, imageUrl) ||
@@ -798,6 +837,7 @@ class _$DatumImpl implements _Datum {
     lifetime,
     const DeepCollectionEquality().hash(_userHistoryIds),
     poAmount,
+    nameAsset,
     currentAccumulatedDepreciation,
     residualValue,
     pastImageUrl,
@@ -817,6 +857,7 @@ class _$DatumImpl implements _Datum {
     const DeepCollectionEquality().hash(_merkId),
     kondisi,
     isAsetLoan,
+    isIdle,
     merkType,
     imageUrl,
     poNumber,
@@ -845,6 +886,7 @@ abstract class _Datum implements Datum {
     @JsonKey(name: 'user_history_ids')
     final List<UserHistoryId>? userHistoryIds,
     @JsonKey(name: 'po_amount') final double? poAmount,
+    @JsonKey(name: 'name_asset') final String? nameAsset,
     @JsonKey(name: 'current_accumulated_depreciation')
     final double? currentAccumulatedDepreciation,
     @JsonKey(name: 'residual_value') final double? residualValue,
@@ -868,6 +910,7 @@ abstract class _Datum implements Datum {
     @JsonKey(name: 'merk_id') final List<dynamic>? merkId,
     final String? kondisi,
     @JsonKey(name: 'is_aset_loan') final bool? isAsetLoan,
+    @JsonKey(name: 'is_idle') final bool? isIdle,
     @JsonKey(name: 'merk_type') final String? merkType,
     @JsonKey(name: 'image_url') final String? imageUrl,
     @JsonKey(name: 'po_number') final String? poNumber,
@@ -890,6 +933,9 @@ abstract class _Datum implements Datum {
   @override
   @JsonKey(name: 'po_amount')
   double? get poAmount;
+  @override
+  @JsonKey(name: 'name_asset')
+  String? get nameAsset;
   @override
   @JsonKey(name: 'current_accumulated_depreciation')
   double? get currentAccumulatedDepreciation;
@@ -944,6 +990,9 @@ abstract class _Datum implements Datum {
   @override
   @JsonKey(name: 'is_aset_loan')
   bool? get isAsetLoan;
+  @override
+  @JsonKey(name: 'is_idle')
+  bool? get isIdle;
   @override
   @JsonKey(name: 'merk_type')
   String? get merkType;

@@ -9,9 +9,9 @@ part of 'notes_history_id.dart';
 _$NotesHistoryIdImpl _$$NotesHistoryIdImplFromJson(Map<String, dynamic> json) =>
     _$NotesHistoryIdImpl(
       id: (json['id'] as num?)?.toInt(),
-      name: json['name'] as String?,
+      name: json['name'].toString(),
       userId: json['user_id'] as List<dynamic>?,
-      date: json['date'] as String?,
+      date: json['date'].toString(),
     );
 
 Map<String, dynamic> _$$NotesHistoryIdImplToJson(
