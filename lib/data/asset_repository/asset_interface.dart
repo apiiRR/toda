@@ -22,6 +22,10 @@ abstract class AssetInterface {
     int id,
   );
   Future<Either<bool, String>> assetDelete(String token, int id);
-  Future<List<Datum>> assetDropdown(String token);
+  Future<List<Datum>> assetDropdown(
+    String token, {
+    int start = 0,
+    String filter = "",
+  });
   Future<Either<DashboardModel, String>> assetDashboard(String token);
 }

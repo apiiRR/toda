@@ -306,11 +306,16 @@ class AssetServices implements AssetInterface {
   }
 
   @override
-  Future<List<Datum>> assetDropdown(String token) async {
+  Future<List<Datum>> assetDropdown(
+    String token, {
+    int start = 0,
+    String filter = "",
+  }) async {
     try {
+      final String keyword = filter.trim();
       final response = await _client.post(
-        Endpoints.assetGet,
-        data: jsonEncode({}),
+        "${Endpoints.assetGet}/$start/20",
+        data: jsonEncode(keyword.isEmpty ? {} : {"name": keyword}),
         options: Options(
           headers: {
             "Content-Type": "application/json",
@@ -323,7 +328,11 @@ class AssetServices implements AssetInterface {
         final Map<String, dynamic> detail =
             response.data as Map<String, dynamic>;
         if (detail["result"] != null) {
-          return Datum.fromJsonList(detail["result"]["data"]);
+          final data = detail["result"]["data"];
+          if (data is List) {
+            return Datum.fromJsonList(data);
+          }
+          return List<Datum>.empty();
         } else {
           return List<Datum>.empty();
         }

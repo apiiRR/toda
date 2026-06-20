@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -10,10 +12,9 @@ import '../../../domain/models/master_data_model/datum.dart'
     as datum_master_data;
 import '../../utils/app_styles.dart';
 import '../../widgets/field_image.dart';
-import '../../widgets/field_kondisi_dropdown.dart';
-import '../../widgets/field_loan_dropdown.dart';
 import '../../widgets/field_location_dropdown.dart';
 import '../../widgets/field_merk_dropdown.dart';
+import '../../widgets/field_radio_group.dart';
 import '../../widgets/field_text.dart';
 import '../../widgets/rounded_button_loading.dart';
 import '../../widgets/rounded_button_solid.dart';
@@ -33,18 +34,25 @@ class _AssetEditPageState extends State<AssetEditPage> {
     );
   }
 
+  String _safeInitialText(String? value) {
+    if (value == null || value == "false" || value == "null") return "";
+    return value;
+  }
+
   // datum_master_data.Datum? category;
   datum_master_data.Datum? merk;
   datum_location.Datum? location;
   String? kondisi;
   bool? loan;
+  bool? idle;
 
   @override
   void initState() {
-    location = widget.data.assetLocationId!.isNotEmpty
+    final assetLocationId = widget.data.assetLocationId ?? [];
+    location = assetLocationId.isNotEmpty
         ? datum_location.Datum(
-            id: widget.data.assetLocationId![0],
-            code: widget.data.assetLocationId![1],
+            id: assetLocationId[0],
+            code: assetLocationId.length > 1 ? assetLocationId[1] : null,
           )
         : null;
     merk = widget.data.merkId!.isNotEmpty
@@ -55,6 +63,7 @@ class _AssetEditPageState extends State<AssetEditPage> {
         : null;
     kondisi = widget.data.kondisi.toString();
     loan = widget.data.isAsetLoan;
+    idle = widget.data.isIdle;
     super.initState();
   }
 
@@ -177,10 +186,28 @@ class _AssetEditPageState extends State<AssetEditPage> {
               //           : null,
               // ),
               // const SizedBox(height: 16),
+              FieldText(
+                validator: FormBuilderValidators.compose([]),
+                title: "Name",
+                name: "name",
+                hint: "Example : Paintings",
+                keyboardType: TextInputType.text,
+                initialValue: _safeInitialText(widget.data.productName),
+              ),
+              const SizedBox(height: 16),
+              FieldText(
+                validator: FormBuilderValidators.compose([]),
+                title: "Name Asset",
+                name: "name_asset",
+                hint: "Example : BR Nightlight",
+                keyboardType: TextInputType.text,
+                initialValue: _safeInitialText(widget.data.nameAsset),
+              ),
+              const SizedBox(height: 16),
               FieldLocationDropdown(
                 validator: FormBuilderValidators.compose([]),
-                title: "Unit",
-                hint: "Example : Unit A",
+                title: "Asset Location",
+                hint: "Example : Ruang General Affair & Corsec",
                 selectedItem: location,
                 onChanged: (data) {
                   setState(() {
@@ -212,11 +239,13 @@ class _AssetEditPageState extends State<AssetEditPage> {
                     : widget.data.merkType,
               ),
               const SizedBox(height: 16),
-              FieldKondisiDropdown(
-                validator: FormBuilderValidators.compose([]),
+              FieldRadioGroup<String>(
                 title: "Condition",
-                hint: "Example : Baik",
                 selectedItem: kondisi,
+                options: const [
+                  FieldRadioOption(label: "Baik", value: "baik"),
+                  FieldRadioOption(label: "Rusak", value: "rusak"),
+                ],
                 onChanged: (data) {
                   setState(() {
                     kondisi = data;
@@ -235,14 +264,30 @@ class _AssetEditPageState extends State<AssetEditPage> {
                     : widget.data.notes,
               ),
               const SizedBox(height: 16),
-              FieldLoanDropdown(
-                validator: FormBuilderValidators.compose([]),
+              FieldRadioGroup<bool>(
                 title: "Asset Loan",
-                hint: "Example : Asset Loan",
                 selectedItem: loan,
+                options: const [
+                  FieldRadioOption(label: "Ya", value: true),
+                  FieldRadioOption(label: "Tidak", value: false),
+                ],
                 onChanged: (data) {
                   setState(() {
                     loan = data;
+                  });
+                },
+              ),
+              const SizedBox(height: 16),
+              FieldRadioGroup<bool>(
+                title: "Asset Idle",
+                selectedItem: idle,
+                options: const [
+                  FieldRadioOption(label: "Ya", value: true),
+                  FieldRadioOption(label: "Tidak", value: false),
+                ],
+                onChanged: (data) {
+                  setState(() {
+                    idle = data;
                   });
                 },
               ),
@@ -306,6 +351,14 @@ class _AssetEditPageState extends State<AssetEditPage> {
                               if (imageInput.isNotEmpty &&
                                   imageInput.first == widget.data.imageUrl) {
                                 inputData = {
+                                  "product_name": formKey
+                                      .currentState!
+                                      .value["name"]
+                                      .toString(),
+                                  "name_asset": formKey
+                                      .currentState!
+                                      .value["name_asset"]
+                                      .toString(),
                                   "notes": formKey.currentState!.value["notes"]
                                       .toString(),
                                   "asset_location_id": location?.id,
@@ -316,9 +369,18 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                       .toString(),
                                   "kondisi": kondisi,
                                   "is_aset_loan": loan,
+                                  "is_idle": idle,
                                 };
                               } else {
                                 inputData = {
+                                  "product_name": formKey
+                                      .currentState!
+                                      .value["name"]
+                                      .toString(),
+                                  "name_asset": formKey
+                                      .currentState!
+                                      .value["name_asset"]
+                                      .toString(),
                                   "notes": formKey.currentState!.value["notes"]
                                       .toString(),
                                   "asset_location_id": location?.id,
@@ -329,12 +391,13 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                       .toString(),
                                   "kondisi": kondisi,
                                   "is_aset_loan": loan,
+                                  "is_idle": idle,
                                   "image": formKey.currentState!.value["image"],
                                 };
                               }
 
                               // removeEmptyValueKeys(inputData);
-                              // log(inputData.toString());
+                              log(inputData.toString());
                               context.read<AssetBloc>().add(
                                 AssetEvent.putData(inputData, widget.data.id!),
                               );

@@ -115,6 +115,11 @@ class _MovingPageState extends State<MovingPage> {
     });
   }
 
+  String _safeText(String? value, String fallback) {
+    if (value == null || value == "false" || value == "null") return fallback;
+    return value;
+  }
+
   @override
   void initState() {
     _fetchData();
@@ -303,7 +308,7 @@ class _MovingPageState extends State<MovingPage> {
                           dataAsset = data;
                         });
                       },
-                      hintText: "Laptop Macbook Pro M2",
+                      hintText: "Search",
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -385,6 +390,10 @@ class _MovingPageState extends State<MovingPage> {
                             shrinkWrap: true,
                             itemCount: dataAsset.length,
                             itemBuilder: (context, index) {
+                              final String locationName = _safeText(
+                                dataAsset[index].locationName,
+                                "Asset inactive",
+                              );
                               return Card(
                                 color: kWhite,
                                 margin: const EdgeInsets.only(bottom: 14),
@@ -414,20 +423,13 @@ class _MovingPageState extends State<MovingPage> {
                                       ),
                                       const SizedBox(height: 10),
                                       Text(
-                                        dataAsset[index].userName! == "false" ||
-                                                dataAsset[index].userName! ==
-                                                    "null"
-                                            ? "User has not been added"
-                                            : dataAsset[index].userName!,
+                                        locationName,
                                         style: kJakartaRegular.copyWith(
+                                          fontSize: 12,
                                           color:
-                                              dataAsset[index].userName! ==
-                                                      "false" ||
-                                                  dataAsset[index].userName! ==
-                                                      "null"
+                                              locationName == "Asset inactive"
                                               ? kGrey
                                               : kPrimary,
-                                          fontSize: 12,
                                         ),
                                       ),
                                     ],

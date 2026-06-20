@@ -15,8 +15,8 @@ import '../../utils/app_styles.dart';
 import '../../widgets/app_dialog.dart';
 import '../../widgets/field_category_dropdown.dart';
 import '../../widgets/field_image.dart';
-import '../../widgets/field_loan_dropdown.dart';
 import '../../widgets/field_merk_dropdown.dart';
+import '../../widgets/field_radio_group.dart';
 import '../../widgets/field_text.dart';
 import '../../widgets/rounded_button_loading.dart';
 import '../../widgets/rounded_button_solid.dart';
@@ -32,6 +32,7 @@ class _AssetInputPageState extends State<AssetInputPage> {
   AssetModel? dataAsset;
   Datum? category;
   Datum? merk;
+  String? kondisi;
   bool? loan;
 
   void removeEmptyValueKeys(Map<String, dynamic> map) {
@@ -174,10 +175,27 @@ class _AssetInputPageState extends State<AssetInputPage> {
                 keyboardType: TextInputType.text,
               ),
               const SizedBox(height: 16),
-              FieldLoanDropdown(
-                validator: FormBuilderValidators.compose([]),
+              FieldRadioGroup<String>(
+                title: "Condition",
+                selectedItem: kondisi,
+                options: const [
+                  FieldRadioOption(label: "Baik", value: "baik"),
+                  FieldRadioOption(label: "Rusak", value: "rusak"),
+                ],
+                onChanged: (data) {
+                  setState(() {
+                    kondisi = data;
+                  });
+                },
+              ),
+              const SizedBox(height: 16),
+              FieldRadioGroup<bool>(
                 title: "Asset Loan",
-                hint: "Example : Asset Loan",
+                selectedItem: loan,
+                options: const [
+                  FieldRadioOption(label: "Ya", value: true),
+                  FieldRadioOption(label: "Tidak", value: false),
+                ],
                 onChanged: (data) {
                   setState(() {
                     loan = data;
@@ -261,6 +279,7 @@ class _AssetInputPageState extends State<AssetInputPage> {
                                     .currentState!
                                     .value["merk_type"]
                                     .toString(),
+                                "kondisi": kondisi,
                                 "is_aset_loan": loan,
                                 "po_number":
                                     formKey.currentState!.value["po_number"],

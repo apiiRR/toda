@@ -21,6 +21,7 @@ Result _$ResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Result {
+  @JsonKey(fromJson: _datumListFromJson)
   List<Datum>? get data => throw _privateConstructorUsedError;
 
   /// Serializes this Result to a JSON map.
@@ -37,7 +38,7 @@ abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) =
       _$ResultCopyWithImpl<$Res, Result>;
   @useResult
-  $Res call({List<Datum>? data});
+  $Res call({@JsonKey(fromJson: _datumListFromJson) List<Datum>? data});
 }
 
 /// @nodoc
@@ -75,7 +76,7 @@ abstract class _$$ResultImplCopyWith<$Res> implements $ResultCopyWith<$Res> {
   ) = __$$ResultImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Datum>? data});
+  $Res call({@JsonKey(fromJson: _datumListFromJson) List<Datum>? data});
 }
 
 /// @nodoc
@@ -106,13 +107,15 @@ class __$$ResultImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ResultImpl implements _Result {
-  _$ResultImpl({final List<Datum>? data}) : _data = data;
+  _$ResultImpl({@JsonKey(fromJson: _datumListFromJson) final List<Datum>? data})
+    : _data = data;
 
   factory _$ResultImpl.fromJson(Map<String, dynamic> json) =>
       _$$ResultImplFromJson(json);
 
   final List<Datum>? _data;
   @override
+  @JsonKey(fromJson: _datumListFromJson)
   List<Datum>? get data {
     final value = _data;
     if (value == null) return null;
@@ -154,11 +157,14 @@ class _$ResultImpl implements _Result {
 }
 
 abstract class _Result implements Result {
-  factory _Result({final List<Datum>? data}) = _$ResultImpl;
+  factory _Result({
+    @JsonKey(fromJson: _datumListFromJson) final List<Datum>? data,
+  }) = _$ResultImpl;
 
   factory _Result.fromJson(Map<String, dynamic> json) = _$ResultImpl.fromJson;
 
   @override
+  @JsonKey(fromJson: _datumListFromJson)
   List<Datum>? get data;
 
   /// Create a copy of Result
