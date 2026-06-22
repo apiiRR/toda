@@ -9,7 +9,6 @@ import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart';
 import '../../../domain/models/asset_model/history_id.dart';
 import '../../../domain/models/asset_model/maintenance_id.dart';
-import '../../../domain/models/asset_model/notes_history_id.dart';
 import '../../../domain/models/asset_model/user_history_id.dart';
 import '../../router/app_route.dart';
 import '../../utils/app_styles.dart';
@@ -305,7 +304,7 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                         title: "Unit",
                                         text:
                                             dataAsset!.locationName! != "false"
-                                            ? "${dataAsset!.assetLocationId![1]} / ${dataAsset!.locationName.toString()}"
+                                            ? dataAsset!.locationName.toString()
                                             : "-",
                                       ),
                                       const Divider(),
@@ -315,7 +314,10 @@ class _AssetDetailPageState extends State<AssetDetailPage>
                                             dataAsset!
                                                 .assetLocationMasterId!
                                                 .isNotEmpty
-                                            ? "${dataAsset!.assetLocationId![1]} / ${dataAsset!.assetLocationMasterId.toString()}"
+                                            ? dataAsset!
+                                                  .assetLocationMasterId![1]
+                                                  .toString()
+                                                  .toString()
                                             : "-",
                                       ),
                                       // const Divider(),

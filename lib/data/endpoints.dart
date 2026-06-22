@@ -23,6 +23,9 @@ class Endpoints {
   static String locationGet = "/api/v1/asset-location/get";
   static String location = "/api/v1/asset-location";
 
+  static String locationMasterGet = "/api/v1/asset-location-master/get";
+  static String locationMaster = "/api/v1/asset-location-master";
+
   static String job = "/api/v1/get-job";
   static String category = "/api/v1/custom-barcode-category/get";
   static String merk = "/api/v1/asset-merk/get";

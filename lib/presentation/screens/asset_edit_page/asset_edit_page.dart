@@ -7,12 +7,15 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../../../bloc/asset/asset_bloc.dart';
 import '../../../domain/models/asset_model/datum.dart' as datum_asset;
+import '../../../domain/models/location_master_model/datum.dart'
+    as datum_location_master;
 import '../../../domain/models/location_model/datum.dart' as datum_location;
 import '../../../domain/models/master_data_model/datum.dart'
     as datum_master_data;
 import '../../utils/app_styles.dart';
 import '../../widgets/field_image.dart';
 import '../../widgets/field_location_dropdown.dart';
+import '../../widgets/field_location_master_dropdown.dart';
 import '../../widgets/field_merk_dropdown.dart';
 import '../../widgets/field_radio_group.dart';
 import '../../widgets/field_text.dart';
@@ -41,7 +44,8 @@ class _AssetEditPageState extends State<AssetEditPage> {
 
   // datum_master_data.Datum? category;
   datum_master_data.Datum? merk;
-  datum_location.Datum? location;
+  datum_location.Datum? unit;
+  datum_location_master.Datum? location;
   String? kondisi;
   bool? loan;
   bool? idle;
@@ -49,10 +53,19 @@ class _AssetEditPageState extends State<AssetEditPage> {
   @override
   void initState() {
     final assetLocationId = widget.data.assetLocationId ?? [];
-    location = assetLocationId.isNotEmpty
+    unit = assetLocationId.isNotEmpty
         ? datum_location.Datum(
             id: assetLocationId[0],
             code: assetLocationId.length > 1 ? assetLocationId[1] : null,
+          )
+        : null;
+    final assetLocationMasterId = widget.data.assetLocationMasterId ?? [];
+    location = assetLocationMasterId.isNotEmpty
+        ? datum_location_master.Datum(
+            id: assetLocationMasterId[0],
+            name: assetLocationMasterId.length > 1
+                ? assetLocationMasterId[1]
+                : null,
           )
         : null;
     merk = widget.data.merkId!.isNotEmpty
@@ -206,8 +219,20 @@ class _AssetEditPageState extends State<AssetEditPage> {
               const SizedBox(height: 16),
               FieldLocationDropdown(
                 validator: FormBuilderValidators.compose([]),
-                title: "Asset Location",
-                hint: "Example : Ruang General Affair & Corsec",
+                title: "Unit",
+                hint: "Example : C10-XX",
+                selectedItem: unit,
+                onChanged: (data) {
+                  setState(() {
+                    unit = data;
+                  });
+                },
+              ),
+              const SizedBox(height: 16),
+              FieldLocationMasterDropdown(
+                validator: FormBuilderValidators.compose([]),
+                title: "Location",
+                hint: "Example : Kitchen",
                 selectedItem: location,
                 onChanged: (data) {
                   setState(() {
@@ -361,7 +386,8 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                       .toString(),
                                   "notes": formKey.currentState!.value["notes"]
                                       .toString(),
-                                  "asset_location_id": location?.id,
+                                  "asset_location_id": unit?.id,
+                                  "asset_location_master_id": location?.id,
                                   "merk_id": merk?.id,
                                   "merk_type": formKey
                                       .currentState!
@@ -383,7 +409,8 @@ class _AssetEditPageState extends State<AssetEditPage> {
                                       .toString(),
                                   "notes": formKey.currentState!.value["notes"]
                                       .toString(),
-                                  "asset_location_id": location?.id,
+                                  "asset_location_id": unit?.id,
+                                  "asset_location_master_id": location?.id,
                                   "merk_id": merk?.id,
                                   "merk_type": formKey
                                       .currentState!

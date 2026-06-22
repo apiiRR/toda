@@ -1,3 +1,4 @@
+import '../../domain/models/location_master_model/location_master_model.dart';
 import '../../domain/models/location_model/datum.dart';
 import '../../domain/models/location_model/location_model.dart';
 import 'package:dartz/dartz.dart';
@@ -16,4 +17,10 @@ abstract class LocationInterface {
   );
   Future<Either<bool, String>> locationDelete(String token, int id);
   Future<List<Datum>> locationDropdown(String token);
+
+  Future<Either<LocationMasterModel, String>> locationMasterGet(String token);
+  Future<Either<LocationMasterModel, String>> locationMasterGetSingle(
+    String token,
+    int id,
+  );
 }

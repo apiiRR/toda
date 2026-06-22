@@ -1,0 +1,58 @@
+{
+  "result": {
+    "data": [
+      {
+        "code": "2nd BR",
+        "id": 3,
+        "name": "2n Bedroom"
+      },
+      {
+        "code": "2nd BT",
+        "id": 9,
+        "name": "2nd BR Bathroom"
+      },
+      {
+        "code": "3rd BT",
+        "id": 10,
+        "name": "3rd BR Bathroom"
+      },
+      {
+        "code": "3rd BR",
+        "id": 4,
+        "name": "3rd Bedrom"
+      },
+      {
+        "code": "DRY",
+        "id": 7,
+        "name": "Drying Area"
+      },
+      {
+        "code": "KT",
+        "id": 1,
+        "name": "Kitchen"
+      },
+      {
+        "code": "LR",
+        "id": 6,
+        "name": "Living Room"
+      },
+      {
+        "code": "MBB",
+        "id": 8,
+        "name": "MB Bathroom"
+      },
+      {
+        "code": "MA",
+        "id": 5,
+        "name": "Maid Area"
+      },
+      {
+        "code": "MBR",
+        "id": 2,
+        "name": "Master Bedroom"
+      }
+    ]
+  },
+  "jsonrpc": "2.0",
+  "id": null
+}
